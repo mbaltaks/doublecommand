@@ -113,7 +113,7 @@
 		isa = PBXTextBookmark;
 		name = "MBHIDHack.cpp: 575";
 		rLen = 0;
-		rLoc = 16720;
+		rLoc = 19698;
 		rType = 0;
 		vrLen = 970;
 		vrLoc = 0;
@@ -251,7 +251,7 @@
 		isa = PBXTextBookmark;
 		name = "MBHIDHack.h: 82";
 		rLen = 0;
-		rLoc = 2403;
+		rLoc = 2424;
 		rType = 0;
 		vrLen = 1053;
 		vrLoc = 0;
@@ -321,7 +321,7 @@
 		isa = PBXTextBookmark;
 		name = "English: 6";
 		rLen = 0;
-		rLoc = 267;
+		rLoc = 274;
 		rType = 0;
 		vrLen = 287;
 		vrLoc = 0;
@@ -330,12 +330,32 @@
 		isa = PBXTargetBookmark;
 		trg = 089C1673FE841209C02AAC07;
 	};
+	008047A204C432F400122A64 = {
+		fRef = 089C167EFE841241C02AAC07;
+		isa = PBXTextBookmark;
+		name = "English: 8";
+		rLen = 0;
+		rLoc = 289;
+		rType = 0;
+		vrLen = 313;
+		vrLoc = 0;
+	};
+	008047A304C432F400122A64 = {
+		fRef = 089C167EFE841241C02AAC07;
+		isa = PBXTextBookmark;
+		name = "English: 8";
+		rLen = 0;
+		rLoc = 289;
+		rType = 0;
+		vrLen = 313;
+		vrLoc = 0;
+	};
 	0083E02403F2230B00020933 = {
 		fRef = F53B749C0278078E01BCB6FE;
 		isa = PBXTextBookmark;
 		name = "MBHIDHack.cpp: 575";
 		rLen = 0;
-		rLoc = 16720;
+		rLoc = 19698;
 		rType = 0;
 		vrLen = 1151;
 		vrLoc = 3897;
@@ -355,51 +375,17 @@
 		isa = PBXTextBookmark;
 		name = "MBHIDHack.cpp: 575";
 		rLen = 0;
-		rLoc = 16720;
+		rLoc = 19698;
 		rType = 0;
 		vrLen = 1255;
 		vrLoc = 13397;
-	};
-	0092F796048DB1DE00A80150 = {
-		isa = PBXTargetBookmark;
-		trg = 089C1673FE841209C02AAC07;
-	};
-	0092F797048DB1DE00A80150 = {
-		fRef = 089C167EFE841241C02AAC07;
-		isa = PBXTextBookmark;
-		name = "English: 7";
-		rLen = 0;
-		rLoc = 201;
-		rType = 0;
-		vrLen = 299;
-		vrLoc = 0;
-	};
-	0092F798048DB1DE00A80150 = {
-		fRef = F575A7C0027E4475012EFD60;
-		isa = PBXTextBookmark;
-		name = "MBHIDHack.h: F10a";
-		rLen = 0;
-		rLoc = 1280;
-		rType = 0;
-		vrLen = 1057;
-		vrLoc = 0;
-	};
-	0092F799048DB1DE00A80150 = {
-		fRef = F53B749C0278078E01BCB6FE;
-		isa = PBXTextBookmark;
-		name = "MBHIDHack.cpp: 645";
-		rLen = 0;
-		rLoc = 16143;
-		rType = 0;
-		vrLen = 1010;
-		vrLoc = 0;
 	};
 	0092F79A048DB1DE00A80150 = {
 		fRef = F53B749C0278078E01BCB6FE;
 		isa = PBXTextBookmark;
 		name = "MBHIDHack.cpp: 645";
 		rLen = 0;
-		rLoc = 16143;
+		rLoc = 17736;
 		rType = 0;
 		vrLen = 1190;
 		vrLoc = 15299;
@@ -433,7 +419,7 @@
 		isa = PBXTextBookmark;
 		name = "MBHIDHack.cpp: 645";
 		rLen = 0;
-		rLoc = 16143;
+		rLoc = 17736;
 		rType = 0;
 		vrLen = 1010;
 		vrLoc = 0;
@@ -447,6 +433,262 @@
 		rType = 0;
 		vrLen = 1115;
 		vrLoc = 831;
+	};
+	009B2FE304C43023004FF319 = {
+		fRef = 1A224C3CFF42312311CA2CB7;
+		isa = PBXTextBookmark;
+		name = "DoubleCommand.c: __GNUC__";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1115;
+		vrLoc = 831;
+	};
+	009B2FE804C43023004FF319 = {
+		isa = PBXTargetBookmark;
+		trg = 089C1673FE841209C02AAC07;
+	};
+	009B2FE904C43023004FF319 = {
+		isa = PBXTargetBookmark;
+		trg = 089C1673FE841209C02AAC07;
+	};
+	009B2FEA04C43023004FF319 = {
+		fRef = 1A224C3CFF42312311CA2CB7;
+		isa = PBXTextBookmark;
+		name = "DoubleCommand.c: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1104;
+		vrLoc = 842;
+	};
+	009B2FEB04C43023004FF319 = {
+		fRef = F53B749C0278078E01BCB6FE;
+		isa = PBXTextBookmark;
+		name = "MBHIDHack.cpp: 495";
+		rLen = 0;
+		rLoc = 12243;
+		rType = 0;
+		vrLen = 1220;
+		vrLoc = 11269;
+	};
+	009B2FEC04C43023004FF319 = {
+		fRef = F575A7C0027E4475012EFD60;
+		isa = PBXTextBookmark;
+		name = "MBHIDHack.h: 91";
+		rLen = 0;
+		rLoc = 2149;
+		rType = 0;
+		vrLen = 1122;
+		vrLoc = 1281;
+	};
+	009B2FED04C43023004FF319 = {
+		fRef = F53B749C0278078E01BCB6FE;
+		isa = PBXTextBookmark;
+		name = "MBHIDHack.cpp: 496";
+		rLen = 0;
+		rLoc = 12243;
+		rType = 0;
+		vrLen = 1195;
+		vrLoc = 11269;
+	};
+	009B2FEE04C43023004FF319 = {
+		fRef = F575A7C0027E4475012EFD60;
+		isa = PBXTextBookmark;
+		name = "MBHIDHack.h: 91";
+		rLen = 0;
+		rLoc = 2118;
+		rType = 0;
+		vrLen = 1159;
+		vrLoc = 1265;
+	};
+	009B2FEF04C43023004FF319 = {
+		fRef = F53B749C0278078E01BCB6FE;
+		isa = PBXTextBookmark;
+		name = "MBHIDHack.cpp: 577";
+		rLen = 0;
+		rLoc = 16051;
+		rType = 0;
+		vrLen = 753;
+		vrLoc = 14151;
+	};
+	009B2FF004C43023004FF319 = {
+		fRef = F575A7C0027E4475012EFD60;
+		isa = PBXTextBookmark;
+		name = "MBHIDHack.h: CAPSLOCK_FLAG";
+		rLen = 13;
+		rLoc = 394;
+		rType = 0;
+		vrLen = 943;
+		vrLoc = 322;
+	};
+	009B2FF104C43023004FF319 = {
+		fRef = 1A224C3CFF42312311CA2CB7;
+		isa = PBXTextBookmark;
+		name = "DoubleCommand.c: __GNUC__";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1115;
+		vrLoc = 831;
+	};
+	009B2FF204C43023004FF319 = {
+		fRef = F53B749C0278078E01BCB6FE;
+		isa = PBXTextBookmark;
+		name = "MBHIDHack.cpp: 577";
+		rLen = 0;
+		rLoc = 16050;
+		rType = 0;
+		vrLen = 757;
+		vrLoc = 14151;
+	};
+	009B2FF304C43023004FF319 = {
+		fRef = F575A7C0027E4475012EFD60;
+		isa = PBXTextBookmark;
+		name = "MBHIDHack.h: CAPSLOCK_DISABLED";
+		rLen = 6;
+		rLoc = 2149;
+		rType = 0;
+		vrLen = 1150;
+		vrLoc = 1217;
+	};
+	009B2FF404C43023004FF319 = {
+		fRef = F53B749C0278078E01BCB6FE;
+		isa = PBXTextBookmark;
+		name = "MBHIDHack.cpp: 580";
+		rLen = 0;
+		rLoc = 16056;
+		rType = 0;
+		vrLen = 735;
+		vrLoc = 14151;
+	};
+	009B2FF504C43023004FF319 = {
+		fRef = 009B300504C43023004FF319;
+		isa = PBXTextBookmark;
+		name = "install.html: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 2595;
+		vrLoc = 2347;
+	};
+	009B2FF604C43023004FF319 = {
+		fRef = F575A7C0027E4475012EFD60;
+		isa = PBXTextBookmark;
+		name = "MBHIDHack.h: CAPSLOCK_DISABLED";
+		rLen = 6;
+		rLoc = 2149;
+		rType = 0;
+		vrLen = 1129;
+		vrLoc = 1217;
+	};
+	009B2FF704C43023004FF319 = {
+		fRef = 009B300604C43023004FF319;
+		isa = PBXTextBookmark;
+		name = "install.html: 59";
+		rLen = 0;
+		rLoc = 4795;
+		rType = 0;
+		vrLen = 2804;
+		vrLoc = 3194;
+	};
+	009B2FF804C43023004FF319 = {
+		fRef = F53B749C0278078E01BCB6FE;
+		isa = PBXTextBookmark;
+		name = "MBHIDHack.cpp: 580";
+		rLen = 0;
+		rLoc = 16056;
+		rType = 0;
+		vrLen = 862;
+		vrLoc = 14430;
+	};
+	009B2FF904C43023004FF319 = {
+		fRef = 009B300404C43023004FF319;
+		isa = PBXTextBookmark;
+		name = "install.html: 59";
+		rLen = 0;
+		rLoc = 4795;
+		rType = 0;
+		vrLen = 2706;
+		vrLoc = 3194;
+	};
+	009B2FFA04C43023004FF319 = {
+		fRef = 009B300104C43023004FF319;
+		isa = PBXTextBookmark;
+		name = "index.html: 25";
+		rLen = 0;
+		rLoc = 1363;
+		rType = 0;
+		vrLen = 2390;
+		vrLoc = 0;
+	};
+	009B2FFB04C43023004FF319 = {
+		fRef = F53B749C0278078E01BCB6FE;
+		isa = PBXTextBookmark;
+		name = "MBHIDHack.cpp: 580";
+		rLen = 0;
+		rLoc = 16056;
+		rType = 0;
+		vrLen = 823;
+		vrLoc = 16104;
+	};
+	009B2FFC04C43023004FF319 = {
+		fRef = F575A7C0027E4475012EFD60;
+		isa = PBXTextBookmark;
+		name = "MBHIDHack.h: SWAP_FUNCTION_KEYS";
+		rLen = 0;
+		rLoc = 2117;
+		rType = 0;
+		vrLen = 1129;
+		vrLoc = 1217;
+	};
+	009B2FFD04C43023004FF319 = {
+		fRef = F53B749C0278078E01BCB6FE;
+		isa = PBXTextBookmark;
+		name = "MBHIDHack.cpp: 580";
+		rLen = 0;
+		rLoc = 16056;
+		rType = 0;
+		vrLen = 920;
+		vrLoc = 16007;
+	};
+	009B2FFE04C43023004FF319 = {
+		fRef = F575A7C0027E4475012EFD60;
+		isa = PBXTextBookmark;
+		name = "MBHIDHack.h: SWAP_FUNCTION_KEYS";
+		rLen = 0;
+		rLoc = 2117;
+		rType = 0;
+		vrLen = 1057;
+		vrLoc = 0;
+	};
+	009B2FFF04C43023004FF319 = {
+		isa = PBXTargetBookmark;
+		trg = 089C1673FE841209C02AAC07;
+	};
+	009B300104C43023004FF319 = {
+		isa = PBXFileReference;
+		name = index.html;
+		path = /Users/mick/Development/DoubleCommand/cvs/DoubleCommandWebSite/index.html;
+		refType = 0;
+	};
+	009B300404C43023004FF319 = {
+		isa = PBXFileReference;
+		name = install.html;
+		path = /Users/mick/Development/DoubleCommand/cvs/DoubleCommandWebSite/install.html;
+		refType = 0;
+	};
+	009B300504C43023004FF319 = {
+		isa = PBXFileReference;
+		name = install.html;
+		path = /Users/mick/Development/DoubleCommand/cvs/DoubleCommandWebSite/install.html;
+		refType = 0;
+	};
+	009B300604C43023004FF319 = {
+		isa = PBXFileReference;
+		name = install.html;
+		path = /Users/mick/Development/DoubleCommand/cvs/DoubleCommandWebSite/install.html;
+		refType = 0;
 	};
 	00A16BA104049EFF00020933 = {
 		fRef = F53B749C0278078E01BCB6FE;
@@ -643,7 +885,7 @@
 		isa = PBXTextBookmark;
 		name = "MBHIDHack.cpp: 631";
 		rLen = 2;
-		rLoc = 16189;
+		rLoc = 17782;
 		rType = 0;
 		vrLen = 1344;
 		vrLoc = 15157;
@@ -658,16 +900,6 @@
 		vrLen = 924;
 		vrLoc = 853;
 	};
-	00DD4408048DB48700A80150 = {
-		fRef = 1A224C3CFF42312311CA2CB7;
-		isa = PBXTextBookmark;
-		name = "DoubleCommand.c: __GNUC__";
-		rLen = 0;
-		rLoc = 0;
-		rType = 0;
-		vrLen = 1006;
-		vrLoc = 0;
-	};
 	00DD4409048DB48700A80150 = {
 		fRef = 1A224C3CFF42312311CA2CB7;
 		isa = PBXTextBookmark;
@@ -678,23 +910,505 @@
 		vrLen = 1006;
 		vrLoc = 0;
 	};
-	00DD440A048DB48700A80150 = {
-		isa = PBXTargetBookmark;
-		trg = 089C1673FE841209C02AAC07;
-		uiCtxt = {
-			TOCViewDetailVisibleRect = "{{0, 0}, {441, 368}}";
-			TOCViewExpandedItems = (
-				"com.apple.target-editor-pane.settings",
-				"com.apple.target-editor-pane.settings.simple",
-				"com.apple.target-editor-pane.info-plist",
-				"com.apple.target-editor-pane.info-plist.simple",
-				"com.apple.target-editor-pane.buildphases",
-			);
-			TOCViewMasterVisibleRect = "{{0, 0}, {173, 517}}";
-			TOCViewSelectedItems = (
-				PBXBSExpertAspectModule,
-			);
-		};
+	00E9C0E304C5070F00020933 = {
+		fRef = 00E9C11204C5070F00020933;
+		isa = PBXTextBookmark;
+		name = "download.html: 6";
+		rLen = 0;
+		rLoc = 270;
+		rType = 0;
+		vrLen = 2520;
+		vrLoc = 0;
+	};
+	00E9C0E404C5070F00020933 = {
+		fRef = 00E9C11304C5070F00020933;
+		isa = PBXTextBookmark;
+		name = "doublecommand.css: 172";
+		rLen = 0;
+		rLoc = 3014;
+		rType = 0;
+		vrLen = 823;
+		vrLoc = 1532;
+	};
+	00E9C0E504C5070F00020933 = {
+		fRef = F575A7C0027E4475012EFD60;
+		isa = PBXTextBookmark;
+		name = "MBHIDHack.h: SWAP_FUNCTION_KEYS";
+		rLen = 6;
+		rLoc = 2111;
+		rType = 0;
+		vrLen = 1139;
+		vrLoc = 1249;
+	};
+	00E9C0E604C5070F00020933 = {
+		fRef = 00E9C11404C5070F00020933;
+		isa = PBXTextBookmark;
+		name = "index.html: 30";
+		rLen = 0;
+		rLoc = 2188;
+		rType = 0;
+		vrLen = 2890;
+		vrLoc = 0;
+	};
+	00E9C0E704C5070F00020933 = {
+		fRef = F53B749C0278078E01BCB6FE;
+		isa = PBXTextBookmark;
+		name = "MBHIDHack.cpp: 619";
+		rLen = 0;
+		rLoc = 14671;
+		rType = 0;
+		vrLen = 1460;
+		vrLoc = 14751;
+	};
+	00E9C0E804C5070F00020933 = {
+		fRef = 00E9C11504C5070F00020933;
+		isa = PBXTextBookmark;
+		name = "install.html: 60";
+		rLen = 0;
+		rLoc = 4745;
+		rType = 0;
+		vrLen = 2868;
+		vrLoc = 2879;
+	};
+	00E9C0E904C5070F00020933 = {
+		fRef = 00E9C11604C5070F00020933;
+		isa = PBXBookmark;
+	};
+	00E9C0EA04C5070F00020933 = {
+		fRef = F575A7C0027E4475012EFD60;
+		isa = PBXTextBookmark;
+		name = "MBHIDHack.h: SWAP_FUNCTION_KEYS";
+		rLen = 6;
+		rLoc = 2111;
+		rType = 0;
+		vrLen = 1159;
+		vrLoc = 1265;
+	};
+	00E9C0EB04C5070F00020933 = {
+		fRef = 00E9C11904C5070F00020933;
+		isa = PBXTextBookmark;
+		name = "index.html: 2";
+		rLen = 0;
+		rLoc = 99;
+		rType = 0;
+		vrLen = 2396;
+		vrLoc = 0;
+	};
+	00E9C0EC04C5070F00020933 = {
+		fRef = 00E9C11A04C5070F00020933;
+		isa = PBXTextBookmark;
+		name = "download.html: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1925;
+		vrLoc = 0;
+	};
+	00E9C0ED04C5070F00020933 = {
+		fRef = 00E9C11C04C5070F00020933;
+		isa = PBXTextBookmark;
+		name = "doublecommand.css: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 792;
+		vrLoc = 0;
+	};
+	00E9C0EE04C5070F00020933 = {
+		fRef = 00E9C11B04C5070F00020933;
+		isa = PBXTextBookmark;
+		name = "index.html: 116";
+		rLen = 141;
+		rLoc = 7976;
+		rType = 0;
+		vrLen = 1571;
+		vrLoc = 6325;
+	};
+	00E9C0EF04C5070F00020933 = {
+		fRef = 00E9C11704C5070F00020933;
+		isa = PBXTextBookmark;
+		name = "install.html: 104";
+		rLen = 0;
+		rLoc = 7350;
+		rType = 0;
+		vrLen = 1934;
+		vrLoc = 5297;
+	};
+	00E9C0F004C5070F00020933 = {
+		fRef = 00E9C10C04C5070F00020933;
+		isa = PBXTextBookmark;
+		name = "download.html: 66";
+		rLen = 0;
+		rLoc = 3448;
+		rType = 0;
+		vrLen = 1946;
+		vrLoc = 1458;
+	};
+	00E9C0F104C5070F00020933 = {
+		fRef = 00E9C10E04C5070F00020933;
+		isa = PBXTextBookmark;
+		name = "index.html: 1";
+		rLen = 270;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 2643;
+		vrLoc = 0;
+	};
+	00E9C0F204C5070F00020933 = {
+		fRef = 00E9C10904C5070F00020933;
+		isa = PBXTextBookmark;
+		name = "install.html: 6";
+		rLen = 0;
+		rLoc = 270;
+		rType = 0;
+		vrLen = 3041;
+		vrLoc = 0;
+	};
+	00E9C0F304C5070F00020933 = {
+		fRef = 00E9C10D04C5070F00020933;
+		isa = PBXTextBookmark;
+		name = "download.html: 6";
+		rLen = 0;
+		rLoc = 270;
+		rType = 0;
+		vrLen = 2520;
+		vrLoc = 0;
+	};
+	00E9C0F404C5070F00020933 = {
+		fRef = 00E9C11104C5070F00020933;
+		isa = PBXTextBookmark;
+		name = "index.html: 27";
+		rLen = 0;
+		rLoc = 1363;
+		rType = 0;
+		vrLen = 2650;
+		vrLoc = 0;
+	};
+	00E9C0F504C5070F00020933 = {
+		fRef = 00E9C10704C5070F00020933;
+		isa = PBXTextBookmark;
+		name = "install.html: 60";
+		rLen = 0;
+		rLoc = 4795;
+		rType = 0;
+		vrLen = 3036;
+		vrLoc = 2879;
+	};
+	00E9C0F604C5070F00020933 = {
+		fRef = 00E9C10604C5070F00020933;
+		isa = PBXTextBookmark;
+		name = "doublecommand.css: 172";
+		rLen = 0;
+		rLoc = 3014;
+		rType = 0;
+		vrLen = 847;
+		vrLoc = 2163;
+	};
+	00E9C0F704C5070F00020933 = {
+		fRef = 00E9C11F04C5070F00020933;
+		isa = PBXTextBookmark;
+		name = "index.html: 27";
+		rLen = 0;
+		rLoc = 1363;
+		rType = 0;
+		vrLen = 2650;
+		vrLoc = 0;
+	};
+	00E9C0F804C5070F00020933 = {
+		fRef = 00E9C10B04C5070F00020933;
+		isa = PBXTextBookmark;
+		name = "doublecommand.css: 172";
+		rLen = 0;
+		rLoc = 3014;
+		rType = 0;
+		vrLen = 823;
+		vrLoc = 1532;
+	};
+	00E9C0F904C5070F00020933 = {
+		fRef = F53B749C0278078E01BCB6FE;
+		isa = PBXTextBookmark;
+		name = "MBHIDHack.cpp: 580";
+		rLen = 0;
+		rLoc = 16056;
+		rType = 0;
+		vrLen = 964;
+		vrLoc = 15963;
+	};
+	00E9C0FA04C5070F00020933 = {
+		fRef = F575A7C0027E4475012EFD60;
+		isa = PBXTextBookmark;
+		name = "MBHIDHack.h: SWAP_FUNCTION_KEYS";
+		rLen = 6;
+		rLoc = 2111;
+		rType = 0;
+		vrLen = 955;
+		vrLoc = 326;
+	};
+	00E9C0FB04C5070F00020933 = {
+		fRef = F53B749C0278078E01BCB6FE;
+		isa = PBXTextBookmark;
+		name = "MBHIDHack.cpp: 619";
+		rLen = 0;
+		rLoc = 14671;
+		rType = 0;
+		vrLen = 901;
+		vrLoc = 13925;
+	};
+	00E9C0FC04C5070F00020933 = {
+		fRef = F575A7C0027E4475012EFD60;
+		isa = PBXTextBookmark;
+		name = "MBHIDHack.h: SWAP_FUNCTION_KEYS";
+		rLen = 6;
+		rLoc = 2111;
+		rType = 0;
+		vrLen = 1175;
+		vrLoc = 1249;
+	};
+	00E9C0FD04C5070F00020933 = {
+		fRef = 00E9C11D04C5070F00020933;
+		isa = PBXTextBookmark;
+		name = "install.html: 60";
+		rLen = 0;
+		rLoc = 4735;
+		rType = 0;
+		vrLen = 2868;
+		vrLoc = 2879;
+	};
+	00E9C0FE04C5070F00020933 = {
+		fRef = F575A7C0027E4475012EFD60;
+		isa = PBXTextBookmark;
+		name = "MBHIDHack.h: SWAP_FUNCTION_KEYS";
+		rLen = 6;
+		rLoc = 2111;
+		rType = 0;
+		vrLen = 1139;
+		vrLoc = 1249;
+	};
+	00E9C0FF04C5070F00020933 = {
+		fRef = 00E9C11804C5070F00020933;
+		isa = PBXTextBookmark;
+		name = "install.html: 60";
+		rLen = 0;
+		rLoc = 4685;
+		rType = 0;
+		vrLen = 2868;
+		vrLoc = 2879;
+	};
+	00E9C10004C5070F00020933 = {
+		fRef = 00E9C10F04C5070F00020933;
+		isa = PBXTextBookmark;
+		name = "index.html: 25";
+		rLen = 0;
+		rLoc = 1363;
+		rType = 0;
+		vrLen = 2778;
+		vrLoc = 0;
+	};
+	00E9C10104C5070F00020933 = {
+		fRef = 00E9C11004C5070F00020933;
+		isa = PBXTextBookmark;
+		name = "install.html: 54";
+		rLen = 38;
+		rLoc = 4268;
+		rType = 0;
+		vrLen = 2868;
+		vrLoc = 2879;
+	};
+	00E9C10204C5070F00020933 = {
+		fRef = 00E9C10804C5070F00020933;
+		isa = PBXTextBookmark;
+		name = "index.html: 30";
+		rLen = 0;
+		rLoc = 2188;
+		rType = 0;
+		vrLen = 2890;
+		vrLoc = 0;
+	};
+	00E9C10304C5070F00020933 = {
+		fRef = F53B749C0278078E01BCB6FE;
+		isa = PBXTextBookmark;
+		name = "MBHIDHack.cpp: 619";
+		rLen = 0;
+		rLoc = 14671;
+		rType = 0;
+		vrLen = 1460;
+		vrLoc = 14751;
+	};
+	00E9C10404C5070F00020933 = {
+		fRef = 00E9C11E04C5070F00020933;
+		isa = PBXTextBookmark;
+		name = "install.html: 60";
+		rLen = 0;
+		rLoc = 4745;
+		rType = 0;
+		vrLen = 2868;
+		vrLoc = 2879;
+	};
+	00E9C10504C5070F00020933 = {
+		fRef = 00E9C10A04C5070F00020933;
+		isa = PBXTextBookmark;
+		name = "install.command: 49";
+		rLen = 0;
+		rLoc = 1646;
+		rType = 0;
+		vrLen = 1604;
+		vrLoc = 42;
+	};
+	00E9C10604C5070F00020933 = {
+		isa = PBXFileReference;
+		name = doublecommand.css;
+		path = /Users/mick/Development/DoubleCommand/cvs/DoubleCommandWebSite/doublecommand.css;
+		refType = 0;
+	};
+	00E9C10704C5070F00020933 = {
+		isa = PBXFileReference;
+		name = install.html;
+		path = /Users/mick/Development/DoubleCommand/cvs/DoubleCommandWebSite/install.html;
+		refType = 0;
+	};
+	00E9C10804C5070F00020933 = {
+		isa = PBXFileReference;
+		name = index.html;
+		path = /Users/mick/Development/DoubleCommand/cvs/DoubleCommandWebSite/index.html;
+		refType = 0;
+	};
+	00E9C10904C5070F00020933 = {
+		isa = PBXFileReference;
+		name = install.html;
+		path = /Users/mick/Development/DoubleCommand/cvs/DoubleCommandWebSite/install.html;
+		refType = 0;
+	};
+	00E9C10A04C5070F00020933 = {
+		isa = PBXFileReference;
+		name = install.command;
+		path = /Users/mick/Development/DoubleCommand/cvs/DoubleCommandSource/dist/DoubleCommand/install.command;
+		refType = 0;
+	};
+	00E9C10B04C5070F00020933 = {
+		isa = PBXFileReference;
+		name = doublecommand.css;
+		path = /Users/mick/Development/DoubleCommand/cvs/DoubleCommandWebSite/doublecommand.css;
+		refType = 0;
+	};
+	00E9C10C04C5070F00020933 = {
+		isa = PBXFileReference;
+		name = download.html;
+		path = /Users/mick/Development/DoubleCommand/cvs/DoubleCommandWebSite/download.html;
+		refType = 0;
+	};
+	00E9C10D04C5070F00020933 = {
+		isa = PBXFileReference;
+		name = download.html;
+		path = /Users/mick/Development/DoubleCommand/cvs/DoubleCommandWebSite/download.html;
+		refType = 0;
+	};
+	00E9C10E04C5070F00020933 = {
+		isa = PBXFileReference;
+		name = index.html;
+		path = /Users/mick/Development/DoubleCommand/cvs/DoubleCommandWebSite/index.html;
+		refType = 0;
+	};
+	00E9C10F04C5070F00020933 = {
+		isa = PBXFileReference;
+		name = index.html;
+		path = /Users/mick/Development/DoubleCommand/cvs/DoubleCommandWebSite/index.html;
+		refType = 0;
+	};
+	00E9C11004C5070F00020933 = {
+		isa = PBXFileReference;
+		name = install.html;
+		path = /Users/mick/Development/DoubleCommand/cvs/DoubleCommandWebSite/install.html;
+		refType = 0;
+	};
+	00E9C11104C5070F00020933 = {
+		isa = PBXFileReference;
+		name = index.html;
+		path = /Users/mick/Development/DoubleCommand/cvs/DoubleCommandWebSite/index.html;
+		refType = 0;
+	};
+	00E9C11204C5070F00020933 = {
+		isa = PBXFileReference;
+		name = download.html;
+		path = /Users/mick/Development/DoubleCommand/cvs/DoubleCommandWebSite/download.html;
+		refType = 0;
+	};
+	00E9C11304C5070F00020933 = {
+		isa = PBXFileReference;
+		name = doublecommand.css;
+		path = /Users/mick/Development/DoubleCommand/cvs/DoubleCommandWebSite/doublecommand.css;
+		refType = 0;
+	};
+	00E9C11404C5070F00020933 = {
+		isa = PBXFileReference;
+		name = index.html;
+		path = /Users/mick/Development/DoubleCommand/cvs/DoubleCommandWebSite/index.html;
+		refType = 0;
+	};
+	00E9C11504C5070F00020933 = {
+		isa = PBXFileReference;
+		name = install.html;
+		path = /Users/mick/Development/DoubleCommand/cvs/DoubleCommandWebSite/install.html;
+		refType = 0;
+	};
+	00E9C11604C5070F00020933 = {
+		isa = PBXFileReference;
+		name = install.command;
+		path = /Users/mick/Development/DoubleCommand/cvs/DoubleCommandSource/dist/DoubleCommand/install.command;
+		refType = 0;
+	};
+	00E9C11704C5070F00020933 = {
+		isa = PBXFileReference;
+		name = install.html;
+		path = /Users/mick/Development/DoubleCommand/cvs/DoubleCommandWebSite/install.html;
+		refType = 0;
+	};
+	00E9C11804C5070F00020933 = {
+		isa = PBXFileReference;
+		name = install.html;
+		path = /Users/mick/Development/DoubleCommand/cvs/DoubleCommandWebSite/install.html;
+		refType = 0;
+	};
+	00E9C11904C5070F00020933 = {
+		isa = PBXFileReference;
+		name = index.html;
+		path = /Users/mick/Development/DoubleCommand/cvs/DoubleCommandWebSite/index.html;
+		refType = 0;
+	};
+	00E9C11A04C5070F00020933 = {
+		isa = PBXFileReference;
+		name = download.html;
+		path = /Users/mick/Development/DoubleCommand/cvs/DoubleCommandWebSite/download.html;
+		refType = 0;
+	};
+	00E9C11B04C5070F00020933 = {
+		isa = PBXFileReference;
+		name = index.html;
+		path = /Users/mick/Development/DoubleCommand/cvs/DoubleCommandWebSite/index.html;
+		refType = 0;
+	};
+	00E9C11C04C5070F00020933 = {
+		isa = PBXFileReference;
+		name = doublecommand.css;
+		path = /Users/mick/Development/DoubleCommand/cvs/DoubleCommandWebSite/doublecommand.css;
+		refType = 0;
+	};
+	00E9C11D04C5070F00020933 = {
+		isa = PBXFileReference;
+		name = install.html;
+		path = /Users/mick/Development/DoubleCommand/cvs/DoubleCommandWebSite/install.html;
+		refType = 0;
+	};
+	00E9C11E04C5070F00020933 = {
+		isa = PBXFileReference;
+		name = install.html;
+		path = /Users/mick/Development/DoubleCommand/cvs/DoubleCommandWebSite/install.html;
+		refType = 0;
+	};
+	00E9C11F04C5070F00020933 = {
+		isa = PBXFileReference;
+		name = index.html;
+		path = /Users/mick/Development/DoubleCommand/cvs/DoubleCommandWebSite/index.html;
+		refType = 0;
 	};
 	089C1669FE841209C02AAC07 = {
 		activeBuildStyle = 06AA1263FFB20DD611CA28AA;
@@ -705,7 +1419,7 @@
 		breakpoints = (
 		);
 		perUserDictionary = {
-			PBXPerProjectTemplateStateSaveDate = 76395606;
+			PBXPerProjectTemplateStateSaveDate = 80006816;
 			"PBXTemplateGeometry-F5314676015831810DCA290F" = {
 				ContentSize = "{685, 434}";
 				LeftSlideOut = {
@@ -840,15 +1554,20 @@
 						Split0 = {
 							Split0 = {
 								NavContent0 = {
-									bookmark = 00DD440A048DB48700A80150;
+									bookmark = 00E9C10504C5070F00020933;
 									history = (
 										00639ED203F22FF600020933,
 										00639ED303F22FF600020933,
-										0092F797048DB1DE00A80150,
-										0092F798048DB1DE00A80150,
-										0092F799048DB1DE00A80150,
-										00DD4408048DB48700A80150,
-										0092F796048DB1DE00A80150,
+										009B2FE304C43023004FF319,
+										009B2FE804C43023004FF319,
+										008047A204C432F400122A64,
+										00E9C0E304C5070F00020933,
+										00E9C0E404C5070F00020933,
+										00E9C0E504C5070F00020933,
+										00E9C0E604C5070F00020933,
+										00E9C0E704C5070F00020933,
+										00E9C0E804C5070F00020933,
+										00E9C0E904C5070F00020933,
 									);
 									prevStack = (
 										F5D9F778031EDD8E013B14DE,
@@ -923,11 +1642,62 @@
 										0092F79D048DB1DE00A80150,
 										0092F79E048DB1DE00A80150,
 										00DD4409048DB48700A80150,
+										009B2FE904C43023004FF319,
+										009B2FEA04C43023004FF319,
+										009B2FEB04C43023004FF319,
+										009B2FEC04C43023004FF319,
+										009B2FED04C43023004FF319,
+										009B2FEE04C43023004FF319,
+										009B2FEF04C43023004FF319,
+										009B2FF004C43023004FF319,
+										009B2FF104C43023004FF319,
+										009B2FF204C43023004FF319,
+										009B2FF304C43023004FF319,
+										009B2FF404C43023004FF319,
+										009B2FF504C43023004FF319,
+										009B2FF604C43023004FF319,
+										009B2FF704C43023004FF319,
+										009B2FF804C43023004FF319,
+										009B2FF904C43023004FF319,
+										009B2FFA04C43023004FF319,
+										009B2FFB04C43023004FF319,
+										009B2FFC04C43023004FF319,
+										009B2FFD04C43023004FF319,
+										009B2FFE04C43023004FF319,
+										009B2FFF04C43023004FF319,
+										008047A304C432F400122A64,
+										00E9C0EA04C5070F00020933,
+										00E9C0EB04C5070F00020933,
+										00E9C0EC04C5070F00020933,
+										00E9C0ED04C5070F00020933,
+										00E9C0EE04C5070F00020933,
+										00E9C0EF04C5070F00020933,
+										00E9C0F004C5070F00020933,
+										00E9C0F104C5070F00020933,
+										00E9C0F204C5070F00020933,
+										00E9C0F304C5070F00020933,
+										00E9C0F404C5070F00020933,
+										00E9C0F504C5070F00020933,
+										00E9C0F604C5070F00020933,
+										00E9C0F704C5070F00020933,
+										00E9C0F804C5070F00020933,
+										00E9C0F904C5070F00020933,
+										00E9C0FA04C5070F00020933,
+										00E9C0FB04C5070F00020933,
+										00E9C0FC04C5070F00020933,
+										00E9C0FD04C5070F00020933,
+										00E9C0FE04C5070F00020933,
+										00E9C0FF04C5070F00020933,
+										00E9C10004C5070F00020933,
+										00E9C10104C5070F00020933,
+										00E9C10204C5070F00020933,
+										00E9C10304C5070F00020933,
+										00E9C10404C5070F00020933,
 									);
 								};
 								NavCount = 1;
 								NavGeometry0 = {
-									Frame = "{{0, 0}, {653, 571}}";
+									Frame = "{{0, 0}, {891, 571}}";
 									NavBarVisible = YES;
 								};
 								NavSplitVertical = NO;
@@ -962,15 +1732,13 @@
 				{
 					ContentSize = "{915, 594}";
 					LeftSlideOut = {
-						ActiveTab = 3;
-						ActiveTabName = PBXTargetTreeModule;
 						Collapsed = NO;
 						Frame = "{{0, 23}, {915, 571}}";
 						Split0 = {
 							Collapsed = NO;
-							Frame = "{{262, 0}, {653, 571}}";
+							Frame = "{{24, 0}, {891, 571}}";
 							Split0 = {
-								Frame = "{{0, 0}, {653, 571}}";
+								Frame = "{{0, 0}, {891, 571}}";
 							};
 							SplitCount = 1;
 							Tab0 = {
@@ -1090,7 +1858,7 @@
 					WindowLocation = "{5, 90}";
 				},
 			);
-			PBXWorkspaceStateSaveDate = 76395606;
+			PBXWorkspaceStateSaveDate = 80006816;
 		};
 		perUserProjectItems = {
 			000D0B3A048D985900A80150 = 000D0B3A048D985900A80150;
@@ -1132,19 +1900,42 @@
 			007C0FDF03F3410C00020933 = 007C0FDF03F3410C00020933;
 			007C0FE003F3410C00020933 = 007C0FE003F3410C00020933;
 			007C0FE103F3410C00020933 = 007C0FE103F3410C00020933;
+			008047A204C432F400122A64 = 008047A204C432F400122A64;
+			008047A304C432F400122A64 = 008047A304C432F400122A64;
 			0083E02403F2230B00020933 = 0083E02403F2230B00020933;
 			0083E02503F2230B00020933 = 0083E02503F2230B00020933;
 			0083E02603F2230B00020933 = 0083E02603F2230B00020933;
-			0092F796048DB1DE00A80150 = 0092F796048DB1DE00A80150;
-			0092F797048DB1DE00A80150 = 0092F797048DB1DE00A80150;
-			0092F798048DB1DE00A80150 = 0092F798048DB1DE00A80150;
-			0092F799048DB1DE00A80150 = 0092F799048DB1DE00A80150;
 			0092F79A048DB1DE00A80150 = 0092F79A048DB1DE00A80150;
 			0092F79B048DB1DE00A80150 = 0092F79B048DB1DE00A80150;
 			0092F79C048DB1DE00A80150 = 0092F79C048DB1DE00A80150;
 			0092F79D048DB1DE00A80150 = 0092F79D048DB1DE00A80150;
 			0092F79E048DB1DE00A80150 = 0092F79E048DB1DE00A80150;
 			0095F12D042A760F00F098F1 = 0095F12D042A760F00F098F1;
+			009B2FE304C43023004FF319 = 009B2FE304C43023004FF319;
+			009B2FE804C43023004FF319 = 009B2FE804C43023004FF319;
+			009B2FE904C43023004FF319 = 009B2FE904C43023004FF319;
+			009B2FEA04C43023004FF319 = 009B2FEA04C43023004FF319;
+			009B2FEB04C43023004FF319 = 009B2FEB04C43023004FF319;
+			009B2FEC04C43023004FF319 = 009B2FEC04C43023004FF319;
+			009B2FED04C43023004FF319 = 009B2FED04C43023004FF319;
+			009B2FEE04C43023004FF319 = 009B2FEE04C43023004FF319;
+			009B2FEF04C43023004FF319 = 009B2FEF04C43023004FF319;
+			009B2FF004C43023004FF319 = 009B2FF004C43023004FF319;
+			009B2FF104C43023004FF319 = 009B2FF104C43023004FF319;
+			009B2FF204C43023004FF319 = 009B2FF204C43023004FF319;
+			009B2FF304C43023004FF319 = 009B2FF304C43023004FF319;
+			009B2FF404C43023004FF319 = 009B2FF404C43023004FF319;
+			009B2FF504C43023004FF319 = 009B2FF504C43023004FF319;
+			009B2FF604C43023004FF319 = 009B2FF604C43023004FF319;
+			009B2FF704C43023004FF319 = 009B2FF704C43023004FF319;
+			009B2FF804C43023004FF319 = 009B2FF804C43023004FF319;
+			009B2FF904C43023004FF319 = 009B2FF904C43023004FF319;
+			009B2FFA04C43023004FF319 = 009B2FFA04C43023004FF319;
+			009B2FFB04C43023004FF319 = 009B2FFB04C43023004FF319;
+			009B2FFC04C43023004FF319 = 009B2FFC04C43023004FF319;
+			009B2FFD04C43023004FF319 = 009B2FFD04C43023004FF319;
+			009B2FFE04C43023004FF319 = 009B2FFE04C43023004FF319;
+			009B2FFF04C43023004FF319 = 009B2FFF04C43023004FF319;
 			00A16BA104049EFF00020933 = 00A16BA104049EFF00020933;
 			00A16BA204049EFF00020933 = 00A16BA204049EFF00020933;
 			00A16BA304049EFF00020933 = 00A16BA304049EFF00020933;
@@ -1166,9 +1957,42 @@
 			00ADACEC04839E0400FBE7B2 = 00ADACEC04839E0400FBE7B2;
 			00ADACED04839E0400FBE7B2 = 00ADACED04839E0400FBE7B2;
 			00ADACEE04839E0400FBE7B2 = 00ADACEE04839E0400FBE7B2;
-			00DD4408048DB48700A80150 = 00DD4408048DB48700A80150;
 			00DD4409048DB48700A80150 = 00DD4409048DB48700A80150;
-			00DD440A048DB48700A80150 = 00DD440A048DB48700A80150;
+			00E9C0E304C5070F00020933 = 00E9C0E304C5070F00020933;
+			00E9C0E404C5070F00020933 = 00E9C0E404C5070F00020933;
+			00E9C0E504C5070F00020933 = 00E9C0E504C5070F00020933;
+			00E9C0E604C5070F00020933 = 00E9C0E604C5070F00020933;
+			00E9C0E704C5070F00020933 = 00E9C0E704C5070F00020933;
+			00E9C0E804C5070F00020933 = 00E9C0E804C5070F00020933;
+			00E9C0E904C5070F00020933 = 00E9C0E904C5070F00020933;
+			00E9C0EA04C5070F00020933 = 00E9C0EA04C5070F00020933;
+			00E9C0EB04C5070F00020933 = 00E9C0EB04C5070F00020933;
+			00E9C0EC04C5070F00020933 = 00E9C0EC04C5070F00020933;
+			00E9C0ED04C5070F00020933 = 00E9C0ED04C5070F00020933;
+			00E9C0EE04C5070F00020933 = 00E9C0EE04C5070F00020933;
+			00E9C0EF04C5070F00020933 = 00E9C0EF04C5070F00020933;
+			00E9C0F004C5070F00020933 = 00E9C0F004C5070F00020933;
+			00E9C0F104C5070F00020933 = 00E9C0F104C5070F00020933;
+			00E9C0F204C5070F00020933 = 00E9C0F204C5070F00020933;
+			00E9C0F304C5070F00020933 = 00E9C0F304C5070F00020933;
+			00E9C0F404C5070F00020933 = 00E9C0F404C5070F00020933;
+			00E9C0F504C5070F00020933 = 00E9C0F504C5070F00020933;
+			00E9C0F604C5070F00020933 = 00E9C0F604C5070F00020933;
+			00E9C0F704C5070F00020933 = 00E9C0F704C5070F00020933;
+			00E9C0F804C5070F00020933 = 00E9C0F804C5070F00020933;
+			00E9C0F904C5070F00020933 = 00E9C0F904C5070F00020933;
+			00E9C0FA04C5070F00020933 = 00E9C0FA04C5070F00020933;
+			00E9C0FB04C5070F00020933 = 00E9C0FB04C5070F00020933;
+			00E9C0FC04C5070F00020933 = 00E9C0FC04C5070F00020933;
+			00E9C0FD04C5070F00020933 = 00E9C0FD04C5070F00020933;
+			00E9C0FE04C5070F00020933 = 00E9C0FE04C5070F00020933;
+			00E9C0FF04C5070F00020933 = 00E9C0FF04C5070F00020933;
+			00E9C10004C5070F00020933 = 00E9C10004C5070F00020933;
+			00E9C10104C5070F00020933 = 00E9C10104C5070F00020933;
+			00E9C10204C5070F00020933 = 00E9C10204C5070F00020933;
+			00E9C10304C5070F00020933 = 00E9C10304C5070F00020933;
+			00E9C10404C5070F00020933 = 00E9C10404C5070F00020933;
+			00E9C10504C5070F00020933 = 00E9C10504C5070F00020933;
 			F519C16E0323B82601DD2611 = F519C16E0323B82601DD2611;
 			F519C16F0323B82601DD2611 = F519C16F0323B82601DD2611;
 			F54FB7E2031EDE0C01BEB7F0 = F54FB7E2031EDE0C01BEB7F0;

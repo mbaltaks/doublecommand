@@ -88,7 +88,7 @@
 #define PC_STYLE_HOME_AND_END					65536
 #define BACKSLASH_TO_FORWARD_DELETE				131072
 #define SWAP_FUNCTION_KEYS						262144
-//#define 524288
+#define CAPSLOCK_DISABLED						524288
 //#define 1048576
 //#define 2097152
 //#define 4194304

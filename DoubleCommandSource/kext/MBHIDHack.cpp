@@ -286,6 +286,16 @@ if (dcConfig != 0)
 					inFnMode = 0;
 				}
 			}
+			else if (dcConfig & ENTER_TO_FORWARD_DELETE)
+			{
+				key = FORWARD_DELETE;
+				// FN_FLAG is needed for Office
+				flags = FN_FLAG;
+				charCode = 45;
+				charSet = 254;
+				origCharCode = 45;
+				origCharSet = 254;
+			}
 		break; // end enter key
 
 		case COMMAND_KEY: // begin command key

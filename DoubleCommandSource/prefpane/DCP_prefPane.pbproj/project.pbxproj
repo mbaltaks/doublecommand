@@ -406,7 +406,7 @@
 			dependencies = (
 			);
 			isa = PBXNativeTarget;
-			name = "Double Command Prefences";
+			name = "DoubleCommand Prefences";
 			productInstallPath = "$(HOME)/Library/Bundles";
 			productName = DCP_prefPane;
 			productReference = 8D5B49B6048680CD000E48DA;

@@ -51,9 +51,9 @@
 - (IBAction)setUserPressed:(id)sender {
 	mUserVal = mEditVal;
 	if (! [self writeUserSettings]) {
-		NSRunAlertPanel(@"Double Command Prefs",
+		NSRunAlertPanel(@"DoubleCommand Prefs",
 			@"Could not write your user prefs. Sorry.",
-			@"Oh my dear", nil,  nil);
+			@"Oh dear", nil,  nil);
 	}
 	[self readUserSettings];
 }
@@ -66,9 +66,9 @@
 	OSStatus err = [self writeSystemSettings];
 	if ( (err != 0) && (err != errAuthorizationCanceled)) {
 		NSString * errStr = [NSString stringWithFormat: @"Could not write system prefs, error: %d", err];
-		NSRunAlertPanel(@"Double Command Prefs",
+		NSRunAlertPanel(@"DoubleCommand Prefs",
 			errStr,
-			@"Oh my dear", nil,  nil);
+			@"Oh dear", nil,  nil);
 	}
 	
 	// read again
@@ -94,9 +94,9 @@
 	OSStatus err = [self writeActiveSettings];
 	if (err) {
 		NSString * errStr = [NSString stringWithFormat: @"Could not activate settings, error: %d", err];
-		NSRunAlertPanel(@"Double Command Prefs",
+		NSRunAlertPanel(@"DoubleCommand Prefs",
 			errStr,
-			@"Oh my dear", nil,  nil);
+			@"Oh dear", nil,  nil);
 	}
 	[self readActiveSettings];
 }
@@ -141,9 +141,9 @@
 	[mUserPrefPath retain];
 	
 	if (! [self readActiveSettings]) {
-		NSRunAlertPanel(@"Double Command Prefs",
-			@"Double Command seems not to be running at the moment.\nYou can save prefs but can't activte settings.\nMaybe you need to reinstall...",
-			@"Oh my dear", nil,  nil);
+		NSRunAlertPanel(@"DoubleCommand Prefs",
+			@"DoubleCommand seems not to be running at the moment.\nYou can save prefs but can't activate settings.\nMaybe you need to reinstall...",
+			@"Oh dear", nil,  nil);
 	}
 	// the other prefs will be fetched in didSelect in a tick :)
 }

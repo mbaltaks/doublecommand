@@ -6,35 +6,35 @@
 	objectVersion = 39;
 	objects = {
 		00E43B2E05246A7300020933 = {
-			expectedFileType = file;
 			isa = PBXFileReference;
+			lastKnownFileType = text;
 			name = doublecommand.css;
 			path = /Users/mick/Development/DoubleCommand/cvs/DoubleCommandWebSite/doublecommand.css;
 			refType = 0;
 			sourceTree = "<absolute>";
 		};
 		00E43B2F05246A7300020933 = {
-			expectedFileType = file;
 			fileEncoding = 30;
 			isa = PBXFileReference;
+			lastKnownFileType = text.html;
 			name = index.html;
 			path = /Users/mick/Development/DoubleCommand/cvs/DoubleCommandWebSite/index.html;
 			refType = 0;
 			sourceTree = "<absolute>";
 		};
 		00E43B3005246A7300020933 = {
-			expectedFileType = file;
 			fileEncoding = 30;
 			isa = PBXFileReference;
+			lastKnownFileType = text.html;
 			name = download.html;
 			path = /Users/mick/Development/DoubleCommand/cvs/DoubleCommandWebSite/download.html;
 			refType = 0;
 			sourceTree = "<absolute>";
 		};
 		00E43B3105246A7300020933 = {
-			expectedFileType = file;
 			fileEncoding = 30;
 			isa = PBXFileReference;
+			lastKnownFileType = text.html;
 			name = install.html;
 			path = /Users/mick/Development/DoubleCommand/cvs/DoubleCommandWebSite/install.html;
 			refType = 0;
@@ -190,7 +190,7 @@
 	<key>CFBundleExecutable</key>
 	<string>DoubleCommand</string>
 	<key>CFBundleGetInfoString</key>
-	<string>DoubleCommand 1.5b3 Copyright 2001-2003 Michael Baltaks</string>
+	<string>DoubleCommand 1.5 Copyright 2001-2004 Michael Baltaks</string>
 	<key>CFBundleIconFile</key>
 	<string></string>
 	<key>CFBundleIdentifier</key>
@@ -202,11 +202,11 @@
 	<key>CFBundlePackageType</key>
 	<string>KEXT</string>
 	<key>CFBundleShortVersionString</key>
-	<string>DoubleCommand 1.5b3</string>
+	<string>DoubleCommand 1.5</string>
 	<key>CFBundleSignature</key>
 	<string>BALT</string>
 	<key>CFBundleVersion</key>
-	<string>1.5b3</string>
+	<string>1.5</string>
 	<key>OSBundleLibraries</key>
 	<dict>
 		<key>com.apple.iokit.IOHIDSystem</key>
@@ -280,9 +280,9 @@
 			sourceTree = "<group>";
 		};
 		089C167EFE841241C02AAC07 = {
-			expectedFileType = text.plist.strings;
 			fileEncoding = 10;
 			isa = PBXFileReference;
+			lastKnownFileType = text.plist.strings;
 			name = English;
 			path = English.lproj/InfoPlist.strings;
 			refType = 4;
@@ -305,7 +305,7 @@
 //0A3
 //0A4
 		0A5A7D55FFB780D811CA28AA = {
-			expectedFileType = "wrapper.kernel-extension";
+			explicitFileType = wrapper.cfbundle;
 			fallbackIsa = PBXFileReference;
 			isa = PBXBundleReference;
 			path = DoubleCommand.kext;
@@ -342,9 +342,9 @@
 //1A3
 //1A4
 		1A224C3CFF42312311CA2CB7 = {
-			expectedFileType = sourcecode.c.c;
 			fileEncoding = 30;
 			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.c;
 			path = DoubleCommand.c;
 			refType = 4;
 			sourceTree = "<group>";
@@ -390,9 +390,9 @@
 //F53
 //F54
 		F53B749C0278078E01BCB6FE = {
-			expectedFileType = sourcecode.cpp.cpp;
 			fileEncoding = 30;
 			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.cpp.cpp;
 			path = MBHIDHack.cpp;
 			refType = 4;
 			sourceTree = "<group>";
@@ -404,9 +404,9 @@
 			};
 		};
 		F575A7C0027E4475012EFD60 = {
-			expectedFileType = sourcecode.c.h;
 			fileEncoding = 30;
 			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.h;
 			path = MBHIDHack.h;
 			refType = 4;
 			sourceTree = "<group>";

@@ -1,0 +1,25 @@
+#!/bin/sh
+
+what="$1"
+kextload=/sbin/kextload
+kextunload=/sbin/kextunload
+
+if [ -z "$what" ]; then
+	what=start
+fi
+
+case "$what" in
+	start)
+		echo "Loading DoubleCommand"
+		$kextload /Library/StartupItems/DoubleCommand/DoubleCommand.kext
+		/usr/sbin/sysctl -w dc.config=16385
+	;;
+	stop)
+		echo "Unloading DoubleCommand"
+		$kextunload /Library/StartupItems/DoubleCommand/DoubleCommand.kext
+	;;
+	*)
+		echo "Usage: $0 {start|stop}"
+		exit 1
+	;;
+esac

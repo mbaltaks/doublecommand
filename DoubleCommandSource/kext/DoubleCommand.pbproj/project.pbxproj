@@ -104,7 +104,7 @@
 				MODULE_NAME = com.baltaks.kext.DoubleCommand;
 				MODULE_START = DoubleCommand_start;
 				MODULE_STOP = DoubleCommand_stop;
-				MODULE_VERSION = 1.4;
+				MODULE_VERSION = 1.4.1;
 				OTHER_CFLAGS = "-no-cpp-precomp";
 				OTHER_LDFLAGS = "";
 				OTHER_REZFLAGS = "";
@@ -139,7 +139,7 @@
 	<key>CFBundleSignature</key>
 	<string>BALT</string>
 	<key>CFBundleVersion</key>
-	<string>1.4</string>
+	<string>1.4.1</string>
 	<key>OSBundleLibraries</key>
 	<dict>
 		<key>com.apple.iokit.IOHIDSystem</key>

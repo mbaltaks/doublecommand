@@ -3,7 +3,7 @@
  *  DoubleCommand
  *
  *  Created by Michael Baltaks on Tuesday April 30 2002.
- *  Last modified 2002-07-19.
+ *  Last modified 2003-02-06.
  *  Copyright (c) 2002 Michael Baltaks. All rights reserved.
  *  Thanks to Shane Celis <shane@terraspring.com> for some
  *  constants.
@@ -30,6 +30,10 @@
 #define DELETE_KEY 51
 #define FORWARD_DELETE 117
 #define NUMPAD_DOT 65
+#define HOME_KEY 115
+#define END_KEY 119
+#define LEFT_ARROW_KEY 123
+#define RIGHT_ARROW_KEY 124
 
 #define KEY_DOWN 10
 #define KEY_UP 11
@@ -53,3 +57,4 @@
 #define REVERSE_NUMPAD_DOT_AND_SHIFT_NUMPAD_DOT 8192
 #define SHIFT_DELETE_TO_FORWARD_DELETE 16384
 #define DISABLE_COMMAND_AND_OPTION 32768
+#define PC_STYLE_HOME_AND_END 65536

@@ -28,7 +28,7 @@ table.centre
 {
 	background-color: white;
 	color: black;
-	font-family: Monaco, Courier, Courier New, serif;
+	font-family: Monaco, Courier, "Courier New", serif;
 	font-size: 11px;
 	padding: 0 2% 0 2%;
 	/*margin: 0 2% 0 2%;

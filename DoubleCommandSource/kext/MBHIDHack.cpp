@@ -289,13 +289,21 @@ if (dcConfig != 0)
 		break; // end enter key
 
 		case COMMAND_KEY: // begin command key
+		case COMMAND_KEY_R:
 			if (dcConfig & COMMAND_TO_OPTION)
 			{
 				if (commandHeldDown) // this event is a key up
 				{
 					commandHeldDown = 0;
 					REMOVE(addFlags, OPTION_FLAG);
-					REMOVE(removeFlags, COMMAND_FLAG);
+					if( key == COMMAND_KEY )
+					{
+						REMOVE(removeFlags, COMMAND_FLAG);
+					}
+					if( key == COMMAND_KEY_R )
+					{
+						REMOVE(removeFlags, COMMAND_FLAG_R);
+					}
 				}
 				else // this event is a key down
 				{
@@ -311,13 +319,27 @@ if (dcConfig != 0)
 				{
 					commandHeldDown = 0;
 					REMOVE(addFlags, CONTROL_FLAG);
-					REMOVE(removeFlags, COMMAND_FLAG);
+					if( key == COMMAND_KEY )
+					{
+						REMOVE(removeFlags, COMMAND_FLAG);
+					}
+					if( key == COMMAND_KEY_R )
+					{
+						REMOVE(removeFlags, COMMAND_FLAG_R);
+					}
 				}
 				else // this event is a key down
 				{
 					commandHeldDown = 1;
 					addFlags |= CONTROL_FLAG;
-					removeFlags |= COMMAND_FLAG;
+					if( key == COMMAND_KEY )
+					{
+						removeFlags |= COMMAND_FLAG;
+					}
+					if( key == COMMAND_KEY_R )
+					{
+						removeFlags |= COMMAND_FLAG_R;
+					}
 				}
 				key = CONTROL_KEY;
 			}
@@ -326,30 +348,59 @@ if (dcConfig != 0)
 				if (commandHeldDown) // this event is a key up
 				{
 					commandHeldDown = 0;
-					REMOVE(removeFlags, COMMAND_FLAG);
+					if( key == COMMAND_KEY )
+					{
+						REMOVE(removeFlags, COMMAND_FLAG);
+					}
+					if( key == COMMAND_KEY_R )
+					{
+						REMOVE(removeFlags, COMMAND_FLAG_R);
+					}
 				}
 				else // this event is a key down
 				{
 					commandHeldDown = 1;
-					removeFlags |= COMMAND_FLAG;
+					if( key == COMMAND_KEY )
+					{
+						removeFlags |= COMMAND_FLAG;
+					}
+					if( key == COMMAND_KEY_R )
+					{
+						removeFlags |= COMMAND_FLAG_R;
+					}
 				}
 			}
 		break; // end command key
 
 		case OPTION_KEY: // begin option key
+		case OPTION_KEY_R:
 			if (dcConfig & OPTION_TO_COMMAND)
 			{
 				if (optionHeldDown) // this event is a key up
 				{
 					optionHeldDown = 0;
 					REMOVE(addFlags, COMMAND_FLAG);
-					REMOVE(removeFlags, OPTION_FLAG);
+					if( key == OPTION_KEY )
+					{
+						REMOVE(removeFlags, OPTION_FLAG);
+					}
+					if( key == OPTION_KEY_R )
+					{
+						REMOVE(removeFlags, OPTION_FLAG_R);
+					}
 				}
 				else // this event is a key down
 				{
 					optionHeldDown = 1;
 					addFlags |= COMMAND_FLAG;
-					removeFlags |= OPTION_FLAG;
+					if( key == OPTION_KEY )
+					{
+						removeFlags |= OPTION_FLAG;
+					}
+					if( key == OPTION_KEY_R )
+					{
+						removeFlags |= OPTION_FLAG_R;
+					}
 				}
 				key = COMMAND_KEY;
 			}
@@ -359,13 +410,27 @@ if (dcConfig != 0)
 				{
 					optionHeldDown = 0;
 					REMOVE(addFlags, FN_FLAG);
-					REMOVE(removeFlags, OPTION_FLAG);
+					if( key == OPTION_KEY )
+					{
+						REMOVE(removeFlags, OPTION_FLAG);
+					}
+					if( key == OPTION_KEY_R )
+					{
+						REMOVE(removeFlags, OPTION_FLAG_R);
+					}
 				}
 				else // this event is a key down
 				{
 					optionHeldDown = 1;
 					addFlags |= FN_FLAG;
-					removeFlags |= OPTION_FLAG;
+					if( key == OPTION_KEY )
+					{
+						removeFlags |= OPTION_FLAG;
+					}
+					if( key == OPTION_KEY_R )
+					{
+						removeFlags |= OPTION_FLAG_R;
+					}
 				}
 				key = FN_KEY;
 			}
@@ -374,12 +439,26 @@ if (dcConfig != 0)
 				if (optionHeldDown) // this event is a key up
 				{
 					optionHeldDown = 0;
-					REMOVE(removeFlags, OPTION_FLAG);
+					if( key == OPTION_KEY )
+					{
+						REMOVE(removeFlags, OPTION_FLAG);
+					}
+					if( key == OPTION_KEY_R )
+					{
+						REMOVE(removeFlags, OPTION_FLAG_R);
+					}
 				}
 				else // this event is a key down
 				{
 					optionHeldDown = 1;
-					removeFlags |= OPTION_FLAG;
+					if( key == OPTION_KEY )
+					{
+						removeFlags |= OPTION_FLAG;
+					}
+					if( key == OPTION_KEY_R )
+					{
+						removeFlags |= OPTION_FLAG_R;
+					}
 				}
 			}
 			else if (dcConfig & SWAP_CONTROL_AND_OPTION) // control <-> option
@@ -390,7 +469,14 @@ if (dcConfig != 0)
 					REMOVE(addFlags, CONTROL_FLAG);
 					if (!controlHeldDown)
 					{
-						REMOVE(removeFlags, OPTION_FLAG);
+						if( key == OPTION_KEY )
+						{
+							REMOVE(removeFlags, OPTION_FLAG);
+						}
+						if( key == OPTION_KEY_R )
+						{
+							REMOVE(removeFlags, OPTION_FLAG_R);
+						}
 					}
 				}
 				else // this event is a key down
@@ -399,7 +485,14 @@ if (dcConfig != 0)
 					addFlags |= CONTROL_FLAG;
 					if (!controlHeldDown)
 					{
-						removeFlags |= OPTION_FLAG;
+						if( key == OPTION_KEY )
+						{
+							removeFlags |= OPTION_FLAG;
+						}
+						if( key == OPTION_KEY_R )
+						{
+							removeFlags |= OPTION_FLAG_R;
+						}
 					}
 				}
 				key = CONTROL_KEY;
@@ -407,19 +500,34 @@ if (dcConfig != 0)
 		break; // end option key
 
 		case CONTROL_KEY: // begin control key
+		case CONTROL_KEY_R:
 			if (dcConfig & CONTROL_TO_COMMAND)
 			{
 				if (controlHeldDown) // this event is a key up
 				{
 					controlHeldDown = 0;
 					REMOVE(addFlags, COMMAND_FLAG);
-					REMOVE(removeFlags, CONTROL_FLAG);
+					if( key == CONTROL_KEY )
+					{
+						REMOVE(removeFlags, CONTROL_FLAG);
+					}
+					if( key == CONTROL_KEY_R )
+					{
+						REMOVE(removeFlags, CONTROL_FLAG_R);
+					}
 				}
 				else // this event is a key down
 				{
 					controlHeldDown = 1;
 					addFlags |= COMMAND_FLAG;
-					removeFlags |= CONTROL_FLAG;
+					if( key == CONTROL_KEY )
+					{
+						removeFlags |= CONTROL_FLAG;
+					}
+					if( key == CONTROL_KEY_R )
+					{
+						removeFlags |= CONTROL_FLAG_R;
+					}
 				}
 				key = COMMAND_KEY;
 			}
@@ -431,7 +539,14 @@ if (dcConfig != 0)
 					REMOVE(addFlags, OPTION_FLAG);
 					if (!optionHeldDown)
 					{
-						REMOVE(removeFlags, CONTROL_FLAG);
+						if( key == CONTROL_KEY )
+						{
+							REMOVE(removeFlags, CONTROL_FLAG);
+						}
+						if( key == CONTROL_KEY_R )
+						{
+							REMOVE(removeFlags, CONTROL_FLAG_R);
+						}
 					}
 				}
 				else // this event is a key down
@@ -440,7 +555,14 @@ if (dcConfig != 0)
 					addFlags |= OPTION_FLAG;
 					if (!optionHeldDown)
 					{
-						removeFlags |= CONTROL_FLAG;
+						if( key == CONTROL_KEY )
+						{
+							removeFlags |= CONTROL_FLAG;
+						}
+						if( key == CONTROL_KEY_R )
+						{
+							removeFlags |= CONTROL_FLAG_R;
+						}
 					}
 				}
 				key = OPTION_KEY;
@@ -451,13 +573,27 @@ if (dcConfig != 0)
 				{
 					controlHeldDown = 0;
 					REMOVE(addFlags, FN_FLAG);
-					REMOVE(removeFlags, CONTROL_FLAG);
+					if( key == CONTROL_KEY )
+					{
+						REMOVE(removeFlags, CONTROL_FLAG);
+					}
+					if( key == CONTROL_KEY_R )
+					{
+						REMOVE(removeFlags, CONTROL_FLAG_R);
+					}
 				}
 				else // this event is a key down
 				{
 					controlHeldDown = 1;
 					addFlags |= FN_FLAG;
-					removeFlags |= CONTROL_FLAG;
+					if( key == CONTROL_KEY )
+					{
+						removeFlags |= CONTROL_FLAG;
+					}
+					if( key == CONTROL_KEY_R )
+					{
+						removeFlags |= CONTROL_FLAG_R;
+					}
 				}
 				key = FN_KEY;
 			}

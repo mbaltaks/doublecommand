@@ -25,34 +25,43 @@
 #ifdef JAGUAR_FLAGS
 	#define COMMAND_FLAG 0x100000
 #else
-	#define COMMAND_FLAG 0x100008
+	#define COMMAND_FLAG   0x100008
+	#define COMMAND_FLAG_R 0x100010
 #endif
 #ifdef JAGUAR_FLAGS
 	#define CONTROL_FLAG 0x40000
 #else
-	#define CONTROL_FLAG 0x40001
+	#define CONTROL_FLAG   0x40001
+	#define CONTROL_FLAG_R 0x42000
 #endif
 #ifdef JAGUAR_FLAGS
 	#define SHIFT_FLAG 0x20000
 #else
-	#define SHIFT_FLAG 0x20002
+	#define SHIFT_FLAG   0x20002
+	#define SHIFT_FLAG_R 0x20004
 #endif
 #define CAPSLOCK_FLAG 0x10000
 #ifdef JAGUAR_FLAGS
 	#define OPTION_FLAG 0x80000
 #else
-	#define OPTION_FLAG 0x80020
+	#define OPTION_FLAG   0x80020
+	#define OPTION_FLAG_R 0x80040
 #endif
 #define FN_FLAG 0x800000
 
 #define SPACE_KEY 49
+#define SHIFT_KEY 56
+#define SHIFT_KEY_R 60
 #define CONTROL_KEY 59
+#define CONTROL_KEY_R 62
 #define CAPSLOCK_KEY 57
 // special caps key for TiBook (and probably other models)
 #define SPECIAL_CAPSLOCK_KEY 127
 #define ENTER_KEY 52
 #define COMMAND_KEY 55
+#define COMMAND_KEY_R 54
 #define OPTION_KEY 58
+#define OPTION_KEY_R 61
 #define FN_KEY 63
 #define DELETE_KEY 51
 #define FORWARD_DELETE 117

@@ -4,6 +4,9 @@
 # 
 # $Id$
 
+# This does not get executed from the folder this file is in
+cd /Library/StartupItems/DoubleCommand/
+
 # Edit this file to configure DoubleCommand
 if [ -e ~/Library/Preferences/DoubleCommand.pref ]; then
 	config_value=`cat ~/Library/Preferences/DoubleCommand.pref`
@@ -17,8 +20,6 @@ argument="$1"
 kextload=/sbin/kextload
 kextunload=/sbin/kextunload
 sysctl=/usr/sbin/sysctl
-
-cd /Library/StartupItems/DoubleCommand/
 
 if [ -z "$argument" ]; then
 	argument=start

@@ -1,0 +1,18 @@
+/* Name: StartupParameters.plist
+ * Project: DoubleCommand
+ * Author: Michael Baltaks <mbaltaks@mac.com>
+ * Creation Date: 2002-05-01
+ * Tabsize: 4
+ * This Revision: $Id$
+ */
+ 
+{
+    Description     = "DoubleCommand remaps your keyboard";
+    Provides        = ("DoubleCommand");
+    Requires        = ("Disks");	/* depend on something so that we don't come too early */
+    OrderPreference = "None";
+    Messages = {
+        start = "Loading DoubleCommand";
+        stop  = "Unloading DoubleCommand";
+    };
+}

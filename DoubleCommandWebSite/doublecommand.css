@@ -1,6 +1,5 @@
 /* $Id$ */
 
-<style>
 body
 {
 	background-color: white;
@@ -95,7 +94,7 @@ H3, H4, H5, H6
 	color: #111111;
 	font-family: Verdana, Geneva, Helvetica, Arial, sans-serif;
 	font-size: 14px;
-	font-style: bold;
+	/*font-style: bold;*/
 	padding: 0 10% 0 10%;
 }
 
@@ -170,4 +169,3 @@ A.mail:HOVER
 	font-size: 9px;
 	text-align: center;
 }
-</style>

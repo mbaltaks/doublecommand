@@ -5,6 +5,67 @@
 	};
 	objectVersion = 38;
 	objects = {
+		00E43B2E05246A7300020933 = {
+			isa = PBXFileReference;
+			name = doublecommand.css;
+			path = /Users/mick/Development/DoubleCommand/cvs/DoubleCommandWebSite/doublecommand.css;
+			refType = 0;
+		};
+		00E43B2F05246A7300020933 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			name = index.html;
+			path = /Users/mick/Development/DoubleCommand/cvs/DoubleCommandWebSite/index.html;
+			refType = 0;
+		};
+		00E43B3005246A7300020933 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			name = download.html;
+			path = /Users/mick/Development/DoubleCommand/cvs/DoubleCommandWebSite/download.html;
+			refType = 0;
+		};
+		00E43B3105246A7300020933 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			name = install.html;
+			path = /Users/mick/Development/DoubleCommand/cvs/DoubleCommandWebSite/install.html;
+			refType = 0;
+		};
+		00E43B3205246A7300020933 = {
+			fileRef = 00E43B2E05246A7300020933;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		00E43B3305246A7300020933 = {
+			fileRef = 00E43B2F05246A7300020933;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		00E43B3405246A7300020933 = {
+			fileRef = 00E43B3005246A7300020933;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		00E43B3505246A7300020933 = {
+			fileRef = 00E43B3105246A7300020933;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+//000
+//001
+//002
+//003
+//004
+//060
+//061
+//062
+//063
+//064
 		06AA1261FFB20DD611CA28AA = {
 			buildActionMask = 2147483647;
 			files = (
@@ -129,7 +190,7 @@
 	<key>CFBundleExecutable</key>
 	<string>DoubleCommand</string>
 	<key>CFBundleGetInfoString</key>
-	<string>DoubleCommand 1.4.4b4 Copyright 2001-2003 Michael Baltaks</string>
+	<string>DoubleCommand 1.4.4b5 Copyright 2001-2003 Michael Baltaks</string>
 	<key>CFBundleIconFile</key>
 	<string></string>
 	<key>CFBundleIdentifier</key>
@@ -141,11 +202,11 @@
 	<key>CFBundlePackageType</key>
 	<string>KEXT</string>
 	<key>CFBundleShortVersionString</key>
-	<string>DoubleCommand 1.4.4b4</string>
+	<string>DoubleCommand 1.4.4b5</string>
 	<key>CFBundleSignature</key>
 	<string>BALT</string>
 	<key>CFBundleVersion</key>
-	<string>1.4.4b4</string>
+	<string>1.4.4b5</string>
 	<key>OSBundleLibraries</key>
 	<dict>
 		<key>com.apple.iokit.IOHIDSystem</key>
@@ -173,6 +234,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				089C1680FE841241C02AAC07,
+				00E43B3205246A7300020933,
+				00E43B3305246A7300020933,
+				00E43B3405246A7300020933,
+				00E43B3505246A7300020933,
 			);
 			isa = PBXResourcesBuildPhase;
 			runOnlyForDeploymentPostprocessing = 0;
@@ -202,6 +267,10 @@
 		};
 		089C167CFE841241C02AAC07 = {
 			children = (
+				00E43B2E05246A7300020933,
+				00E43B2F05246A7300020933,
+				00E43B3005246A7300020933,
+				00E43B3105246A7300020933,
 				089C167DFE841241C02AAC07,
 			);
 			isa = PBXGroup;

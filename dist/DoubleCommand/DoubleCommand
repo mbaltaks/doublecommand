@@ -35,8 +35,12 @@ case "$argument" in
 		echo "Unloading DoubleCommand"
 		$kextunload ./DoubleCommand.kext
 	;;
+	config)
+		echo "Configuring DoubleCommand"
+		$sysctl -w dc.config=$config_value
+	;;
 	*)
-		echo "Usage: $0 {start|stop}"
+		echo "Usage: $0 {start|stop|config}"
 		exit 1
 	;;
 esac

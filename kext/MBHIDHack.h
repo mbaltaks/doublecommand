@@ -53,7 +53,7 @@
 #define VOLUME_MUTE		8
 #define VOLUME_DOWN		7
 #define VOLUME_UP		6
-#define NUM_LOCK		127
+#define SPECIAL_KEY		127
 #define F7a		12
 #define F8a		13
 #define F9a		14

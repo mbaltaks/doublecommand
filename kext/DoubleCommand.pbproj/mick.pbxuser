@@ -5,7 +5,7 @@
 		isa = PBXTextBookmark;
 		name = "MBHIDHack.h: SWAP_FUNCTION_KEYS";
 		rLen = 6;
-		rLoc = 2225;
+		rLoc = 2228;
 		rType = 0;
 		vrLen = 1143;
 		vrLoc = 1281;
@@ -15,7 +15,7 @@
 		isa = PBXTextBookmark;
 		name = "MBHIDHack.cpp: 619";
 		rLen = 0;
-		rLoc = 15623;
+		rLoc = 15994;
 		rType = 0;
 		vrLen = 682;
 		vrLoc = 12980;
@@ -25,7 +25,7 @@
 		isa = PBXTextBookmark;
 		name = "MBHIDHack.h: SWAP_FUNCTION_KEYS";
 		rLen = 6;
-		rLoc = 2225;
+		rLoc = 2228;
 		rType = 0;
 		vrLen = 618;
 		vrLoc = 790;
@@ -35,7 +35,7 @@
 		isa = PBXTextBookmark;
 		name = "MBHIDHack.cpp: 619";
 		rLen = 0;
-		rLoc = 15623;
+		rLoc = 15994;
 		rType = 0;
 		vrLen = 682;
 		vrLoc = 12980;
@@ -45,7 +45,7 @@
 		isa = PBXTextBookmark;
 		name = "MBHIDHack.h: SWAP_FUNCTION_KEYS";
 		rLen = 6;
-		rLoc = 2225;
+		rLoc = 2228;
 		rType = 0;
 		vrLen = 617;
 		vrLoc = 790;
@@ -55,27 +55,17 @@
 		isa = PBXTextBookmark;
 		name = "MBHIDHack.cpp: 619";
 		rLen = 0;
-		rLoc = 15623;
+		rLoc = 15994;
 		rType = 0;
 		vrLen = 727;
 		vrLoc = 17772;
-	};
-	000855910506DB7200020933 = {
-		fRef = F53B749C0278078E01BCB6FE;
-		isa = PBXTextBookmark;
-		name = "MBHIDHack.cpp: 14";
-		rLen = 0;
-		rLoc = 364;
-		rType = 0;
-		vrLen = 1010;
-		vrLoc = 0;
 	};
 	000D0B3A048D985900A80150 = {
 		fRef = F53B749C0278078E01BCB6FE;
 		isa = PBXTextBookmark;
 		name = "MBHIDHack.cpp: 156";
 		rLen = 0;
-		rLoc = 4412;
+		rLoc = 4492;
 		rType = 0;
 		vrLen = 1443;
 		vrLoc = 3501;
@@ -85,7 +75,7 @@
 		isa = PBXTextBookmark;
 		name = "MBHIDHack.h: F10a";
 		rLen = 0;
-		rLoc = 1329;
+		rLoc = 1332;
 		rType = 0;
 		vrLen = 1122;
 		vrLoc = 1281;
@@ -95,7 +85,7 @@
 		isa = PBXTextBookmark;
 		name = "MBHIDHack.h: SWAP_FUNCTION_KEYS";
 		rLen = 6;
-		rLoc = 2225;
+		rLoc = 2228;
 		rType = 0;
 		vrLen = 970;
 		vrLoc = 1376;
@@ -105,7 +95,7 @@
 		isa = PBXTextBookmark;
 		name = "MBHIDHack.cpp: 619";
 		rLen = 0;
-		rLoc = 15623;
+		rLoc = 15994;
 		rType = 0;
 		vrLen = 1058;
 		vrLoc = 17007;
@@ -125,7 +115,7 @@
 		isa = PBXTextBookmark;
 		name = "MBHIDHack.cpp: 537";
 		rLen = 0;
-		rLoc = 13197;
+		rLoc = 13565;
 		rType = 0;
 		vrLen = 720;
 		vrLoc = 12518;
@@ -145,7 +135,7 @@
 		isa = PBXTextBookmark;
 		name = "MBHIDHack.cpp: 739";
 		rLen = 0;
-		rLoc = 19302;
+		rLoc = 19800;
 		rType = 0;
 		vrLen = 779;
 		vrLoc = 17606;
@@ -165,7 +155,7 @@
 		isa = PBXTextBookmark;
 		name = "MBHIDHack.cpp: 555";
 		rLen = 0;
-		rLoc = 13675;
+		rLoc = 14043;
 		rType = 0;
 		vrLen = 713;
 		vrLoc = 13419;
@@ -185,7 +175,7 @@
 		isa = PBXTextBookmark;
 		name = "MBHIDHack.cpp: 755";
 		rLen = 0;
-		rLoc = 19687;
+		rLoc = 20185;
 		rType = 0;
 		vrLen = 760;
 		vrLoc = 18315;
@@ -205,7 +195,7 @@
 		isa = PBXTextBookmark;
 		name = "MBHIDHack.cpp: 573";
 		rLen = 0;
-		rLoc = 14149;
+		rLoc = 14517;
 		rType = 0;
 		vrLen = 764;
 		vrLoc = 13382;
@@ -214,7 +204,7 @@
 		fRef = F575A7C0027E4475012EFD60;
 		isa = PBXTextBookmark;
 		name = "MBHIDHack.h: F6a";
-		rLen = 8;
+		rLen = 11;
 		rLoc = 1252;
 		rType = 0;
 		vrLen = 666;
@@ -225,7 +215,7 @@
 		isa = PBXTextBookmark;
 		name = "MBHIDHack.cpp: 771";
 		rLen = 0;
-		rLoc = 20120;
+		rLoc = 20621;
 		rType = 0;
 		vrLen = 750;
 		vrLoc = 18321;
@@ -235,41 +225,17 @@
 		isa = PBXTextBookmark;
 		name = "MBHIDHack.h: 69";
 		rLen = 0;
-		rLoc = 1482;
+		rLoc = 1485;
 		rType = 0;
 		vrLen = 979;
 		vrLoc = 1364;
-	};
-	001191970506CEE800020933 = {
-		fRef = 089C167EFE841241C02AAC07;
-		isa = PBXTextBookmark;
-		name = "English: 7";
-		rLen = 0;
-		rLoc = 205;
-		rType = 0;
-		vrLen = 317;
-		vrLoc = 0;
-	};
-	001191980506CEE800020933 = {
-		isa = PBXTargetBookmark;
-		trg = 089C1673FE841209C02AAC07;
-	};
-	001191990506CEE800020933 = {
-		fRef = F575A7C0027E4475012EFD60;
-		isa = PBXTextBookmark;
-		name = "MBHIDHack.h: FN_FLAG";
-		rLen = 7;
-		rLoc = 452;
-		rType = 0;
-		vrLen = 1062;
-		vrLoc = 161;
 	};
 	0011919B0506CEE800020933 = {
 		fRef = F53B749C0278078E01BCB6FE;
 		isa = PBXTextBookmark;
 		name = "MBHIDHack.cpp: 593";
 		rLen = 0;
-		rLoc = 14621;
+		rLoc = 14992;
 		rType = 0;
 		vrLen = 1270;
 		vrLoc = 14165;
@@ -293,7 +259,7 @@
 		isa = PBXTextBookmark;
 		name = "MBHIDHack.cpp: 598";
 		rLen = 0;
-		rLoc = 14770;
+		rLoc = 15141;
 		rType = 0;
 		vrLen = 1178;
 		vrLoc = 14401;
@@ -307,6 +273,292 @@
 		rType = 0;
 		vrLen = 1062;
 		vrLoc = 161;
+	};
+	00206B8A0515239000020933 = {
+		isa = PBXTargetBookmark;
+		trg = 089C1673FE841209C02AAC07;
+		uiCtxt = {
+			TOCViewDetailVisibleRect = "{{0, 0}, {464, 520}}";
+			TOCViewExpandedItems = (
+				"com.apple.target-editor-pane.settings",
+				"com.apple.target-editor-pane.settings.simple",
+				"com.apple.target-editor-pane.info-plist",
+				"com.apple.target-editor-pane.info-plist.simple",
+				"com.apple.target-editor-pane.buildphases",
+			);
+			TOCViewMasterVisibleRect = "{{0, 0}, {181, 520}}";
+			TOCViewSelectedItems = (
+				"com.apple.target-editor-pane.info-plist.simple",
+			);
+		};
+	};
+	00206B8B0515239000020933 = {
+		fRef = 089C167EFE841241C02AAC07;
+		isa = PBXTextBookmark;
+		name = "English: 6";
+		rLen = 0;
+		rLoc = 148;
+		rType = 0;
+		vrLen = 317;
+		vrLoc = 0;
+	};
+	00206B8C0515239000020933 = {
+		fRef = F575A7C0027E4475012EFD60;
+		isa = PBXTextBookmark;
+		name = "MBHIDHack.h: NUM_LOCK";
+		rLen = 0;
+		rLoc = 1263;
+		rType = 0;
+		vrLen = 1010;
+		vrLoc = 357;
+	};
+	00206B8D0515239000020933 = {
+		fRef = F53B749C0278078E01BCB6FE;
+		isa = PBXTextBookmark;
+		name = "MBHIDHack.cpp: 835";
+		rLen = 11;
+		rLoc = 20610;
+		rType = 0;
+		vrLen = 1050;
+		vrLoc = 20353;
+	};
+	00206B8E0515239000020933 = {
+		fRef = F53B749C0278078E01BCB6FE;
+		isa = PBXTextBookmark;
+		name = "MBHIDHack.cpp: MB_DEBUG";
+		rLen = 0;
+		rLoc = 364;
+		rType = 0;
+		vrLen = 914;
+		vrLoc = 20075;
+	};
+	00206B8F0515239000020933 = {
+		fRef = F575A7C0027E4475012EFD60;
+		isa = PBXTextBookmark;
+		name = "MBHIDHack.h: FN_FLAG";
+		rLen = 7;
+		rLoc = 452;
+		rType = 0;
+		vrLen = 962;
+		vrLoc = 497;
+	};
+	00206B900515239000020933 = {
+		fRef = F53B749C0278078E01BCB6FE;
+		isa = PBXTextBookmark;
+		name = "MBHIDHack.cpp: MB_DEBUG";
+		rLen = 0;
+		rLoc = 364;
+		rType = 0;
+		vrLen = 894;
+		vrLoc = 20075;
+	};
+	00206B910515239000020933 = {
+		fRef = F575A7C0027E4475012EFD60;
+		isa = PBXTextBookmark;
+		name = "MBHIDHack.h: FN_FLAG";
+		rLen = 7;
+		rLoc = 452;
+		rType = 0;
+		vrLen = 929;
+		vrLoc = 497;
+	};
+	00206B920515239000020933 = {
+		fRef = F53B749C0278078E01BCB6FE;
+		isa = PBXTextBookmark;
+		name = "MBHIDHack.cpp: 807";
+		rLen = 0;
+		rLoc = 20646;
+		rType = 0;
+		vrLen = 1057;
+		vrLoc = 19570;
+	};
+	00206B930515239000020933 = {
+		isa = PBXTargetBookmark;
+		trg = 089C1673FE841209C02AAC07;
+		uiCtxt = {
+			TOCViewDetailVisibleRect = "{{0, 0}, {464, 520}}";
+			TOCViewExpandedItems = (
+				"com.apple.target-editor-pane.settings",
+				"com.apple.target-editor-pane.settings.simple",
+				"com.apple.target-editor-pane.info-plist",
+				"com.apple.target-editor-pane.info-plist.simple",
+				"com.apple.target-editor-pane.buildphases",
+			);
+			TOCViewMasterVisibleRect = "{{0, 0}, {181, 520}}";
+			TOCViewSelectedItems = (
+				"com.apple.target-editor-pane.info-plist.simple",
+			);
+		};
+	};
+	00206B940515239000020933 = {
+		fRef = 089C167EFE841241C02AAC07;
+		isa = PBXTextBookmark;
+		name = "English: 6";
+		rLen = 0;
+		rLoc = 148;
+		rType = 0;
+		vrLen = 317;
+		vrLoc = 0;
+	};
+	00206B950515239000020933 = {
+		fRef = F575A7C0027E4475012EFD60;
+		isa = PBXTextBookmark;
+		name = "MBHIDHack.h: FN_FLAG";
+		rLen = 7;
+		rLoc = 452;
+		rType = 0;
+		vrLen = 930;
+		vrLoc = 496;
+	};
+	00206B960515239000020933 = {
+		fRef = F53B749C0278078E01BCB6FE;
+		isa = PBXTextBookmark;
+		name = "MBHIDHack.cpp: 156";
+		rLen = 0;
+		rLoc = 4396;
+		rType = 0;
+		vrLen = 1502;
+		vrLoc = 3063;
+	};
+	00206B970515239000020933 = {
+		fRef = F575A7C0027E4475012EFD60;
+		isa = PBXTextBookmark;
+		name = "MBHIDHack.h: FN_FLAG";
+		rLen = 7;
+		rLoc = 452;
+		rType = 0;
+		vrLen = 1054;
+		vrLoc = 190;
+	};
+	00206B980515239000020933 = {
+		fRef = F53B749C0278078E01BCB6FE;
+		isa = PBXTextBookmark;
+		name = "MBHIDHack.cpp: commandHeldDown";
+		rLen = 0;
+		rLoc = 3152;
+		rType = 0;
+		vrLen = 934;
+		vrLoc = 20488;
+	};
+	00206B990515239000020933 = {
+		fRef = F575A7C0027E4475012EFD60;
+		isa = PBXTextBookmark;
+		name = "MBHIDHack.h: FN_FLAG";
+		rLen = 7;
+		rLoc = 452;
+		rType = 0;
+		vrLen = 929;
+		vrLoc = 657;
+	};
+	00206B9A0515239000020933 = {
+		fRef = F53B749C0278078E01BCB6FE;
+		isa = PBXTextBookmark;
+		name = "MBHIDHack.cpp: 839";
+		rLen = 0;
+		rLoc = 20811;
+		rType = 0;
+		vrLen = 934;
+		vrLoc = 20488;
+	};
+	00206B9B0515239000020933 = {
+		fRef = F575A7C0027E4475012EFD60;
+		isa = PBXTextBookmark;
+		name = "MBHIDHack.h: CAPSLOCK_TO_CONTROL";
+		rLen = 19;
+		rLoc = 1902;
+		rType = 0;
+		vrLen = 1191;
+		vrLoc = 1347;
+	};
+	00206B9C0515239000020933 = {
+		fRef = F53B749C0278078E01BCB6FE;
+		isa = PBXTextBookmark;
+		name = "MBHIDHack.cpp: 843";
+		rLen = 0;
+		rLoc = 21109;
+		rType = 0;
+		vrLen = 1119;
+		vrLoc = 20111;
+	};
+	00206B9D0515239000020933 = {
+		fRef = F575A7C0027E4475012EFD60;
+		isa = PBXTextBookmark;
+		name = "MBHIDHack.h: CAPSLOCK_TO_CONTROL";
+		rLen = 19;
+		rLoc = 1902;
+		rType = 0;
+		vrLen = 1191;
+		vrLoc = 1347;
+	};
+	00206B9E0515239000020933 = {
+		fRef = F53B749C0278078E01BCB6FE;
+		isa = PBXTextBookmark;
+		name = "MBHIDHack.cpp: 846";
+		rLen = 0;
+		rLoc = 21109;
+		rType = 0;
+		vrLen = 1103;
+		vrLoc = 20111;
+	};
+	00206B9F0515239000020933 = {
+		fRef = F575A7C0027E4475012EFD60;
+		isa = PBXTextBookmark;
+		name = "MBHIDHack.h: CAPSLOCK_TO_CONTROL";
+		rLen = 4;
+		rLoc = 1927;
+		rType = 0;
+		vrLen = 1191;
+		vrLoc = 1347;
+	};
+	00206BA00515239000020933 = {
+		fRef = F53B749C0278078E01BCB6FE;
+		isa = PBXTextBookmark;
+		name = "MBHIDHack.cpp: 482";
+		rLen = 0;
+		rLoc = 11773;
+		rType = 0;
+		vrLen = 1082;
+		vrLoc = 20323;
+	};
+	00206BA10515239000020933 = {
+		fRef = F575A7C0027E4475012EFD60;
+		isa = PBXTextBookmark;
+		name = "MBHIDHack.h: KEY_MODIFY";
+		rLen = 10;
+		rLoc = 1414;
+		rType = 0;
+		vrLen = 1191;
+		vrLoc = 1347;
+	};
+	00206BA20515239000020933 = {
+		fRef = F53B749C0278078E01BCB6FE;
+		isa = PBXTextBookmark;
+		name = "MBHIDHack.cpp: 835";
+		rLen = 11;
+		rLoc = 20610;
+		rType = 0;
+		vrLen = 1050;
+		vrLoc = 20353;
+	};
+	00206BA30515239000020933 = {
+		fRef = F575A7C0027E4475012EFD60;
+		isa = PBXTextBookmark;
+		name = "MBHIDHack.h: NUM_LOCK";
+		rLen = 0;
+		rLoc = 1263;
+		rType = 0;
+		vrLen = 1010;
+		vrLoc = 357;
+	};
+	00206BA40515239000020933 = {
+		fRef = F53B749C0278078E01BCB6FE;
+		isa = PBXTextBookmark;
+		name = "MBHIDHack.cpp: 14";
+		rLen = 0;
+		rLoc = 364;
+		rType = 0;
+		vrLen = 1010;
+		vrLoc = 0;
 	};
 	0049DDEF0429810600020933 = {
 		fRef = F575A7C0027E4475012EFD60;
@@ -323,7 +575,7 @@
 		isa = PBXTextBookmark;
 		name = "MBHIDHack.cpp: 619";
 		rLen = 0;
-		rLoc = 15623;
+		rLoc = 15994;
 		rType = 0;
 		vrLen = 1171;
 		vrLoc = 9812;
@@ -333,7 +585,7 @@
 		isa = PBXTextBookmark;
 		name = "MBHIDHack.h: SWAP_FUNCTION_KEYS";
 		rLen = 6;
-		rLoc = 2225;
+		rLoc = 2228;
 		rType = 0;
 		vrLen = 939;
 		vrLoc = 326;
@@ -343,7 +595,7 @@
 		isa = PBXTextBookmark;
 		name = "MBHIDHack.cpp: 619";
 		rLen = 0;
-		rLoc = 15623;
+		rLoc = 15994;
 		rType = 0;
 		vrLen = 1407;
 		vrLoc = 14751;
@@ -353,7 +605,7 @@
 		isa = PBXTextBookmark;
 		name = "MBHIDHack.h: SWAP_FUNCTION_KEYS";
 		rLen = 6;
-		rLoc = 2225;
+		rLoc = 2228;
 		rType = 0;
 		vrLen = 913;
 		vrLoc = 723;
@@ -363,7 +615,7 @@
 		isa = PBXTextBookmark;
 		name = "MBHIDHack.cpp: 619";
 		rLen = 0;
-		rLoc = 15623;
+		rLoc = 15994;
 		rType = 0;
 		vrLen = 875;
 		vrLoc = 16133;
@@ -373,7 +625,7 @@
 		isa = PBXTextBookmark;
 		name = "MBHIDHack.h: SWAP_FUNCTION_KEYS";
 		rLen = 6;
-		rLoc = 2225;
+		rLoc = 2228;
 		rType = 0;
 		vrLen = 940;
 		vrLoc = 908;
@@ -383,7 +635,7 @@
 		isa = PBXTextBookmark;
 		name = "MBHIDHack.cpp: 619";
 		rLen = 0;
-		rLoc = 15623;
+		rLoc = 15994;
 		rType = 0;
 		vrLen = 1199;
 		vrLoc = 9784;
@@ -413,7 +665,7 @@
 		isa = PBXTextBookmark;
 		name = "MBHIDHack.cpp: 525";
 		rLen = 0;
-		rLoc = 13018;
+		rLoc = 13386;
 		rType = 0;
 		vrLen = 1115;
 		vrLoc = 12219;
@@ -471,7 +723,7 @@
 		isa = PBXTextBookmark;
 		name = "MBHIDHack.cpp: 575";
 		rLen = 0;
-		rLoc = 21303;
+		rLoc = 22113;
 		rType = 0;
 		vrLen = 970;
 		vrLoc = 0;
@@ -513,7 +765,7 @@
 		isa = PBXTextBookmark;
 		name = "MBHIDHack.h: 61";
 		rLen = 0;
-		rLoc = 2064;
+		rLoc = 2067;
 		rType = 0;
 		vrLen = 1159;
 		vrLoc = 330;
@@ -523,7 +775,7 @@
 		isa = PBXTextBookmark;
 		name = "MBHIDHack.cpp: 518";
 		rLen = 0;
-		rLoc = 12994;
+		rLoc = 13362;
 		rType = 0;
 		vrLen = 972;
 		vrLoc = 0;
@@ -609,7 +861,7 @@
 		isa = PBXTextBookmark;
 		name = "MBHIDHack.h: 82";
 		rLen = 0;
-		rLoc = 2538;
+		rLoc = 2541;
 		rType = 0;
 		vrLen = 1053;
 		vrLoc = 0;
@@ -639,7 +891,7 @@
 		isa = PBXTextBookmark;
 		name = "MBHIDHack.cpp: 148";
 		rLen = 0;
-		rLoc = 3967;
+		rLoc = 4074;
 		rType = 0;
 		vrLen = 1249;
 		vrLoc = 3534;
@@ -649,7 +901,7 @@
 		isa = PBXTextBookmark;
 		name = "MBHIDHack.h: IBOOK_KEYBOARD";
 		rLen = 0;
-		rLoc = 1482;
+		rLoc = 1485;
 		rType = 0;
 		vrLen = 798;
 		vrLoc = 326;
@@ -723,7 +975,7 @@
 		isa = PBXTextBookmark;
 		name = "MBHIDHack.cpp: 436";
 		rLen = 0;
-		rLoc = 10627;
+		rLoc = 10707;
 		rType = 0;
 		vrLen = 1176;
 		vrLoc = 9878;
@@ -733,7 +985,7 @@
 		isa = PBXTextBookmark;
 		name = "MBHIDHack.h: IBOOK_KEYBOARD";
 		rLen = 0;
-		rLoc = 1482;
+		rLoc = 1485;
 		rType = 0;
 		vrLen = 1083;
 		vrLoc = 161;
@@ -743,7 +995,7 @@
 		isa = PBXTextBookmark;
 		name = "MBHIDHack.cpp: 706";
 		rLen = 0;
-		rLoc = 17619;
+		rLoc = 18132;
 		rType = 0;
 		vrLen = 1018;
 		vrLoc = 6449;
@@ -753,7 +1005,7 @@
 		isa = PBXTextBookmark;
 		name = "MBHIDHack.h: IBOOK_KEYBOARD";
 		rLen = 0;
-		rLoc = 1482;
+		rLoc = 1485;
 		rType = 0;
 		vrLen = 1062;
 		vrLoc = 161;
@@ -763,7 +1015,7 @@
 		isa = PBXTextBookmark;
 		name = "MBHIDHack.cpp: 575";
 		rLen = 0;
-		rLoc = 21303;
+		rLoc = 22113;
 		rType = 0;
 		vrLen = 1151;
 		vrLoc = 3897;
@@ -783,7 +1035,7 @@
 		isa = PBXTextBookmark;
 		name = "MBHIDHack.cpp: 575";
 		rLen = 0;
-		rLoc = 21303;
+		rLoc = 22113;
 		rType = 0;
 		vrLen = 1255;
 		vrLoc = 13397;
@@ -793,7 +1045,7 @@
 		isa = PBXTextBookmark;
 		name = "MBHIDHack.cpp: 645";
 		rLen = 0;
-		rLoc = 19052;
+		rLoc = 19550;
 		rType = 0;
 		vrLen = 1190;
 		vrLoc = 15299;
@@ -817,7 +1069,7 @@
 		isa = PBXTextBookmark;
 		name = "MBHIDHack.h: F10a";
 		rLen = 0;
-		rLoc = 1329;
+		rLoc = 1332;
 		rType = 0;
 		vrLen = 1057;
 		vrLoc = 0;
@@ -827,7 +1079,7 @@
 		isa = PBXTextBookmark;
 		name = "MBHIDHack.cpp: 645";
 		rLen = 0;
-		rLoc = 19052;
+		rLoc = 19550;
 		rType = 0;
 		vrLen = 1010;
 		vrLoc = 0;
@@ -871,7 +1123,7 @@
 		isa = PBXTextBookmark;
 		name = "MBHIDHack.cpp: 495";
 		rLen = 0;
-		rLoc = 12311;
+		rLoc = 12679;
 		rType = 0;
 		vrLen = 1220;
 		vrLoc = 11269;
@@ -881,7 +1133,7 @@
 		isa = PBXTextBookmark;
 		name = "MBHIDHack.h: 91";
 		rLen = 0;
-		rLoc = 2263;
+		rLoc = 2266;
 		rType = 0;
 		vrLen = 1122;
 		vrLoc = 1281;
@@ -891,7 +1143,7 @@
 		isa = PBXTextBookmark;
 		name = "MBHIDHack.cpp: 496";
 		rLen = 0;
-		rLoc = 12311;
+		rLoc = 12679;
 		rType = 0;
 		vrLen = 1195;
 		vrLoc = 11269;
@@ -901,7 +1153,7 @@
 		isa = PBXTextBookmark;
 		name = "MBHIDHack.h: 91";
 		rLen = 0;
-		rLoc = 2232;
+		rLoc = 2235;
 		rType = 0;
 		vrLen = 1159;
 		vrLoc = 1265;
@@ -911,7 +1163,7 @@
 		isa = PBXTextBookmark;
 		name = "MBHIDHack.cpp: 577";
 		rLen = 0;
-		rLoc = 17003;
+		rLoc = 17374;
 		rType = 0;
 		vrLen = 753;
 		vrLoc = 14151;
@@ -941,7 +1193,7 @@
 		isa = PBXTextBookmark;
 		name = "MBHIDHack.cpp: 577";
 		rLen = 0;
-		rLoc = 17002;
+		rLoc = 17373;
 		rType = 0;
 		vrLen = 757;
 		vrLoc = 14151;
@@ -951,7 +1203,7 @@
 		isa = PBXTextBookmark;
 		name = "MBHIDHack.h: CAPSLOCK_DISABLED";
 		rLen = 6;
-		rLoc = 2263;
+		rLoc = 2266;
 		rType = 0;
 		vrLen = 1150;
 		vrLoc = 1217;
@@ -961,7 +1213,7 @@
 		isa = PBXTextBookmark;
 		name = "MBHIDHack.cpp: 580";
 		rLen = 0;
-		rLoc = 17008;
+		rLoc = 17379;
 		rType = 0;
 		vrLen = 735;
 		vrLoc = 14151;
@@ -981,7 +1233,7 @@
 		isa = PBXTextBookmark;
 		name = "MBHIDHack.h: CAPSLOCK_DISABLED";
 		rLen = 6;
-		rLoc = 2263;
+		rLoc = 2266;
 		rType = 0;
 		vrLen = 1129;
 		vrLoc = 1217;
@@ -1001,7 +1253,7 @@
 		isa = PBXTextBookmark;
 		name = "MBHIDHack.cpp: 580";
 		rLen = 0;
-		rLoc = 17008;
+		rLoc = 17379;
 		rType = 0;
 		vrLen = 862;
 		vrLoc = 14430;
@@ -1031,7 +1283,7 @@
 		isa = PBXTextBookmark;
 		name = "MBHIDHack.cpp: 580";
 		rLen = 0;
-		rLoc = 17008;
+		rLoc = 17379;
 		rType = 0;
 		vrLen = 823;
 		vrLoc = 16104;
@@ -1041,7 +1293,7 @@
 		isa = PBXTextBookmark;
 		name = "MBHIDHack.h: SWAP_FUNCTION_KEYS";
 		rLen = 0;
-		rLoc = 2231;
+		rLoc = 2234;
 		rType = 0;
 		vrLen = 1129;
 		vrLoc = 1217;
@@ -1051,7 +1303,7 @@
 		isa = PBXTextBookmark;
 		name = "MBHIDHack.cpp: 580";
 		rLen = 0;
-		rLoc = 17008;
+		rLoc = 17379;
 		rType = 0;
 		vrLen = 920;
 		vrLoc = 16007;
@@ -1061,7 +1313,7 @@
 		isa = PBXTextBookmark;
 		name = "MBHIDHack.h: SWAP_FUNCTION_KEYS";
 		rLen = 0;
-		rLoc = 2231;
+		rLoc = 2234;
 		rType = 0;
 		vrLen = 1057;
 		vrLoc = 0;
@@ -1169,7 +1421,7 @@
 		isa = PBXTextBookmark;
 		name = "MBHIDHack.h: 66";
 		rLen = 0;
-		rLoc = 2225;
+		rLoc = 2228;
 		rType = 0;
 		vrLen = 1058;
 		vrLoc = 0;
@@ -1189,7 +1441,7 @@
 		isa = PBXTextBookmark;
 		name = "MBHIDHack.h: 66";
 		rLen = 0;
-		rLoc = 2225;
+		rLoc = 2228;
 		rType = 0;
 		vrLen = 1058;
 		vrLoc = 0;
@@ -1209,7 +1461,7 @@
 		isa = PBXTextBookmark;
 		name = "MBHIDHack.h: 66";
 		rLen = 0;
-		rLoc = 2225;
+		rLoc = 2228;
 		rType = 0;
 		vrLen = 1058;
 		vrLoc = 0;
@@ -1249,7 +1501,7 @@
 		isa = PBXTextBookmark;
 		name = "MBHIDHack.cpp: 525";
 		rLen = 0;
-		rLoc = 13049;
+		rLoc = 13417;
 		rType = 0;
 		vrLen = 891;
 		vrLoc = 11979;
@@ -1269,7 +1521,7 @@
 		isa = PBXTextBookmark;
 		name = "MBHIDHack.cpp: 530";
 		rLen = 0;
-		rLoc = 13286;
+		rLoc = 13654;
 		rType = 0;
 		vrLen = 865;
 		vrLoc = 11979;
@@ -1279,7 +1531,7 @@
 		isa = PBXTextBookmark;
 		name = "MBHIDHack.h: 78";
 		rLen = 18;
-		rLoc = 2201;
+		rLoc = 2204;
 		rType = 0;
 		vrLen = 1123;
 		vrLoc = 1020;
@@ -1289,7 +1541,7 @@
 		isa = PBXTextBookmark;
 		name = "MBHIDHack.cpp: 631";
 		rLen = 0;
-		rLoc = 19098;
+		rLoc = 19596;
 		rType = 0;
 		vrLen = 1344;
 		vrLoc = 15157;
@@ -1299,20 +1551,10 @@
 		isa = PBXTextBookmark;
 		name = "MBHIDHack.h: REVERSE_NUMPAD_DOT_AND_SHIFT_NUMPAD_DOT";
 		rLen = 0;
-		rLoc = 1329;
+		rLoc = 1332;
 		rType = 0;
 		vrLen = 924;
 		vrLoc = 853;
-	};
-	00CE206D0506D9E600020933 = {
-		fRef = F53B749C0278078E01BCB6FE;
-		isa = PBXTextBookmark;
-		name = "MBHIDHack.cpp: 14";
-		rLen = 0;
-		rLoc = 364;
-		rType = 0;
-		vrLen = 1010;
-		vrLoc = 0;
 	};
 	00DD4409048DB48700A80150 = {
 		fRef = 1A224C3CFF42312311CA2CB7;
@@ -1369,7 +1611,7 @@
 		isa = PBXTextBookmark;
 		name = "MBHIDHack.h: SWAP_FUNCTION_KEYS";
 		rLen = 6;
-		rLoc = 2225;
+		rLoc = 2228;
 		rType = 0;
 		vrLen = 1159;
 		vrLoc = 1265;
@@ -1519,7 +1761,7 @@
 		isa = PBXTextBookmark;
 		name = "MBHIDHack.cpp: 580";
 		rLen = 0;
-		rLoc = 17008;
+		rLoc = 17379;
 		rType = 0;
 		vrLen = 964;
 		vrLoc = 15963;
@@ -1529,7 +1771,7 @@
 		isa = PBXTextBookmark;
 		name = "MBHIDHack.h: SWAP_FUNCTION_KEYS";
 		rLen = 6;
-		rLoc = 2225;
+		rLoc = 2228;
 		rType = 0;
 		vrLen = 955;
 		vrLoc = 326;
@@ -1539,7 +1781,7 @@
 		isa = PBXTextBookmark;
 		name = "MBHIDHack.cpp: 619";
 		rLen = 0;
-		rLoc = 15623;
+		rLoc = 15994;
 		rType = 0;
 		vrLen = 901;
 		vrLoc = 13925;
@@ -1549,7 +1791,7 @@
 		isa = PBXTextBookmark;
 		name = "MBHIDHack.h: SWAP_FUNCTION_KEYS";
 		rLen = 6;
-		rLoc = 2225;
+		rLoc = 2228;
 		rType = 0;
 		vrLen = 1175;
 		vrLoc = 1249;
@@ -1569,7 +1811,7 @@
 		isa = PBXTextBookmark;
 		name = "MBHIDHack.h: SWAP_FUNCTION_KEYS";
 		rLen = 6;
-		rLoc = 2225;
+		rLoc = 2228;
 		rType = 0;
 		vrLen = 1139;
 		vrLoc = 1249;
@@ -1619,7 +1861,7 @@
 		isa = PBXTextBookmark;
 		name = "MBHIDHack.cpp: 619";
 		rLen = 0;
-		rLoc = 15623;
+		rLoc = 15994;
 		rType = 0;
 		vrLen = 1460;
 		vrLoc = 14751;
@@ -1787,7 +2029,7 @@
 		breakpoints = (
 		);
 		perUserDictionary = {
-			PBXPerProjectTemplateStateSaveDate = 84335463;
+			PBXPerProjectTemplateStateSaveDate = 85059172;
 			"PBXTemplateGeometry-F5314676015831810DCA290F" = {
 				ContentSize = "{685, 434}";
 				LeftSlideOut = {
@@ -1922,7 +2164,7 @@
 						Split0 = {
 							Split0 = {
 								NavContent0 = {
-									bookmark = 000855910506DB7200020933;
+									bookmark = 00206BA40515239000020933;
 									history = (
 										00639ED203F22FF600020933,
 										00639ED303F22FF600020933,
@@ -1931,10 +2173,10 @@
 										00E9C0E404C5070F00020933,
 										00E9C0E604C5070F00020933,
 										00E9C0E804C5070F00020933,
-										001191970506CEE800020933,
-										001191980506CEE800020933,
-										001191990506CEE800020933,
-										00CE206D0506D9E600020933,
+										00206B8A0515239000020933,
+										00206B8B0515239000020933,
+										00206B8C0515239000020933,
+										00206B8D0515239000020933,
 									);
 									prevStack = (
 										F5D9F778031EDD8E013B14DE,
@@ -2099,6 +2341,28 @@
 										0011919D0506CEE800020933,
 										0011919E0506CEE800020933,
 										0011919F0506CEE800020933,
+										00206B8E0515239000020933,
+										00206B8F0515239000020933,
+										00206B900515239000020933,
+										00206B910515239000020933,
+										00206B920515239000020933,
+										00206B930515239000020933,
+										00206B940515239000020933,
+										00206B950515239000020933,
+										00206B960515239000020933,
+										00206B970515239000020933,
+										00206B980515239000020933,
+										00206B990515239000020933,
+										00206B9A0515239000020933,
+										00206B9B0515239000020933,
+										00206B9C0515239000020933,
+										00206B9D0515239000020933,
+										00206B9E0515239000020933,
+										00206B9F0515239000020933,
+										00206BA00515239000020933,
+										00206BA10515239000020933,
+										00206BA20515239000020933,
+										00206BA30515239000020933,
 									);
 								};
 								NavCount = 1;
@@ -2266,7 +2530,7 @@
 					WindowLocation = "{5, 87}";
 				},
 			);
-			PBXWorkspaceStateSaveDate = 84335463;
+			PBXWorkspaceStateSaveDate = 85059172;
 		};
 		perUserProjectItems = {
 			00028AD404F65B9600020933 = 00028AD404F65B9600020933;
@@ -2275,7 +2539,6 @@
 			00028AD704F65B9600020933 = 00028AD704F65B9600020933;
 			00028AD804F65B9600020933 = 00028AD804F65B9600020933;
 			00028AD904F65B9600020933 = 00028AD904F65B9600020933;
-			000855910506DB7200020933 = 000855910506DB7200020933;
 			000D0B3A048D985900A80150 = 000D0B3A048D985900A80150;
 			000D0B3B048D985900A80150 = 000D0B3B048D985900A80150;
 			000EEF640504231900020933 = 000EEF640504231900020933;
@@ -2293,14 +2556,38 @@
 			000EEF700504231900020933 = 000EEF700504231900020933;
 			000EEF710504231900020933 = 000EEF710504231900020933;
 			000EEF720504231900020933 = 000EEF720504231900020933;
-			001191970506CEE800020933 = 001191970506CEE800020933;
-			001191980506CEE800020933 = 001191980506CEE800020933;
-			001191990506CEE800020933 = 001191990506CEE800020933;
 			0011919B0506CEE800020933 = 0011919B0506CEE800020933;
 			0011919C0506CEE800020933 = 0011919C0506CEE800020933;
 			0011919D0506CEE800020933 = 0011919D0506CEE800020933;
 			0011919E0506CEE800020933 = 0011919E0506CEE800020933;
 			0011919F0506CEE800020933 = 0011919F0506CEE800020933;
+			00206B8A0515239000020933 = 00206B8A0515239000020933;
+			00206B8B0515239000020933 = 00206B8B0515239000020933;
+			00206B8C0515239000020933 = 00206B8C0515239000020933;
+			00206B8D0515239000020933 = 00206B8D0515239000020933;
+			00206B8E0515239000020933 = 00206B8E0515239000020933;
+			00206B8F0515239000020933 = 00206B8F0515239000020933;
+			00206B900515239000020933 = 00206B900515239000020933;
+			00206B910515239000020933 = 00206B910515239000020933;
+			00206B920515239000020933 = 00206B920515239000020933;
+			00206B930515239000020933 = 00206B930515239000020933;
+			00206B940515239000020933 = 00206B940515239000020933;
+			00206B950515239000020933 = 00206B950515239000020933;
+			00206B960515239000020933 = 00206B960515239000020933;
+			00206B970515239000020933 = 00206B970515239000020933;
+			00206B980515239000020933 = 00206B980515239000020933;
+			00206B990515239000020933 = 00206B990515239000020933;
+			00206B9A0515239000020933 = 00206B9A0515239000020933;
+			00206B9B0515239000020933 = 00206B9B0515239000020933;
+			00206B9C0515239000020933 = 00206B9C0515239000020933;
+			00206B9D0515239000020933 = 00206B9D0515239000020933;
+			00206B9E0515239000020933 = 00206B9E0515239000020933;
+			00206B9F0515239000020933 = 00206B9F0515239000020933;
+			00206BA00515239000020933 = 00206BA00515239000020933;
+			00206BA10515239000020933 = 00206BA10515239000020933;
+			00206BA20515239000020933 = 00206BA20515239000020933;
+			00206BA30515239000020933 = 00206BA30515239000020933;
+			00206BA40515239000020933 = 00206BA40515239000020933;
 			0049DDEF0429810600020933 = 0049DDEF0429810600020933;
 			004BBCB304CE383A00020933 = 004BBCB304CE383A00020933;
 			004BBCB404CE383A00020933 = 004BBCB404CE383A00020933;
@@ -2406,7 +2693,6 @@
 			00ADACEC04839E0400FBE7B2 = 00ADACEC04839E0400FBE7B2;
 			00ADACED04839E0400FBE7B2 = 00ADACED04839E0400FBE7B2;
 			00ADACEE04839E0400FBE7B2 = 00ADACEE04839E0400FBE7B2;
-			00CE206D0506D9E600020933 = 00CE206D0506D9E600020933;
 			00DD4409048DB48700A80150 = 00DD4409048DB48700A80150;
 			00E9C0E304C5070F00020933 = 00E9C0E304C5070F00020933;
 			00E9C0E404C5070F00020933 = 00E9C0E404C5070F00020933;

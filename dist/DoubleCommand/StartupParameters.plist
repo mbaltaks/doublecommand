@@ -9,7 +9,7 @@
  */
 
 {
-    Description     = "DoubleCommand remaps your keyboard";
+    Description     = "DoubleCommand";
     Provides        = ("DoubleCommand");
     Requires        = ("Disks");	/* depend on something so that we don't come too early */
     OrderPreference = "None";

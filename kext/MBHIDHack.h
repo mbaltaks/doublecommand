@@ -54,6 +54,17 @@
 #define VOLUME_DOWN		7
 #define VOLUME_UP		6
 #define SPECIAL_KEY		127
+#define BRIGHTNESS_DOWN_FLAVOUR		3
+#define BRIGHTNESS_UP_FLAVOUR		2
+#define VOLUME_MUTE_FLAVOUR		7
+#define VOLUME_DOWN_FLAVOUR		1
+#define VOLUME_UP_FLAVOUR		0
+#define NUMLOCK_FLAVOUR		10
+#define F7a_FLAVOUR		15
+#define F8a_FLAVOUR		23
+#define F9a_FLAVOUR		22
+#define F10a_FLAVOUR		21
+#define EJECT_FLAVOUR		14
 #define F7a		12
 #define F8a		13
 #define F9a		14

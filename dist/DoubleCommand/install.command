@@ -9,7 +9,7 @@
 
 # we want to run in the same folder as this script, not
 # the users home folder
-cd `dirname $0`
+cd `dirname "$0"`
 
 # if the StartupItems folder doesn't exist, create it
 if [ -e /Library/StartupItems ]; then

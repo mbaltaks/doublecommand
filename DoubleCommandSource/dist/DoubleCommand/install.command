@@ -13,6 +13,7 @@ cd `dirname $0`
 
 # if the StartupItems folder doesn't exist, create it
 if [ -e /Library/StartupItems ]; then
+	echo ""
 else
 	sudo mkdir /Library/StartupItems
 	sudo chmod g+w /Library/StartupItems

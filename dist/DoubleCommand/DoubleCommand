@@ -7,6 +7,14 @@
 # This does not get executed from the folder this file is in
 cd /Library/StartupItems/DoubleCommand/
 
+# Check that we didn't cause a panic last load
+if [ -e ./DoubleCommand.crashed ]; then
+	echo "DoubleCommand will not load due to a problem last load"
+	exit 1
+else
+	touch ./DoubleCommand.crashed
+fi
+
 # Edit this file to configure DoubleCommand
 if [ -e ~/Library/Preferences/DoubleCommand.pref ]; then
 	config_value=`cat ~/Library/Preferences/DoubleCommand.pref`
@@ -44,3 +52,8 @@ case "$argument" in
 		exit 1
 	;;
 esac
+
+# Clean up so we know we loaded successfully
+if [ -e ./DoubleCommand.crashed ]; then
+	rm -f ./DoubleCommand.crashed
+fi

@@ -104,7 +104,7 @@
 				MODULE_NAME = com.baltaks.kext.DoubleCommand;
 				MODULE_START = DoubleCommand_start;
 				MODULE_STOP = DoubleCommand_stop;
-				MODULE_VERSION = 1.4.1;
+				MODULE_VERSION = 1.4.2;
 				OTHER_CFLAGS = "-no-cpp-precomp";
 				OTHER_LDFLAGS = "";
 				OTHER_REZFLAGS = "";

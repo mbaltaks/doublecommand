@@ -19,24 +19,19 @@
 <p class="body">To install DoubleCommand, please perform the following steps:</p>
 <p class="body">1.	Remove any older versions of DoubleCommand, iJect, uControl, CommandandControl or PowerDelete (see below for how to do that). These are conflicting software.</p>
 <p class="body">2.	Open a Finder window and go to the "Library" folder directly on your Mac OS X startup volume. (There are several folders named "Library". We mean the one in the root of the startup volume, NOT in the System folder!)</p>
-<p class="body">3a. If there is a folder named "StartupItems", drop the "DoubleCommand" folder into it. The DoubleCommand folder is in the "StartupItems" folder in the distributed disk image.<br />
-3b. If there is no such folder, drop the whole folder "StartupItems" from the distributed disk image directly into the "Library" folder.
+<p class="body">3a. If there is a folder named "StartupItems", drop the "DoubleCommand" folder into it.<br />
+3b. If there is no such folder, first create a folder named "StartupItems" in the "Library" folder, then drop the "DoubleCommand" folder into it.
 	You should have created a directory hierarchy like this in any case:</p>
 <p class="body">	/Library/StartupItems/DoubleCommand</p>
-<p class="body">4.	Restart the computer</p>
-<p class="body">5.  After rebooting, a warning will pop up asking you whether you want to 'Fix and Use' or 'Use' DoubleCommand. Click 'Fix and Use'.</p>
-<p class="body">After rebooting a second time, DoubleCommand will be active.</p>
+<p class="body">4.	Open the DoubleCommand folder you just copied and double click the "install.command" file. This file will open in Terminal and fix the permissions for DoubleCommand - it will ask you for your password when the Terminal window opens. When it says logout you can close the window - DoubleCommand is installed and active right away!</p>
 <p class="body"><em>Note:</em> You need Administrator rights to install startup items, but you do not need to be the Unix super user "root". The user account which is created during installation of the operating system has administrator rights.</p>
 
 <h3>Configuring DoubleCommand</h3>
 <p class="body">
-To configure DoubleCommand requires some basic maths ability and a text editor (like TextEdit). You only need to edit the file /Library/StartupItems/DoubleCommand/DoubleCommand, changing the number at the end of the line:<br /><br />
-<span class="code">/usr/sbin/sysctl -w dc.config=1</span><br /><br />
-to a number calculated below and save the file. Then either copy that line into a Terminal and press return, or just restart your computer.
+To configure DoubleCommand requires some basic maths ability and a text editor (like TextEdit). You only need to edit the file /Library/StartupItems/DoubleCommand/DoubleCommand.pref, changing the number to a number calculated below and save the file. Then just double click the install.command file to apply the settings (it may warn about needing to be root to install kernel modules - just ignore this).
 </p>
 <p class="body">
-The table below shows a list of numbers and what functionality they activate. To activate more than one at a time, simply add the numbers together. For example, I like enter -&gt; command and shift+delete -&gt; forward delete, so I use 1 + 16384 = 16385. So my file has a line that looks like:<br /><br />
-<span class="code">/usr/sbin/sysctl -w dc.config=16385</span><br /><br />
+The table below shows a list of numbers and what functionality they activate. To activate more than one at a time, simply add the numbers together. For example, I like enter -&gt; command and shift+delete -&gt; forward delete, so I use 1 + 16384 = 16385. So my file simply contains the number 16385.
 </p>
 <p class="body">
 Where command, option, etc are used it means any command, option, etc keys on your keyboard. It is not possible at this stage to only change for example the right option key to something else, you must change both option keys. This issue is under investigation.
@@ -75,8 +70,13 @@ Where command, option, etc are used it means any command, option, etc keys on yo
 <p class="body">2.	Restart your computer.</p>
 
 <h3>Troubleshooting</h3>
-<p class="body">DoubleCommand has been developed for Mac OS X. It is known to run on Mac OS X 10.1.0 through to Mac OS X 10.2.4 and probably runs on later versions, too. However, since it links to internal kernel structures, newer versions of the kernel may break DoubleCommand. If this happens check with this web site for an update that will work with the new kernel.</p>
-<p class="body">If your machine does not boot after installing DoubleCommand, hold the option (alt) key during booting and boot to Mac OS 9. You can remove DoubleCommand from Mac OS 9.</p>
+<p class="body">DoubleCommand has been developed for Mac OS X. It is known to run on Mac OS X 10.1.0 through to Mac OS X 10.2.6 and probably runs on later versions, too. However, since it links to internal kernel structures, newer versions of the kernel may break DoubleCommand. If this happens check with this web site for an update that will work with the new kernel.</p>
+<p class="body">If your machine does not boot after installing DoubleCommand, hold the option (alt) key during booting and boot to Mac OS 9. You can remove DoubleCommand from Mac OS 9. You can also start the computer while holding down Command and S to get single user mode. While in this mode you can type the following to disable DoubleCommand:
+<br /><br />
+<span class="code">mv /Library/StartupItems/DoubleCommand/DoubleCommand /Library/StartupItems/DoubleCommand/DoubleCommand.disabled</span>
+<br /><br />
+When you restart the computer DoubleCommand will no longer be active.
+</p>
 </div>
 
 <div class="navigation" align="center">

@@ -12,6 +12,7 @@
  */
 
 //#define MB_DEBUG
+#define IOHIDSystem_AVAILABLE
 
 #ifdef __cplusplus
     extern "C"
@@ -31,10 +32,32 @@ extern int	MBHidExit(void);
 #include "MBHIDHack.h"
 #include <IOKit/system.h>
 #include <IOKit/assert.h>
-#include <IOKit/hidsystem/IOHIDSystem.h>
 
+
+#ifdef IOHIDSystem_AVAILABLE
+
+#include <IOKit/hidsystem/IOHIDSystem.h>
 static void		*oldVtable = NULL;
 static void		*myVtable = NULL;
+
+#else
+
+// warning: egregious abuse of preprocessor follows!
+#define private public
+#define protected public
+#include <IOKit/hidsystem/IOHIDSystem.h>
+#undef private
+#undef protected
+
+#include <IOKit/IOCommandGate.h>
+
+typedef struct _IOHIDCmdGateActionArgs {
+    void* arg0; void* arg1; void* arg2; void* arg3; void* arg4;
+    void* arg5; void* arg6; void* arg7; void* arg8; void *arg9;
+} IOHIDCmdGateActionArgs;
+
+#endif
+
 
 // int variable to set the configuration of DoubleCommand
 int dcConfig = 0;
@@ -43,6 +66,8 @@ int dcConfig = 0;
 // Macro which helps clean up and optimise the flag changing code
 #define REMOVE(x, y)	( (x) ^= ((x) & (y)) )
 
+
+#ifdef IOHIDSystem_AVAILABLE
 
 //----------------------------------------------------------------------------
 class MBHIDHack : public IOHIDSystem
@@ -120,6 +145,8 @@ MBHidExit(void)
 	return 0;
 }
 
+#endif
+
 
 // key remapping stuff down here.
 //unsigned char setCommandFlag = 0;
@@ -148,6 +175,8 @@ unsigned addFlags = 0;
 unsigned removeFlags = 0;
 
 
+#ifdef IOHIDSystem_AVAILABLE
+
 //----------------------------------------------------------------------------
 void MBHIDHack::keyboardEvent(unsigned   eventType,
       /* flags */            unsigned   flags,
@@ -160,6 +189,25 @@ void MBHIDHack::keyboardEvent(unsigned   eventType,
       /* repeat */           bool       repeat,
       /* atTime */           AbsoluteTime ts)
 {
+
+#else
+
+IOReturn keyboardEventAction(IOHIDSystem* self, void* arg0, void* arg1, void* arg2, void* arg3) {
+    IOHIDCmdGateActionArgs* args = (IOHIDCmdGateActionArgs*)arg0;
+    unsigned   eventType        = *(unsigned *)         ((IOHIDCmdGateActionArgs *)args)->arg0;
+    unsigned   flags            = *(unsigned *)         ((IOHIDCmdGateActionArgs *)args)->arg1;
+    unsigned   key              = *(unsigned *)         ((IOHIDCmdGateActionArgs *)args)->arg2;
+    unsigned   charCode         = *(unsigned *)         ((IOHIDCmdGateActionArgs *)args)->arg3;
+    unsigned   charSet          = *(unsigned *)         ((IOHIDCmdGateActionArgs *)args)->arg4;
+    unsigned   origCharCode     = *(unsigned *)         ((IOHIDCmdGateActionArgs *)args)->arg5;
+    unsigned   origCharSet      = *(unsigned *)         ((IOHIDCmdGateActionArgs *)args)->arg6;
+    unsigned   keyboardType     = *(unsigned *)         ((IOHIDCmdGateActionArgs *)args)->arg7;
+    bool       repeat           = *(bool *)             ((IOHIDCmdGateActionArgs *)args)->arg8;
+    AbsoluteTime ts             = *(AbsoluteTime *)     ((IOHIDCmdGateActionArgs *)args)->arg9;
+
+
+#endif
+
 	unsigned flavor = 0;
 	UInt64 guid = 0;
 #ifdef MB_DEBUG
@@ -802,7 +850,18 @@ if(keepKeyboardEvent)
 #ifdef MB_DEBUG
 	printf("sending hid event type %d flags 0x%x key %d charCode %d charSet %d origCharCode %d origCharSet %d kbdType %d\n", eventType, flags, key, charCode, charSet, origCharCode, origCharSet, keyboardType);
 #endif
+
+#ifdef IOHIDSystem_AVAILABLE
+
     IOHIDSystem::keyboardEvent(eventType, flags, key, charCode, charSet, origCharCode, origCharSet, keyboardType, repeat, ts);
+
+#else
+
+    IOHIDSystem::instance()->keyboardEventGated(eventType, flags, key, charCode, charSet, origCharCode, origCharSet, keyboardType, repeat, ts, NULL);
+
+
+#endif
+
 }
 else
 {
@@ -810,13 +869,28 @@ else
 	printf("CHANGE sending special event type %d flags 0x%x key %d flavor %d\n", eventType, flags, key, flavor);
 #endif
 	keepKeyboardEvent = 1;
-	// perhaps this will work?
-	//oldVtable->keyboardSpecialEvent();
+
+#ifdef IOHIDSystem_AVAILABLE
+
 	IOHIDSystem::keyboardSpecialEvent(eventType, flags, key, flavor, guid, repeat, ts);
+
+#else
+
+    IOHIDSystem::instance()->keyboardSpecialEventGated(eventType, flags, key, flavor, guid, repeat, ts, NULL);
+
+
+#endif
+
 }
+#ifdef IOHIDSystem_AVAILABLE
+#else
+	return kIOReturnSuccess;
+#endif
 
 } // end MBHIDHack::keyboardEvent()
 
+
+#ifdef IOHIDSystem_AVAILABLE
 
 //----------------------------------------------------------------------------
 void MBHIDHack::keyboardSpecialEvent(   unsigned   eventType,
@@ -827,8 +901,27 @@ void MBHIDHack::keyboardSpecialEvent(   unsigned   eventType,
                        /* repeat */       bool       repeat,
                        /* atTime */       AbsoluteTime ts)
 {
+
+#else
+
+IOReturn keyboardSpecialEventAction(IOHIDSystem* self, void* arg0, void* arg1, void* arg2, void* arg3) {
+      IOHIDCmdGateActionArgs* args = (IOHIDCmdGateActionArgs*)arg0;
+      unsigned   eventType= *(unsigned *) ((IOHIDCmdGateActionArgs *)args)->arg0;
+      unsigned   flags    = *(unsigned *) ((IOHIDCmdGateActionArgs *)args)->arg1;
+      unsigned   key      = *(unsigned *) ((IOHIDCmdGateActionArgs *)args)->arg2;
+      unsigned   flavor   = *(unsigned *) ((IOHIDCmdGateActionArgs *)args)->arg3;
+      UInt64     guid     = *(UInt64 *)   ((IOHIDCmdGateActionArgs *)args)->arg4;
+      bool       repeat   = *(bool *)     ((IOHIDCmdGateActionArgs *)args)->arg5;
+      AbsoluteTime ts     = *(AbsoluteTime *)((IOHIDCmdGateActionArgs *)args)->arg6;
+
+
+#endif
+
 	unsigned charCode = 0;
 	unsigned charSet = 0;
+	//unsigned keyboardType = lastKeyboardType;
+	//unsigned origCharCode = charCode;
+	//unsigned origCharSet = charSet;
 #ifdef MB_DEBUG
 	printf("caught  special event type %d flags 0x%x key %d flavor %d\n", eventType, flags, key, flavor);
 #endif
@@ -1045,7 +1138,11 @@ if (dcConfig != 0)
 			{
 				if(eventType == KEY_DOWN)
 				{
+#ifdef IOHIDSystem_AVAILABLE
 					return;
+#else
+					return kIOReturnSuccess;
+#endif
 				}
 				keepSpecialEvent = 0;
 				key = CONTROL_KEY;
@@ -1068,7 +1165,17 @@ if(keepSpecialEvent)
 #ifdef MB_DEBUG
 	printf("sending special event type %d flags 0x%x key %d flavor %d\n", eventType, flags, key, flavor);
 #endif
+
+#ifdef IOHIDSystem_AVAILABLE
+
 	IOHIDSystem::keyboardSpecialEvent(eventType, flags, key, flavor, guid, repeat, ts);
+
+#else
+
+    IOHIDSystem::instance()->keyboardSpecialEventGated(eventType, flags, key, flavor, guid, repeat, ts, NULL);
+
+#endif
+
 }
 else
 {
@@ -1077,7 +1184,95 @@ else
 #endif
 	keepSpecialEvent = 1;
 	charSet = 254;
+
+#ifdef IOHIDSystem_AVAILABLE
+
     IOHIDSystem::keyboardEvent(eventType, flags, key, charCode, charSet, charCode, charSet, lastKeyboardType, repeat, ts);
+
+#else
+
+    IOHIDSystem::instance()->keyboardEventGated(eventType, flags, key, charCode, charSet, charCode, charSet, lastKeyboardType, repeat, ts, NULL);
+
+#endif
+
 }
+#ifdef IOHIDSystem_AVAILABLE
+#else
+	return kIOReturnSuccess;
+#endif
 
 } // end MBHIDHack::keyboardSpecialEvent()
+
+
+#ifdef IOHIDSystem_AVAILABLE
+#else
+
+
+class MyCmdGate : public IOCommandGate {
+public:
+    IOCommandGate *parent;
+    MyCmdGate(IOCommandGate *new_parent) { parent = new_parent; }
+
+  virtual bool checkForWork() { return parent->checkForWork(); }
+  virtual bool init(OSObject *owner, Action action = 0) { return 1; }
+  virtual IOReturn runCommand(void *arg0 = 0, void *arg1 = 0, void *arg2 = 0, void *arg3 = 0) {
+      return parent->runCommand(arg0, arg1, arg2, arg3);
+  }
+  virtual IOReturn attemptCommand(void *arg0 = 0, void *arg1 = 0, void *arg2 = 0, void *arg3 = 0) {
+      return parent->attemptCommand(arg0, arg1, arg2, arg3);
+  }
+  virtual IOReturn attemptAction(Action action, void *arg0 = 0, void *arg1 = 0, void *arg2 = 0, void *arg3 = 0) {
+      return parent->attemptAction(action, arg0, arg1, arg2, arg3);
+  }
+  virtual IOReturn commandSleep(void *event, UInt32 interruptible = THREAD_ABORTSAFE) {
+      return parent->commandSleep(event, interruptible);
+  }
+  virtual void commandWakeup(void *event, bool oneThread = false) {
+      return parent->commandWakeup(event, oneThread);
+  }
+  virtual IOReturn runAction(Action action, void *arg0 = 0, void *arg1 = 0, void *arg2 = 0, void *arg3 = 0) {
+      if (action == (Action)&IOHIDSystem::doKeyboardSpecialEvent) {
+          action = (Action)keyboardSpecialEventAction;
+      } else if (action == (Action)&IOHIDSystem::doKeyboardEvent) {
+          action = (Action)keyboardEventAction;
+      }
+      return parent->runAction(action, arg0, arg1, arg2, arg3);
+  }
+};
+
+static MyCmdGate *myCmdGate = NULL;
+
+int     MBHidInit(void)
+{
+    IOHIDSystem     *p = IOHIDSystem::instance();
+
+    if (p == NULL) {
+        // IOHIDSystem not loaded
+        printf("error: cannot load DoubleCommand!\n");
+        return 1;
+    }
+
+    if (myCmdGate == NULL) myCmdGate = new MyCmdGate(p->cmdGate);
+    if (p->cmdGate == myCmdGate) {
+        printf("error: module DoubleCommand already loaded!\n");
+        return 1;
+    }
+
+    p->cmdGate = myCmdGate;
+    return 0;
+}
+
+int     MBHidExit(void)
+{
+    IOHIDSystem     *p = IOHIDSystem::instance();
+
+    if (p->cmdGate != myCmdGate) {
+        printf("error: cannot unload DoubleCommand!\n");
+        return 1;
+    }
+    
+    p->cmdGate = myCmdGate->parent;
+    return 0;
+}
+
+#endif

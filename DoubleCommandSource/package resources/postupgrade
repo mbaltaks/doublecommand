@@ -1,0 +1,7 @@
+#!/bin/sh
+# postinstall
+dcscript=/Library/StartupItems/DoubleCommand/DoubleCommand
+
+if [ -e "$dcscript" ]; then
+    $dcscript start
+fi

@@ -129,7 +129,7 @@
 	<key>CFBundleExecutable</key>
 	<string>DoubleCommand</string>
 	<key>CFBundleGetInfoString</key>
-	<string>DoubleCommand 1.4.4b3 Copyright 2001-2003 Michael Baltaks</string>
+	<string>DoubleCommand 1.4.4b4 Copyright 2001-2003 Michael Baltaks</string>
 	<key>CFBundleIconFile</key>
 	<string></string>
 	<key>CFBundleIdentifier</key>
@@ -141,11 +141,11 @@
 	<key>CFBundlePackageType</key>
 	<string>KEXT</string>
 	<key>CFBundleShortVersionString</key>
-	<string>DoubleCommand 1.4.4b3</string>
+	<string>DoubleCommand 1.4.4b4</string>
 	<key>CFBundleSignature</key>
 	<string>BALT</string>
 	<key>CFBundleVersion</key>
-	<string>1.4.4b3</string>
+	<string>1.4.4b4</string>
 	<key>OSBundleLibraries</key>
 	<dict>
 		<key>com.apple.iokit.IOHIDSystem</key>

@@ -1205,7 +1205,7 @@
 		isa = PBXTextBookmark;
 		name = "install.html: 59";
 		rLen = 0;
-		rLoc = 4795;
+		rLoc = 4840;
 		rType = 0;
 		vrLen = 2804;
 		vrLoc = 3194;
@@ -1225,7 +1225,7 @@
 		isa = PBXTextBookmark;
 		name = "install.html: 59";
 		rLen = 0;
-		rLoc = 4795;
+		rLoc = 4840;
 		rType = 0;
 		vrLen = 2706;
 		vrLoc = 3194;
@@ -1235,7 +1235,7 @@
 		isa = PBXTextBookmark;
 		name = "index.html: 25";
 		rLen = 0;
-		rLoc = 1363;
+		rLoc = 1461;
 		rType = 0;
 		vrLen = 2390;
 		vrLoc = 0;
@@ -1563,7 +1563,7 @@
 		isa = PBXTextBookmark;
 		name = "index.html: 30";
 		rLen = 0;
-		rLoc = 2188;
+		rLoc = 2286;
 		rType = 0;
 		vrLen = 2890;
 		vrLoc = 0;
@@ -1573,7 +1573,7 @@
 		isa = PBXTextBookmark;
 		name = "install.html: 60";
 		rLen = 0;
-		rLoc = 4745;
+		rLoc = 4790;
 		rType = 0;
 		vrLen = 2868;
 		vrLoc = 2879;
@@ -1623,7 +1623,7 @@
 		isa = PBXTextBookmark;
 		name = "index.html: 116";
 		rLen = 141;
-		rLoc = 7976;
+		rLoc = 8167;
 		rType = 0;
 		vrLen = 1571;
 		vrLoc = 6325;
@@ -1633,9 +1633,9 @@
 		isa = PBXTextBookmark;
 		name = "install.html: 104";
 		rLen = 0;
-		rLoc = 7350;
+		rLoc = 6522;
 		rType = 0;
-		vrLen = 1934;
+		vrLen = 1180;
 		vrLoc = 5297;
 	};
 	00E9C0F004C5070F00020933 = {
@@ -1643,7 +1643,7 @@
 		isa = PBXTextBookmark;
 		name = "download.html: 66";
 		rLen = 0;
-		rLoc = 3448;
+		rLoc = 3468;
 		rType = 0;
 		vrLen = 1946;
 		vrLoc = 1458;
@@ -1683,7 +1683,7 @@
 		isa = PBXTextBookmark;
 		name = "index.html: 27";
 		rLen = 0;
-		rLoc = 1363;
+		rLoc = 1461;
 		rType = 0;
 		vrLen = 2650;
 		vrLoc = 0;
@@ -1693,7 +1693,7 @@
 		isa = PBXTextBookmark;
 		name = "install.html: 60";
 		rLen = 0;
-		rLoc = 4795;
+		rLoc = 4840;
 		rType = 0;
 		vrLen = 3036;
 		vrLoc = 2879;
@@ -1713,7 +1713,7 @@
 		isa = PBXTextBookmark;
 		name = "index.html: 27";
 		rLen = 0;
-		rLoc = 1363;
+		rLoc = 1461;
 		rType = 0;
 		vrLen = 2650;
 		vrLoc = 0;
@@ -1773,7 +1773,7 @@
 		isa = PBXTextBookmark;
 		name = "install.html: 60";
 		rLen = 0;
-		rLoc = 4735;
+		rLoc = 4780;
 		rType = 0;
 		vrLen = 2868;
 		vrLoc = 2879;
@@ -1803,7 +1803,7 @@
 		isa = PBXTextBookmark;
 		name = "index.html: 25";
 		rLen = 0;
-		rLoc = 1363;
+		rLoc = 1461;
 		rType = 0;
 		vrLen = 2778;
 		vrLoc = 0;
@@ -1823,7 +1823,7 @@
 		isa = PBXTextBookmark;
 		name = "index.html: 30";
 		rLen = 0;
-		rLoc = 2188;
+		rLoc = 2286;
 		rType = 0;
 		vrLen = 2890;
 		vrLoc = 0;
@@ -1843,7 +1843,7 @@
 		isa = PBXTextBookmark;
 		name = "install.html: 60";
 		rLen = 0;
-		rLoc = 4745;
+		rLoc = 4790;
 		rType = 0;
 		vrLen = 2868;
 		vrLoc = 2879;

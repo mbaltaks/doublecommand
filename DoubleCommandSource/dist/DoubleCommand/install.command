@@ -47,3 +47,4 @@ sudo chmod 644 ./DoubleCommand.kext/Contents/Resources/English.lproj/InfoPlist.s
 sudo chmod 644 ./DoubleCommand.kext/Contents/pbdevelopment.plist
 #sudo ./DoubleCommand stop
 sudo ./DoubleCommand start
+echo "DoubleCommand installation finished, it is now safe to close this window."

@@ -11,7 +11,7 @@
  * Copyright: GNU General Public License version 2.0
  */
 
-#define MB_DEBUG
+//#define MB_DEBUG
 
 #ifdef __cplusplus
     extern "C"
@@ -429,17 +429,15 @@ if (dcConfig != 0)
 			}
 			if (dcConfig & FN_TO_CONTROL)
 			{
-				if (fnHeldDown) // this event is a key up
+				if (fnHeldDown) // this event is a key down
 				{
-					//fnHeldDown = 0;
-					REMOVE(addFlags, CONTROL_FLAG);
-					REMOVE(removeFlags, FN_FLAG);
-				}
-				else // this event is a key down
-				{
-					//fnHeldDown = 1;
 					addFlags |= CONTROL_FLAG;
 					removeFlags |= FN_FLAG;
+				}
+				else // this event is a key up
+				{
+					REMOVE(addFlags, CONTROL_FLAG);
+					REMOVE(removeFlags, FN_FLAG);
 				}
 				key = CONTROL_KEY;
 			}
@@ -550,7 +548,14 @@ if (dcConfig != 0)
 		break; // end backslash key
 
 		case F1: // begin F1 key
-			if ( (dcConfig & SWAP_FUNCTION_KEYS) && (lastKeyboardType != APPLE_PRO_2003_KEYBOARD) )
+			if ( (dcConfig & SWAP_FUNCTION_KEYS)
+				&&
+					(
+					(lastKeyboardType == POWERBOOKG3_KEYBOARD)
+					|| (lastKeyboardType == TIBOOK_KEYBOARD)
+					|| (lastKeyboardType == IBOOK_KEYBOARD)
+					)
+				)
 			{
 				key = BRIGHTNESS_DOWN;
 				flavor = 3;
@@ -559,7 +564,14 @@ if (dcConfig != 0)
 			}
 		break; // end F1 key
 		case F2: // begin F2 key
-			if ( (dcConfig & SWAP_FUNCTION_KEYS) && (lastKeyboardType != APPLE_PRO_2003_KEYBOARD) )
+			if ( (dcConfig & SWAP_FUNCTION_KEYS)
+				&&
+					(
+					(lastKeyboardType == POWERBOOKG3_KEYBOARD)
+					|| (lastKeyboardType == TIBOOK_KEYBOARD)
+					|| (lastKeyboardType == IBOOK_KEYBOARD)
+					)
+				)
 			{
 				key = BRIGHTNESS_UP;
 				flavor = 2;
@@ -568,25 +580,68 @@ if (dcConfig != 0)
 			}
 		break; // end F2 key
 		case F3: // begin F3 key
-			if ( (dcConfig & SWAP_FUNCTION_KEYS) && (lastKeyboardType != APPLE_PRO_2003_KEYBOARD) )
+			if ( (dcConfig & SWAP_FUNCTION_KEYS)
+				&&
+					(
+					(lastKeyboardType == IBOOK_KEYBOARD)
+					)
+				)
 			{
 				key = VOLUME_MUTE;
 				flavor = 7;
 				keepKeyboardEvent = 0;
 				removeFlags |= FN_FLAG;
 			}
-		break; // end F3 key
-		case F4: // begin F4 key
-			if ( (dcConfig & SWAP_FUNCTION_KEYS) && (lastKeyboardType != APPLE_PRO_2003_KEYBOARD) )
+			if ( (dcConfig & SWAP_FUNCTION_KEYS)
+				&&
+					(
+					(lastKeyboardType == POWERBOOKG3_KEYBOARD)
+					|| (lastKeyboardType == TIBOOK_KEYBOARD)
+					)
+				)
 			{
 				key = VOLUME_DOWN;
 				flavor = 1;
 				keepKeyboardEvent = 0;
 				removeFlags |= FN_FLAG;
 			}
+		break; // end F3 key
+		case F4: // begin F4 key
+			if ( (dcConfig & SWAP_FUNCTION_KEYS)
+				&&
+					(
+					(lastKeyboardType == IBOOK_KEYBOARD)
+					)
+				)
+			{
+				key = VOLUME_DOWN;
+				flavor = 1;
+				keepKeyboardEvent = 0;
+				removeFlags |= FN_FLAG;
+			}
+			if ( (dcConfig & SWAP_FUNCTION_KEYS)
+				&&
+					(
+					(lastKeyboardType == POWERBOOKG3_KEYBOARD)
+					|| (lastKeyboardType == TIBOOK_KEYBOARD)
+					)
+				)
+			{
+				key = VOLUME_UP;
+				flavor = 0;
+				keepKeyboardEvent = 0;
+				removeFlags |= FN_FLAG;
+			}
 		break; // end F4 key
 		case F5: // begin F5 key
-			if ( (dcConfig & SWAP_FUNCTION_KEYS) && (lastKeyboardType != APPLE_PRO_2003_KEYBOARD) )
+			if ( (dcConfig & SWAP_FUNCTION_KEYS)
+				&&
+					(
+					(lastKeyboardType == POWERBOOKG3_KEYBOARD)
+					|| (lastKeyboardType == TIBOOK_KEYBOARD)
+					|| (lastKeyboardType == IBOOK_KEYBOARD)
+					)
+				)
 			{
 				key = VOLUME_UP;
 				flavor = 0;
@@ -595,7 +650,14 @@ if (dcConfig != 0)
 			}
 		break; // end F5 key
 		case F6: // begin F6 key
-			if ( (dcConfig & SWAP_FUNCTION_KEYS) && (lastKeyboardType != APPLE_PRO_2003_KEYBOARD) )
+			if ( (dcConfig & SWAP_FUNCTION_KEYS)
+				&&
+					(
+					(lastKeyboardType == POWERBOOKG3_KEYBOARD)
+					|| (lastKeyboardType == TIBOOK_KEYBOARD)
+					|| (lastKeyboardType == IBOOK_KEYBOARD)
+					)
+				)
 			{
 				key = SPECIAL_KEY;
 				flavor = 10;
@@ -607,10 +669,14 @@ if (dcConfig != 0)
 		actually, we can probably do this if the fn flag is set - 
 		that would mean a 17" PBG4 keyboard */
 		case F7: // begin F7 key
-			if (
-				(dcConfig & SWAP_FUNCTION_KEYS) && 
-				(lastKeyboardType != APPLE_PRO_2003_KEYBOARD) &&
-				(flags & FN_FLAG)
+			if ( (dcConfig & SWAP_FUNCTION_KEYS)
+				&&
+					(
+					(lastKeyboardType == POWERBOOKG3_KEYBOARD)
+					|| (lastKeyboardType == TIBOOK_KEYBOARD)
+					|| (lastKeyboardType == IBOOK_KEYBOARD)
+					)
+				&& (flags & FN_FLAG)
 				)
 			{
 				key = F7a;
@@ -620,10 +686,14 @@ if (dcConfig != 0)
 			}
 		break; // end F7 key
 		case F8: // begin F8 key
-			if (
-				(dcConfig & SWAP_FUNCTION_KEYS) && 
-				(lastKeyboardType != APPLE_PRO_2003_KEYBOARD) &&
-				(flags & FN_FLAG)
+			if ( (dcConfig & SWAP_FUNCTION_KEYS)
+				&&
+					(
+					(lastKeyboardType == POWERBOOKG3_KEYBOARD)
+					|| (lastKeyboardType == TIBOOK_KEYBOARD)
+					|| (lastKeyboardType == IBOOK_KEYBOARD)
+					)
+				&& (flags & FN_FLAG)
 				)
 			{
 				key = F8a;
@@ -633,10 +703,14 @@ if (dcConfig != 0)
 			}
 		break; // end F8 key
 		case F9: // begin F9 key
-			if (
-				(dcConfig & SWAP_FUNCTION_KEYS) && 
-				(lastKeyboardType != APPLE_PRO_2003_KEYBOARD) &&
-				(flags & FN_FLAG)
+			if ( (dcConfig & SWAP_FUNCTION_KEYS)
+				&&
+					(
+					(lastKeyboardType == POWERBOOKG3_KEYBOARD)
+					|| (lastKeyboardType == TIBOOK_KEYBOARD)
+					|| (lastKeyboardType == IBOOK_KEYBOARD)
+					)
+				&& (flags & FN_FLAG)
 				)
 			{
 				key = F9a;
@@ -646,10 +720,14 @@ if (dcConfig != 0)
 			}
 		break; // end F9 key
 		case F10: // begin F10 key
-			if (
-				(dcConfig & SWAP_FUNCTION_KEYS) && 
-				(lastKeyboardType != APPLE_PRO_2003_KEYBOARD) &&
-				(flags & FN_FLAG)
+			if ( (dcConfig & SWAP_FUNCTION_KEYS)
+				&&
+					(
+					(lastKeyboardType == POWERBOOKG3_KEYBOARD)
+					|| (lastKeyboardType == TIBOOK_KEYBOARD)
+					|| (lastKeyboardType == IBOOK_KEYBOARD)
+					)
+				&& (flags & FN_FLAG)
 				)
 			{
 				key = F10a;
@@ -753,27 +831,78 @@ if (dcConfig != 0)
 			}
 		break; // end F2 key
 		case VOLUME_MUTE: // begin F3 key
-			if ( (dcConfig & SWAP_FUNCTION_KEYS) && (lastKeyboardType != APPLE_PRO_2003_KEYBOARD) )
+			if ( (dcConfig & SWAP_FUNCTION_KEYS)
+				&&
+					(
+					(lastKeyboardType == IBOOK_KEYBOARD)
+					)
+				)
 			{
 				keepSpecialEvent = 0;
 				key = F3;
 				charCode = 34;
 			}
+			if ( (dcConfig & SWAP_FUNCTION_KEYS)
+				&&
+					(
+					(lastKeyboardType == POWERBOOKG3_KEYBOARD)
+					|| (lastKeyboardType == TIBOOK_KEYBOARD)
+					)
+				)
+			{
+				keepSpecialEvent = 0;
+				key = F6;
+				charCode = 37;
+			}
 		break; // end F3 key
 		case VOLUME_DOWN: // begin F4 key
-			if ( (dcConfig & SWAP_FUNCTION_KEYS) && (lastKeyboardType != APPLE_PRO_2003_KEYBOARD) )
+			if ( (dcConfig & SWAP_FUNCTION_KEYS)
+				&&
+					(
+					(lastKeyboardType == IBOOK_KEYBOARD)
+					)
+				)
 			{
 				keepSpecialEvent = 0;
 				key = F4;
 				charCode = 35;
 			}
+			if ( (dcConfig & SWAP_FUNCTION_KEYS)
+				&&
+					(
+					(lastKeyboardType == POWERBOOKG3_KEYBOARD)
+					|| (lastKeyboardType == TIBOOK_KEYBOARD)
+					)
+				)
+			{
+				keepSpecialEvent = 0;
+				key = F3;
+				charCode = 34;
+			}
 		break; // end F4 key
 		case VOLUME_UP: // begin F5 key
-			if ( (dcConfig & SWAP_FUNCTION_KEYS) && (lastKeyboardType != APPLE_PRO_2003_KEYBOARD) )
+			if ( (dcConfig & SWAP_FUNCTION_KEYS)
+				&&
+					(
+					(lastKeyboardType == IBOOK_KEYBOARD)
+					)
+				)
 			{
 				keepSpecialEvent = 0;
 				key = F5;
 				charCode = 36;
+			}
+			if ( (dcConfig & SWAP_FUNCTION_KEYS)
+				&&
+					(
+					(lastKeyboardType == POWERBOOKG3_KEYBOARD)
+					|| (lastKeyboardType == TIBOOK_KEYBOARD)
+					)
+				)
+			{
+				keepSpecialEvent = 0;
+				key = F4;
+				charCode = 35;
 			}
 		break; // end F5 key
 		case SPECIAL_KEY: // begin F6 key

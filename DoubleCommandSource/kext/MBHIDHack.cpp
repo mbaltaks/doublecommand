@@ -540,6 +540,87 @@ if (dcConfig != 0)
 				unsetfnFlag = 1;
 			}
 		break; // end F1 key
+		case F2: // begin F2 key
+			if(dcConfig & SWAP_FUNCTION_KEYS)
+			{
+				key = F2a;
+				flavor = 2;
+				keepKeyboardEvent = 0;
+				unsetfnFlag = 1;
+			}
+		break; // end F2 key
+		case F3: // begin F3 key
+			if(dcConfig & SWAP_FUNCTION_KEYS)
+			{
+				key = F3a;
+				flavor = 7;
+				keepKeyboardEvent = 0;
+				unsetfnFlag = 1;
+			}
+		break; // end F3 key
+		case F4: // begin F4 key
+			if(dcConfig & SWAP_FUNCTION_KEYS)
+			{
+				key = F4a;
+				flavor = 1;
+				keepKeyboardEvent = 0;
+				unsetfnFlag = 1;
+			}
+		break; // end F4 key
+		case F5: // begin F5 key
+			if(dcConfig & SWAP_FUNCTION_KEYS)
+			{
+				key = F5a;
+				flavor = 0;
+				keepKeyboardEvent = 0;
+				unsetfnFlag = 1;
+			}
+		break; // end F5 key
+		case F6: // begin F6 key
+			if(dcConfig & SWAP_FUNCTION_KEYS)
+			{
+				key = F6a;
+				flavor = 10;
+				keepKeyboardEvent = 0;
+				unsetfnFlag = 1;
+			}
+		break; // end F6 key
+		case F7: // begin F7 key
+			if(dcConfig & SWAP_FUNCTION_KEYS)
+			{
+				key = F7a;
+				flavor = 15;
+				keepKeyboardEvent = 0;
+				unsetfnFlag = 1;
+			}
+		break; // end F7 key
+		case F8: // begin F8 key
+			if(dcConfig & SWAP_FUNCTION_KEYS)
+			{
+				key = F8a;
+				flavor = 23;
+				keepKeyboardEvent = 0;
+				unsetfnFlag = 1;
+			}
+		break; // end F8 key
+		case F9: // begin F9 key
+			if(dcConfig & SWAP_FUNCTION_KEYS)
+			{
+				key = F9a;
+				flavor = 22;
+				keepKeyboardEvent = 0;
+				unsetfnFlag = 1;
+			}
+		break; // end F9 key
+		case F10: // begin F10 key
+			if(dcConfig & SWAP_FUNCTION_KEYS)
+			{
+				key = F10a;
+				flavor = 21;
+				keepKeyboardEvent = 0;
+				unsetfnFlag = 1;
+			}
+		break; // end F10 key
 
 	} // end switch (key)
 
@@ -572,11 +653,10 @@ if (dcConfig != 0)
 	}
 	// end supplied by Giel Scharff <mgsch@mac.com>
 
-	// wipe out capslock entirely
-    //if (flags & CAPS_FLAG)
-	//{
-	//	flags ^= CAPS_FLAG;
-    //}
+	if( (dcConfig & CAPSLOCK_DISABLED) && (flags & CAPSLOCK_FLAG) )
+	{
+		flags ^= CAPSLOCK_FLAG;
+	}
 
 	if (unsetCommandFlag)
 	{
@@ -652,12 +732,82 @@ if (dcConfig != 0)
 			{
 				keepSpecialEvent = 0;
 				key = F1;
-				setfnFlag = 1;
+				//setfnFlag = 1;
 				charCode = 32;
-				charSet = 254;
-				keyboardType = 202;
 			}
 		break; // end F1 key
+		case F2a: // begin F2 key
+			if (dcConfig & SWAP_FUNCTION_KEYS)
+			{
+				keepSpecialEvent = 0;
+				key = F2;
+				charCode = 33;
+			}
+		break; // end F2 key
+		case F3a: // begin F3 key
+			if (dcConfig & SWAP_FUNCTION_KEYS)
+			{
+				keepSpecialEvent = 0;
+				key = F3;
+				charCode = 34;
+			}
+		break; // end F3 key
+		case F4a: // begin F4 key
+			if (dcConfig & SWAP_FUNCTION_KEYS)
+			{
+				keepSpecialEvent = 0;
+				key = F4;
+				charCode = 35;
+			}
+		break; // end F4 key
+		case F5a: // begin F5 key
+			if (dcConfig & SWAP_FUNCTION_KEYS)
+			{
+				keepSpecialEvent = 0;
+				key = F5;
+				charCode = 36;
+			}
+		break; // end F5 key
+		case F6a: // begin F6 key
+			if (dcConfig & SWAP_FUNCTION_KEYS)
+			{
+				keepSpecialEvent = 0;
+				key = F6;
+				charCode = 37;
+			}
+		break; // end F6 key
+		case F7a: // begin F7 key
+			if (dcConfig & SWAP_FUNCTION_KEYS)
+			{
+				keepSpecialEvent = 0;
+				key = F7;
+				charCode = 38;
+			}
+		break; // end F7 key
+		case F8a: // begin F8 key
+			if (dcConfig & SWAP_FUNCTION_KEYS)
+			{
+				keepSpecialEvent = 0;
+				key = F8;
+				charCode = 39;
+			}
+		break; // end F8 key
+		case F9a: // begin F9 key
+			if (dcConfig & SWAP_FUNCTION_KEYS)
+			{
+				keepSpecialEvent = 0;
+				key = F9;
+				charCode = 40;
+			}
+		break; // end F9 key
+		case F10a: // begin F10 key
+			if (dcConfig & SWAP_FUNCTION_KEYS)
+			{
+				keepSpecialEvent = 0;
+				key = F10;
+				charCode = 41;
+			}
+		break; // end F10 key
 
 	} // end switch (key)
 	if (unsetfnFlag)
@@ -679,6 +829,8 @@ if(keepSpecialEvent)
 }
 else
 {
+	keyboardType = 202;
+	charSet = 254;
     IOHIDSystem::keyboardEvent(eventType, flags, key, charCode, charSet, charCode, charSet, keyboardType, repeat, ts);
 }
 keepSpecialEvent = 1;

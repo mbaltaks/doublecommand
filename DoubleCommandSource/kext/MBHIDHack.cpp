@@ -408,17 +408,26 @@ if (dcConfig != 0)
 		break; // end control key
 
 		case FN_KEY: // begin fn key
+			if (flags & FN_FLAG)
+			{
+				fnHeldDown = 1;
+			}
+			else
+			{
+				fnHeldDown = 0;
+				unsetfnFlag = 0;
+			}
 			if (dcConfig & FN_TO_CONTROL)
 			{
 				if (fnHeldDown) // this event is a key up
 				{
-					fnHeldDown = 0;
+					//fnHeldDown = 0;
 					setControlFlag = 0;
 					unsetfnFlag = 0;
 				}
 				else // this event is a key down
 				{
-					fnHeldDown = 1;
+					//fnHeldDown = 1;
 					setControlFlag = 1;
 					unsetfnFlag = 1;
 				}
@@ -701,53 +710,53 @@ if (dcConfig != 0)
 
 	if (unsetCommandFlag)
 	{
-		unsetCommandFlag = 0;
+		//unsetCommandFlag = 0;
 		flags ^= COMMAND_FLAG;
 		//flags ^= 0x100000;
 	}
 	if (unsetOptionFlag)
 	{
-		unsetOptionFlag = 0;
+		//unsetOptionFlag = 0;
 		flags ^= OPTION_FLAG;
 	}
 	if (unsetControlFlag)
 	{
-		unsetControlFlag = 0;
+		//unsetControlFlag = 0;
 		flags ^= CONTROL_FLAG;
 	}
 	if (unsetfnFlag)
 	{
-		unsetfnFlag = 0;
+		//unsetfnFlag = 0;
 		flags ^= FN_FLAG;
 	}
 	if (unsetCapslockFlag)
 	{
-		unsetCapslockFlag = 0;
+		//unsetCapslockFlag = 0;
 		flags ^= CAPSLOCK_FLAG;
 	}
 	if (setCommandFlag)
 	{
-		setCommandFlag = 0;
+		//setCommandFlag = 0;
 		flags |= COMMAND_FLAG;
 	}
 	if (setControlFlag)
 	{
-		setControlFlag = 0;
+		//setControlFlag = 0;
 		flags |= CONTROL_FLAG;
 	}
 	if (setOptionFlag)
 	{
-		setOptionFlag = 0;
+		//setOptionFlag = 0;
 		flags |= OPTION_FLAG;
 	}
 	if (setfnFlag)
 	{
-		setfnFlag = 0;
+		//setfnFlag = 0;
 		flags |= FN_FLAG;
 	}
 	if (setCapslockFlag)
 	{
-		setCapslockFlag = 0;
+		//setCapslockFlag = 0;
 		flags |= CAPSLOCK_FLAG;
 	}
 } // end if dcConfig != 0
@@ -897,6 +906,7 @@ if (dcConfig != 0)
 	}
 	if (setfnFlag)
 	{
+		setfnFlag = 0;
 		flags |= FN_FLAG;
 	}
 } // end if dcConfig != 0

@@ -15,7 +15,7 @@
 		isa = PBXTextBookmark;
 		name = "MBHIDHack.cpp: 619";
 		rLen = 0;
-		rLoc = 15994;
+		rLoc = 16111;
 		rType = 0;
 		vrLen = 682;
 		vrLoc = 12980;
@@ -35,7 +35,7 @@
 		isa = PBXTextBookmark;
 		name = "MBHIDHack.cpp: 619";
 		rLen = 0;
-		rLoc = 15994;
+		rLoc = 16111;
 		rType = 0;
 		vrLen = 682;
 		vrLoc = 12980;
@@ -55,7 +55,7 @@
 		isa = PBXTextBookmark;
 		name = "MBHIDHack.cpp: 619";
 		rLen = 0;
-		rLoc = 15994;
+		rLoc = 16111;
 		rType = 0;
 		vrLen = 727;
 		vrLoc = 17772;
@@ -95,7 +95,7 @@
 		isa = PBXTextBookmark;
 		name = "MBHIDHack.cpp: 619";
 		rLen = 0;
-		rLoc = 15994;
+		rLoc = 16111;
 		rType = 0;
 		vrLen = 1058;
 		vrLoc = 17007;
@@ -115,7 +115,7 @@
 		isa = PBXTextBookmark;
 		name = "MBHIDHack.cpp: 537";
 		rLen = 0;
-		rLoc = 13565;
+		rLoc = 13682;
 		rType = 0;
 		vrLen = 720;
 		vrLoc = 12518;
@@ -135,7 +135,7 @@
 		isa = PBXTextBookmark;
 		name = "MBHIDHack.cpp: 739";
 		rLen = 0;
-		rLoc = 19800;
+		rLoc = 19937;
 		rType = 0;
 		vrLen = 779;
 		vrLoc = 17606;
@@ -155,7 +155,7 @@
 		isa = PBXTextBookmark;
 		name = "MBHIDHack.cpp: 555";
 		rLen = 0;
-		rLoc = 14043;
+		rLoc = 14160;
 		rType = 0;
 		vrLen = 713;
 		vrLoc = 13419;
@@ -175,7 +175,7 @@
 		isa = PBXTextBookmark;
 		name = "MBHIDHack.cpp: 755";
 		rLen = 0;
-		rLoc = 20185;
+		rLoc = 20322;
 		rType = 0;
 		vrLen = 760;
 		vrLoc = 18315;
@@ -195,7 +195,7 @@
 		isa = PBXTextBookmark;
 		name = "MBHIDHack.cpp: 573";
 		rLen = 0;
-		rLoc = 14517;
+		rLoc = 14634;
 		rType = 0;
 		vrLen = 764;
 		vrLoc = 13382;
@@ -215,7 +215,7 @@
 		isa = PBXTextBookmark;
 		name = "MBHIDHack.cpp: 771";
 		rLen = 0;
-		rLoc = 20621;
+		rLoc = 20758;
 		rType = 0;
 		vrLen = 750;
 		vrLoc = 18321;
@@ -235,7 +235,7 @@
 		isa = PBXTextBookmark;
 		name = "MBHIDHack.cpp: 593";
 		rLen = 0;
-		rLoc = 14992;
+		rLoc = 15109;
 		rType = 0;
 		vrLen = 1270;
 		vrLoc = 14165;
@@ -259,7 +259,7 @@
 		isa = PBXTextBookmark;
 		name = "MBHIDHack.cpp: 598";
 		rLen = 0;
-		rLoc = 15141;
+		rLoc = 15258;
 		rType = 0;
 		vrLen = 1178;
 		vrLoc = 14401;
@@ -277,20 +277,6 @@
 	00206B8A0515239000020933 = {
 		isa = PBXTargetBookmark;
 		trg = 089C1673FE841209C02AAC07;
-		uiCtxt = {
-			TOCViewDetailVisibleRect = "{{0, 0}, {464, 520}}";
-			TOCViewExpandedItems = (
-				"com.apple.target-editor-pane.settings",
-				"com.apple.target-editor-pane.settings.simple",
-				"com.apple.target-editor-pane.info-plist",
-				"com.apple.target-editor-pane.info-plist.simple",
-				"com.apple.target-editor-pane.buildphases",
-			);
-			TOCViewMasterVisibleRect = "{{0, 0}, {181, 520}}";
-			TOCViewSelectedItems = (
-				"com.apple.target-editor-pane.info-plist.simple",
-			);
-		};
 	};
 	00206B8B0515239000020933 = {
 		fRef = 089C167EFE841241C02AAC07;
@@ -311,16 +297,6 @@
 		rType = 0;
 		vrLen = 1010;
 		vrLoc = 357;
-	};
-	00206B8D0515239000020933 = {
-		fRef = F53B749C0278078E01BCB6FE;
-		isa = PBXTextBookmark;
-		name = "MBHIDHack.cpp: 835";
-		rLen = 11;
-		rLoc = 20610;
-		rType = 0;
-		vrLen = 1050;
-		vrLoc = 20353;
 	};
 	00206B8E0515239000020933 = {
 		fRef = F53B749C0278078E01BCB6FE;
@@ -367,7 +343,7 @@
 		isa = PBXTextBookmark;
 		name = "MBHIDHack.cpp: 807";
 		rLen = 0;
-		rLoc = 20646;
+		rLoc = 20783;
 		rType = 0;
 		vrLen = 1057;
 		vrLoc = 19570;
@@ -375,20 +351,6 @@
 	00206B930515239000020933 = {
 		isa = PBXTargetBookmark;
 		trg = 089C1673FE841209C02AAC07;
-		uiCtxt = {
-			TOCViewDetailVisibleRect = "{{0, 0}, {464, 520}}";
-			TOCViewExpandedItems = (
-				"com.apple.target-editor-pane.settings",
-				"com.apple.target-editor-pane.settings.simple",
-				"com.apple.target-editor-pane.info-plist",
-				"com.apple.target-editor-pane.info-plist.simple",
-				"com.apple.target-editor-pane.buildphases",
-			);
-			TOCViewMasterVisibleRect = "{{0, 0}, {181, 520}}";
-			TOCViewSelectedItems = (
-				"com.apple.target-editor-pane.info-plist.simple",
-			);
-		};
 	};
 	00206B940515239000020933 = {
 		fRef = 089C167EFE841241C02AAC07;
@@ -455,7 +417,7 @@
 		isa = PBXTextBookmark;
 		name = "MBHIDHack.cpp: 839";
 		rLen = 0;
-		rLoc = 20811;
+		rLoc = 20948;
 		rType = 0;
 		vrLen = 934;
 		vrLoc = 20488;
@@ -475,7 +437,7 @@
 		isa = PBXTextBookmark;
 		name = "MBHIDHack.cpp: 843";
 		rLen = 0;
-		rLoc = 21109;
+		rLoc = 21246;
 		rType = 0;
 		vrLen = 1119;
 		vrLoc = 20111;
@@ -495,7 +457,7 @@
 		isa = PBXTextBookmark;
 		name = "MBHIDHack.cpp: 846";
 		rLen = 0;
-		rLoc = 21109;
+		rLoc = 21246;
 		rType = 0;
 		vrLen = 1103;
 		vrLoc = 20111;
@@ -515,7 +477,7 @@
 		isa = PBXTextBookmark;
 		name = "MBHIDHack.cpp: 482";
 		rLen = 0;
-		rLoc = 11773;
+		rLoc = 11890;
 		rType = 0;
 		vrLen = 1082;
 		vrLoc = 20323;
@@ -535,7 +497,7 @@
 		isa = PBXTextBookmark;
 		name = "MBHIDHack.cpp: 835";
 		rLen = 11;
-		rLoc = 20610;
+		rLoc = 20747;
 		rType = 0;
 		vrLen = 1050;
 		vrLoc = 20353;
@@ -575,7 +537,7 @@
 		isa = PBXTextBookmark;
 		name = "MBHIDHack.cpp: 619";
 		rLen = 0;
-		rLoc = 15994;
+		rLoc = 16111;
 		rType = 0;
 		vrLen = 1171;
 		vrLoc = 9812;
@@ -595,7 +557,7 @@
 		isa = PBXTextBookmark;
 		name = "MBHIDHack.cpp: 619";
 		rLen = 0;
-		rLoc = 15994;
+		rLoc = 16111;
 		rType = 0;
 		vrLen = 1407;
 		vrLoc = 14751;
@@ -615,7 +577,7 @@
 		isa = PBXTextBookmark;
 		name = "MBHIDHack.cpp: 619";
 		rLen = 0;
-		rLoc = 15994;
+		rLoc = 16111;
 		rType = 0;
 		vrLen = 875;
 		vrLoc = 16133;
@@ -635,7 +597,7 @@
 		isa = PBXTextBookmark;
 		name = "MBHIDHack.cpp: 619";
 		rLen = 0;
-		rLoc = 15994;
+		rLoc = 16111;
 		rType = 0;
 		vrLen = 1199;
 		vrLoc = 9784;
@@ -665,7 +627,7 @@
 		isa = PBXTextBookmark;
 		name = "MBHIDHack.cpp: 525";
 		rLen = 0;
-		rLoc = 13386;
+		rLoc = 13503;
 		rType = 0;
 		vrLen = 1115;
 		vrLoc = 12219;
@@ -723,7 +685,7 @@
 		isa = PBXTextBookmark;
 		name = "MBHIDHack.cpp: 575";
 		rLen = 0;
-		rLoc = 22113;
+		rLoc = 22267;
 		rType = 0;
 		vrLen = 970;
 		vrLoc = 0;
@@ -775,7 +737,7 @@
 		isa = PBXTextBookmark;
 		name = "MBHIDHack.cpp: 518";
 		rLen = 0;
-		rLoc = 13362;
+		rLoc = 13479;
 		rType = 0;
 		vrLen = 972;
 		vrLoc = 0;
@@ -975,7 +937,7 @@
 		isa = PBXTextBookmark;
 		name = "MBHIDHack.cpp: 436";
 		rLen = 0;
-		rLoc = 10707;
+		rLoc = 10824;
 		rType = 0;
 		vrLen = 1176;
 		vrLoc = 9878;
@@ -995,7 +957,7 @@
 		isa = PBXTextBookmark;
 		name = "MBHIDHack.cpp: 706";
 		rLen = 0;
-		rLoc = 18132;
+		rLoc = 18269;
 		rType = 0;
 		vrLen = 1018;
 		vrLoc = 6449;
@@ -1015,7 +977,7 @@
 		isa = PBXTextBookmark;
 		name = "MBHIDHack.cpp: 575";
 		rLen = 0;
-		rLoc = 22113;
+		rLoc = 22267;
 		rType = 0;
 		vrLen = 1151;
 		vrLoc = 3897;
@@ -1035,7 +997,7 @@
 		isa = PBXTextBookmark;
 		name = "MBHIDHack.cpp: 575";
 		rLen = 0;
-		rLoc = 22113;
+		rLoc = 22267;
 		rType = 0;
 		vrLen = 1255;
 		vrLoc = 13397;
@@ -1045,7 +1007,7 @@
 		isa = PBXTextBookmark;
 		name = "MBHIDHack.cpp: 645";
 		rLen = 0;
-		rLoc = 19550;
+		rLoc = 19687;
 		rType = 0;
 		vrLen = 1190;
 		vrLoc = 15299;
@@ -1079,7 +1041,7 @@
 		isa = PBXTextBookmark;
 		name = "MBHIDHack.cpp: 645";
 		rLen = 0;
-		rLoc = 19550;
+		rLoc = 19687;
 		rType = 0;
 		vrLen = 1010;
 		vrLoc = 0;
@@ -1123,7 +1085,7 @@
 		isa = PBXTextBookmark;
 		name = "MBHIDHack.cpp: 495";
 		rLen = 0;
-		rLoc = 12679;
+		rLoc = 12796;
 		rType = 0;
 		vrLen = 1220;
 		vrLoc = 11269;
@@ -1143,7 +1105,7 @@
 		isa = PBXTextBookmark;
 		name = "MBHIDHack.cpp: 496";
 		rLen = 0;
-		rLoc = 12679;
+		rLoc = 12796;
 		rType = 0;
 		vrLen = 1195;
 		vrLoc = 11269;
@@ -1163,7 +1125,7 @@
 		isa = PBXTextBookmark;
 		name = "MBHIDHack.cpp: 577";
 		rLen = 0;
-		rLoc = 17374;
+		rLoc = 17491;
 		rType = 0;
 		vrLen = 753;
 		vrLoc = 14151;
@@ -1193,7 +1155,7 @@
 		isa = PBXTextBookmark;
 		name = "MBHIDHack.cpp: 577";
 		rLen = 0;
-		rLoc = 17373;
+		rLoc = 17490;
 		rType = 0;
 		vrLen = 757;
 		vrLoc = 14151;
@@ -1213,7 +1175,7 @@
 		isa = PBXTextBookmark;
 		name = "MBHIDHack.cpp: 580";
 		rLen = 0;
-		rLoc = 17379;
+		rLoc = 17496;
 		rType = 0;
 		vrLen = 735;
 		vrLoc = 14151;
@@ -1253,7 +1215,7 @@
 		isa = PBXTextBookmark;
 		name = "MBHIDHack.cpp: 580";
 		rLen = 0;
-		rLoc = 17379;
+		rLoc = 17496;
 		rType = 0;
 		vrLen = 862;
 		vrLoc = 14430;
@@ -1283,7 +1245,7 @@
 		isa = PBXTextBookmark;
 		name = "MBHIDHack.cpp: 580";
 		rLen = 0;
-		rLoc = 17379;
+		rLoc = 17496;
 		rType = 0;
 		vrLen = 823;
 		vrLoc = 16104;
@@ -1303,7 +1265,7 @@
 		isa = PBXTextBookmark;
 		name = "MBHIDHack.cpp: 580";
 		rLen = 0;
-		rLoc = 17379;
+		rLoc = 17496;
 		rType = 0;
 		vrLen = 920;
 		vrLoc = 16007;
@@ -1501,7 +1463,7 @@
 		isa = PBXTextBookmark;
 		name = "MBHIDHack.cpp: 525";
 		rLen = 0;
-		rLoc = 13417;
+		rLoc = 13534;
 		rType = 0;
 		vrLen = 891;
 		vrLoc = 11979;
@@ -1521,7 +1483,7 @@
 		isa = PBXTextBookmark;
 		name = "MBHIDHack.cpp: 530";
 		rLen = 0;
-		rLoc = 13654;
+		rLoc = 13771;
 		rType = 0;
 		vrLen = 865;
 		vrLoc = 11979;
@@ -1541,7 +1503,7 @@
 		isa = PBXTextBookmark;
 		name = "MBHIDHack.cpp: 631";
 		rLen = 0;
-		rLoc = 19596;
+		rLoc = 19733;
 		rType = 0;
 		vrLen = 1344;
 		vrLoc = 15157;
@@ -1555,6 +1517,16 @@
 		rType = 0;
 		vrLen = 924;
 		vrLoc = 853;
+	};
+	00D3F86E0515356000020933 = {
+		fRef = F53B749C0278078E01BCB6FE;
+		isa = PBXTextBookmark;
+		name = "MBHIDHack.cpp: 14";
+		rLen = 0;
+		rLoc = 364;
+		rType = 0;
+		vrLen = 1010;
+		vrLoc = 0;
 	};
 	00DD4409048DB48700A80150 = {
 		fRef = 1A224C3CFF42312311CA2CB7;
@@ -1761,7 +1733,7 @@
 		isa = PBXTextBookmark;
 		name = "MBHIDHack.cpp: 580";
 		rLen = 0;
-		rLoc = 17379;
+		rLoc = 17496;
 		rType = 0;
 		vrLen = 964;
 		vrLoc = 15963;
@@ -1781,7 +1753,7 @@
 		isa = PBXTextBookmark;
 		name = "MBHIDHack.cpp: 619";
 		rLen = 0;
-		rLoc = 15994;
+		rLoc = 16111;
 		rType = 0;
 		vrLen = 901;
 		vrLoc = 13925;
@@ -1861,7 +1833,7 @@
 		isa = PBXTextBookmark;
 		name = "MBHIDHack.cpp: 619";
 		rLen = 0;
-		rLoc = 15994;
+		rLoc = 16111;
 		rType = 0;
 		vrLen = 1460;
 		vrLoc = 14751;
@@ -2029,7 +2001,7 @@
 		breakpoints = (
 		);
 		perUserDictionary = {
-			PBXPerProjectTemplateStateSaveDate = 85059172;
+			PBXPerProjectTemplateStateSaveDate = 85362500;
 			"PBXTemplateGeometry-F5314676015831810DCA290F" = {
 				ContentSize = "{685, 434}";
 				LeftSlideOut = {
@@ -2164,7 +2136,7 @@
 						Split0 = {
 							Split0 = {
 								NavContent0 = {
-									bookmark = 00206BA40515239000020933;
+									bookmark = 00D3F86E0515356000020933;
 									history = (
 										00639ED203F22FF600020933,
 										00639ED303F22FF600020933,
@@ -2176,7 +2148,7 @@
 										00206B8A0515239000020933,
 										00206B8B0515239000020933,
 										00206B8C0515239000020933,
-										00206B8D0515239000020933,
+										00206BA40515239000020933,
 									);
 									prevStack = (
 										F5D9F778031EDD8E013B14DE,
@@ -2530,7 +2502,7 @@
 					WindowLocation = "{5, 87}";
 				},
 			);
-			PBXWorkspaceStateSaveDate = 85059172;
+			PBXWorkspaceStateSaveDate = 85362500;
 		};
 		perUserProjectItems = {
 			00028AD404F65B9600020933 = 00028AD404F65B9600020933;
@@ -2564,7 +2536,6 @@
 			00206B8A0515239000020933 = 00206B8A0515239000020933;
 			00206B8B0515239000020933 = 00206B8B0515239000020933;
 			00206B8C0515239000020933 = 00206B8C0515239000020933;
-			00206B8D0515239000020933 = 00206B8D0515239000020933;
 			00206B8E0515239000020933 = 00206B8E0515239000020933;
 			00206B8F0515239000020933 = 00206B8F0515239000020933;
 			00206B900515239000020933 = 00206B900515239000020933;
@@ -2693,6 +2664,7 @@
 			00ADACEC04839E0400FBE7B2 = 00ADACEC04839E0400FBE7B2;
 			00ADACED04839E0400FBE7B2 = 00ADACED04839E0400FBE7B2;
 			00ADACEE04839E0400FBE7B2 = 00ADACEE04839E0400FBE7B2;
+			00D3F86E0515356000020933 = 00D3F86E0515356000020933;
 			00DD4409048DB48700A80150 = 00DD4409048DB48700A80150;
 			00E9C0E304C5070F00020933 = 00E9C0E304C5070F00020933;
 			00E9C0E404C5070F00020933 = 00E9C0E404C5070F00020933;

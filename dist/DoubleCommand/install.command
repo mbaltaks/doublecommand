@@ -45,5 +45,5 @@ sudo chmod 644 ./DoubleCommand.kext/Contents/Info.plist
 sudo chmod 644 ./DoubleCommand.kext/Contents/MacOS/DoubleCommand
 sudo chmod 644 ./DoubleCommand.kext/Contents/Resources/English.lproj/InfoPlist.strings
 sudo chmod 644 ./DoubleCommand.kext/Contents/pbdevelopment.plist
-sudo ./DoubleCommand stop
+#sudo ./DoubleCommand stop
 sudo ./DoubleCommand start

@@ -122,15 +122,18 @@ unsigned char setCommandFlag = 0;
 unsigned char setControlFlag = 0;
 unsigned char setOptionFlag = 0;
 unsigned char setfnFlag = 0;
+unsigned char setCapslockFlag = 0;
 unsigned char commandHeldDown = 0;
 unsigned char optionHeldDown = 0;
 unsigned char controlHeldDown = 0;
 unsigned char fnHeldDown = 0;
+unsigned char capslockKeyDown = 0;
 unsigned char inFnMode = 0;
 unsigned char unsetCommandFlag = 0;
 unsigned char unsetOptionFlag = 0;
 unsigned char unsetControlFlag = 0;
 unsigned char unsetfnFlag = 0;
+unsigned char unsetCapslockFlag = 0;
 
 unsigned char keepSpecialEvent = 1;
 unsigned char keepKeyboardEvent = 1;
@@ -153,7 +156,7 @@ void MBHIDHack::keyboardEvent(unsigned   eventType,
 	unsigned flavor = 0;
 	UInt64 guid = 0;
 #ifdef MB_DEBUG
-	printf("caught  hid event type %d flags 0x%x key %d charCode %d charSet %d origCharCode %d origCharSet %d kbdType %d keep %d\n", eventType, flags, key, charCode, charSet, origCharCode, origCharSet, keyboardType, keepKeyboardEvent);
+	printf("caught  hid event type %d flags 0x%x key %d charCode %d charSet %d origCharCode %d origCharSet %d kbdType %d\n", eventType, flags, key, charCode, charSet, origCharCode, origCharSet, keyboardType);
 #endif
 
 if (dcConfig != 0)
@@ -465,6 +468,21 @@ if (dcConfig != 0)
 		case CAPSLOCK_KEY: // begin capslock key
 			if(dcConfig & CAPSLOCK_TO_CONTROL)
 			{
+				if(flags & CAPSLOCK_FLAG)
+				{
+					//flags ^= CAPSLOCK_FLAG;
+					//flags |= CONTROL_FLAG;
+					unsetCapslockFlag = 1;
+					setControlFlag = 1;
+					key = CONTROL_KEY;
+					capslockKeyDown = 1;
+				}
+				else
+				{
+					key = CONTROL_KEY;
+					capslockKeyDown = 0;
+				}
+				/*
 				// has the capslock key has been pressed?
 				if (eventType == KEY_MODIFY)
 				{
@@ -489,11 +507,12 @@ if (dcConfig != 0)
 						}
 						//else if (addFlags & CTRL_FLAG)
 						//{
-							/* capslock off (not the same as releasing capslock, mind you) */
+							// capslock off (not the same as releasing capslock, mind you)
 						//	addFlags ^= CTRL_FLAG;
 						//}
 					//}
 				}
+				*/
 			}
 		break; // end capslock key
 
@@ -582,7 +601,7 @@ if (dcConfig != 0)
 		case F6: // begin F6 key
 			if ( (dcConfig & SWAP_FUNCTION_KEYS) && (lastKeyboardType != APPLE_PRO_2003_KEYBOARD) )
 			{
-				key = NUM_LOCK;
+				key = SPECIAL_KEY;
 				flavor = 10;
 				keepKeyboardEvent = 0;
 				unsetfnFlag = 1;
@@ -701,6 +720,11 @@ if (dcConfig != 0)
 		unsetfnFlag = 0;
 		flags ^= FN_FLAG;
 	}
+	if (unsetCapslockFlag)
+	{
+		unsetCapslockFlag = 0;
+		flags ^= CAPSLOCK_FLAG;
+	}
 	if (setCommandFlag)
 	{
 		setCommandFlag = 0;
@@ -721,22 +745,24 @@ if (dcConfig != 0)
 		setfnFlag = 0;
 		flags |= FN_FLAG;
 	}
-#ifdef MB_DEBUG
-	printf("sending hid event type %d flags 0x%x key %d charCode %d charSet %d origCharCode %d origCharSet %d kbdType %d\n", eventType, flags, key, charCode, charSet, origCharCode, origCharSet, keyboardType);
-#endif
+	if (setCapslockFlag)
+	{
+		setCapslockFlag = 0;
+		flags |= CAPSLOCK_FLAG;
+	}
 } // end if dcConfig != 0
 
 if(keepKeyboardEvent)
 {
 #ifdef MB_DEBUG
-	printf("keeping keyboard event\n");
+	printf("sending hid event type %d flags 0x%x key %d charCode %d charSet %d origCharCode %d origCharSet %d kbdType %d\n", eventType, flags, key, charCode, charSet, origCharCode, origCharSet, keyboardType);
 #endif
     IOHIDSystem::keyboardEvent(eventType, flags, key, charCode, charSet, origCharCode, origCharSet, keyboardType, repeat, ts);
 }
 else
 {
 #ifdef MB_DEBUG
-	printf("changing keyboard event to special event\n");
+	printf("CHANGE sending special event type %d flags 0x%x key %d flavor %d\n", eventType, flags, key, flavor);
 #endif
 	keepKeyboardEvent = 1;
 	IOHIDSystem::keyboardSpecialEvent(eventType, flags, key, flavor, guid, repeat, ts);
@@ -758,7 +784,7 @@ void MBHIDHack::keyboardSpecialEvent(   unsigned   eventType,
 	unsigned charSet = 0;
 	//unsigned keyboardType = lastKeyboardType;
 #ifdef MB_DEBUG
-	printf("caught  special event type %d flags 0x%x key %d flavor %d keep %d\n", eventType, flags, key, flavor, keepSpecialEvent);
+	printf("caught  special event type %d flags 0x%x key %d flavor %d\n", eventType, flags, key, flavor);
 #endif
 
 if (dcConfig != 0)
@@ -806,12 +832,29 @@ if (dcConfig != 0)
 				charCode = 36;
 			}
 		break; // end F5 key
-		case NUM_LOCK: // begin F6 key
-			if (dcConfig & SWAP_FUNCTION_KEYS)
+		case SPECIAL_KEY: // begin F6 key
+			if ( (dcConfig & SWAP_FUNCTION_KEYS) && (flavor == 10) )
 			{
 				keepSpecialEvent = 0;
 				key = F6;
 				charCode = 37;
+			}
+			else if( (dcConfig & CAPSLOCK_TO_CONTROL) && (flags & CAPSLOCK_FLAG) )
+			{
+				keepSpecialEvent = 0;
+				key = CONTROL_KEY;
+				charCode = 0;
+				eventType = KEY_MODIFY;
+				flags ^= CAPSLOCK_FLAG;
+				if (!capslockKeyDown)
+				{
+					capslockKeyDown = 1;
+					flags |= CONTROL_FLAG;
+				}
+				else
+				{
+					capslockKeyDown = 0;
+				}
 			}
 		break; // end F6 key
 		case F7a: // begin F7 key
@@ -856,22 +899,19 @@ if (dcConfig != 0)
 	{
 		flags |= FN_FLAG;
 	}
-#ifdef MB_DEBUG
-	printf("sending special event type %d flags 0x%x key %d flavor %d\n", eventType, flags, key, flavor);
-#endif
 } // end if dcConfig != 0
 
 if(keepSpecialEvent)
 {
 #ifdef MB_DEBUG
-	printf("keeping special event\n");
+	printf("sending special event type %d flags 0x%x key %d flavor %d\n", eventType, flags, key, flavor);
 #endif
 	IOHIDSystem::keyboardSpecialEvent(eventType, flags, key, flavor, guid, repeat, ts);
 }
 else
 {
 #ifdef MB_DEBUG
-	printf("changing special event to keyboard event\n");
+	printf("CHANGE sending hid event type %d flags 0x%x key %d charCode %d charSet %d kbdType %d\n", eventType, flags, key, charCode, charSet, lastKeyboardType);
 #endif
 	keepSpecialEvent = 1;
 	charSet = 254;

@@ -32,29 +32,17 @@
 			path = /Users/mick/Development/DoubleCommand/cvs/DoubleCommandWebSite/install.html;
 			refType = 0;
 		};
-		00E43B3205246A7300020933 = {
-			fileRef = 00E43B2E05246A7300020933;
-			isa = PBXBuildFile;
-			settings = {
-			};
-		};
-		00E43B3305246A7300020933 = {
-			fileRef = 00E43B2F05246A7300020933;
-			isa = PBXBuildFile;
-			settings = {
-			};
-		};
-		00E43B3405246A7300020933 = {
-			fileRef = 00E43B3005246A7300020933;
-			isa = PBXBuildFile;
-			settings = {
-			};
-		};
-		00E43B3505246A7300020933 = {
-			fileRef = 00E43B3105246A7300020933;
-			isa = PBXBuildFile;
-			settings = {
-			};
+		00FA07A5053C280A00D0F922 = {
+			children = (
+				00E43B2F05246A7300020933,
+				00E43B3005246A7300020933,
+				00E43B3105246A7300020933,
+				00E43B2E05246A7300020933,
+			);
+			isa = PBXGroup;
+			name = Website;
+			path = "";
+			refType = 4;
 		};
 //000
 //001
@@ -139,6 +127,7 @@
 			children = (
 				247142CAFF3F8F9811CA285C,
 				089C167CFE841241C02AAC07,
+				00FA07A5053C280A00D0F922,
 				19C28FB6FE9D52B211CA2CBB,
 			);
 			isa = PBXGroup;
@@ -234,10 +223,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				089C1680FE841241C02AAC07,
-				00E43B3205246A7300020933,
-				00E43B3305246A7300020933,
-				00E43B3405246A7300020933,
-				00E43B3505246A7300020933,
 			);
 			isa = PBXResourcesBuildPhase;
 			runOnlyForDeploymentPostprocessing = 0;
@@ -267,10 +252,6 @@
 		};
 		089C167CFE841241C02AAC07 = {
 			children = (
-				00E43B2E05246A7300020933,
-				00E43B2F05246A7300020933,
-				00E43B3005246A7300020933,
-				00E43B3105246A7300020933,
 				089C167DFE841241C02AAC07,
 			);
 			isa = PBXGroup;

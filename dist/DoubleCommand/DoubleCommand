@@ -18,6 +18,8 @@ kextload=/sbin/kextload
 kextunload=/sbin/kextunload
 sysctl=/usr/sbin/sysctl
 
+cd /Library/StartupItems/DoubleCommand/
+
 if [ -z "$argument" ]; then
 	argument=start
 fi

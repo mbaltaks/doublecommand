@@ -3,6 +3,9 @@
  *  DoubleCommand
  *
  *  Created by Michael Baltaks on Tuesday April 30 2002.
+ *
+ * $Id$
+ *
  *  Last modified 2003-02-06.
  *  Copyright (c) 2002 Michael Baltaks. All rights reserved.
  *  Thanks to Shane Celis <shane@terraspring.com> for some
@@ -34,6 +37,7 @@
 #define END_KEY 119
 #define LEFT_ARROW_KEY 123
 #define RIGHT_ARROW_KEY 124
+#define BACKSLASH_KEY 42
 
 #define KEY_DOWN 10
 #define KEY_UP 11
@@ -58,3 +62,4 @@
 #define SHIFT_DELETE_TO_FORWARD_DELETE 16384
 #define DISABLE_COMMAND_AND_OPTION 32768
 #define PC_STYLE_HOME_AND_END 65536
+#define BACKSLASH_TO_FORWARD_DELETE 131072

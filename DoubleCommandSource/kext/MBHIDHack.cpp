@@ -309,7 +309,14 @@ if (dcConfig != 0)
 				{
 					commandHeldDown = 1;
 					addFlags |= OPTION_FLAG;
-					removeFlags |= OPTION_FLAG;
+					if (key == COMMAND_KEY)
+					{
+						removeFlags |= COMMAND_FLAG;
+					}
+					if (key == COMMAND_KEY_R)
+					{
+						removeFlags |= COMMAND_FLAG_R;
+					}
 				}
 				key = OPTION_KEY;
 			}
@@ -690,8 +697,19 @@ if (dcConfig != 0)
 		case HOME_KEY: // begin home key
 			if(dcConfig & PC_STYLE_HOME_AND_END)
 			{
-				key = LEFT_ARROW_KEY;
-				flags |= COMMAND_FLAG;
+				if (flags & CONTROL_FLAG)
+				{
+					removeFlags |= CONTROL_FLAG;
+				}
+				else if (flags & CONTROL_FLAG_R)
+				{
+					removeFlags |= CONTROL_FLAG_R;
+				}
+				else
+				{
+					key = LEFT_ARROW_KEY;
+					flags |= COMMAND_FLAG;
+				}
 				//if (eventType == KEY_DOWN)
 				//{
 					//addFlags |= COMMAND_FLAG;
@@ -706,8 +724,19 @@ if (dcConfig != 0)
 		case END_KEY: // begin end key
 			if(dcConfig & PC_STYLE_HOME_AND_END)
 			{
-				key = RIGHT_ARROW_KEY;
-				flags |= COMMAND_FLAG;
+				if (flags & CONTROL_FLAG)
+				{
+					removeFlags |= CONTROL_FLAG;
+				}
+				else if (flags & CONTROL_FLAG_R)
+				{
+					removeFlags |= CONTROL_FLAG_R;
+				}
+				else
+				{
+					key = RIGHT_ARROW_KEY;
+					flags |= COMMAND_FLAG;
+				}
 				//if (eventType == KEY_DOWN)
 				//{
 				//	addFlags |= COMMAND_FLAG;

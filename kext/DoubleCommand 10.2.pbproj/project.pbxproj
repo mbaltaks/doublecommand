@@ -3,42 +3,34 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 39;
+	objectVersion = 38;
 	objects = {
 		00E43B2E05246A7300020933 = {
-			expectedFileType = file;
 			isa = PBXFileReference;
 			name = doublecommand.css;
 			path = /Users/mick/Development/DoubleCommand/cvs/DoubleCommandWebSite/doublecommand.css;
 			refType = 0;
-			sourceTree = "<absolute>";
 		};
 		00E43B2F05246A7300020933 = {
-			expectedFileType = file;
 			fileEncoding = 30;
 			isa = PBXFileReference;
 			name = index.html;
 			path = /Users/mick/Development/DoubleCommand/cvs/DoubleCommandWebSite/index.html;
 			refType = 0;
-			sourceTree = "<absolute>";
 		};
 		00E43B3005246A7300020933 = {
-			expectedFileType = file;
 			fileEncoding = 30;
 			isa = PBXFileReference;
 			name = download.html;
 			path = /Users/mick/Development/DoubleCommand/cvs/DoubleCommandWebSite/download.html;
 			refType = 0;
-			sourceTree = "<absolute>";
 		};
 		00E43B3105246A7300020933 = {
-			expectedFileType = file;
 			fileEncoding = 30;
 			isa = PBXFileReference;
 			name = install.html;
 			path = /Users/mick/Development/DoubleCommand/cvs/DoubleCommandWebSite/install.html;
 			refType = 0;
-			sourceTree = "<absolute>";
 		};
 		00FA07A5053C280A00D0F922 = {
 			children = (
@@ -51,7 +43,6 @@
 			name = Website;
 			path = "";
 			refType = 4;
-			sourceTree = "<group>";
 		};
 //000
 //001
@@ -67,7 +58,11 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
+			generatedFileNames = (
+			);
 			isa = PBXShellScriptBuildPhase;
+			neededFileNames = (
+			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "script=\"${SYSTEM_DEVELOPER_DIR}/ProjectBuilder Extras/Kernel Extension Support/KEXTPostprocess\";\nif [ -x \"$script\" ]; then\n    . \"$script\"\nfi";
@@ -77,13 +72,8 @@
 			);
 			buildSettings = {
 				COPY_PHASE_STRIP = NO;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_ENABLE_FIX_AND_CONTINUE = YES;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
 				MB_DEBUG = 1;
 				OPTIMIZATION_CFLAGS = "-O0";
-				ZERO_LINK = YES;
 			};
 			isa = PBXBuildStyle;
 			name = Development;
@@ -93,8 +83,6 @@
 			);
 			buildSettings = {
 				COPY_PHASE_STRIP = YES;
-				GCC_ENABLE_FIX_AND_CONTINUE = NO;
-				ZERO_LINK = NO;
 			};
 			isa = PBXBuildStyle;
 			name = Deployment;
@@ -103,7 +91,11 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
+			generatedFileNames = (
+			);
 			isa = PBXShellScriptBuildPhase;
+			neededFileNames = (
+			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "script=\"${SYSTEM_DEVELOPER_DIR}/ProjectBuilder Extras/Kernel Extension Support/KEXTPreprocess\";\nif [ -x \"$script\" ]; then\n    . \"$script\"\nfi";
@@ -119,8 +111,6 @@
 //083
 //084
 		089C1669FE841209C02AAC07 = {
-			buildSettings = {
-			};
 			buildStyles = (
 				06AA1262FFB20DD611CA28AA,
 				06AA1263FFB20DD611CA28AA,
@@ -143,7 +133,6 @@
 			isa = PBXGroup;
 			name = DoubleCommand;
 			refType = 4;
-			sourceTree = "<group>";
 		};
 		089C1673FE841209C02AAC07 = {
 			buildPhases = (
@@ -268,7 +257,6 @@
 			isa = PBXGroup;
 			name = Resources;
 			refType = 4;
-			sourceTree = "<group>";
 		};
 		089C167DFE841241C02AAC07 = {
 			children = (
@@ -277,16 +265,13 @@
 			isa = PBXVariantGroup;
 			name = InfoPlist.strings;
 			refType = 4;
-			sourceTree = "<group>";
 		};
 		089C167EFE841241C02AAC07 = {
-			expectedFileType = text.plist.strings;
 			fileEncoding = 10;
 			isa = PBXFileReference;
 			name = English;
 			path = English.lproj/InfoPlist.strings;
 			refType = 4;
-			sourceTree = "<group>";
 		};
 		089C1680FE841241C02AAC07 = {
 			fileRef = 089C167DFE841241C02AAC07;
@@ -305,12 +290,9 @@
 //0A3
 //0A4
 		0A5A7D55FFB780D811CA28AA = {
-			expectedFileType = "wrapper.kernel-extension";
-			fallbackIsa = PBXFileReference;
 			isa = PBXBundleReference;
 			path = DoubleCommand.kext;
 			refType = 3;
-			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 //0A0
 //0A1
@@ -329,7 +311,6 @@
 			isa = PBXGroup;
 			name = Products;
 			refType = 4;
-			sourceTree = "<group>";
 		};
 //190
 //191
@@ -342,12 +323,10 @@
 //1A3
 //1A4
 		1A224C3CFF42312311CA2CB7 = {
-			expectedFileType = sourcecode.c.c;
 			fileEncoding = 30;
 			isa = PBXFileReference;
 			path = DoubleCommand.c;
 			refType = 4;
-			sourceTree = "<group>";
 		};
 		1A224C3DFF42312311CA2CB7 = {
 			fileRef = 1A224C3CFF42312311CA2CB7;
@@ -377,7 +356,6 @@
 			name = Source;
 			path = "";
 			refType = 4;
-			sourceTree = "<group>";
 		};
 //240
 //241
@@ -390,12 +368,10 @@
 //F53
 //F54
 		F53B749C0278078E01BCB6FE = {
-			expectedFileType = sourcecode.cpp.cpp;
 			fileEncoding = 30;
 			isa = PBXFileReference;
 			path = MBHIDHack.cpp;
 			refType = 4;
-			sourceTree = "<group>";
 		};
 		F53B749D0278078E01BCB6FE = {
 			fileRef = F53B749C0278078E01BCB6FE;
@@ -404,12 +380,10 @@
 			};
 		};
 		F575A7C0027E4475012EFD60 = {
-			expectedFileType = sourcecode.c.h;
 			fileEncoding = 30;
 			isa = PBXFileReference;
 			path = MBHIDHack.h;
 			refType = 4;
-			sourceTree = "<group>";
 		};
 		F575A7C1027E4475012EFD60 = {
 			fileRef = F575A7C0027E4475012EFD60;

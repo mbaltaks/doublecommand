@@ -18,18 +18,13 @@
 <div align="left" class="main">
 <h3>Installing DoubleCommand</h3>
 <p class="body">To install DoubleCommand, please perform the following steps:</p>
-<p class="body">1.	Remove any older versions of DoubleCommand, iJect, uControl, CommandandControl or PowerDelete (see below for how to do that). These are conflicting software.</p>
-<p class="body">2.	Open a Finder window and go to the "Library" folder directly on your Mac OS X startup volume. (There are several folders named "Library". We mean the one in the root of the startup volume, NOT in the System folder!)</p>
-<p class="body">3a. If there is a folder named "StartupItems", drop the "DoubleCommand" folder into it.<br />
-3b. If there is no such folder, first create a folder named "StartupItems" in the "Library" folder, then drop the "DoubleCommand" folder into it.
-	You should have created a directory hierarchy like this in any case:</p>
-<p class="body">	/Library/StartupItems/DoubleCommand</p>
-<p class="body">4.	Open the DoubleCommand folder you just copied and double click the "install.command" file. This file will open in Terminal and fix the permissions for DoubleCommand - it will ask you for your password when the Terminal window opens. When it says logout you can close the window - DoubleCommand is installed and active right away!</p>
-<p class="body"><em>Note:</em> You need Administrator rights to install startup items, but you do not need to be the Unix super user "root". The user account which is created during installation of the operating system has administrator rights.</p>
+<p class="body">1.	Remove any versions of iJect, uControl, CommandandControl or PowerDelete (see below for how to do that). These are conflicting software.</p>
+<p class="body">2.	Unzip the DoubleCommandx.x.x.tar.gz file, and open the DoubleCommand folder within.</p>
+<p class="body">3.  Double click the install.command file in the DoubleCommand folder. This will open a new Terminal window, and you may be asked for your admin password. When it says logout you can close the window - DoubleCommand is installed and active right away!</p>
 
 <h3>Configuring DoubleCommand</h3>
 <p class="body">
-To configure DoubleCommand requires some basic maths ability and a text editor (like TextEdit). You only need to edit the file /Library/StartupItems/DoubleCommand/DoubleCommand.pref, changing the number to a number calculated below and save the file. Then just double click the install.command file to apply the settings (it may warn about needing to be root to install kernel modules - just ignore this).
+To configure DoubleCommand requires some basic maths ability and a text editor (like TextEdit). You only need to edit the file /Library/StartupItems/DoubleCommand/DoubleCommand.pref, changing the number to a number calculated below and save the file. Then just double click the config.command file to apply the settings.
 </p>
 <p class="body">
 The table below shows a list of numbers and what functionality they activate. To activate more than one at a time, simply add the numbers together. For example, I like enter -&gt; command and shift+delete -&gt; forward delete, so I use 1 + 16384 = 16385. So my file simply contains the number 16385.

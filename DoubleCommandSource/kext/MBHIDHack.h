@@ -12,12 +12,26 @@
  * constants.
  */
 
+
+// define MB_DEBUG to enable output of keycodes
+//#define MB_DEBUG
+
+// these should be defined for a 10.2 build, but
+// not for 10.3 or later
+//#define IOHIDSystem_AVAILABLE
+//#define JAGUAR_FLAGS
+
+
 #define COMMAND_FLAG 0x100000
 #define CONTROL_FLAG 0x40000
 #define CAPSLOCK_FLAG 0x10000
 #define OPTION_FLAG 0x80000
 #define FN_FLAG 0x800000
-#define SHIFT_FLAG 0x20000
+#ifdef JAGUAR_FLAGS
+	#define SHIFT_FLAG 0x20000
+#else
+	#define SHIFT_FLAG 0x20002
+#endif
 
 #define SPACE_KEY 49
 #define CONTROL_KEY 59

@@ -11,8 +11,6 @@
  * Copyright: GNU General Public License version 2.0
  */
 
-//#define MB_DEBUG
-//#define IOHIDSystem_AVAILABLE
 
 #ifdef __cplusplus
     extern "C"

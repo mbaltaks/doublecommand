@@ -28,7 +28,7 @@ extern int	MBHidExit(void);
     }
 #endif
 
-#include "./MBHIDHack.h"
+#include "MBHIDHack.h"
 #include <IOKit/system.h>
 #include <IOKit/assert.h>
 #include <IOKit/hidsystem/IOHIDSystem.h>
@@ -39,6 +39,8 @@ static void		*myVtable = NULL;
 // int variable to set the configuration of DoubleCommand
 int dcConfig = 0;
 
+
+//----------------------------------------------------------------------------
 class MBHIDHack : public IOHIDSystem
 {
 /* we must not declare anything which is not in our superclass
@@ -65,9 +67,9 @@ public:
 };
 
 
-//------------------------------------------------------------------------------
+//----------------------------------------------------------------------------
 // MBHidInit() - replace the real IOHIDSystem with our imposter.
-//------------------------------------------------------------------------------
+//----------------------------------------------------------------------------
 int
 MBHidInit(void)
 {
@@ -76,7 +78,7 @@ MBHidInit(void)
 
 	if(oldVtable != NULL)
 	{
-		printf("module DoubleCommand already loaded!\n");
+		printf("Module DoubleCommand already loaded!\n");
 		return 1;
 	}
 	if(myVtable == NULL)
@@ -92,9 +94,9 @@ MBHidInit(void)
 }
 
 
-//------------------------------------------------------------------------------
+//----------------------------------------------------------------------------
 // MBHidExit() - replace our imposter with the real IOHIDSystem.
-//------------------------------------------------------------------------------
+//----------------------------------------------------------------------------
 int
 MBHidExit(void)
 {
@@ -130,6 +132,11 @@ unsigned char unsetOptionFlag = 0;
 unsigned char unsetControlFlag = 0;
 unsigned char unsetfnFlag = 0;
 
+unsigned char keepSpecialEvent = 1;
+unsigned char keepKeyboardEvent = 1;
+
+
+//----------------------------------------------------------------------------
 void MBHIDHack::keyboardEvent(unsigned   eventType,
       /* flags */            unsigned   flags,
       /* keyCode */          unsigned   key,
@@ -141,8 +148,10 @@ void MBHIDHack::keyboardEvent(unsigned   eventType,
       /* repeat */           bool       repeat,
       /* atTime */           AbsoluteTime ts)
 {
+	unsigned flavor = 0;
+	UInt64 guid = 0;
 #ifdef MB_DEBUG
-	printf("caught  hid event type %d flags 0x%x key %d charCode %d charSet %d origCharCode %d origCharSet %d kbdType %d\n", eventType, flags, key, charCode, charSet, origCharCode, origCharSet, keyboardType);
+	printf("caught  hid event type %d flags 0x%x key %d charCode %d charSet %d origCharCode %d origCharSet %d kbdType %d keep %d\n", eventType, flags, key, charCode, charSet, origCharCode, origCharSet, keyboardType, keepKeyboardEvent);
 #endif
 
 if (dcConfig != 0)
@@ -522,6 +531,16 @@ if (dcConfig != 0)
 			}
 		break; // end backslash key
 
+		case F1: // begin F1 key
+			if(dcConfig & SWAP_FUNCTION_KEYS)
+			{
+				key = F1a;
+				flavor = 3;
+				keepKeyboardEvent = 0;
+				unsetfnFlag = 1;
+			}
+		break; // end F1 key
+
 	} // end switch (key)
 
 	// begin supplied by Giel Scharff <mgsch@mac.com>
@@ -596,9 +615,19 @@ if (dcConfig != 0)
 	printf("sending hid event type %d flags 0x%x key %d charCode %d charSet %d origCharCode %d origCharSet %d kbdType %d\n", eventType, flags, key, charCode, charSet, origCharCode, origCharSet, keyboardType);
 #endif
 } // end if dcConfig != 0
+if(keepKeyboardEvent)
+{
     IOHIDSystem::keyboardEvent(eventType, flags, key, charCode, charSet, origCharCode, origCharSet, keyboardType, repeat, ts);
 }
+else
+{
+	IOHIDSystem::keyboardSpecialEvent(eventType, flags, key, flavor, guid, repeat, ts);
+}
+keepKeyboardEvent = 1;
+}
 
+
+//----------------------------------------------------------------------------
 void MBHIDHack::keyboardSpecialEvent(   unsigned   eventType,
                        /* flags */        unsigned   flags,
                        /* keyCode  */     unsigned   key,
@@ -607,8 +636,50 @@ void MBHIDHack::keyboardSpecialEvent(   unsigned   eventType,
                        /* repeat */       bool       repeat,
                        /* atTime */       AbsoluteTime ts)
 {
+	unsigned charCode = 0;
+	unsigned charSet = 0;
+	unsigned keyboardType = 0;
 #ifdef MB_DEBUG
-	printf("special event type %d flags 0x%x key %d flavor %d\n", eventType, flags, key, flavor);
+	printf("caught  special event type %d flags 0x%x key %d flavor %d keep %d\n", eventType, flags, key, flavor, keepSpecialEvent);
 #endif
+
+if (dcConfig != 0)
+{
+	switch (key)
+	{
+		case F1a: // begin F1 key
+			if (dcConfig & SWAP_FUNCTION_KEYS)
+			{
+				keepSpecialEvent = 0;
+				key = F1;
+				setfnFlag = 1;
+				charCode = 32;
+				charSet = 254;
+				keyboardType = 202;
+			}
+		break; // end F1 key
+
+	} // end switch (key)
+	if (unsetfnFlag)
+	{
+		flags ^= FN_FLAG;
+	}
+	if (setfnFlag)
+	{
+		flags |= FN_FLAG;
+	}
+#ifdef MB_DEBUG
+	printf("sending special event type %d flags 0x%x key %d flavor %d\n", eventType, flags, key, flavor);
+#endif
+} // end if dcConfig != 0
+
+if(keepSpecialEvent)
+{
 	IOHIDSystem::keyboardSpecialEvent(eventType, flags, key, flavor, guid, repeat, ts);
+}
+else
+{
+    IOHIDSystem::keyboardEvent(eventType, flags, key, charCode, charSet, charCode, charSet, keyboardType, repeat, ts);
+}
+keepSpecialEvent = 1;
 }

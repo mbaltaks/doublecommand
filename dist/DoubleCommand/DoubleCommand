@@ -4,14 +4,19 @@
 # 
 # $Id$
 
-# Edit this value to configure DoubleCommand
-config_value=1
+# Edit this file to configure DoubleCommand
+if [ -e ~/Library/Preferences/DoubleCommand.pref ]; then
+	config_value=`cat ~/Library/Preferences/DoubleCommand.pref`
+elif [ -e ./DoubleCommand.pref ]; then
+	config_value=`cat ./DoubleCommand.pref`
+else
+	config_value=1
+fi
 
 argument="$1"
 kextload=/sbin/kextload
 kextunload=/sbin/kextunload
 sysctl=/usr/sbin/sysctl
-config_var=dc.config
 
 if [ -z "$argument" ]; then
 	argument=start
@@ -20,12 +25,12 @@ fi
 case "$argument" in
 	start)
 		echo "Loading DoubleCommand"
-		$kextload /Library/StartupItems/DoubleCommand/DoubleCommand.kext
-		$sysctl -w $config_var=$config_value
+		$kextload ./DoubleCommand.kext
+		$sysctl -w dc.config=$config_value
 	;;
 	stop)
 		echo "Unloading DoubleCommand"
-		$kextunload /Library/StartupItems/DoubleCommand/DoubleCommand.kext
+		$kextunload ./DoubleCommand.kext
 	;;
 	*)
 		echo "Usage: $0 {start|stop}"

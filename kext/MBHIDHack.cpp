@@ -122,10 +122,10 @@ MBHidExit(void)
 
 
 // key remapping stuff down here.
-unsigned char setCommandFlag = 0;
-unsigned char setControlFlag = 0;
-unsigned char setOptionFlag = 0;
-unsigned char setfnFlag = 0;
+//unsigned char setCommandFlag = 0;
+//unsigned char setControlFlag = 0;
+//unsigned char setOptionFlag = 0;
+//unsigned char setfnFlag = 0;
 //unsigned char setCapslockFlag = 0;
 unsigned char commandHeldDown = 0;
 unsigned char optionHeldDown = 0;
@@ -134,11 +134,11 @@ unsigned char fnHeldDown = 0;
 unsigned char capslockHeldDown = 1;
 unsigned char capslockOn = 0;
 unsigned char inFnMode = 0;
-unsigned char unsetCommandFlag = 0;
-unsigned char unsetOptionFlag = 0;
-unsigned char unsetControlFlag = 0;
-unsigned char unsetfnFlag = 0;
-unsigned char unsetCapslockFlag = 0;
+//unsigned char unsetCommandFlag = 0;
+//unsigned char unsetOptionFlag = 0;
+//unsigned char unsetControlFlag = 0;
+//unsigned char unsetfnFlag = 0;
+//unsigned char unsetCapslockFlag = 0;
 
 unsigned char keepSpecialEvent = 1;
 unsigned char keepKeyboardEvent = 1;
@@ -172,7 +172,6 @@ if (dcConfig != 0)
 
 	if( (dcConfig & CAPSLOCK_DISABLED))
 	{
-		//flags ^= CAPSLOCK_FLAG;
 		removeFlags |= CAPSLOCK_FLAG;
 	}
 
@@ -183,16 +182,12 @@ if (dcConfig != 0)
 			{
 				if (eventType == KEY_DOWN)
 				{
-					//setCommandFlag = 1;
 					addFlags |= COMMAND_FLAG;
 					key = COMMAND_KEY; // we don't want any enter key stuff to get through
 					eventType = KEY_MODIFY;
-					//charCode = 111;
-					//flags |= COMMAND_FLAG;
 				}
 				else if (eventType == KEY_UP)
 				{
-					//setCommandFlag = 0;
 					REMOVE(addFlags, COMMAND_FLAG);
 					key = COMMAND_KEY; // we don't want any enter key stuff to get through
 					eventType = KEY_MODIFY;
@@ -202,14 +197,12 @@ if (dcConfig != 0)
 			{
 				if (eventType == KEY_DOWN)
 				{
-					//setControlFlag = 1;
 					addFlags |= CONTROL_FLAG;
 					key = CONTROL_KEY; // we don't want any enter key stuff to get through
 					eventType = KEY_MODIFY;
 				}
 				else if (eventType == KEY_UP)
 				{
-					//setControlFlag = 0;
 					REMOVE(addFlags, CONTROL_FLAG);
 					key = CONTROL_KEY; // we don't want any enter key stuff to get through
 					eventType = KEY_MODIFY;
@@ -219,14 +212,12 @@ if (dcConfig != 0)
 			{
 				if (eventType == KEY_DOWN)
 				{
-					//setOptionFlag = 1;
 					addFlags |= OPTION_FLAG;
 					key = OPTION_KEY; // we don't want any enter key stuff to get through
 					eventType = KEY_MODIFY;
 				}
 				else if (eventType == KEY_UP)
 				{
-					//setOptionFlag = 0;
 					REMOVE(addFlags, OPTION_FLAG);
 					key = OPTION_KEY; // we don't want any enter key stuff to get through
 					eventType = KEY_MODIFY;
@@ -236,16 +227,13 @@ if (dcConfig != 0)
 			{
 				if (eventType == KEY_DOWN)
 				{
-					//setfnFlag = 1;
 					addFlags |= FN_FLAG;
 					key = FN_KEY; // we don't want any enter key stuff to get through
 					eventType = KEY_MODIFY;
-					//flags |= FN_FLAG;
 					inFnMode = 1;
 				}
 				else if (eventType == KEY_UP)
 				{
-					//setfnFlag = 0;
 					REMOVE(addFlags, FN_FLAG);
 					key = FN_KEY; // we don't want any enter key stuff to get through
 					eventType = KEY_MODIFY;
@@ -260,17 +248,13 @@ if (dcConfig != 0)
 				if (commandHeldDown) // this event is a key up
 				{
 					commandHeldDown = 0;
-					//setOptionFlag = 0;
 					REMOVE(addFlags, OPTION_FLAG);
-					//unsetCommandFlag = 0;
 					REMOVE(removeFlags, COMMAND_FLAG);
 				}
 				else // this event is a key down
 				{
 					commandHeldDown = 1;
-					//setOptionFlag = 1;
 					addFlags |= OPTION_FLAG;
-					//unsetCommandFlag = 1;
 					removeFlags |= OPTION_FLAG;
 				}
 				key = OPTION_KEY;
@@ -280,17 +264,13 @@ if (dcConfig != 0)
 				if (commandHeldDown) // this event is a key up
 				{
 					commandHeldDown = 0;
-					//setControlFlag = 0;
 					REMOVE(addFlags, CONTROL_FLAG);
-					//unsetCommandFlag = 0;
 					REMOVE(removeFlags, COMMAND_FLAG);
 				}
 				else // this event is a key down
 				{
 					commandHeldDown = 1;
-					//setControlFlag = 1;
 					addFlags |= CONTROL_FLAG;
-					//unsetCommandFlag = 1;
 					removeFlags |= COMMAND_FLAG;
 				}
 				key = CONTROL_KEY;
@@ -300,13 +280,11 @@ if (dcConfig != 0)
 				if (commandHeldDown) // this event is a key up
 				{
 					commandHeldDown = 0;
-					//unsetCommandFlag = 0;
 					REMOVE(removeFlags, COMMAND_FLAG);
 				}
 				else // this event is a key down
 				{
 					commandHeldDown = 1;
-					//unsetCommandFlag = 1;
 					removeFlags |= COMMAND_FLAG;
 				}
 			}
@@ -318,17 +296,13 @@ if (dcConfig != 0)
 				if (optionHeldDown) // this event is a key up
 				{
 					optionHeldDown = 0;
-					//setCommandFlag = 0;
 					REMOVE(addFlags, COMMAND_FLAG);
-					//unsetOptionFlag = 0;
 					REMOVE(removeFlags, OPTION_FLAG);
 				}
 				else // this event is a key down
 				{
 					optionHeldDown = 1;
-					//setCommandFlag = 1;
 					addFlags |= COMMAND_FLAG;
-					//unsetOptionFlag = 1;
 					removeFlags |= OPTION_FLAG;
 				}
 				key = COMMAND_KEY;
@@ -338,17 +312,13 @@ if (dcConfig != 0)
 				if (optionHeldDown) // this event is a key up
 				{
 					optionHeldDown = 0;
-					//setfnFlag = 0;
 					REMOVE(addFlags, FN_FLAG);
-					//unsetOptionFlag = 0;
 					REMOVE(removeFlags, OPTION_FLAG);
 				}
 				else // this event is a key down
 				{
 					optionHeldDown = 1;
-					//setfnFlag = 1;
 					addFlags |= FN_FLAG;
-					//unsetOptionFlag = 1;
 					removeFlags |= OPTION_FLAG;
 				}
 				key = FN_KEY;
@@ -358,13 +328,11 @@ if (dcConfig != 0)
 				if (optionHeldDown) // this event is a key up
 				{
 					optionHeldDown = 0;
-					//unsetOptionFlag = 0;
 					REMOVE(removeFlags, OPTION_FLAG);
 				}
 				else // this event is a key down
 				{
 					optionHeldDown = 1;
-					//unsetOptionFlag = 1;
 					removeFlags |= OPTION_FLAG;
 				}
 			}
@@ -373,22 +341,18 @@ if (dcConfig != 0)
 				if (optionHeldDown) // this event is a key up
 				{
 					optionHeldDown = 0;
-					//setControlFlag = 0;
 					REMOVE(addFlags, CONTROL_FLAG);
 					if (!controlHeldDown)
 					{
-						//unsetOptionFlag = 0;
 						REMOVE(removeFlags, OPTION_FLAG);
 					}
 				}
 				else // this event is a key down
 				{
 					optionHeldDown = 1;
-					//setControlFlag = 1;
 					addFlags |= CONTROL_FLAG;
 					if (!controlHeldDown)
 					{
-						//unsetOptionFlag = 1;
 						removeFlags |= OPTION_FLAG;
 					}
 				}
@@ -402,17 +366,13 @@ if (dcConfig != 0)
 				if (controlHeldDown) // this event is a key up
 				{
 					controlHeldDown = 0;
-					//setCommandFlag = 0;
 					REMOVE(addFlags, COMMAND_FLAG);
-					//unsetControlFlag = 0;
 					REMOVE(removeFlags, CONTROL_FLAG);
 				}
 				else // this event is a key down
 				{
 					controlHeldDown = 1;
-					//setCommandFlag = 1;
 					addFlags |= COMMAND_FLAG;
-					//unsetControlFlag = 1;
 					removeFlags |= CONTROL_FLAG;
 				}
 				key = COMMAND_KEY;
@@ -422,22 +382,18 @@ if (dcConfig != 0)
 				if (controlHeldDown) // this event is a key up
 				{
 					controlHeldDown = 0;
-					//setOptionFlag = 0;
 					REMOVE(addFlags, OPTION_FLAG);
 					if (!optionHeldDown)
 					{
-						//unsetControlFlag = 0;
 						REMOVE(removeFlags, CONTROL_FLAG);
 					}
 				}
 				else // this event is a key down
 				{
 					controlHeldDown = 1;
-					//setOptionFlag = 1;
 					addFlags |= OPTION_FLAG;
 					if (!optionHeldDown)
 					{
-						//unsetControlFlag = 1;
 						removeFlags |= CONTROL_FLAG;
 					}
 				}
@@ -448,17 +404,13 @@ if (dcConfig != 0)
 				if (controlHeldDown) // this event is a key up
 				{
 					controlHeldDown = 0;
-					//setfnFlag = 0;
 					REMOVE(addFlags, FN_FLAG);
-					//unsetControlFlag = 0;
 					REMOVE(removeFlags, CONTROL_FLAG);
 				}
 				else // this event is a key down
 				{
 					controlHeldDown = 1;
-					//setfnFlag = 1;
 					addFlags |= FN_FLAG;
-					//unsetControlFlag = 1;
 					removeFlags |= CONTROL_FLAG;
 				}
 				key = FN_KEY;
@@ -473,7 +425,6 @@ if (dcConfig != 0)
 			else
 			{
 				fnHeldDown = 0;
-				//unsetfnFlag = 0;
 				REMOVE(removeFlags, FN_FLAG);
 			}
 			if (dcConfig & FN_TO_CONTROL)
@@ -481,17 +432,13 @@ if (dcConfig != 0)
 				if (fnHeldDown) // this event is a key up
 				{
 					//fnHeldDown = 0;
-					//setControlFlag = 0;
 					REMOVE(addFlags, CONTROL_FLAG);
-					//unsetfnFlag = 0;
 					REMOVE(removeFlags, FN_FLAG);
 				}
 				else // this event is a key down
 				{
 					//fnHeldDown = 1;
-					//setControlFlag = 1;
 					addFlags |= CONTROL_FLAG;
-					//unsetfnFlag = 1;
 					removeFlags |= FN_FLAG;
 				}
 				key = CONTROL_KEY;
@@ -541,11 +488,9 @@ if (dcConfig != 0)
 		case CAPSLOCK_KEY: // begin capslock key
 			if(dcConfig & CAPSLOCK_TO_CONTROL)
 			{
-				//unsetCapslockFlag = 1;
 				removeFlags |= CAPSLOCK_FLAG;
 				key = CONTROL_KEY;
 				//capslockHeldDown = 1;
-				//setControlFlag = 1;
 				addFlags |= CONTROL_FLAG;
 				if(flags & CAPSLOCK_FLAG)
 				{
@@ -557,7 +502,6 @@ if (dcConfig != 0)
 				{
 					// key up for 'books
 					//capslockHeldDown = 0;
-					//setControlFlag = 0;
 					REMOVE(addFlags, CONTROL_FLAG);
 				}
 				else
@@ -574,12 +518,10 @@ if (dcConfig != 0)
 				key = LEFT_ARROW_KEY;
 				if (eventType == KEY_DOWN)
 				{
-					//setCommandFlag = 1;
 					addFlags |= COMMAND_FLAG;
 				}
 				else if (eventType == KEY_UP)
 				{
-					//setCommandFlag = 0;
 					REMOVE(addFlags, COMMAND_FLAG);
 				}
 			}
@@ -591,12 +533,10 @@ if (dcConfig != 0)
 				key = RIGHT_ARROW_KEY;
 				if (eventType == KEY_DOWN)
 				{
-					//setCommandFlag = 1;
 					addFlags |= COMMAND_FLAG;
 				}
 				else if (eventType == KEY_UP)
 				{
-					//setCommandFlag = 0;
 					REMOVE(addFlags, COMMAND_FLAG);
 				}
 			}
@@ -615,7 +555,6 @@ if (dcConfig != 0)
 				key = BRIGHTNESS_DOWN;
 				flavor = 3;
 				keepKeyboardEvent = 0;
-				//unsetfnFlag = 1;
 				removeFlags |= FN_FLAG;
 			}
 		break; // end F1 key
@@ -625,7 +564,6 @@ if (dcConfig != 0)
 				key = BRIGHTNESS_UP;
 				flavor = 2;
 				keepKeyboardEvent = 0;
-				//unsetfnFlag = 1;
 				removeFlags |= FN_FLAG;
 			}
 		break; // end F2 key
@@ -635,7 +573,6 @@ if (dcConfig != 0)
 				key = VOLUME_MUTE;
 				flavor = 7;
 				keepKeyboardEvent = 0;
-				//unsetfnFlag = 1;
 				removeFlags |= FN_FLAG;
 			}
 		break; // end F3 key
@@ -645,7 +582,6 @@ if (dcConfig != 0)
 				key = VOLUME_DOWN;
 				flavor = 1;
 				keepKeyboardEvent = 0;
-				//unsetfnFlag = 1;
 				removeFlags |= FN_FLAG;
 			}
 		break; // end F4 key
@@ -655,7 +591,6 @@ if (dcConfig != 0)
 				key = VOLUME_UP;
 				flavor = 0;
 				keepKeyboardEvent = 0;
-				//unsetfnFlag = 1;
 				removeFlags |= FN_FLAG;
 			}
 		break; // end F5 key
@@ -665,7 +600,6 @@ if (dcConfig != 0)
 				key = SPECIAL_KEY;
 				flavor = 10;
 				keepKeyboardEvent = 0;
-				//unsetfnFlag = 1;
 				removeFlags |= FN_FLAG;
 			}
 		break; // end F6 key
@@ -682,7 +616,6 @@ if (dcConfig != 0)
 				key = F7a;
 				flavor = 15;
 				keepKeyboardEvent = 0;
-				//unsetfnFlag = 1;
 				removeFlags |= FN_FLAG;
 			}
 		break; // end F7 key
@@ -696,7 +629,6 @@ if (dcConfig != 0)
 				key = F8a;
 				flavor = 23;
 				keepKeyboardEvent = 0;
-				//unsetfnFlag = 1;
 				removeFlags |= FN_FLAG;
 			}
 		break; // end F8 key
@@ -710,7 +642,6 @@ if (dcConfig != 0)
 				key = F9a;
 				flavor = 22;
 				keepKeyboardEvent = 0;
-				//unsetfnFlag = 1;
 				removeFlags |= FN_FLAG;
 			}
 		break; // end F9 key
@@ -724,7 +655,6 @@ if (dcConfig != 0)
 				key = F10a;
 				flavor = 21;
 				keepKeyboardEvent = 0;
-				//unsetfnFlag = 1;
 				removeFlags |= FN_FLAG;
 			}
 		break; // end F10 key
@@ -760,52 +690,6 @@ if (dcConfig != 0)
 	}
 	// end supplied by Giel Scharff <mgsch@mac.com>
 
-	/*
-		what we need here is to have two vars one to OR
-		with flags and one to XOR - each part can add or
-		remove its bit to that var.
-	*/
-/*	if (unsetCommandFlag && (flags & COMMAND_FLAG) )
-	{
-		flags ^= COMMAND_FLAG;
-	}
-	if (unsetOptionFlag && (flags & OPTION_FLAG) )
-	{
-		flags ^= OPTION_FLAG;
-	}
-	if (unsetControlFlag && (flags & CONTROL_FLAG) )
-	{
-		flags ^= CONTROL_FLAG;
-	}
-	if (unsetfnFlag && (flags & FN_FLAG) )
-	{
-		flags ^= FN_FLAG;
-	}
-	if (unsetCapslockFlag && (flags & CAPSLOCK_FLAG) )
-	{
-		flags ^= CAPSLOCK_FLAG;
-	}
-	if (setCommandFlag)
-	{
-		flags |= COMMAND_FLAG;
-	}
-	if (setControlFlag)
-	{
-		flags |= CONTROL_FLAG;
-	}
-	if (setOptionFlag)
-	{
-		flags |= OPTION_FLAG;
-	}
-	if (setfnFlag)
-	{
-		flags |= FN_FLAG;
-	}
-	if (setCapslockFlag)
-	{
-		flags |= CAPSLOCK_FLAG;
-	}
-*/
 	removeFlags &= flags;
 	flags ^= removeFlags;
 	flags |= addFlags;
@@ -844,7 +728,6 @@ void MBHIDHack::keyboardSpecialEvent(   unsigned   eventType,
 {
 	unsigned charCode = 0;
 	unsigned charSet = 0;
-	//unsigned keyboardType = lastKeyboardType;
 #ifdef MB_DEBUG
 	printf("caught  special event type %d flags 0x%x key %d flavor %d\n", eventType, flags, key, flavor);
 #endif
@@ -858,7 +741,6 @@ if (dcConfig != 0)
 			{
 				keepSpecialEvent = 0;
 				key = F1;
-				//setfnFlag = 1;
 				charCode = 32;
 			}
 		break; // end F1 key
@@ -907,22 +789,17 @@ if (dcConfig != 0)
 				key = CONTROL_KEY;
 				charCode = 0;
 				eventType = KEY_MODIFY;
-				//unsetCapslockFlag = 1;
 				removeFlags |= CAPSLOCK_FLAG;
-				//flags ^= CAPSLOCK_FLAG;
 				// we toggle between states for this, since the key up and key down
 				// for the different states look the same at this level
 				if (!capslockHeldDown)
 				{
 					capslockHeldDown = 1;
-					//setControlFlag = 1;
 					addFlags |= CONTROL_FLAG;
-					//flags |= CONTROL_FLAG;
 				}
 				else
 				{
 					capslockHeldDown = 0;
-					//setControlFlag = 0;
 					REMOVE(addFlags, CONTROL_FLAG);
 				}
 			}
@@ -970,9 +847,7 @@ if (dcConfig != 0)
 				}
 				keepSpecialEvent = 0;
 				key = CONTROL_KEY;
-				//unsetCapslockFlag = 1;
 				removeFlags |= CAPSLOCK_FLAG;
-				//setControlFlag = 0;
 				REMOVE(addFlags, CONTROL_FLAG);
 				eventType = KEY_MODIFY;
 				//capslockHeldDown = 0;

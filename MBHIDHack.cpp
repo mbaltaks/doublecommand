@@ -3,13 +3,13 @@
  * Project: DoubleCommand
  * Author: Michael Baltaks <mbaltaks@mac.com>
  * Creation Date: 2002-4-26
- * Last Modified: 2002-8-30
+ * Last Modified: 2003-02-06
  * Originally based on iJect by Christian Starkjohann <cs@obdev.at> 
  * Tabsize: 4
  * Copyright: GNU General Public License version 2.0
  */
 
-#define MB_DEBUG
+//#define MB_DEBUG
 
 #ifdef __cplusplus
     extern "C"
@@ -482,6 +482,39 @@ if (dcConfig != 0)
 				}
 			}
 		break; // end capslock key
+
+		case HOME_KEY: // begin home key
+			if(dcConfig & PC_STYLE_HOME_AND_END)
+			{
+				if (eventType == KEY_DOWN)
+				{
+					setCommandFlag = 1;
+					key = LEFT_ARROW_KEY;
+				}
+				else if (eventType == KEY_UP)
+				{
+					setCommandFlag = 0;
+					key = LEFT_ARROW_KEY;
+				}
+			}
+		break; // end home key
+
+		case END_KEY: // begin end key
+			if(dcConfig & PC_STYLE_HOME_AND_END)
+			{
+				if (eventType == KEY_DOWN)
+				{
+					setCommandFlag = 1;
+					key = RIGHT_ARROW_KEY;
+				}
+				else if (eventType == KEY_UP)
+				{
+					setCommandFlag = 0;
+					key = RIGHT_ARROW_KEY;
+				}
+			}
+		break; // end end key
+
 	} // end switch (key)
 
 	// begin supplied by Giel Scharff <mgsch@mac.com>

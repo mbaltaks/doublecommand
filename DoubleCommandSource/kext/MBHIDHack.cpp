@@ -445,23 +445,18 @@ if (dcConfig != 0)
 
 		case DELETE_KEY: // begin delete key
 			// Make Shift + Delete send a Forward Delete key
-			// This doesn't conflict with anything I know of and is handy
 			if (dcConfig & SHIFT_DELETE_TO_FORWARD_DELETE)
 			{
-				//if (eventType == KEY_DOWN || eventType == KEY_UP)
-				//{
-					if (flags == SHIFT_FLAG) // with _only_ shift held as well
-					{
-						key = FORWARD_DELETE;
-						//flags ^= 0x20000;
-						//flags = FN_FLAG;
-						// check this!!!
-						charCode = 45;
-						charSet = 254;
-						origCharCode = 45;
-						origCharSet = 254;
-					}
-				//}
+				if (flags == SHIFT_FLAG) // with _only_ shift held as well
+				{
+					key = FORWARD_DELETE;
+					// FN_FLAG is needed for Office
+					flags = FN_FLAG;
+					charCode = 45;
+					charSet = 254;
+					origCharCode = 45;
+					origCharSet = 254;
+				}
 			}
 		break; // end delete key
 
@@ -514,14 +509,15 @@ if (dcConfig != 0)
 			if(dcConfig & PC_STYLE_HOME_AND_END)
 			{
 				key = LEFT_ARROW_KEY;
-				if (eventType == KEY_DOWN)
-				{
-					addFlags |= COMMAND_FLAG;
-				}
-				else if (eventType == KEY_UP)
-				{
-					REMOVE(addFlags, COMMAND_FLAG);
-				}
+				flags |= COMMAND_FLAG;
+				//if (eventType == KEY_DOWN)
+				//{
+					//addFlags |= COMMAND_FLAG;
+				//}
+				//else if (eventType == KEY_UP)
+				//{
+				//	REMOVE(addFlags, COMMAND_FLAG);
+				//}
 			}
 		break; // end home key
 
@@ -529,14 +525,15 @@ if (dcConfig != 0)
 			if(dcConfig & PC_STYLE_HOME_AND_END)
 			{
 				key = RIGHT_ARROW_KEY;
-				if (eventType == KEY_DOWN)
-				{
-					addFlags |= COMMAND_FLAG;
-				}
-				else if (eventType == KEY_UP)
-				{
-					REMOVE(addFlags, COMMAND_FLAG);
-				}
+				flags |= COMMAND_FLAG;
+				//if (eventType == KEY_DOWN)
+				//{
+				//	addFlags |= COMMAND_FLAG;
+				//}
+				//else if (eventType == KEY_UP)
+				//{
+				//	REMOVE(addFlags, COMMAND_FLAG);
+				//}
 			}
 		break; // end end key
 
@@ -548,194 +545,220 @@ if (dcConfig != 0)
 		break; // end backslash key
 
 		case F1: // begin F1 key
-			if ( (dcConfig & SWAP_FUNCTION_KEYS)
-				&&
-					(
-					(lastKeyboardType == POWERBOOKG3_KEYBOARD)
-					|| (lastKeyboardType == TIBOOK_KEYBOARD)
-					|| (lastKeyboardType == IBOOK_KEYBOARD)
-					)
-				)
+			if ( dcConfig & SWAP_FUNCTION_KEYS )
 			{
-				key = BRIGHTNESS_DOWN;
-				flavor = 3;
-				keepKeyboardEvent = 0;
-				removeFlags |= FN_FLAG;
+				switch (lastKeyboardType)
+				{
+					case IBOOK_KEYBOARD:
+					case POWERBOOKG3_KEYBOARD:
+					case TIBOOK_KEYBOARD:
+						key = BRIGHTNESS_DOWN;
+						flavor = BRIGHTNESS_DOWN_FLAVOUR;
+						keepKeyboardEvent = 0;
+						removeFlags |= FN_FLAG;
+					break;
+				} // end switch (lastKeyboardType)
 			}
 		break; // end F1 key
 		case F2: // begin F2 key
-			if ( (dcConfig & SWAP_FUNCTION_KEYS)
-				&&
-					(
-					(lastKeyboardType == POWERBOOKG3_KEYBOARD)
-					|| (lastKeyboardType == TIBOOK_KEYBOARD)
-					|| (lastKeyboardType == IBOOK_KEYBOARD)
-					)
-				)
+			if ( dcConfig & SWAP_FUNCTION_KEYS )
 			{
-				key = BRIGHTNESS_UP;
-				flavor = 2;
-				keepKeyboardEvent = 0;
-				removeFlags |= FN_FLAG;
+				switch (lastKeyboardType)
+				{
+					case IBOOK_KEYBOARD:
+					case POWERBOOKG3_KEYBOARD:
+					case TIBOOK_KEYBOARD:
+						key = BRIGHTNESS_UP;
+						flavor = BRIGHTNESS_UP_FLAVOUR;
+						keepKeyboardEvent = 0;
+						removeFlags |= FN_FLAG;
+					break;
+				} // end switch (lastKeyboardType)
 			}
 		break; // end F2 key
 		case F3: // begin F3 key
-			if ( (dcConfig & SWAP_FUNCTION_KEYS)
-				&&
-					(
-					(lastKeyboardType == IBOOK_KEYBOARD)
-					)
-				)
+			if ( dcConfig & SWAP_FUNCTION_KEYS )
 			{
-				key = VOLUME_MUTE;
-				flavor = 7;
-				keepKeyboardEvent = 0;
-				removeFlags |= FN_FLAG;
-			}
-			if ( (dcConfig & SWAP_FUNCTION_KEYS)
-				&&
-					(
-					(lastKeyboardType == POWERBOOKG3_KEYBOARD)
-					|| (lastKeyboardType == TIBOOK_KEYBOARD)
-					)
-				)
-			{
-				key = VOLUME_DOWN;
-				flavor = 1;
-				keepKeyboardEvent = 0;
-				removeFlags |= FN_FLAG;
+				switch (lastKeyboardType)
+				{
+					case IBOOK_KEYBOARD:
+						key = VOLUME_MUTE;
+						flavor = VOLUME_MUTE_FLAVOUR;
+						keepKeyboardEvent = 0;
+						removeFlags |= FN_FLAG;
+					break;
+					case POWERBOOKG3_KEYBOARD:
+					case TIBOOK_KEYBOARD:
+						key = VOLUME_DOWN;
+						flavor = VOLUME_DOWN_FLAVOUR;
+						keepKeyboardEvent = 0;
+						removeFlags |= FN_FLAG;
+					break;
+				} // end switch (lastKeyboardType)
 			}
 		break; // end F3 key
 		case F4: // begin F4 key
-			if ( (dcConfig & SWAP_FUNCTION_KEYS)
-				&&
-					(
-					(lastKeyboardType == IBOOK_KEYBOARD)
-					)
-				)
+			if ( dcConfig & SWAP_FUNCTION_KEYS )
 			{
-				key = VOLUME_DOWN;
-				flavor = 1;
-				keepKeyboardEvent = 0;
-				removeFlags |= FN_FLAG;
-			}
-			if ( (dcConfig & SWAP_FUNCTION_KEYS)
-				&&
-					(
-					(lastKeyboardType == POWERBOOKG3_KEYBOARD)
-					|| (lastKeyboardType == TIBOOK_KEYBOARD)
-					)
-				)
-			{
-				key = VOLUME_UP;
-				flavor = 0;
-				keepKeyboardEvent = 0;
-				removeFlags |= FN_FLAG;
+				switch (lastKeyboardType)
+				{
+					case IBOOK_KEYBOARD:
+						key = VOLUME_DOWN;
+						flavor = VOLUME_DOWN_FLAVOUR;
+						keepKeyboardEvent = 0;
+						removeFlags |= FN_FLAG;
+					break;
+					case POWERBOOKG3_KEYBOARD:
+					case TIBOOK_KEYBOARD:
+						key = VOLUME_UP;
+						flavor = VOLUME_UP_FLAVOUR;
+						keepKeyboardEvent = 0;
+						removeFlags |= FN_FLAG;
+					break;
+				} // end switch (lastKeyboardType)
 			}
 		break; // end F4 key
 		case F5: // begin F5 key
-			if ( (dcConfig & SWAP_FUNCTION_KEYS)
-				&&
-					(
-					(lastKeyboardType == POWERBOOKG3_KEYBOARD)
-					|| (lastKeyboardType == TIBOOK_KEYBOARD)
-					|| (lastKeyboardType == IBOOK_KEYBOARD)
-					)
-				)
+			if ( dcConfig & SWAP_FUNCTION_KEYS )
 			{
-				key = VOLUME_UP;
-				flavor = 0;
-				keepKeyboardEvent = 0;
-				removeFlags |= FN_FLAG;
+				switch (lastKeyboardType)
+				{
+					case IBOOK_KEYBOARD:
+						key = VOLUME_UP;
+						flavor = VOLUME_UP_FLAVOUR;
+						keepKeyboardEvent = 0;
+						removeFlags |= FN_FLAG;
+					break;
+					case POWERBOOKG3_KEYBOARD:
+					case TIBOOK_KEYBOARD:
+						key = SPECIAL_KEY;
+						flavor = NUMLOCK_FLAVOUR;
+						keepKeyboardEvent = 0;
+						removeFlags |= FN_FLAG;
+					break;
+				} // end switch (lastKeyboardType)
 			}
 		break; // end F5 key
 		case F6: // begin F6 key
-			if ( (dcConfig & SWAP_FUNCTION_KEYS)
-				&&
-					(
-					(lastKeyboardType == POWERBOOKG3_KEYBOARD)
-					|| (lastKeyboardType == TIBOOK_KEYBOARD)
-					|| (lastKeyboardType == IBOOK_KEYBOARD)
-					)
-				)
+			if ( dcConfig & SWAP_FUNCTION_KEYS )
 			{
-				key = SPECIAL_KEY;
-				flavor = 10;
-				keepKeyboardEvent = 0;
-				removeFlags |= FN_FLAG;
+				switch (lastKeyboardType)
+				{
+					case IBOOK_KEYBOARD:
+						key = SPECIAL_KEY;
+						flavor = NUMLOCK_FLAVOUR;
+						keepKeyboardEvent = 0;
+						removeFlags |= FN_FLAG;
+					break;
+					case POWERBOOKG3_KEYBOARD:
+					case TIBOOK_KEYBOARD:
+						key = VOLUME_MUTE;
+						flavor = VOLUME_MUTE_FLAVOUR;
+						keepKeyboardEvent = 0;
+						removeFlags |= FN_FLAG;
+					break;
+				} // end switch (lastKeyboardType)
 			}
 		break; // end F6 key
 		/* who wants these other keys? anyone?
 		actually, we can probably do this if the fn flag is set - 
 		that would mean a 17" PBG4 keyboard */
 		case F7: // begin F7 key
-			if ( (dcConfig & SWAP_FUNCTION_KEYS)
-				&&
-					(
-					(lastKeyboardType == POWERBOOKG3_KEYBOARD)
-					|| (lastKeyboardType == TIBOOK_KEYBOARD)
-					|| (lastKeyboardType == IBOOK_KEYBOARD)
-					)
-				&& (flags & FN_FLAG)
-				)
+			if ( dcConfig & SWAP_FUNCTION_KEYS )
 			{
-				key = F7a;
-				flavor = 15;
-				keepKeyboardEvent = 0;
-				removeFlags |= FN_FLAG;
+				switch (lastKeyboardType)
+				{
+					case IBOOK_KEYBOARD:
+					case POWERBOOKG3_KEYBOARD:
+					case TIBOOK_KEYBOARD:
+						key = F7a;
+						flavor = F7a_FLAVOUR;
+						keepKeyboardEvent = 0;
+						removeFlags |= FN_FLAG;
+					break;
+				} // end switch (lastKeyboardType)
 			}
 		break; // end F7 key
 		case F8: // begin F8 key
-			if ( (dcConfig & SWAP_FUNCTION_KEYS)
-				&&
-					(
-					(lastKeyboardType == POWERBOOKG3_KEYBOARD)
-					|| (lastKeyboardType == TIBOOK_KEYBOARD)
-					|| (lastKeyboardType == IBOOK_KEYBOARD)
-					)
-				&& (flags & FN_FLAG)
-				)
+			if ( dcConfig & SWAP_FUNCTION_KEYS )
 			{
-				key = F8a;
-				flavor = 23;
-				keepKeyboardEvent = 0;
-				removeFlags |= FN_FLAG;
+				switch (lastKeyboardType)
+				{
+					case IBOOK_KEYBOARD:
+					case POWERBOOKG3_KEYBOARD:
+					case TIBOOK_KEYBOARD:
+						key = F8a;
+						flavor = F8a_FLAVOUR;
+						keepKeyboardEvent = 0;
+						removeFlags |= FN_FLAG;
+					break;
+				} // end switch (lastKeyboardType)
 			}
 		break; // end F8 key
 		case F9: // begin F9 key
-			if ( (dcConfig & SWAP_FUNCTION_KEYS)
-				&&
-					(
-					(lastKeyboardType == POWERBOOKG3_KEYBOARD)
-					|| (lastKeyboardType == TIBOOK_KEYBOARD)
-					|| (lastKeyboardType == IBOOK_KEYBOARD)
-					)
-				&& (flags & FN_FLAG)
-				)
+			if ( dcConfig & SWAP_FUNCTION_KEYS )
 			{
-				key = F9a;
-				flavor = 22;
-				keepKeyboardEvent = 0;
-				removeFlags |= FN_FLAG;
+				switch (lastKeyboardType)
+				{
+					case IBOOK_KEYBOARD:
+					case POWERBOOKG3_KEYBOARD:
+					case TIBOOK_KEYBOARD:
+						key = F9a;
+						flavor = F9a_FLAVOUR;
+						keepKeyboardEvent = 0;
+						removeFlags |= FN_FLAG;
+					break;
+				} // end switch (lastKeyboardType)
 			}
 		break; // end F9 key
 		case F10: // begin F10 key
-			if ( (dcConfig & SWAP_FUNCTION_KEYS)
-				&&
-					(
-					(lastKeyboardType == POWERBOOKG3_KEYBOARD)
-					|| (lastKeyboardType == TIBOOK_KEYBOARD)
-					|| (lastKeyboardType == IBOOK_KEYBOARD)
-					)
-				&& (flags & FN_FLAG)
-				)
+			if ( dcConfig & SWAP_FUNCTION_KEYS )
 			{
-				key = F10a;
-				flavor = 21;
-				keepKeyboardEvent = 0;
-				removeFlags |= FN_FLAG;
+				switch (lastKeyboardType)
+				{
+					case IBOOK_KEYBOARD:
+					case POWERBOOKG3_KEYBOARD:
+					case TIBOOK_KEYBOARD:
+						key = F10a;
+						flavor = F10a_FLAVOUR;
+						keepKeyboardEvent = 0;
+						removeFlags |= FN_FLAG;
+					break;
+				} // end switch (lastKeyboardType)
 			}
 		break; // end F10 key
+		case F11: // begin F11 key
+			if ( dcConfig & SWAP_FUNCTION_KEYS )
+			{
+				switch (lastKeyboardType)
+				{
+					case IBOOK_KEYBOARD:
+					case POWERBOOKG3_KEYBOARD:
+					case TIBOOK_KEYBOARD:
+						flags |= FN_FLAG;
+					break;
+				} // end switch (lastKeyboardType)
+			}
+		break; // end F11 key
+		case F12: // begin F12 key
+			if ( dcConfig & SWAP_FUNCTION_KEYS )
+			{
+				switch (lastKeyboardType)
+				{
+					case IBOOK_KEYBOARD:
+					case POWERBOOKG3_KEYBOARD:
+					case TIBOOK_KEYBOARD:
+						if ( flags & FN_FLAG )
+						{
+							key = EJECT;
+							flavor = EJECT_FLAVOUR;
+							keepKeyboardEvent = 0;
+							removeFlags |= FN_FLAG;
+						}
+					break;
+				} // end switch (lastKeyboardType)
+			}
+		break; // end F12 key
 
 	} // end switch (key)
 
@@ -815,102 +838,109 @@ if (dcConfig != 0)
 	switch (key)
 	{
 		case BRIGHTNESS_DOWN: // begin F1 key
-			if (dcConfig & SWAP_FUNCTION_KEYS)
+			if ( dcConfig & SWAP_FUNCTION_KEYS )
 			{
-				keepSpecialEvent = 0;
-				key = F1;
-				charCode = 32;
+				switch (lastKeyboardType)
+				{
+					case IBOOK_KEYBOARD:
+					case POWERBOOKG3_KEYBOARD:
+					case TIBOOK_KEYBOARD:
+						keepSpecialEvent = 0;
+						key = F1;
+						charCode = 32;
+					break;
+				} // end switch (lastKeyboardType)
 			}
 		break; // end F1 key
 		case BRIGHTNESS_UP: // begin F2 key
-			if (dcConfig & SWAP_FUNCTION_KEYS)
+			if ( dcConfig & SWAP_FUNCTION_KEYS )
 			{
-				keepSpecialEvent = 0;
-				key = F2;
-				charCode = 33;
+				switch (lastKeyboardType)
+				{
+					case IBOOK_KEYBOARD:
+					case POWERBOOKG3_KEYBOARD:
+					case TIBOOK_KEYBOARD:
+						keepSpecialEvent = 0;
+						key = F2;
+						charCode = 33;
+					break;
+				} // end switch (lastKeyboardType)
 			}
 		break; // end F2 key
-		case VOLUME_MUTE: // begin F3 key
-			if ( (dcConfig & SWAP_FUNCTION_KEYS)
-				&&
-					(
-					(lastKeyboardType == IBOOK_KEYBOARD)
-					)
-				)
+		case VOLUME_MUTE: // begin VOLUME_MUTE key
+			if ( dcConfig & SWAP_FUNCTION_KEYS )
 			{
-				keepSpecialEvent = 0;
-				key = F3;
-				charCode = 34;
+				switch (lastKeyboardType)
+				{
+					case IBOOK_KEYBOARD:
+						keepSpecialEvent = 0;
+						key = F3;
+						charCode = 34;
+					break;
+					case POWERBOOKG3_KEYBOARD:
+					case TIBOOK_KEYBOARD:
+						keepSpecialEvent = 0;
+						key = F6;
+						charCode = 37;
+					break;
+				} // end switch (lastKeyboardType)
 			}
-			if ( (dcConfig & SWAP_FUNCTION_KEYS)
-				&&
-					(
-					(lastKeyboardType == POWERBOOKG3_KEYBOARD)
-					|| (lastKeyboardType == TIBOOK_KEYBOARD)
-					)
-				)
-			{
-				keepSpecialEvent = 0;
-				key = F6;
-				charCode = 37;
-			}
-		break; // end F3 key
+		break; // end VOLUME_MUTE key
 		case VOLUME_DOWN: // begin F4 key
-			if ( (dcConfig & SWAP_FUNCTION_KEYS)
-				&&
-					(
-					(lastKeyboardType == IBOOK_KEYBOARD)
-					)
-				)
+			if ( dcConfig & SWAP_FUNCTION_KEYS )
 			{
-				keepSpecialEvent = 0;
-				key = F4;
-				charCode = 35;
-			}
-			if ( (dcConfig & SWAP_FUNCTION_KEYS)
-				&&
-					(
-					(lastKeyboardType == POWERBOOKG3_KEYBOARD)
-					|| (lastKeyboardType == TIBOOK_KEYBOARD)
-					)
-				)
-			{
-				keepSpecialEvent = 0;
-				key = F3;
-				charCode = 34;
+				switch (lastKeyboardType)
+				{
+					case IBOOK_KEYBOARD:
+						keepSpecialEvent = 0;
+						key = F4;
+						charCode = 35;
+					break;
+					case POWERBOOKG3_KEYBOARD:
+					case TIBOOK_KEYBOARD:
+						keepSpecialEvent = 0;
+						key = F3;
+						charCode = 34;
+					break;
+				} // end switch (lastKeyboardType)
 			}
 		break; // end F4 key
 		case VOLUME_UP: // begin F5 key
-			if ( (dcConfig & SWAP_FUNCTION_KEYS)
-				&&
-					(
-					(lastKeyboardType == IBOOK_KEYBOARD)
-					)
-				)
+			if ( dcConfig & SWAP_FUNCTION_KEYS )
 			{
-				keepSpecialEvent = 0;
-				key = F5;
-				charCode = 36;
-			}
-			if ( (dcConfig & SWAP_FUNCTION_KEYS)
-				&&
-					(
-					(lastKeyboardType == POWERBOOKG3_KEYBOARD)
-					|| (lastKeyboardType == TIBOOK_KEYBOARD)
-					)
-				)
-			{
-				keepSpecialEvent = 0;
-				key = F4;
-				charCode = 35;
+				switch (lastKeyboardType)
+				{
+					case IBOOK_KEYBOARD:
+						keepSpecialEvent = 0;
+						key = F5;
+						charCode = 36;
+					break;
+					case POWERBOOKG3_KEYBOARD:
+					case TIBOOK_KEYBOARD:
+						keepSpecialEvent = 0;
+						key = F4;
+						charCode = 35;
+					break;
+				} // end switch (lastKeyboardType)
 			}
 		break; // end F5 key
 		case SPECIAL_KEY: // begin F6 key
-			if ( (dcConfig & SWAP_FUNCTION_KEYS) && (flavor == 10) )
+			if ( (dcConfig & SWAP_FUNCTION_KEYS) && (flavor == NUMLOCK_FLAVOUR) )
 			{
-				keepSpecialEvent = 0;
-				key = F6;
-				charCode = 37;
+				switch (lastKeyboardType)
+				{
+					case IBOOK_KEYBOARD:
+						keepSpecialEvent = 0;
+						key = F6;
+						charCode = 37;
+					break;
+					case POWERBOOKG3_KEYBOARD:
+					case TIBOOK_KEYBOARD:
+						keepSpecialEvent = 0;
+						key = F5;
+						charCode = 36;
+					break;
+				} // end switch (lastKeyboardType)
 			}
 			else if( (dcConfig & CAPSLOCK_TO_CONTROL) && (flags & CAPSLOCK_FLAG) )
 			{
@@ -934,37 +964,80 @@ if (dcConfig != 0)
 			}
 		break; // end F6 key
 		case F7a: // begin F7 key
-			if (dcConfig & SWAP_FUNCTION_KEYS)
+			if ( dcConfig & SWAP_FUNCTION_KEYS )
 			{
-				keepSpecialEvent = 0;
-				key = F7;
-				charCode = 38;
+				switch (lastKeyboardType)
+				{
+					case IBOOK_KEYBOARD:
+					case POWERBOOKG3_KEYBOARD:
+					case TIBOOK_KEYBOARD:
+						keepSpecialEvent = 0;
+						key = F7;
+						charCode = 38;
+					break;
+				} // end switch (lastKeyboardType)
 			}
 		break; // end F7 key
 		case F8a: // begin F8 key
-			if (dcConfig & SWAP_FUNCTION_KEYS)
+			if ( dcConfig & SWAP_FUNCTION_KEYS )
 			{
-				keepSpecialEvent = 0;
-				key = F8;
-				charCode = 39;
+				switch (lastKeyboardType)
+				{
+					case IBOOK_KEYBOARD:
+					case POWERBOOKG3_KEYBOARD:
+					case TIBOOK_KEYBOARD:
+						keepSpecialEvent = 0;
+						key = F8;
+						charCode = 39;
+					break;
+				} // end switch (lastKeyboardType)
 			}
 		break; // end F8 key
 		case F9a: // begin F9 key
-			if (dcConfig & SWAP_FUNCTION_KEYS)
+			if ( dcConfig & SWAP_FUNCTION_KEYS )
 			{
-				keepSpecialEvent = 0;
-				key = F9;
-				charCode = 40;
+				switch (lastKeyboardType)
+				{
+					case IBOOK_KEYBOARD:
+					case POWERBOOKG3_KEYBOARD:
+					case TIBOOK_KEYBOARD:
+						keepSpecialEvent = 0;
+						key = F9;
+						charCode = 40;
+					break;
+				} // end switch (lastKeyboardType)
 			}
 		break; // end F9 key
 		case F10a: // begin F10 key
-			if (dcConfig & SWAP_FUNCTION_KEYS)
+			if ( dcConfig & SWAP_FUNCTION_KEYS )
 			{
-				keepSpecialEvent = 0;
-				key = F10;
-				charCode = 41;
+				switch (lastKeyboardType)
+				{
+					case IBOOK_KEYBOARD:
+					case POWERBOOKG3_KEYBOARD:
+					case TIBOOK_KEYBOARD:
+						keepSpecialEvent = 0;
+						key = F10;
+						charCode = 41;
+					break;
+				} // end switch (lastKeyboardType)
 			}
 		break; // end F10 key
+		case EJECT: // begin EJECT key
+			if ( dcConfig & SWAP_FUNCTION_KEYS )
+			{
+				switch (lastKeyboardType)
+				{
+					case IBOOK_KEYBOARD:
+					case POWERBOOKG3_KEYBOARD:
+					case TIBOOK_KEYBOARD:
+						keepSpecialEvent = 0;
+						key = F12;
+						charCode = 43;
+					break;
+				} // end switch (lastKeyboardType)
+			}
+		break; // end EJECT key
 		case CAPSLOCK_KEY: // begin capslock key
 			// USB keyboards use a different key code, and
 			// also output an extra event which we can ignore

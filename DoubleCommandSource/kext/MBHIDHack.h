@@ -14,7 +14,7 @@
 
 
 // define MB_DEBUG to enable output of keycodes
-#define MB_DEBUG
+//#define MB_DEBUG
 
 // these should be defined for a 10.2 build, but
 // not for 10.3 or later

@@ -15,7 +15,7 @@
 </div>
 
 <div align="left" class="main">
-<h3>Installing DoubleCommand on Mac OS X</h3>
+<h3>Installing DoubleCommand</h3>
 <p class="body">To install DoubleCommand, please perform the following steps:</p>
 <p class="body">1.	Remove any older versions of DoubleCommand, iJect, uControl, CommandandControl or PowerDelete (see below for how to do that). These are conflicting software.</p>
 <p class="body">2.	Open a Finder window and go to the "Library" folder directly on your Mac OS X startup volume. (There are several folders named "Library". We mean the one in the root of the startup volume, NOT in the System folder!)</p>
@@ -27,6 +27,45 @@
 <p class="body">5.  After rebooting, a warning will pop up asking you whether you want to 'Fix and Use' or 'Use' DoubleCommand. Click 'Fix and Use'.</p>
 <p class="body">After rebooting a second time, DoubleCommand will be active.</p>
 <p class="body"><em>Note:</em> You need Administrator rights to install startup items, but you do not need to be the Unix super user "root". The user account which is created during installation of the operating system has administrator rights.</p>
+
+<h3>Configuring DoubleCommand</h3>
+<p class="body">
+To configure DoubleCommand requires some basic maths ability and a text editor (like TextEdit). You only need to edit the file /Library/StartupItems/DoubleCommand/DoubleCommand, changing the number at the end of the line:<br /><br />
+<span class="code">config_value=1</span><br /><br />
+to a number calculated below and save the file. Then either copy that line into a Terminal and press return, or just restart your computer.
+</p>
+<p class="body">
+The table below shows a list of numbers and what functionality they activate. To activate more than one at a time, simply add the numbers together. For example, I like enter -&gt; command and shift+delete -&gt; forward delete, so I use 1 + 16384 = 16385. So my file has a line that looks like:<br /><br />
+<span class="code">config_value=16385</span><br /><br />
+</p>
+<p class="body">
+Where command, option, etc are used it means any command, option, etc keys on your keyboard. It is not possible at this stage to only change for example the right option key to something else, you must change both option keys. This issue is under investigation.
+</p>
+<table class="body">
+<tr><td width="50%">0</td><td width="50%">do nothing</td></tr>
+<tr><td>1</td><td>enter -&gt; command</td></tr>
+</table>
+<ul class="body">
+<li>0 - do nothing</li>
+<li>1 - enter -&gt; command</li>
+<li>2 - enter -&gt; control</li>
+<li>4 - enter -&gt; option</li>
+<li>8 - enter -&gt; fn (partial support, cursor keys only)</li>
+<li>16 - command -&gt; option</li>
+<li>32 - command -&gt; control</li>
+<li>64 - option -&gt; command</li>
+<li>128 - option -&gt; fn (not yet available)</li>
+<li>256 - control -&gt; command</li>
+<li>512 - control &lt;-&gt; option (swap)</li>
+<li>1024 - control -&gt; fn (not yet available)</li>
+<li>2048 - caps lock -&gt; control (partial, sticky)</li>
+<li>4096 - fn -&gt; control</li>
+<li>8192 - numpad . switch</li>
+<li>16384 - shift delete -&gt; forward delete</li>
+<li>32768 - disable option and command</li>
+<li>65536 - PC style Home and End keys</li>
+<li>131072 - Backslash (\) -&gt; Forward Delete</li>
+</ul>
 
 <h3>Removing DoubleCommand</h3>
 <p class="body">To remove DoubleCommand from your machine:</p>
@@ -49,8 +88,10 @@
     <a class="navigation" href="./install.html">[&nbsp;Installing&nbsp;]</a>&nbsp;&nbsp;
 </div>
 
-    <p class="footer">Copyright &copy; 2003 
+    <p class="footer">Copyright &copy; 2001-2003 
     <a class="mail" href="mailto:&#109;&#98;&#97;&#108;&#116;&#97;&#107;&#115;&#64;&#109;&#97;&#99;&#46;&#99;&#111;&#109;?subject=DoubleCommand">Michael Baltaks</a>
+	<br />
+	$Id$
     </p>
 
 <center>

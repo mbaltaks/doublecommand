@@ -1,3 +1,5 @@
+/* $Id$ */
+
 <style>
 body
 {
@@ -15,6 +17,16 @@ body
 	font-family: Verdana, Geneva, Helvetica, Arial, sans-serif;
 	font-size: 11px;
 	padding: 0 10% 0 10%;
+}
+
+.code
+{
+	background-color: white;
+	color: black;
+	font-family: Monaco, Courier, Courier New, serif;
+	font-size: 11px;
+	padding: 0 10% 0 10%;
+	#padding: 5% 15% 5% 15%;
 }
 
 .main
@@ -57,7 +69,7 @@ H1
 	background-color: white;
 	color: black;
 	font-family: Verdana, Geneva, Helvetica, Arial, sans-serif;
-	font-size: 18px;
+	font-size: 22px;
 	padding: 0 10% 0 10%;
 }
 
@@ -66,16 +78,16 @@ H2
 	background-color: white;
 	color: black;
 	font-family: Verdana, Geneva, Helvetica, Arial, sans-serif;
-	font-size: 14px;
+	font-size: 16px;
 	padding: 0 10% 0 10%;
 }
 
 H3, H4, H5, H6
 {
-	background-color: white;
-	color: black;
+	background-color: #eeeeee;
+	color: #111111;
 	font-family: Verdana, Geneva, Helvetica, Arial, sans-serif;
-	font-size: 12px;
+	font-size: 14px;
 	font-style: bold;
 	padding: 0 10% 0 10%;
 }

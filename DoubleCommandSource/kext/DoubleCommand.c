@@ -66,6 +66,7 @@ kern_return_t DoubleCommand_start (kmod_info_t * ki, void * d)
 {
 	sysctl_register_oid(&sysctl__dc);
 	sysctl_register_oid(&sysctl__dc_config);
+	printf("DoubleCommand loaded\n");
     return MBHidInit() == 0 ? KERN_SUCCESS : KERN_FAILURE;
 }
 
@@ -74,5 +75,6 @@ kern_return_t DoubleCommand_stop (kmod_info_t * ki, void * d)
 {
 	sysctl_unregister_oid(&sysctl__dc);
 	sysctl_unregister_oid(&sysctl__dc_config);
+	printf("DoubleCommand unloaded\n");
     return MBHidExit() == 0 ? KERN_SUCCESS : KERN_FAILURE;
 }

@@ -122,12 +122,13 @@ unsigned char setCommandFlag = 0;
 unsigned char setControlFlag = 0;
 unsigned char setOptionFlag = 0;
 unsigned char setfnFlag = 0;
-unsigned char setCapslockFlag = 0;
+//unsigned char setCapslockFlag = 0;
 unsigned char commandHeldDown = 0;
 unsigned char optionHeldDown = 0;
 unsigned char controlHeldDown = 0;
 unsigned char fnHeldDown = 0;
-unsigned char capslockKeyDown = 0;
+unsigned char capslockHeldDown = 1;
+unsigned char capslockOn = 0;
 unsigned char inFnMode = 0;
 unsigned char unsetCommandFlag = 0;
 unsigned char unsetOptionFlag = 0;
@@ -162,6 +163,12 @@ void MBHIDHack::keyboardEvent(unsigned   eventType,
 if (dcConfig != 0)
 {
 	lastKeyboardType = keyboardType;
+
+	if( (dcConfig & CAPSLOCK_DISABLED) && (flags & CAPSLOCK_FLAG) )
+	{
+		flags ^= CAPSLOCK_FLAG;
+	}
+
 	switch (key)
 	{
 		case ENTER_KEY: // begin enter key
@@ -477,51 +484,26 @@ if (dcConfig != 0)
 		case CAPSLOCK_KEY: // begin capslock key
 			if(dcConfig & CAPSLOCK_TO_CONTROL)
 			{
+				unsetCapslockFlag = 1;
+				key = CONTROL_KEY;
+				//capslockHeldDown = 1;
+				setControlFlag = 1;
 				if(flags & CAPSLOCK_FLAG)
 				{
 					//flags ^= CAPSLOCK_FLAG;
 					//flags |= CONTROL_FLAG;
-					unsetCapslockFlag = 1;
-					setControlFlag = 1;
-					key = CONTROL_KEY;
-					capslockKeyDown = 1;
+					//capslockOn = 1;
+				}
+				else if(keyboardType == POWERBOOKG3_KEYBOARD || keyboardType == IBOOK_KEYBOARD)
+				{
+					//capslockHeldDown = 0;
+					setControlFlag = 0;
 				}
 				else
 				{
-					key = CONTROL_KEY;
-					capslockKeyDown = 0;
+					//capslockOn = 0;
+					//capslockHeldDown = 0;
 				}
-				/*
-				// has the capslock key has been pressed?
-				if (eventType == KEY_MODIFY)
-				{
-					key = CONTROL_KEY;
-					// flavor 6 is the kind the titanium comes with
-					// flavor 4 seems to be the type for USB keyboards
-					// keyboardType 195 seems to be the TiBooks internal keyboard
-					// (cachedFlavor will not be set correctly until keyboardSpecialEvent
-					// is called)
-					//if (cachedFlavor == 6 || keyboardType == INTERNAL_KYBD)
-					//{
-						// make it look like the control key has been pressed instead
-						if (flags & CAPSLOCK_FLAG)
-						{
-							// capslock on
-							//addFlags |= CTRL_FLAG;
-							setControlFlag = 1;
-						}
-						else
-						{
-							setControlFlag = 0;
-						}
-						//else if (addFlags & CTRL_FLAG)
-						//{
-							// capslock off (not the same as releasing capslock, mind you)
-						//	addFlags ^= CTRL_FLAG;
-						//}
-					//}
-				}
-				*/
 			}
 		break; // end capslock key
 
@@ -703,62 +685,51 @@ if (dcConfig != 0)
 	}
 	// end supplied by Giel Scharff <mgsch@mac.com>
 
-	if( (dcConfig & CAPSLOCK_DISABLED) && (flags & CAPSLOCK_FLAG) )
+	/*
+		what we need here is to have two vars one to OR
+		with flags and one to XOR - each part can add or
+		remove its bit to that var.
+	*/
+	if (unsetCommandFlag && (flags & COMMAND_FLAG) )
 	{
-		flags ^= CAPSLOCK_FLAG;
-	}
-
-	if (unsetCommandFlag)
-	{
-		//unsetCommandFlag = 0;
 		flags ^= COMMAND_FLAG;
-		//flags ^= 0x100000;
 	}
-	if (unsetOptionFlag)
+	if (unsetOptionFlag && (flags & OPTION_FLAG) )
 	{
-		//unsetOptionFlag = 0;
 		flags ^= OPTION_FLAG;
 	}
-	if (unsetControlFlag)
+	if (unsetControlFlag && (flags & CONTROL_FLAG) )
 	{
-		//unsetControlFlag = 0;
 		flags ^= CONTROL_FLAG;
 	}
-	if (unsetfnFlag)
+	if (unsetfnFlag && (flags & FN_FLAG) )
 	{
-		//unsetfnFlag = 0;
 		flags ^= FN_FLAG;
 	}
-	if (unsetCapslockFlag)
+	if (unsetCapslockFlag && (flags & CAPSLOCK_FLAG) )
 	{
-		//unsetCapslockFlag = 0;
 		flags ^= CAPSLOCK_FLAG;
 	}
 	if (setCommandFlag)
 	{
-		//setCommandFlag = 0;
 		flags |= COMMAND_FLAG;
 	}
 	if (setControlFlag)
 	{
-		//setControlFlag = 0;
 		flags |= CONTROL_FLAG;
 	}
 	if (setOptionFlag)
 	{
-		//setOptionFlag = 0;
 		flags |= OPTION_FLAG;
 	}
 	if (setfnFlag)
 	{
-		//setfnFlag = 0;
 		flags |= FN_FLAG;
 	}
-	if (setCapslockFlag)
-	{
-		//setCapslockFlag = 0;
-		flags |= CAPSLOCK_FLAG;
-	}
+//	if (setCapslockFlag)
+//	{
+//		flags |= CAPSLOCK_FLAG;
+//	}
 } // end if dcConfig != 0
 
 if(keepKeyboardEvent)
@@ -854,15 +825,18 @@ if (dcConfig != 0)
 				key = CONTROL_KEY;
 				charCode = 0;
 				eventType = KEY_MODIFY;
-				flags ^= CAPSLOCK_FLAG;
-				if (!capslockKeyDown)
+				unsetCapslockFlag = 1;
+				//flags ^= CAPSLOCK_FLAG;
+				if (!capslockHeldDown)
 				{
-					capslockKeyDown = 1;
-					flags |= CONTROL_FLAG;
+					capslockHeldDown = 1;
+					setControlFlag = 1;
+					//flags |= CONTROL_FLAG;
 				}
 				else
 				{
-					capslockKeyDown = 0;
+					capslockHeldDown = 0;
+					setControlFlag = 0;
 				}
 			}
 		break; // end F6 key
@@ -898,17 +872,68 @@ if (dcConfig != 0)
 				charCode = 41;
 			}
 		break; // end F10 key
+		case CAPSLOCK_KEY: // begin capslock key
+			if (dcConfig & CAPSLOCK_TO_CONTROL)
+			{
+				if(eventType == KEY_DOWN)
+				{
+					return;
+				}
+				keepSpecialEvent = 0;
+				key = CONTROL_KEY;
+				unsetCapslockFlag = 1;
+				setControlFlag = 0;
+				eventType = KEY_MODIFY;
+				//capslockHeldDown = 0;
+			}
+		break; // end capslock key
 
 	} // end switch (key)
+	/*
+		what we need here is to have two vars one to OR
+		with flags and one to XOR - each part can add or
+		remove its bit to that var.
+	*/
+	if (unsetCommandFlag && (flags & COMMAND_FLAG) )
+	{
+		flags ^= COMMAND_FLAG;
+	}
+	if (unsetOptionFlag && (flags & OPTION_FLAG) )
+	{
+		flags ^= OPTION_FLAG;
+	}
+	if (unsetControlFlag && (flags & CONTROL_FLAG) )
+	{
+		flags ^= CONTROL_FLAG;
+	}
 	if (unsetfnFlag && (flags & FN_FLAG) )
 	{
 		flags ^= FN_FLAG;
 	}
+	if (unsetCapslockFlag && (flags & CAPSLOCK_FLAG) )
+	{
+		flags ^= CAPSLOCK_FLAG;
+	}
+	if (setCommandFlag)
+	{
+		flags |= COMMAND_FLAG;
+	}
+	if (setControlFlag)
+	{
+		flags |= CONTROL_FLAG;
+	}
+	if (setOptionFlag)
+	{
+		flags |= OPTION_FLAG;
+	}
 	if (setfnFlag)
 	{
-		setfnFlag = 0;
 		flags |= FN_FLAG;
 	}
+//	if (setCapslockFlag)
+//	{
+//		flags |= CAPSLOCK_FLAG;
+//	}
 } // end if dcConfig != 0
 
 if(keepSpecialEvent)
@@ -921,7 +946,7 @@ if(keepSpecialEvent)
 else
 {
 #ifdef MB_DEBUG
-	printf("CHANGE sending hid event type %d flags 0x%x key %d charCode %d charSet %d kbdType %d\n", eventType, flags, key, charCode, charSet, lastKeyboardType);
+	printf("CHANGE sending hid event type %d flags 0x%x key %d charCode %d charSet %d kbdType %d caps %d\n", eventType, flags, key, charCode, charSet, lastKeyboardType, capslockHeldDown);
 #endif
 	keepSpecialEvent = 1;
 	charSet = 254;

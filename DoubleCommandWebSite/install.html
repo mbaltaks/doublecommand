@@ -31,41 +31,38 @@
 <h3>Configuring DoubleCommand</h3>
 <p class="body">
 To configure DoubleCommand requires some basic maths ability and a text editor (like TextEdit). You only need to edit the file /Library/StartupItems/DoubleCommand/DoubleCommand, changing the number at the end of the line:<br /><br />
-<span class="code">config_value=1</span><br /><br />
+<span class="code">/usr/sbin/sysctl -w dc.config=1</span><br /><br />
 to a number calculated below and save the file. Then either copy that line into a Terminal and press return, or just restart your computer.
 </p>
 <p class="body">
 The table below shows a list of numbers and what functionality they activate. To activate more than one at a time, simply add the numbers together. For example, I like enter -&gt; command and shift+delete -&gt; forward delete, so I use 1 + 16384 = 16385. So my file has a line that looks like:<br /><br />
-<span class="code">config_value=16385</span><br /><br />
+<span class="code">/usr/sbin/sysctl -w dc.config=16385</span><br /><br />
 </p>
 <p class="body">
 Where command, option, etc are used it means any command, option, etc keys on your keyboard. It is not possible at this stage to only change for example the right option key to something else, you must change both option keys. This issue is under investigation.
 </p>
-<table class="body">
-<tr><td width="50%">0</td><td width="50%">do nothing</td></tr>
+<table class="centre">
+<tr><td><strong>dc.config value &nbsp;&nbsp;&nbsp;</strong></td><td><strong>feature</strong></td></tr>
+<tr><td>0</td><td>do nothing</td></tr>
 <tr><td>1</td><td>enter -&gt; command</td></tr>
+<tr><td>2</td><td>enter -&gt; control</td></tr>
+<tr><td>4</td><td>enter -&gt; option</td></tr>
+<tr><td>8</td><td>enter -&gt; fn (partial support, cursor keys only)</td></tr>
+<tr><td>16</td><td>command -&gt; option</td></tr>
+<tr><td>32</td><td>command -&gt; control</td></tr>
+<tr><td>64</td><td>option -&gt; command</td></tr>
+<tr><td>128</td><td>option -&gt; fn (not yet available)</td></tr>
+<tr><td>256</td><td>control -&gt; command</td></tr>
+<tr><td>512</td><td>control &lt;-&gt; option (swap)</td></tr>
+<tr><td>1024</td><td>control -&gt; fn (not yet available)</td></tr>
+<tr><td>2048</td><td>caps lock -&gt; control (partial, sticky)</td></tr>
+<tr><td>4096</td><td>fn -&gt; control</td></tr>
+<tr><td>8192</td><td>numpad . switch</td></tr>
+<tr><td>16384</td><td>shift delete -&gt; forward delete</td></tr>
+<tr><td>32768</td><td>disable option and command</td></tr>
+<tr><td>65536</td><td>PC style Home and End keys</td></tr>
+<!-- <tr><td>131072</td><td>Backslash (\) -&gt; Forward Delete</td></tr> -->
 </table>
-<ul class="body">
-<li>0 - do nothing</li>
-<li>1 - enter -&gt; command</li>
-<li>2 - enter -&gt; control</li>
-<li>4 - enter -&gt; option</li>
-<li>8 - enter -&gt; fn (partial support, cursor keys only)</li>
-<li>16 - command -&gt; option</li>
-<li>32 - command -&gt; control</li>
-<li>64 - option -&gt; command</li>
-<li>128 - option -&gt; fn (not yet available)</li>
-<li>256 - control -&gt; command</li>
-<li>512 - control &lt;-&gt; option (swap)</li>
-<li>1024 - control -&gt; fn (not yet available)</li>
-<li>2048 - caps lock -&gt; control (partial, sticky)</li>
-<li>4096 - fn -&gt; control</li>
-<li>8192 - numpad . switch</li>
-<li>16384 - shift delete -&gt; forward delete</li>
-<li>32768 - disable option and command</li>
-<li>65536 - PC style Home and End keys</li>
-<li>131072 - Backslash (\) -&gt; Forward Delete</li>
-</ul>
 
 <h3>Removing DoubleCommand</h3>
 <p class="body">To remove DoubleCommand from your machine:</p>
@@ -78,7 +75,7 @@ Where command, option, etc are used it means any command, option, etc keys on yo
 <p class="body">2.	Restart your computer.</p>
 
 <h3>Troubleshooting</h3>
-<p class="body">DoubleCommand has been developed for Mac OS X. It is known to run on Mac OS X 10.1.0 through to Mac OS X 10.2 and probably runs on later versions, too. However, since it links to internal kernel structures, newer versions of the kernel may break DoubleCommand. If this happens check with this web site for an update that will work with the new kernel.</p>
+<p class="body">DoubleCommand has been developed for Mac OS X. It is known to run on Mac OS X 10.1.0 through to Mac OS X 10.2.4 and probably runs on later versions, too. However, since it links to internal kernel structures, newer versions of the kernel may break DoubleCommand. If this happens check with this web site for an update that will work with the new kernel.</p>
 <p class="body">If your machine does not boot after installing DoubleCommand, hold the option (alt) key during booting and boot to Mac OS 9. You can remove DoubleCommand from Mac OS 9.</p>
 </div>
 

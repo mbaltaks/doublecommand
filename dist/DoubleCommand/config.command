@@ -10,3 +10,4 @@
 cd `dirname $0`
 
 ./DoubleCommand config
+echo "DoubleCommand configured, it is now safe to close this window."

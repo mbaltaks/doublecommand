@@ -1,18 +1,16 @@
 /*
- *  MBHIDHack.h
- *  DoubleCommand
- *
- *  Created by Michael Baltaks on Tuesday April 30 2002.
- *
  * $Id$
  *
- *  Last modified 2003-02-06.
- *  Copyright (c) 2002 Michael Baltaks. All rights reserved.
- *  Thanks to Shane Celis <shane@terraspring.com> for some
- *  constants.
+ * MBHIDHack.h
+ * DoubleCommand
  *
+ * Created by Michael Baltaks on Tuesday April 30 2002.
+ *
+ * Last modified 2003-02-06.
+ * Copyright (c) 2002 Michael Baltaks. All rights reserved.
+ * Thanks to Shane Celis <shane@terraspring.com> for some
+ * constants.
  */
-
 
 #define COMMAND_FLAG 0x100000
 #define CONTROL_FLAG 0x40000

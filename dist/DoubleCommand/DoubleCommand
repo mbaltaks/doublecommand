@@ -1,18 +1,27 @@
 #!/bin/sh
 
-what="$1"
+# Load script for DoubleCommand kernel extension.
+# 
+# $Id$
+
+# Edit this value to configure DoubleCommand
+config_value=1
+
+argument="$1"
 kextload=/sbin/kextload
 kextunload=/sbin/kextunload
+sysctl=/usr/sbin/sysctl
+config_var=dc.config
 
-if [ -z "$what" ]; then
-	what=start
+if [ -z "$argument" ]; then
+	argument=start
 fi
 
-case "$what" in
+case "$argument" in
 	start)
 		echo "Loading DoubleCommand"
 		$kextload /Library/StartupItems/DoubleCommand/DoubleCommand.kext
-		/usr/sbin/sysctl -w dc.config=16385
+		$sysctl -w $config_var=$config_value
 	;;
 	stop)
 		echo "Unloading DoubleCommand"

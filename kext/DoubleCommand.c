@@ -1,4 +1,6 @@
 /*
+ * $Id$
+ *
  * Name: DoubleCommand.c
  * Project: DoubleCommand
  * Author: Michael Baltaks <mbaltaks@mac.com>

@@ -1,4 +1,6 @@
 /*
+ * $Id$
+ *
  * Name: MBHIDHack.cpp
  * Project: DoubleCommand
  * Author: Michael Baltaks <mbaltaks@mac.com>
@@ -486,15 +488,14 @@ if (dcConfig != 0)
 		case HOME_KEY: // begin home key
 			if(dcConfig & PC_STYLE_HOME_AND_END)
 			{
+				key = LEFT_ARROW_KEY;
 				if (eventType == KEY_DOWN)
 				{
 					setCommandFlag = 1;
-					key = LEFT_ARROW_KEY;
 				}
 				else if (eventType == KEY_UP)
 				{
 					setCommandFlag = 0;
-					key = LEFT_ARROW_KEY;
 				}
 			}
 		break; // end home key
@@ -502,18 +503,24 @@ if (dcConfig != 0)
 		case END_KEY: // begin end key
 			if(dcConfig & PC_STYLE_HOME_AND_END)
 			{
+				key = RIGHT_ARROW_KEY;
 				if (eventType == KEY_DOWN)
 				{
 					setCommandFlag = 1;
-					key = RIGHT_ARROW_KEY;
 				}
 				else if (eventType == KEY_UP)
 				{
 					setCommandFlag = 0;
-					key = RIGHT_ARROW_KEY;
 				}
 			}
 		break; // end end key
+
+		case BACKSLASH_KEY: // begin backslash key
+			if(dcConfig & BACKSLASH_TO_FORWARD_DELETE)
+			{
+				key = FORWARD_DELETE;
+			}
+		break; // end backslash key
 
 	} // end switch (key)
 

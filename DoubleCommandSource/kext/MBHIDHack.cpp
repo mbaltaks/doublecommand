@@ -813,25 +813,25 @@ if (dcConfig != 0)
 	// begin supplied by Giel Scharff <mgsch@mac.com>
 	if (inFnMode)
 	{   //up -> PgUp
-		if ((key == 126) && (flags == 0x200000) && (charCode == 173) && (charSet == 1) &&
+		if ((key == 126) /*&& (flags == 0x200000)*/ && (charCode == 173) && (charSet == 1) &&
 	  (origCharCode == 173) && (origCharSet == 1))
 		{
 			key = 116; flags = 0x800000; charCode =  48; charSet = 254; origCharCode =  48;  origCharSet = 254;
 		}
 		//down -> PgDown
-		else if ((key == 125) && (flags == 0x200000) && (charCode == 175) && (charSet == 1) &&
+		else if ((key == 125) /*&& (flags == 0x200000)*/ && (charCode == 175) && (charSet == 1) &&
 		   (origCharCode == 175) && (origCharSet == 1))
 		{
 			key = 121; flags = 0x800000; charCode =  49; charSet = 254; origCharCode =  49;  origCharSet = 254;
 		}
 		//left -> Home
-		else if ((key == 123) && (flags == 0x200000) && (charCode == 172) && (charSet == 1) &&
+		else if ((key == 123) /*&& (flags == 0x200000)*/ && (charCode == 172) && (charSet == 1) &&
 		   (origCharCode == 172) && (origCharSet == 1))
 		{
 			key = 115; flags = 0x800000; charCode =  46; charSet = 254; origCharCode =  46;  origCharSet = 254;
 		}
 		//right -> End
-		else if ((key == 124) && (flags == 0x200000) && (charCode == 174) && (charSet == 1) &&
+		else if ((key == 124) /*&& (flags == 0x200000)*/ && (charCode == 174) && (charSet == 1) &&
 		   (origCharCode == 174) && (origCharSet == 1))
 		{
 			key = 119; flags = 0x800000; charCode =  47; charSet = 254; origCharCode =  46;  origCharSet = 254;

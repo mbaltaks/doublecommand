@@ -1,0 +1,154 @@
+<style>
+body
+{
+	background-color: white;
+	color: black;
+	font-family: Verdana, Geneva, Helvetica, Arial, sans-serif;
+	font-size: 11px;
+	padding: 0 10% 0 10%;
+}
+
+.body
+{
+	background-color: white;
+	color: black;
+	font-family: Verdana, Geneva, Helvetica, Arial, sans-serif;
+	font-size: 11px;
+	padding: 0 10% 0 10%;
+}
+
+.main
+{
+	background-color: white;
+	color: black;
+	font-family: Verdana, Geneva, Helvetica, Arial, sans-serif;
+	font-size: 11px;
+	padding: 0 50px 0 50px;
+}
+
+.navigation
+{
+	background-color: white;
+	color: black;
+	font-family: Verdana, Geneva, Helvetica, Arial, sans-serif;
+	font-size: 10px;
+}
+
+.name
+{
+	background-color: white;
+	color: #666666;
+	font-family: Verdana, Geneva, Helvetica, Arial, sans-serif;
+	font-size: 22px;
+	text-align: center;
+}
+
+.footer
+{
+	background-color: white;
+	color: #888888;
+	font-family: Verdana, Geneva, Helvetica, Arial, sans-serif;
+	font-size: 9px;
+	text-align: center;
+}
+
+H1
+{
+	background-color: white;
+	color: black;
+	font-family: Verdana, Geneva, Helvetica, Arial, sans-serif;
+	font-size: 18px;
+	padding: 0 10% 0 10%;
+}
+
+H2
+{
+	background-color: white;
+	color: black;
+	font-family: Verdana, Geneva, Helvetica, Arial, sans-serif;
+	font-size: 14px;
+	padding: 0 10% 0 10%;
+}
+
+H3, H4, H5, H6
+{
+	background-color: white;
+	color: black;
+	font-family: Verdana, Geneva, Helvetica, Arial, sans-serif;
+	font-size: 12px;
+	font-style: bold;
+	padding: 0 10% 0 10%;
+}
+
+P
+{
+	background-color: white;
+	color: black;
+	font-family: Verdana, Geneva, Helvetica, Arial, sans-serif;
+	font-size: 11px;
+}
+
+A
+{
+	background-color: white;
+	color: black;
+	font-family: Verdana, Geneva, Helvetica, Arial, sans-serif;
+	font-size: 10px;
+	Text-Decoration: none;
+}
+
+A.navigation:LINK
+{
+	Text-Decoration: none;
+	color: #30C;
+	background-color: white;
+	font-family: Verdana, Geneva, Helvetica, Arial, sans-serif;
+	font-size: 11px;
+}
+
+A.navigation:VISITED
+{
+	Text-Decoration: none;
+	color: #30C;
+	background-color: white;
+	font-family: Verdana, Geneva, Helvetica, Arial, sans-serif;
+	font-size: 11px;
+}
+
+A.navigation:HOVER
+{
+	Text-Decoration: underline;
+	color: #F90;
+	background-color: white;
+	font-family: Verdana, Geneva, Helvetica, Arial, sans-serif;
+	font-size: 11px;
+}
+
+A.mail:LINK
+{
+	background-color: white;
+	color: #888888;
+	font-family: Verdana, Geneva, Helvetica, Arial, sans-serif;
+	font-size: 9px;
+	text-align: center;
+}
+
+A.mail:VISITED
+{
+	background-color: white;
+	color: #888888;
+	font-family: Verdana, Geneva, Helvetica, Arial, sans-serif;
+	font-size: 9px;
+	text-align: center;
+}
+
+A.mail:HOVER
+{
+	Text-Decoration: underline;
+	background-color: white;
+	color: #F90;
+	font-family: Verdana, Geneva, Helvetica, Arial, sans-serif;
+	font-size: 9px;
+	text-align: center;
+}
+</style>

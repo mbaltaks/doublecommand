@@ -135,6 +135,8 @@ unsigned char unsetfnFlag = 0;
 unsigned char keepSpecialEvent = 1;
 unsigned char keepKeyboardEvent = 1;
 
+unsigned lastKeyboardType = 202;
+
 
 //----------------------------------------------------------------------------
 void MBHIDHack::keyboardEvent(unsigned   eventType,
@@ -156,6 +158,7 @@ void MBHIDHack::keyboardEvent(unsigned   eventType,
 
 if (dcConfig != 0)
 {
+	lastKeyboardType = keyboardType;
 	switch (key)
 	{
 		case ENTER_KEY: // begin enter key
@@ -532,61 +535,68 @@ if (dcConfig != 0)
 		break; // end backslash key
 
 		case F1: // begin F1 key
-			if(dcConfig & SWAP_FUNCTION_KEYS)
+			if ( (dcConfig & SWAP_FUNCTION_KEYS) && (lastKeyboardType != APPLE_PRO_2003_KEYBOARD) )
 			{
-				key = F1a;
+				key = BRIGHTNESS_DOWN;
 				flavor = 3;
 				keepKeyboardEvent = 0;
 				unsetfnFlag = 1;
 			}
 		break; // end F1 key
 		case F2: // begin F2 key
-			if(dcConfig & SWAP_FUNCTION_KEYS)
+			if ( (dcConfig & SWAP_FUNCTION_KEYS) && (lastKeyboardType != APPLE_PRO_2003_KEYBOARD) )
 			{
-				key = F2a;
+				key = BRIGHTNESS_UP;
 				flavor = 2;
 				keepKeyboardEvent = 0;
 				unsetfnFlag = 1;
 			}
 		break; // end F2 key
 		case F3: // begin F3 key
-			if(dcConfig & SWAP_FUNCTION_KEYS)
+			if ( (dcConfig & SWAP_FUNCTION_KEYS) && (lastKeyboardType != APPLE_PRO_2003_KEYBOARD) )
 			{
-				key = F3a;
+				key = VOLUME_MUTE;
 				flavor = 7;
 				keepKeyboardEvent = 0;
 				unsetfnFlag = 1;
 			}
 		break; // end F3 key
 		case F4: // begin F4 key
-			if(dcConfig & SWAP_FUNCTION_KEYS)
+			if ( (dcConfig & SWAP_FUNCTION_KEYS) && (lastKeyboardType != APPLE_PRO_2003_KEYBOARD) )
 			{
-				key = F4a;
+				key = VOLUME_DOWN;
 				flavor = 1;
 				keepKeyboardEvent = 0;
 				unsetfnFlag = 1;
 			}
 		break; // end F4 key
 		case F5: // begin F5 key
-			if(dcConfig & SWAP_FUNCTION_KEYS)
+			if ( (dcConfig & SWAP_FUNCTION_KEYS) && (lastKeyboardType != APPLE_PRO_2003_KEYBOARD) )
 			{
-				key = F5a;
+				key = VOLUME_UP;
 				flavor = 0;
 				keepKeyboardEvent = 0;
 				unsetfnFlag = 1;
 			}
 		break; // end F5 key
 		case F6: // begin F6 key
-			if(dcConfig & SWAP_FUNCTION_KEYS)
+			if ( (dcConfig & SWAP_FUNCTION_KEYS) && (lastKeyboardType != APPLE_PRO_2003_KEYBOARD) )
 			{
-				key = F6a;
+				key = NUM_LOCK;
 				flavor = 10;
 				keepKeyboardEvent = 0;
 				unsetfnFlag = 1;
 			}
 		break; // end F6 key
+		/* who wants these other keys? anyone?
+		actually, we can probably do this if the fn flag is set - 
+		that would mean a 17" PBG4 keyboard */
 		case F7: // begin F7 key
-			if(dcConfig & SWAP_FUNCTION_KEYS)
+			if (
+				(dcConfig & SWAP_FUNCTION_KEYS) && 
+				(lastKeyboardType != APPLE_PRO_2003_KEYBOARD) &&
+				(flags & FN_FLAG)
+				)
 			{
 				key = F7a;
 				flavor = 15;
@@ -595,7 +605,11 @@ if (dcConfig != 0)
 			}
 		break; // end F7 key
 		case F8: // begin F8 key
-			if(dcConfig & SWAP_FUNCTION_KEYS)
+			if (
+				(dcConfig & SWAP_FUNCTION_KEYS) && 
+				(lastKeyboardType != APPLE_PRO_2003_KEYBOARD) &&
+				(flags & FN_FLAG)
+				)
 			{
 				key = F8a;
 				flavor = 23;
@@ -604,7 +618,11 @@ if (dcConfig != 0)
 			}
 		break; // end F8 key
 		case F9: // begin F9 key
-			if(dcConfig & SWAP_FUNCTION_KEYS)
+			if (
+				(dcConfig & SWAP_FUNCTION_KEYS) && 
+				(lastKeyboardType != APPLE_PRO_2003_KEYBOARD) &&
+				(flags & FN_FLAG)
+				)
 			{
 				key = F9a;
 				flavor = 22;
@@ -613,7 +631,11 @@ if (dcConfig != 0)
 			}
 		break; // end F9 key
 		case F10: // begin F10 key
-			if(dcConfig & SWAP_FUNCTION_KEYS)
+			if (
+				(dcConfig & SWAP_FUNCTION_KEYS) && 
+				(lastKeyboardType != APPLE_PRO_2003_KEYBOARD) &&
+				(flags & FN_FLAG)
+				)
 			{
 				key = F10a;
 				flavor = 21;
@@ -660,51 +682,67 @@ if (dcConfig != 0)
 
 	if (unsetCommandFlag)
 	{
+		unsetCommandFlag = 0;
 		flags ^= COMMAND_FLAG;
 		//flags ^= 0x100000;
 	}
 	if (unsetOptionFlag)
 	{
+		unsetOptionFlag = 0;
 		flags ^= OPTION_FLAG;
 	}
 	if (unsetControlFlag)
 	{
+		unsetControlFlag = 0;
 		flags ^= CONTROL_FLAG;
 	}
 	if (unsetfnFlag)
 	{
+		unsetfnFlag = 0;
 		flags ^= FN_FLAG;
 	}
 	if (setCommandFlag)
 	{
+		setCommandFlag = 0;
 		flags |= COMMAND_FLAG;
 	}
 	if (setControlFlag)
 	{
+		setControlFlag = 0;
 		flags |= CONTROL_FLAG;
 	}
 	if (setOptionFlag)
 	{
+		setOptionFlag = 0;
 		flags |= OPTION_FLAG;
 	}
 	if (setfnFlag)
 	{
+		setfnFlag = 0;
 		flags |= FN_FLAG;
 	}
 #ifdef MB_DEBUG
 	printf("sending hid event type %d flags 0x%x key %d charCode %d charSet %d origCharCode %d origCharSet %d kbdType %d\n", eventType, flags, key, charCode, charSet, origCharCode, origCharSet, keyboardType);
 #endif
 } // end if dcConfig != 0
+
 if(keepKeyboardEvent)
 {
+#ifdef MB_DEBUG
+	printf("keeping keyboard event\n");
+#endif
     IOHIDSystem::keyboardEvent(eventType, flags, key, charCode, charSet, origCharCode, origCharSet, keyboardType, repeat, ts);
 }
 else
 {
+#ifdef MB_DEBUG
+	printf("changing keyboard event to special event\n");
+#endif
+	keepKeyboardEvent = 1;
 	IOHIDSystem::keyboardSpecialEvent(eventType, flags, key, flavor, guid, repeat, ts);
 }
-keepKeyboardEvent = 1;
-}
+
+} // end MBHIDHack::keyboardEvent()
 
 
 //----------------------------------------------------------------------------
@@ -718,7 +756,7 @@ void MBHIDHack::keyboardSpecialEvent(   unsigned   eventType,
 {
 	unsigned charCode = 0;
 	unsigned charSet = 0;
-	unsigned keyboardType = 0;
+	//unsigned keyboardType = lastKeyboardType;
 #ifdef MB_DEBUG
 	printf("caught  special event type %d flags 0x%x key %d flavor %d keep %d\n", eventType, flags, key, flavor, keepSpecialEvent);
 #endif
@@ -727,7 +765,7 @@ if (dcConfig != 0)
 {
 	switch (key)
 	{
-		case F1a: // begin F1 key
+		case BRIGHTNESS_DOWN: // begin F1 key
 			if (dcConfig & SWAP_FUNCTION_KEYS)
 			{
 				keepSpecialEvent = 0;
@@ -736,7 +774,7 @@ if (dcConfig != 0)
 				charCode = 32;
 			}
 		break; // end F1 key
-		case F2a: // begin F2 key
+		case BRIGHTNESS_UP: // begin F2 key
 			if (dcConfig & SWAP_FUNCTION_KEYS)
 			{
 				keepSpecialEvent = 0;
@@ -744,31 +782,31 @@ if (dcConfig != 0)
 				charCode = 33;
 			}
 		break; // end F2 key
-		case F3a: // begin F3 key
-			if (dcConfig & SWAP_FUNCTION_KEYS)
+		case VOLUME_MUTE: // begin F3 key
+			if ( (dcConfig & SWAP_FUNCTION_KEYS) && (lastKeyboardType != APPLE_PRO_2003_KEYBOARD) )
 			{
 				keepSpecialEvent = 0;
 				key = F3;
 				charCode = 34;
 			}
 		break; // end F3 key
-		case F4a: // begin F4 key
-			if (dcConfig & SWAP_FUNCTION_KEYS)
+		case VOLUME_DOWN: // begin F4 key
+			if ( (dcConfig & SWAP_FUNCTION_KEYS) && (lastKeyboardType != APPLE_PRO_2003_KEYBOARD) )
 			{
 				keepSpecialEvent = 0;
 				key = F4;
 				charCode = 35;
 			}
 		break; // end F4 key
-		case F5a: // begin F5 key
-			if (dcConfig & SWAP_FUNCTION_KEYS)
+		case VOLUME_UP: // begin F5 key
+			if ( (dcConfig & SWAP_FUNCTION_KEYS) && (lastKeyboardType != APPLE_PRO_2003_KEYBOARD) )
 			{
 				keepSpecialEvent = 0;
 				key = F5;
 				charCode = 36;
 			}
 		break; // end F5 key
-		case F6a: // begin F6 key
+		case NUM_LOCK: // begin F6 key
 			if (dcConfig & SWAP_FUNCTION_KEYS)
 			{
 				keepSpecialEvent = 0;
@@ -810,7 +848,7 @@ if (dcConfig != 0)
 		break; // end F10 key
 
 	} // end switch (key)
-	if (unsetfnFlag)
+	if (unsetfnFlag && (flags & FN_FLAG) )
 	{
 		flags ^= FN_FLAG;
 	}
@@ -825,13 +863,19 @@ if (dcConfig != 0)
 
 if(keepSpecialEvent)
 {
+#ifdef MB_DEBUG
+	printf("keeping special event\n");
+#endif
 	IOHIDSystem::keyboardSpecialEvent(eventType, flags, key, flavor, guid, repeat, ts);
 }
 else
 {
-	keyboardType = 202;
+#ifdef MB_DEBUG
+	printf("changing special event to keyboard event\n");
+#endif
+	keepSpecialEvent = 1;
 	charSet = 254;
-    IOHIDSystem::keyboardEvent(eventType, flags, key, charCode, charSet, charCode, charSet, keyboardType, repeat, ts);
+    IOHIDSystem::keyboardEvent(eventType, flags, key, charCode, charSet, charCode, charSet, lastKeyboardType, repeat, ts);
 }
-keepSpecialEvent = 1;
-}
+
+} // end MBHIDHack::keyboardSpecialEvent()

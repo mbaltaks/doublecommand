@@ -48,24 +48,26 @@
 #define F10		109
 #define F11		103
 #define F12		111
-#define F1a		10
-#define F2a		9
-#define F3a		8
-#define F4a		7
-#define F5a		6
-#define F6a		127
+#define BRIGHTNESS_DOWN		10
+#define BRIGHTNESS_UP		9
+#define VOLUME_MUTE		8
+#define VOLUME_DOWN		7
+#define VOLUME_UP		6
+#define NUM_LOCK		127
 #define F7a		12
 #define F8a		13
 #define F9a		14
 #define F10a	15
 #define F11a	103
-#define F12a	111
+#define EJECT	11
 
 #define KEY_DOWN 10
 #define KEY_UP 11
 #define KEY_MODIFY 12
 
-#define INTERNAL_KEYBOARD 195
+#define POWERBOOKG3_KEYBOARD 195
+#define IBOOK_KEYBOARD 202
+#define APPLE_PRO_2003_KEYBOARD 34
 
 #define ENTER_TO_COMMAND						1
 #define ENTER_TO_CONTROL						2

@@ -11,7 +11,7 @@
 #sudo mkdir /Library/StartupItems/
 #sudo cp -R ../DoubleCommand /Library/StartupItems
 
-#cd /Library/StartupItems/DoubleCommand/
+cd /Library/StartupItems/DoubleCommand/
 
 echo "Correcting permissions for DoubleCommand..."
 sudo chown -R root:wheel ./DoubleCommand.kext

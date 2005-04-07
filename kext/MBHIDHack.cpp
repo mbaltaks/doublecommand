@@ -224,6 +224,7 @@ if (dcConfig != 0)
 	switch (key)
 	{
 		case ENTER_KEY: // begin enter key
+		case POWERBOOKG4_2005_ENTER_KEY:
 			if (dcConfig & ENTER_TO_COMMAND)
 			{
 				if (eventType == KEY_DOWN)

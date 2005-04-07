@@ -58,6 +58,7 @@
 // special caps key for TiBook (and probably other models)
 #define SPECIAL_CAPSLOCK_KEY 127
 #define ENTER_KEY 52
+#define POWERBOOKG4_2005_ENTER_KEY 76
 #define COMMAND_KEY 55
 #define COMMAND_KEY_R 54
 #define OPTION_KEY 58
@@ -115,6 +116,7 @@
 #define TIBOOK_KEYBOARD 196
 #define IBOOK_KEYBOARD 202
 #define APPLE_PRO_2003_KEYBOARD 34
+#define POWERBOOKG4_2005_KEYBOARD 37
 
 #define ENTER_TO_COMMAND						1
 #define ENTER_TO_CONTROL						2

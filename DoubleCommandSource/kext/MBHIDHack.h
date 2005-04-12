@@ -18,24 +18,27 @@
 
 // these should be defined for a 10.2 build, but
 // not for 10.3 or later
-//#define IOHIDSystem_AVAILABLE
-//#define JAGUAR_FLAGS
+#define IOHIDSystem_AVAILABLE
+#define JAGUAR_FLAGS
 
 
 #ifdef JAGUAR_FLAGS
 	#define COMMAND_FLAG 0x100000
+	#define COMMAND_FLAG_R 0x100000
 #else
 	#define COMMAND_FLAG   0x100008
 	#define COMMAND_FLAG_R 0x100010
 #endif
 #ifdef JAGUAR_FLAGS
 	#define CONTROL_FLAG 0x40000
+	#define CONTROL_FLAG_R 0x40000
 #else
 	#define CONTROL_FLAG   0x40001
 	#define CONTROL_FLAG_R 0x42000
 #endif
 #ifdef JAGUAR_FLAGS
 	#define SHIFT_FLAG 0x20000
+	#define SHIFT_FLAG_R 0x20000
 #else
 	#define SHIFT_FLAG   0x20002
 	#define SHIFT_FLAG_R 0x20004
@@ -43,6 +46,7 @@
 #define CAPSLOCK_FLAG 0x10000
 #ifdef JAGUAR_FLAGS
 	#define OPTION_FLAG 0x80000
+	#define OPTION_FLAG_R 0x80000
 #else
 	#define OPTION_FLAG   0x80020
 	#define OPTION_FLAG_R 0x80040

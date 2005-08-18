@@ -18,8 +18,8 @@
 
 // these should be defined for a 10.2 build, but
 // not for 10.3 or later
-#define IOHIDSystem_AVAILABLE
-#define JAGUAR_FLAGS
+//#define IOHIDSystem_AVAILABLE
+//#define JAGUAR_FLAGS
 
 
 #ifdef JAGUAR_FLAGS

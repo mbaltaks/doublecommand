@@ -47,7 +47,7 @@ static void		*myVtable = NULL;
 #undef private
 #undef protected
 
-#include <IOKit/IOCommandGate.h>
+//#include <IOKit/IOCommandGate.h>
 
 typedef struct _IOHIDCmdGateActionArgs {
     void* arg0; void* arg1; void* arg2; void* arg3; void* arg4;
@@ -762,7 +762,10 @@ if (dcConfig != 0)
 		case BACKSLASH_KEY: // begin backslash key
 			if(dcConfig & BACKSLASH_TO_FORWARD_DELETE)
 			{
-				key = FORWARD_DELETE;
+				if (flags == 0x0)
+				{
+					key = FORWARD_DELETE;
+				}
 			}
 		break; // end backslash key
 

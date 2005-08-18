@@ -1,0 +1,120 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>DoubleCommand</title>
+    <link rel="Stylesheet" type="text/css" href="doublecommand.css" />
+</head>
+
+<body bgcolor="white">
+
+<div class="navigation" align="center">
+    <a class="navigation" href="./">[&nbsp;Home&nbsp;]</a>&nbsp;&nbsp;
+    <a class="navigation" href="./download.html">[&nbsp;Download&nbsp;]</a>&nbsp;&nbsp;
+    <a class="navigation" href="./install.html">[&nbsp;Installing&nbsp;]</a>&nbsp;&nbsp;
+</div>
+
+<div align="left" class="main">
+<h3>Installing DoubleCommand</h3>
+<p class="body">To install DoubleCommand, please perform the following steps:</p>
+<p class="body">1.	Remove any versions of iJect, uControl, CommandandControl or PowerDelete (see below for how to do that). These are conflicting software. Note that you do not have to remove old versions of DoubleCommand anymore.</p>
+<p class="body">2. Open the disk image and open the installer package within.
+</p>
+<h3>Installing DoubleCommand for Developers with XCode</h3>
+<p class="body">To install DoubleCommand, please perform the following steps:</p>
+<p class="body">1.	Remove any versions of iJect, uControl, CommandandControl or PowerDelete (see below for how to do that). These are conflicting software. Note that you do not have to remove old versions of DoubleCommand anymore.</p>
+<p class="body">2.	Unzip the DoubleCommandx.x.x.tar.gz file, and open the DoubleCommand folder created.</p>
+<p class="body">3.  Double click the install.command file in the new DoubleCommand folder. This will open a new Terminal window, and you may be asked for your admin password. When it says logout you can close the window - DoubleCommand is installed and active right away!<br />
+</p>
+
+<h3>Configuring DoubleCommand</h3>
+<p class="body">
+DoubleCommand now includes a preference pane, so just open up System Preferences and look for DoubleCommand.
+</p>
+<h3>Configuring DoubleCommand for Developers with XCode</h3>
+<p class="body">
+To configure DoubleCommand requires some basic maths ability and a text editor (like TextEdit). You only need to edit the file /Library/StartupItems/DoubleCommand/DoubleCommand.pref, changing the number to a number calculated below and save the file. Then just double click the config.command file to apply the settings.
+</p>
+<p class="body">
+The table below shows a list of numbers and what functionality they activate. To activate more than one at a time, simply add the numbers together. For example, I like enter -&gt; command and shift+delete -&gt; forward delete, so I use 1 + 16384 = 16385. So my file simply contains the number 16385.
+</p>
+<p class="body">
+Under 10.3 DoubleCommand can tell between left and right modifier keys, and so look for new features coming soon that effect only one side or the other.
+</p>
+<p class="body">
+Please note: in Mac OS 10.4 there is already a feature for mixing and matching modifier keys, please have a look at the Keyboard preference pane. The Capslock to Control feature and real function keys feature have both been removed from DoubleCommand 1.6 because of this.
+</p>
+<h3 id="features">DoubleCommand Feature List</h3>
+<table class="centre">
+<tr><td><strong>Value &nbsp;&nbsp;&nbsp;</strong></td><td><strong>Feature</strong></td></tr>
+<tr><td>0</td><td>Disable DoubleCommand</td></tr>
+<tr><td>1</td><td>Enter key acts as a Command key</td></tr>
+<tr><td>2</td><td>Enter key acts as a Control key</td></tr>
+<tr><td>4</td><td>Enter key acts as an Option key</td></tr>
+<tr><td>8</td><td>Enter key acts as an <i><font color="#ff9922">fn</font></i> key (partial support, cursor keys only)</td></tr>
+<tr><td>16</td><td>Command key acts as an Option key</td></tr>
+<tr><td>32</td><td>Command key acts as a Control key</td></tr>
+<tr><td>64</td><td>Option key acts as a Command key</td></tr>
+<tr><td>256</td><td>Control key acts as a Command key</td></tr>
+<tr><td>512</td><td>Swaps Control key and Option key</td></tr>
+<tr><td>2048</td><td>Capslock key acts as a Control key</td></tr>
+<tr><td>4096</td><td><i><font color="#ff9922">fn</font></i> key acts as a Control key</td></tr>
+<tr><td>8192</td><td>Swaps numpad . with numpad shift+.</td></tr>
+<tr><td>16384</td><td>Shift + Delete acts as a Forward Delete</td></tr>
+<tr><td>32768</td><td>Disable Command and Option</td></tr>
+<tr><td>65536</td><td>PC style Home and End keys</td></tr>
+<tr><td>131072</td><td>Backslash (\) acts as a Forward Delete</td></tr>
+<tr><td>262144</td><td>Swap function key behaviour on new 'Books</td></tr>
+<tr><td>524288</td><td>Disable Capslock</td></tr>
+<tr><td>1048576</td><td>Enter key acts as Forward Delete</td></tr>
+<tr><td></td><td>Any sensible combination of the above can be used</td></tr>
+<tr><td></td><td>Preference pane (contributed by Christian Nadolle).</td></tr>
+</table>
+
+<h3>Removing DoubleCommand</h3>
+<p class="body">To remove DoubleCommand from your machine:</p>
+<p class="body">1.	Delete the DoubleCommand folder in /Library/StartupItems on your Mac OS X startup volume.</p>
+<p class="body">2.	Delete the DoubleCommand preference pane in /Library/PreferencePanes on your Mac OS X startup volume.</p>
+<p class="body">3.	Restart your computer.</p>
+
+<h3>Removing conflicting software</h3>
+<p class="body">To remove conflicting software from your machine:</p>
+<p class="body">1.	Delete the iJect, uControl, CommandandControl or PowerDelete folder in /Library/StartupItems on your Mac OS X startup volume.</p>
+<p class="body">2.	Restart your computer.</p>
+
+<h3>Troubleshooting</h3>
+<p class="body">DoubleCommand has been developed for Mac OS X. It is known to run on Mac OS X 10.1 through to Mac OS X 10.3 (using the correct versions for each system) and probably runs on later versions, too. However, since it links to internal kernel structures, newer versions of the kernel may break DoubleCommand. After failing to load for any reason, DoubleCommand automatically deactivates itself to avoid continuing problems. If this happens check with this web site for an update that will work with the new kernel.</p>
+<p class="body">If your machine does not boot after installing DoubleCommand, hold the option (alt) key during booting and boot to Mac OS 9. You can remove DoubleCommand from Mac OS 9. You can also start the computer while holding down Command and S to get single user mode. While in this mode you can type the following to disable DoubleCommand:
+<br /><br />
+<span class="code">mv /Library/StartupItems/DoubleCommand/DoubleCommand /Library/StartupItems/DoubleCommand/DoubleCommand.disabled</span>
+<br /><br />
+When you restart the computer DoubleCommand will no longer be active.
+</p>
+</div>
+
+<div class="navigation" align="center">
+    <a class="navigation" href="./">[&nbsp;Home&nbsp;]</a>&nbsp;&nbsp;
+    <a class="navigation" href="./download.html">[&nbsp;Download&nbsp;]</a>&nbsp;&nbsp;
+    <a class="navigation" href="./install.html">[&nbsp;Installing&nbsp;]</a>&nbsp;&nbsp;
+</div>
+
+    <p class="footer">Copyright &copy; 2001-2005 
+    <a class="mail" href="mailto:&#109;&#98;&#97;&#108;&#116;&#97;&#107;&#115;&#64;&#109;&#97;&#99;&#46;&#99;&#111;&#109;?subject=DoubleCommand">Michael Baltaks</a>
+	<br />
+	$Id$
+    </p>
+
+<center>
+<a href="http://sourceforge.net">
+<img src="http://sourceforge.net/sflogo.php?group_id=65339&amp;type=1" width="88" height="31" border="0" alt="SourceForge.net Logo" />
+</a> 
+<p>
+<a href="http://validator.w3.org/check/referer">
+<img src="valid-xhtml10.gif" alt="Valid XHTML 1.0!" height="31" width="88" />
+</a>
+</p>
+</center>
+
+</body>
+</html>

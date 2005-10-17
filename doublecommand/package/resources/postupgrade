@@ -1,0 +1,14 @@
+#!/bin/sh
+# postflight
+tmppref=/tmp/DoubleCommand.pref
+dcpref=/Library/StartupItems/DoubleCommand/DoubleCommand.pref
+
+if [ -e "$tmppref" ]; then
+	mv -f "$tmppref" "$dcpref" 
+fi
+
+dcscript=/Library/StartupItems/DoubleCommand/DoubleCommand
+
+if [ -e "$dcscript" ]; then
+    $dcscript start
+fi

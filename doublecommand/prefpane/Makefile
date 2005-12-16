@@ -6,12 +6,12 @@ include ../Make.config
 VERSION_FILE = ../dcversion
 
 
-# kext only settings go right here
-XCODE_PROJECT = DoubleCommand.xcodeproj
+# prefpane only settings go right here
+XCODE_PROJECT = DoubleCommandPrefPane.xcodeproj
 CC = /usr/bin/xcodebuild
 BUILD_FLAGS = -configuration $(BUILD_CONFIG)
-HEADERS = Boundary.h DoubleCommand.h MBDCC.h MBHIDHack.h
-SOURCES = DoubleCommand.cpp Substitute.cpp
+HEADERS = DCP_prefPane_Prefix.pch DeNadolleDoubleCommandPrefsPane.h
+SOURCES = DeNadolleDoubleCommandPrefsPane.m
 # Files containing the version number
 XCODE_PROJECT_FILE = $(XCODE_PROJECT)/project.pbxproj
 INFO_PLIST = Info.plist

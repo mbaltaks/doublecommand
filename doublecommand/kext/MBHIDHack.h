@@ -193,7 +193,7 @@ enum
 #define ENTER_TO_FORWARD_DELETE					1048576
 #define CONTROL_TO_DELETE						2097152
 #define DELETE_TO_CONTROL						4194304
-//#define 8388608
+#define MB_DEBUG_OUTPUT                         8388608
 
 //#define 16777216
 //#define 33554432

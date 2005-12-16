@@ -20,6 +20,14 @@ int remap(unsigned * eventType,
 
 if (dcConfig != 0)
 {
+    if (dcConfig & MB_DEBUG_OUTPUT)
+    {
+        printf("caught  hid event type %d flags 0x%x key %d ", *eventType, *flags, *key);
+        printf("charCode %d charSet %d ", *charCode, *charSet);
+        printf("origCharCode %d origCharSet %d kbdType %d\n",
+            *origCharCode, *origCharSet, *keyboardType);
+    }
+
 	lastKeyboardType = *keyboardType;
 
 	if( (dcConfig & CAPSLOCK_DISABLED))
@@ -621,6 +629,14 @@ if (dcConfig != 0)
 	printf("origCharCode %d origCharSet %d kbdType %d\n",
 		*origCharCode, *origCharSet, *keyboardType);
 #endif
+
+    if (dcConfig & MB_DEBUG_OUTPUT)
+    {
+        printf("sending hid event type %d flags 0x%x key %d ", *eventType, *flags, *key);
+        printf("charCode %d charSet %d ", *charCode, *charSet);
+        printf("origCharCode %d origCharSet %d kbdType %d\n",
+            *origCharCode, *origCharSet, *keyboardType);
+    }
 } // end if dcConfig != 0
 
 return 0;

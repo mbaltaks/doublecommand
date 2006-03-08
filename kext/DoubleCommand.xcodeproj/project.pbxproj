@@ -136,7 +136,7 @@
 			buildRules = (
 			);
 			buildSettings = {
-				CURRENT_PROJECT_VERSION = 1.6b2;
+				CURRENT_PROJECT_VERSION = 1.6b3;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				GCC_MODEL_TUNING = G5;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -144,7 +144,7 @@
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(SYSTEM_LIBRARY_DIR)/Extensions";
 				MODULE_NAME = com.yourcompany.driver.DoubleCommand;
-				MODULE_VERSION = 1.6b2;
+				MODULE_VERSION = 1.6b3;
 				PREBINDING = NO;
 				PRODUCT_NAME = DoubleCommand;
 				WRAPPER_EXTENSION = kext;
@@ -227,8 +227,12 @@
 		009D757408A77D0C005D9003 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = (
+					ppc,
+					i386,
+				);
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 1.6b2;
+				CURRENT_PROJECT_VERSION = 1.6b3;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
@@ -239,7 +243,7 @@
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(SYSTEM_LIBRARY_DIR)/Extensions";
 				MODULE_NAME = com.baltaks.driver.DoubleCommand;
-				MODULE_VERSION = 1.6b2;
+				MODULE_VERSION = 1.6b3;
 				PREBINDING = NO;
 				PRODUCT_NAME = DoubleCommand;
 				WRAPPER_EXTENSION = kext;
@@ -250,8 +254,12 @@
 		009D757508A77D0C005D9003 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = (
+					ppc,
+					i386,
+				);
 				COPY_PHASE_STRIP = YES;
-				CURRENT_PROJECT_VERSION = 1.6b2;
+				CURRENT_PROJECT_VERSION = 1.6b3;
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				GCC_MODEL_TUNING = G5;
@@ -260,7 +268,7 @@
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(SYSTEM_LIBRARY_DIR)/Extensions";
 				MODULE_NAME = com.baltaks.driver.DoubleCommand;
-				MODULE_VERSION = 1.6b2;
+				MODULE_VERSION = 1.6b3;
 				PREBINDING = NO;
 				PRODUCT_NAME = DoubleCommand;
 				WRAPPER_EXTENSION = kext;
@@ -271,7 +279,11 @@
 		009D757608A77D0C005D9003 /* Default */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CURRENT_PROJECT_VERSION = 1.6b2;
+				ARCHS = (
+					ppc,
+					i386,
+				);
+				CURRENT_PROJECT_VERSION = 1.6b3;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				GCC_MODEL_TUNING = G5;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -279,7 +291,7 @@
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(SYSTEM_LIBRARY_DIR)/Extensions";
 				MODULE_NAME = com.baltaks.driver.DoubleCommand;
-				MODULE_VERSION = 1.6b2;
+				MODULE_VERSION = 1.6b3;
 				PREBINDING = NO;
 				PRODUCT_NAME = DoubleCommand;
 				WRAPPER_EXTENSION = kext;
@@ -289,24 +301,45 @@
 		009D757808A77D0C005D9003 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = (
+					ppc,
+					i386,
+				);
 				GCC_MODEL_TUNING = G3;
 				OTHER_CFLAGS = "-no-cpp-precomp";
+				SDKROOT = "";
+				SDKROOT_i386 = /Developer/SDKs/MacOSX10.4u.sdk;
+				SDKROOT_ppc = /Developer/SDKs/MacOSX10.4.0.sdk;
 			};
 			name = Debug;
 		};
 		009D757908A77D0C005D9003 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = (
+					ppc,
+					i386,
+				);
 				GCC_MODEL_TUNING = G3;
 				OTHER_CFLAGS = "-no-cpp-precomp";
+				SDKROOT = "";
+				SDKROOT_i386 = /Developer/SDKs/MacOSX10.4u.sdk;
+				SDKROOT_ppc = /Developer/SDKs/MacOSX10.4.0.sdk;
 			};
 			name = Release;
 		};
 		009D757A08A77D0C005D9003 /* Default */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = (
+					ppc,
+					i386,
+				);
 				GCC_MODEL_TUNING = G3;
 				OTHER_CFLAGS = "-no-cpp-precomp";
+				SDKROOT = "";
+				SDKROOT_i386 = /Developer/SDKs/MacOSX10.4u.sdk;
+				SDKROOT_ppc = /Developer/SDKs/MacOSX10.4.0.sdk;
 			};
 			name = Default;
 		};

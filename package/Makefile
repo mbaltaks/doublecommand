@@ -31,7 +31,7 @@ INFO_PLIST_COPY = $(tmp)/Info.plist
 PLIST_UPDATE = ../update_plist_versions.pl
 
 
-build: pkg_root resources
+build: pkg_root resources versions
 	rm -fr $(tmp)/resources
 	mkdir $(tmp)/resources
 	cp resources/pre* resources/post* $(tmp)/resources

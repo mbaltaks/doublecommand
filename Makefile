@@ -46,32 +46,8 @@ disk_image:
 	-volname DoubleCommand \
 	$(tmp)/DoubleCommand$(VERSION)_$(OS).dmg
 
-off:
-	# Create an initial disk image (32 megs)
-	hdiutil create -size 32m -fs HFS+ -volname "My Volume" myimg.dmg
-	# Mount the disk image
-	hdiutil attach myimg.dmg
-	# Obtain device information
-	DEVS=$(hdiutil attach myimg.dmg | cut -f 1)
-	DEV=$(echo $DEV | cut -f 1 -d ' ')
-	# Unmount the disk image
-	hdiutil detach $DEV
-	# Convert the disk image to read-only
-	hdiutil convert myimg.dmg -format UDZO -o myoutputimg.dmg
-
-
-
-# old section
-
-# paths
-DSTROOT=../../dstroot
-STARTUPITEMS=$(DSTROOT)/Library/StartupItems
-PREFPANES=$(DSTROOT)/Library/PreferencePanes
-SVN_TRUNK=file:///Volumes/Data/Subversion/DoubleCommand/trunk
-DC_FOLDER=$(STARTUPITEMS)/DoubleCommand
-
-
 uninstall:
 	kextunload -b com.baltaks.driver.DoubleCommand
 	rm -rf /Library/PreferencePanes/DoubleCommandPreferences.prefPane
 	rm -rf /Library/StartupItems/DoubleCommand
+	rm -rf /Library/Receipts/DoubleCommand*.pkg

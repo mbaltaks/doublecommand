@@ -1,3 +1,24 @@
+# update version in dcversion file and Make.config
+# make sure the Download links are right, and check the news and version history sections.
+# make release
+# now commit to svn and tag it.
+svn commit -m "what has changed"
+svn cp https://svn.sourceforge.net/svnroot/doublecommand/trunk https://svn.sourceforge.net/svnroot/doublecommand/tags/Release-[version]
+
+# upload.command
+
+#then update versiontracker.com, macupdate.com and send email to mailing list.
+
+#ssh mbaltaks@shell.sourceforge.net
+
+
+
+
+
+
+
+
+
 #!/bin/sh
 
 # DoubleCommand release script

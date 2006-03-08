@@ -36,7 +36,7 @@ build: pkg_root resources versions
 	mkdir $(tmp)/resources
 	cp resources/pre* resources/post* $(tmp)/resources
 	rm -rf "$(tmp)/DoubleCommand$(VERSION)_$(OS).pkg"
-	$(packagemaker) -build \
+	-$(packagemaker) -build \
 	  -p "$(shell pwd)/$(tmp)/DoubleCommand$(VERSION)_$(OS).pkg" \
 	  -f "$(shell pwd)/$(pkg_root)" \
 	  -ds \

@@ -194,6 +194,10 @@ int hijack_keyboard(IOHIKeyboard * kbd)
 	{
 		// do nothing
 	}
+	else if (strcmp(name, "ApplePS2Keyboard") == 0)
+	{
+		hijack = true;
+	}
 	else
 	{
 		IOLog("DoubleCommand does not support %s\n", name);

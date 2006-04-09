@@ -1,5 +1,12 @@
 #!/bin/sh
 # postflight
+
+chown=/bin/chown
+chmod=/bin/chmod
+kext=/Library/StartupItems/DoubleCommand/DoubleCommand.kext
+${chown} -R root:wheel ${kext}
+${chmod} -R +Xr ${kext}
+
 tmppref=/tmp/DoubleCommand.pref
 dcpref=/Library/StartupItems/DoubleCommand/DoubleCommand.pref
 

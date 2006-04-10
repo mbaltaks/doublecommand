@@ -1,4 +1,4 @@
-.PHONY: build versions clean
+.PHONY: build versions clean unload load
 
 # Project global make settings go in this file
 include ../Make.config
@@ -25,6 +25,13 @@ XCODE_UPDATE = ../update_xcode_versions.pl
 PLIST_UPDATE = ../update_plist_versions.pl
 STRINGS_UPDATE = ../update_strings_versions.pl
 
+kextload=/sbin/kextload
+kextunload=/sbin/kextunload
+kextstat=/usr/sbin/kextstat
+sudo=/usr/bin/sudo
+chown=/usr/sbin/chown
+kext=build/${BUILD_CONFIG}/DoubleCommand.kext
+kext_id="com.baltaks.driver.DoubleCommand"
 
 build:
 	$(CC) $(BUILD_FLAGS) -project $(XCODE_PROJECT)
@@ -45,3 +52,10 @@ versions: $(XCODE_PROJECT_FILE) $(INFO_PLIST) $(EN_STRINGS) $(VERSION_FILE)
 	rm $(XCODE_PROJECT_COPY)
 	rm $(INFO_PLIST_COPY)
 	rm $(EN_STRINGS_COPY)
+
+unload:
+	-${sudo} ${kextunload} -b ${kext_id}
+
+load: build unload
+	${sudo} ${chown} -R root:wheel ${kext}
+	${sudo} ${kextload} ${kext}

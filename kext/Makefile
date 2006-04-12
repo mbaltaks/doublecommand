@@ -30,8 +30,12 @@ kextunload=/sbin/kextunload
 kextstat=/usr/sbin/kextstat
 sudo=/usr/bin/sudo
 chown=/usr/sbin/chown
+rm=/bin/rm
+cp=/bin/cp
 kext=build/${BUILD_CONFIG}/DoubleCommand.kext
 kext_id="com.baltaks.driver.DoubleCommand"
+kexttmp=/tmp/kext/DoubleCommand.kext
+
 
 build:
 	$(CC) $(BUILD_FLAGS) -project $(XCODE_PROJECT)
@@ -55,7 +59,9 @@ versions: $(XCODE_PROJECT_FILE) $(INFO_PLIST) $(EN_STRINGS) $(VERSION_FILE)
 
 unload:
 	-${sudo} ${kextunload} -b ${kext_id}
+	-${sudo} ${rm} -fr ${kexttmp}
 
 load: build unload
-	${sudo} ${chown} -R root:wheel ${kext}
-	${sudo} ${kextload} ${kext}
+	${sudo} ${cp} -R ${kext} ${kexttmp}
+	${sudo} ${chown} -R root:wheel ${kexttmp}
+	${sudo} ${kextload} ${kexttmp}

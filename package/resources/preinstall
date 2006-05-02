@@ -1,27 +1,2 @@
 #!/bin/sh
 # preinstall
-dcscript=/Library/StartupItems/DoubleCommand/DoubleCommand
-
-if [ -e "$dcscript" ]; then
-    $dcscript stop
-fi
-
-dcpref=/Library/StartupItems/DoubleCommand/DoubleCommand.pref
-
-if [ -e "$dcpref" ]; then
-	cp -f "$dcpref" /tmp/DoubleCommand.pref
-fi
-
-dcfolder=/Library/StartupItems/DoubleCommand
-
-if [ -e "$dcfolder" ]; then
-	rm -fr "$dcfolder"
-fi
-
-pref=/Library/PreferencePanes/DoubleCommandPreferences.prefPane
-
-if [ -e "$thispref" ]; then
-	rm -rf "$thispref"
-fi
-
-exit 0

@@ -28,14 +28,14 @@ fi
 dcfolder=/Library/StartupItems/DoubleCommand
 
 if [ -e ${dcfolder} ]; then
-	#rm -fr ${dcfolder}
+	rm -fr ${dcfolder}
 	echo removing ${dcfolder}
 fi
 
 pref=/Library/PreferencePanes/DoubleCommandPreferences.prefPane
 
 if [ -e ${pref} ]; then
-	#rm -rf ${pref}
+	rm -rf ${pref}
 	echo removing ${pref}
 fi
 

@@ -1,21 +1,2 @@
 #!/bin/sh
-# postflight
-
-chown=/usr/sbin/chown
-chmod=/bin/chmod
-dist=/Library/StartupItems/DoubleCommand
-${chown} -R root:wheel ${dist}
-${chmod} -R +Xr ${dist}
-
-tmppref=/tmp/DoubleCommand.pref
-dcpref=/Library/StartupItems/DoubleCommand/DoubleCommand.pref
-
-if [ -e "$tmppref" ]; then
-	mv -f "$tmppref" "$dcpref" 
-fi
-
-dcscript=/Library/StartupItems/DoubleCommand/DoubleCommand
-
-if [ -e "$dcscript" ]; then
-    $dcscript start
-fi
+# postupgrade

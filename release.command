@@ -11,7 +11,7 @@
 make release
 version=`cat dcversion`
 svn commit -m "commit for Release-${version}"
-svn cp https://svn.sourceforge.net/svnroot/doublecommand/trunk https://svn.sourceforge.net/svnroot/doublecommand/tags/Release-${version}
+svn cp https://svn.sourceforge.net/svnroot/doublecommand/trunk https://svn.sourceforge.net/svnroot/doublecommand/tags/Release-${version} -m "Release-${version}"
 ./upload.command
 
 # Now go update versiontracker.com, macupdate.com and send email to mailing list.

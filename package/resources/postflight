@@ -1,6 +1,8 @@
 #!/bin/sh
 # postflight
 
+echo "Running postflight"
+
 chown=/usr/sbin/chown
 chmod=/bin/chmod
 dist=/Library/StartupItems/DoubleCommand

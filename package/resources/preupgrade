@@ -1,3 +1,4 @@
 #!/bin/sh
 # preupgrade
 
+echo "Running preupgrade"

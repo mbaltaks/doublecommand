@@ -1,2 +1,4 @@
 #!/bin/sh
 # postinstall
+
+echo "Running postinstall"

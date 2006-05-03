@@ -1,2 +1,4 @@
 #!/bin/sh
 # preinstall
+
+echo "Running preinstall"

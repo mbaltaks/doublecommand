@@ -136,7 +136,7 @@
 			buildRules = (
 			);
 			buildSettings = {
-				CURRENT_PROJECT_VERSION = 1.6b3;
+				CURRENT_PROJECT_VERSION = 1.6.1;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				GCC_MODEL_TUNING = G5;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -144,7 +144,7 @@
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(SYSTEM_LIBRARY_DIR)/Extensions";
 				MODULE_NAME = com.yourcompany.driver.DoubleCommand;
-				MODULE_VERSION = 1.6b3;
+				MODULE_VERSION = 1.6.1;
 				PREBINDING = NO;
 				PRODUCT_NAME = DoubleCommand;
 				WRAPPER_EXTENSION = kext;
@@ -232,7 +232,7 @@
 					i386,
 				);
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 1.6b3;
+				CURRENT_PROJECT_VERSION = 1.6.1;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
@@ -243,7 +243,7 @@
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(SYSTEM_LIBRARY_DIR)/Extensions";
 				MODULE_NAME = com.baltaks.driver.DoubleCommand;
-				MODULE_VERSION = 1.6b3;
+				MODULE_VERSION = 1.6.1;
 				PREBINDING = NO;
 				PRODUCT_NAME = DoubleCommand;
 				WRAPPER_EXTENSION = kext;
@@ -259,7 +259,7 @@
 					i386,
 				);
 				COPY_PHASE_STRIP = YES;
-				CURRENT_PROJECT_VERSION = 1.6b3;
+				CURRENT_PROJECT_VERSION = 1.6.1;
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				GCC_MODEL_TUNING = G5;
@@ -268,7 +268,7 @@
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(SYSTEM_LIBRARY_DIR)/Extensions";
 				MODULE_NAME = com.baltaks.driver.DoubleCommand;
-				MODULE_VERSION = 1.6b3;
+				MODULE_VERSION = 1.6.1;
 				PREBINDING = NO;
 				PRODUCT_NAME = DoubleCommand;
 				WRAPPER_EXTENSION = kext;
@@ -283,7 +283,7 @@
 					ppc,
 					i386,
 				);
-				CURRENT_PROJECT_VERSION = 1.6b3;
+				CURRENT_PROJECT_VERSION = 1.6.1;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				GCC_MODEL_TUNING = G5;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -291,7 +291,7 @@
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(SYSTEM_LIBRARY_DIR)/Extensions";
 				MODULE_NAME = com.baltaks.driver.DoubleCommand;
-				MODULE_VERSION = 1.6b3;
+				MODULE_VERSION = 1.6.1;
 				PREBINDING = NO;
 				PRODUCT_NAME = DoubleCommand;
 				WRAPPER_EXTENSION = kext;

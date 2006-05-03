@@ -6,12 +6,16 @@
 #include <IOKit/IOLib.h>
 #include "DoubleCommand.h"
 #include "Boundary.h"
+#include "KeyBehaviorManager.h"
 
 extern "C"
 {
 //This is for debugging purposes ONLY
 #include <pexpert/pexpert.h>
 }
+
+// Sole instance of the behavior manager.
+KeyBehaviorManager keyBehaviorManager;
 
 // Define my superclass
 #define super IOService
@@ -22,7 +26,6 @@ OSDefineMetaClassAndStructors(com_baltaks_driver_DoubleCommand, IOService)
 
 
 dc_keyboard Keyboards[MAX_KEYBOARDS];
-
 
 bool com_baltaks_driver_DoubleCommand::init(OSDictionary *dict)
 {
@@ -99,6 +102,10 @@ void com_baltaks_driver_DoubleCommand::stop(IOService *provider)
 	{
 		terminated_notifier->remove();
 	}
+
+	// Shut down the keyboard manager.
+	keyBehaviorManager.cleanup();
+
 	IOLog("Stopping DoubleCommand\n");
 	super::stop(provider);
 }
@@ -142,10 +149,15 @@ event(OSObject *target,
 	IOLog("eventtype %d flags %d key %d keyboardtype %d\n", 
 		eventType, flags, key, keyboardType);
 #endif
-	remap(&eventType, &flags, &key, &charCode, &charSet, &origCharCode, &origCharSet,
-		&keyboardType);
-	Keyboards[0].event(target, eventType, flags, key, charCode, charSet, 
-		origCharCode, origCharSet, keyboardType, repeat, ts);
+
+	int i = find_client(false);
+	if (i >= 0) {
+		remap(&eventType, &flags, &key, &charCode, &charSet,
+			&origCharCode, &origCharSet, &keyboardType);
+
+		Keyboards[i].event(target, eventType, flags, key, charCode,
+			charSet, origCharCode, origCharSet, keyboardType, repeat, ts);
+	}
 }
 
 void
@@ -162,7 +174,12 @@ specialEvent(OSObject * target,
 	IOLog("I found a special keypress\n");
 	IOLog("eventtype %d flags %d key %d flavor %d\n", eventType, flags, key, flavor);
 #endif
-	Keyboards[0].special_event(target, eventType, flags, key, flavor, guid, repeat, ts);
+
+	int i = find_client(true);
+	if (i >= 0) {
+		Keyboards[i].special_event(target, eventType, flags, key, flavor,
+			guid, repeat, ts);
+	}
 }
 
 
@@ -218,19 +235,14 @@ int hijack_keyboard(IOHIKeyboard * kbd)
 		{
 			IOLog("Hijacking keyboard %d (%s)\n", i, kbd->getName());
 			Keyboards[i].keyboard = kbd;
-			if (kbd->_keyboardEventAction)
-			{
 				Keyboards[i].event = kbd->_keyboardEventAction;
-			}
-			else
+			Keyboards[i].special_event = kbd->_keyboardSpecialEventAction;
+
+			if (!kbd->_keyboardEventAction)
 			{
 				IOLog("keyboard not ready?\n");
 			}
-			if (kbd->_keyboardSpecialEventAction)
-			{
-				Keyboards[i].special_event = kbd->_keyboardSpecialEventAction;
-			}
-			else
+			if (!kbd->_keyboardSpecialEventAction)
 			{
 				IOLog("keyboard not ready?\n");
 			}
@@ -238,6 +250,11 @@ int hijack_keyboard(IOHIKeyboard * kbd)
 #ifndef MB_TESTING
 			kbd->_keyboardEventAction = event;
 			kbd->_keyboardSpecialEventAction = specialEvent;
+
+			// Register the keyboard with the behavior manager.
+			if (!keyBehaviorManager.addKeyboard(kbd))
+				IOLog("Unable to attach stage one filter.\n");
+
 #endif
 			IOLog("kea %08X: ksea %08X\n",
 				  (unsigned) Keyboards[i].event, 
@@ -264,7 +281,7 @@ int return_keyboard(IOHIKeyboard * kbd)
 		{
 			IOLog("Returning keyboard %d (%s)\n", i, kbd->getName());
 
-			if (kbd->_keyboardEventAction)
+			if (kbd->_keyboardEventAction == event)
 			{
 #ifndef MB_TESTING
 				kbd->_keyboardEventAction = Keyboards[i].event;
@@ -274,7 +291,7 @@ int return_keyboard(IOHIKeyboard * kbd)
 			{
 				IOLog("keyboard not ready?\n");
 			}
-			if (kbd->_keyboardSpecialEventAction)
+			if (kbd->_keyboardSpecialEventAction == specialEvent)
 			{
 #ifndef MB_TESTING
 				kbd->_keyboardSpecialEventAction = Keyboards[i].special_event;
@@ -284,6 +301,9 @@ int return_keyboard(IOHIKeyboard * kbd)
 			{
 				IOLog("keyboard not ready?\n");
 			}
+
+			// Remove the keyboard from the behavior manager.
+			keyBehaviorManager.removeKeyboard(kbd);
 
 			IOLog("hijacked values kea %08X: ksea %08X\n",
 				  (unsigned) kbd->_keyboardEventAction, 
@@ -297,3 +317,41 @@ int return_keyboard(IOHIKeyboard * kbd)
 	}
 	return 0;
 }
+
+
+// Get the index of the given keyboard.  Useful for diagnostic messages, etc..
+int which_keyboard(IOHIKeyboard * kbd) {
+
+	if (kbd) {
+		for (int i = 0; i < MAX_KEYBOARDS; i++) {
+			if (Keyboards[i].keyboard == kbd) return i;
+		}
+	}
+	return -1;
+}
+
+
+/**
+ * Find a client to send events to.  This isn't always so straightforward,
+ * since on log out the OS tends to close our device, add a new device,
+ * and/or other funny business.  If we've got this far, the stage 1 filter
+ * should have ensured that there is at least one client to be found.
+ */
+int find_client(bool special) {
+
+	// At least one of these has to match.
+	for (int i = 0; i < MAX_KEYBOARDS; i++) {
+
+		IOHIKeyboard *keyboard = Keyboards[i].keyboard;
+
+		if (!keyboard) continue;
+
+		if (!special && (keyboard->_keyboardEventAction == event))
+			return i;
+
+		if (special && (keyboard->_keyboardSpecialEventAction == specialEvent))
+			return i;
+	}
+	return -1;
+}
+

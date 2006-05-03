@@ -5,6 +5,7 @@
 #include <sys/systm.h>
 #include <sys/types.h>
 #include <sys/sysctl.h>
+#include "KeyBehaviorManager.h"
 
 /* the sysctl docs said to declare this */
 //struct sysctl_oid_list sysctl__dc_children;
@@ -12,6 +13,8 @@
 /* a variable in MBHIDHack.h for configuring this program */
 extern
 int dcConfig;
+
+extern KeyBehaviorManager keyBehaviorManager;
 
 /* this is the function that handles getting and setting the config */
 static int
@@ -38,6 +41,7 @@ dc_sysctl_config SYSCTL_HANDLER_ARGS
 	else
 	{
 		error = SYSCTL_IN(req, arg1, sizeof(int));
+		keyBehaviorManager.applyConfig();
 	}
 	return (error);
 }

@@ -12,6 +12,10 @@
 		009DECDD08B34F65002ECA52 /* MBDCC.h in Headers */ = {isa = PBXBuildFile; fileRef = 009DECDA08B34F65002ECA52 /* MBDCC.h */; };
 		00DCDB7308B40DFE0066C5C2 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 00DCDB7208B40DFE0066C5C2 /* Info.plist */; };
 		00E7679308B405C600C18483 /* Boundary.h in Headers */ = {isa = PBXBuildFile; fileRef = 00E7679208B405C600C18483 /* Boundary.h */; };
+		272C695A09EDFE8800566EC9 /* KeyboardRemapper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 272C695809EDFE8800566EC9 /* KeyboardRemapper.cpp */; };
+		272C695B09EDFE8800566EC9 /* KeyboardRemapper.h in Headers */ = {isa = PBXBuildFile; fileRef = 272C695909EDFE8800566EC9 /* KeyboardRemapper.h */; };
+		27E5621809EA02BD00EEFDDF /* KeyBehaviorManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 27E5621609EA02BD00EEFDDF /* KeyBehaviorManager.h */; };
+		27E5621909EA02BD00EEFDDF /* KeyBehaviorManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27E5621709EA02BD00EEFDDF /* KeyBehaviorManager.cpp */; };
 		32D94FC60562CBF700B6AF17 /* DoubleCommand.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A224C3EFF42367911CA2CB7 /* DoubleCommand.h */; };
 		32D94FC80562CBF700B6AF17 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C167DFE841241C02AAC07 /* InfoPlist.strings */; };
 		32D94FCA0562CBF700B6AF17 /* DoubleCommand.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A224C3FFF42367911CA2CB7 /* DoubleCommand.cpp */; settings = {ATTRIBUTES = (); }; };
@@ -50,6 +54,10 @@
 		089C167EFE841241C02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1A224C3EFF42367911CA2CB7 /* DoubleCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoubleCommand.h; sourceTree = "<group>"; };
 		1A224C3FFF42367911CA2CB7 /* DoubleCommand.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DoubleCommand.cpp; sourceTree = "<group>"; };
+		272C695809EDFE8800566EC9 /* KeyboardRemapper.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = KeyboardRemapper.cpp; sourceTree = "<group>"; };
+		272C695909EDFE8800566EC9 /* KeyboardRemapper.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = KeyboardRemapper.h; sourceTree = "<group>"; };
+		27E5621609EA02BD00EEFDDF /* KeyBehaviorManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyBehaviorManager.h; sourceTree = "<group>"; };
+		27E5621709EA02BD00EEFDDF /* KeyBehaviorManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = KeyBehaviorManager.cpp; sourceTree = "<group>"; };
 		32D94FD00562CBF700B6AF17 /* DoubleCommand.kext */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DoubleCommand.kext; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DA8362C06AD9B9200E5AC22 /* Kernel.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kernel.framework; path = /System/Library/Frameworks/Kernel.framework; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
@@ -96,11 +104,15 @@
 		247142CAFF3F8F9811CA285C /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				272C695809EDFE8800566EC9 /* KeyboardRemapper.cpp */,
+				272C695909EDFE8800566EC9 /* KeyboardRemapper.h */,
 				00E7679208B405C600C18483 /* Boundary.h */,
 				009DECD808B34F65002ECA52 /* MBHIDHack.h */,
 				009DECDA08B34F65002ECA52 /* MBDCC.h */,
 				1A224C3EFF42367911CA2CB7 /* DoubleCommand.h */,
 				1A224C3FFF42367911CA2CB7 /* DoubleCommand.cpp */,
+				27E5621609EA02BD00EEFDDF /* KeyBehaviorManager.h */,
+				27E5621709EA02BD00EEFDDF /* KeyBehaviorManager.cpp */,
 				0083696708A797970052CBF5 /* Substitute.cpp */,
 			);
 			name = Source;
@@ -117,6 +129,8 @@
 				009DECDB08B34F65002ECA52 /* MBHIDHack.h in Headers */,
 				009DECDD08B34F65002ECA52 /* MBDCC.h in Headers */,
 				00E7679308B405C600C18483 /* Boundary.h in Headers */,
+				27E5621809EA02BD00EEFDDF /* KeyBehaviorManager.h in Headers */,
+				272C695B09EDFE8800566EC9 /* KeyboardRemapper.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -207,6 +221,8 @@
 			files = (
 				32D94FCA0562CBF700B6AF17 /* DoubleCommand.cpp in Sources */,
 				0083696808A797970052CBF5 /* Substitute.cpp in Sources */,
+				27E5621909EA02BD00EEFDDF /* KeyBehaviorManager.cpp in Sources */,
+				272C695A09EDFE8800566EC9 /* KeyboardRemapper.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

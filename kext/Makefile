@@ -34,7 +34,8 @@ rm=/bin/rm
 cp=/bin/cp
 kext=build/${BUILD_CONFIG}/DoubleCommand.kext
 kext_id="com.baltaks.driver.DoubleCommand"
-kexttmp=/tmp/kext/DoubleCommand.kext
+tmp=/tmp/kext
+kexttmp=${tmp}/DoubleCommand.kext
 
 
 build:
@@ -62,6 +63,6 @@ unload:
 	-${sudo} ${rm} -fr ${kexttmp}
 
 load: build unload
-	${sudo} ${cp} -R ${kext} ${kexttmp}
+	${sudo} ${cp} -R ${kext} ${tmp}
 	${sudo} ${chown} -R root:wheel ${kexttmp}
 	${sudo} ${kextload} ${kexttmp}

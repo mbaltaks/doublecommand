@@ -2,6 +2,35 @@
 #include "MBHIDHack.h"
 #include "MBDCC.h"
 
+// int variable to set the configuration of DoubleCommand
+int dcConfig = 0;
+
+//unsigned char setCommandFlag = 0;
+//unsigned char setControlFlag = 0;
+//unsigned char setOptionFlag = 0;
+//unsigned char setfnFlag = 0;
+//unsigned char setCapslockFlag = 0;
+unsigned char commandHeldDown = 0;
+unsigned char optionHeldDown = 0;
+unsigned char controlHeldDown = 0;
+unsigned char fnHeldDown = 0;
+unsigned char capslockHeldDown = 1;
+unsigned char capslockOn = 0;
+unsigned char inFnMode = 0;
+bool tildeHeldDown = false;
+//unsigned char unsetCommandFlag = 0;
+//unsigned char unsetOptionFlag = 0;
+//unsigned char unsetControlFlag = 0;
+//unsigned char unsetfnFlag = 0;
+//unsigned char unsetCapslockFlag = 0;
+
+unsigned char keepSpecialEvent = 1;
+unsigned char keepKeyboardEvent = 1;
+
+unsigned lastKeyboardType = 202;
+unsigned addFlags = 0;
+unsigned removeFlags = 0;
+
 int remap(unsigned * eventType,
 	unsigned * flags,
 	unsigned * key,
@@ -85,6 +114,15 @@ if (dcConfig != 0)
 
 		case COMMAND_KEY: // begin command key
 		case COMMAND_KEY_R:
+
+/* Uncomment this if doing this mod via behavior modification, rather than key
+ * code translation.
+			if (dcConfig & SWAP_TILDE_AND_COMMAND) {
+				*key = TILDE_KEY;
+			}
+			else
+*/
+
 			if (dcConfig & COMMAND_TO_OPTION)
 			{
 				if (commandHeldDown) // this event is a key up
@@ -588,6 +626,24 @@ if (dcConfig != 0)
 			}
 		break; // end backslash key
 
+/* Uncomment this if doing this mod via behavior modification, rather than key
+ * code translation.
+		case TILDE_KEY: // begin tilde key
+			if (dcConfig & SWAP_TILDE_AND_COMMAND)
+			{
+				if (tildeHeldDown) {
+					tildeHeldDown = false;
+					REMOVE(addFlags, COMMAND_FLAG);
+				}
+				else {
+					tildeHeldDown = true;
+					addFlags |= COMMAND_FLAG;
+				}
+				*key = COMMAND_KEY;
+			}
+			break; // end tilde key
+*/
+
 	} // end switch (key)
 
 	// begin supplied by Giel Scharff <mgsch@mac.com>
@@ -619,8 +675,7 @@ if (dcConfig != 0)
 	}
 	// end supplied by Giel Scharff <mgsch@mac.com>
 
-	removeFlags &= *flags;
-	*flags ^= removeFlags;
+	REMOVE(*flags, removeFlags);
 	*flags |= addFlags;
 	//printf("flags 0x%x, aflags 0x%x, rflags 0x%x\n", flags, addFlags, removeFlags);
 #ifdef MB_DEBUG

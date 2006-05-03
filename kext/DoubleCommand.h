@@ -77,5 +77,7 @@ typedef struct _dc_keyboard
 
 int hijack_keyboard(IOHIKeyboard * kbd);
 int return_keyboard(IOHIKeyboard * kbd);
+int which_keyboard(IOHIKeyboard * kbd);
+int find_client(bool special);
 
 #endif // _DoubleCommand_h

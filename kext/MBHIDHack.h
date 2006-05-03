@@ -28,37 +28,6 @@
 // Macro which helps clean up and optimise the flag changing code
 #define REMOVE(x, y)	( (x) ^= ((x) & (y)) )
 
-// int variable to set the configuration of DoubleCommand
-int dcConfig = 0;
-
-//unsigned char setCommandFlag = 0;
-//unsigned char setControlFlag = 0;
-//unsigned char setOptionFlag = 0;
-//unsigned char setfnFlag = 0;
-//unsigned char setCapslockFlag = 0;
-unsigned char commandHeldDown = 0;
-unsigned char optionHeldDown = 0;
-unsigned char controlHeldDown = 0;
-unsigned char fnHeldDown = 0;
-unsigned char capslockHeldDown = 1;
-unsigned char capslockOn = 0;
-unsigned char inFnMode = 0;
-//unsigned char unsetCommandFlag = 0;
-//unsigned char unsetOptionFlag = 0;
-//unsigned char unsetControlFlag = 0;
-//unsigned char unsetfnFlag = 0;
-//unsigned char unsetCapslockFlag = 0;
-
-unsigned char keepSpecialEvent = 1;
-unsigned char keepKeyboardEvent = 1;
-
-unsigned lastKeyboardType = 202;
-unsigned addFlags = 0;
-unsigned removeFlags = 0;
-
-
-
-
 // these flags are defined in IOLLEvent.h
 
 #ifdef JAGUAR_FLAGS
@@ -107,6 +76,7 @@ unsigned removeFlags = 0;
 #define OPTION_KEY 58
 #define OPTION_KEY_R 61
 #define FN_KEY 63
+#define TILDE_KEY 50
 #define DELETE_KEY 51
 #define FORWARD_DELETE 117
 #define NUMPAD_DOT 65
@@ -193,9 +163,9 @@ enum
 #define ENTER_TO_FORWARD_DELETE					1048576
 #define CONTROL_TO_DELETE						2097152
 #define DELETE_TO_CONTROL						4194304
-#define MB_DEBUG_OUTPUT                         8388608
+#define MB_DEBUG_OUTPUT							8388608
+#define SWAP_TILDE_AND_COMMAND					16777216
 
-//#define 16777216
 //#define 33554432
 //#define 67108864
 //#define 134217728

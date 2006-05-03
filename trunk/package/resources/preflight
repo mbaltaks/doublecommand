@@ -1,0 +1,46 @@
+#!/bin/sh
+# preflight
+
+echo "Running preflight"
+
+# I like the idea of using the kext id directly, seems cleaner
+# than basing this purely on the filesystem location of the on disk kext.
+kext_ids="com.baltaks.kext.DoubleCommand"
+kext_ids="$kext_ids com.baltaks.driver.DoubleCommand"
+kextunload=/sbin/kextunload
+kextstat=/usr/sbin/kextstat
+
+for k in ${kext_ids}; do
+	kexts=$(${kextstat} -l -b ${k} | wc -l)
+	if [ ${kexts} -gt 0 ]; then
+		${kextunload} -b ${k}
+	fi
+done
+
+#dcscript=/Library/StartupItems/DoubleCommand/DoubleCommand
+
+#if [ -e "$dcscript" ]; then
+#    $dcscript stop
+#fi
+
+dcpref=/Library/StartupItems/DoubleCommand/DoubleCommand.pref
+
+if [ -e ${dcpref} ]; then
+	cp -f ${dcpref} /tmp/DoubleCommand.pref
+fi
+
+dcfolder=/Library/StartupItems/DoubleCommand
+
+if [ -e ${dcfolder} ]; then
+	rm -fr ${dcfolder}
+	echo removing ${dcfolder}
+fi
+
+pref=/Library/PreferencePanes/DoubleCommandPreferences.prefPane
+
+if [ -e ${pref} ]; then
+	rm -rf ${pref}
+	echo removing ${pref}
+fi
+
+exit 0

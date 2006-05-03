@@ -1,0 +1,372 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 42;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0083696808A797970052CBF5 /* Substitute.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0083696708A797970052CBF5 /* Substitute.cpp */; };
+		009DECDB08B34F65002ECA52 /* MBHIDHack.h in Headers */ = {isa = PBXBuildFile; fileRef = 009DECD808B34F65002ECA52 /* MBHIDHack.h */; };
+		009DECDD08B34F65002ECA52 /* MBDCC.h in Headers */ = {isa = PBXBuildFile; fileRef = 009DECDA08B34F65002ECA52 /* MBDCC.h */; };
+		00DCDB7308B40DFE0066C5C2 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 00DCDB7208B40DFE0066C5C2 /* Info.plist */; };
+		00E7679308B405C600C18483 /* Boundary.h in Headers */ = {isa = PBXBuildFile; fileRef = 00E7679208B405C600C18483 /* Boundary.h */; };
+		32D94FC60562CBF700B6AF17 /* DoubleCommand.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A224C3EFF42367911CA2CB7 /* DoubleCommand.h */; };
+		32D94FC80562CBF700B6AF17 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C167DFE841241C02AAC07 /* InfoPlist.strings */; };
+		32D94FCA0562CBF700B6AF17 /* DoubleCommand.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A224C3FFF42367911CA2CB7 /* DoubleCommand.cpp */; settings = {ATTRIBUTES = (); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXBuildStyle section */
+		06AA1265FFB2107B11CA28AA /* Debug */ = {
+			isa = PBXBuildStyle;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				ZERO_LINK = YES;
+			};
+			name = Debug;
+		};
+		06AA1266FFB2107B11CA28AA /* Release */ = {
+			isa = PBXBuildStyle;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+/* End PBXBuildStyle section */
+
+/* Begin PBXFileReference section */
+		0083696708A797970052CBF5 /* Substitute.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Substitute.cpp; sourceTree = "<group>"; };
+		009DECD808B34F65002ECA52 /* MBHIDHack.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = MBHIDHack.h; sourceTree = "<group>"; };
+		009DECDA08B34F65002ECA52 /* MBDCC.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = MBDCC.h; sourceTree = "<group>"; };
+		00DCDB7208B40DFE0066C5C2 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.xml; path = Info.plist; sourceTree = "<group>"; };
+		00E7679208B405C600C18483 /* Boundary.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = Boundary.h; sourceTree = "<group>"; };
+		089C167EFE841241C02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1A224C3EFF42367911CA2CB7 /* DoubleCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoubleCommand.h; sourceTree = "<group>"; };
+		1A224C3FFF42367911CA2CB7 /* DoubleCommand.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DoubleCommand.cpp; sourceTree = "<group>"; };
+		32D94FD00562CBF700B6AF17 /* DoubleCommand.kext */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DoubleCommand.kext; sourceTree = BUILT_PRODUCTS_DIR; };
+		8DA8362C06AD9B9200E5AC22 /* Kernel.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kernel.framework; path = /System/Library/Frameworks/Kernel.framework; sourceTree = "<absolute>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		32D94FCB0562CBF700B6AF17 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		089C166AFE841209C02AAC07 /* DoubleCommand */ = {
+			isa = PBXGroup;
+			children = (
+				247142CAFF3F8F9811CA285C /* Source */,
+				8DA8362C06AD9B9200E5AC22 /* Kernel.framework */,
+				089C167CFE841241C02AAC07 /* Resources */,
+				19C28FB6FE9D52B211CA2CBB /* Products */,
+			);
+			name = DoubleCommand;
+			sourceTree = "<group>";
+		};
+		089C167CFE841241C02AAC07 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				00DCDB7208B40DFE0066C5C2 /* Info.plist */,
+				089C167DFE841241C02AAC07 /* InfoPlist.strings */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		19C28FB6FE9D52B211CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				32D94FD00562CBF700B6AF17 /* DoubleCommand.kext */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		247142CAFF3F8F9811CA285C /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				00E7679208B405C600C18483 /* Boundary.h */,
+				009DECD808B34F65002ECA52 /* MBHIDHack.h */,
+				009DECDA08B34F65002ECA52 /* MBDCC.h */,
+				1A224C3EFF42367911CA2CB7 /* DoubleCommand.h */,
+				1A224C3FFF42367911CA2CB7 /* DoubleCommand.cpp */,
+				0083696708A797970052CBF5 /* Substitute.cpp */,
+			);
+			name = Source;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		32D94FC50562CBF700B6AF17 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				32D94FC60562CBF700B6AF17 /* DoubleCommand.h in Headers */,
+				009DECDB08B34F65002ECA52 /* MBHIDHack.h in Headers */,
+				009DECDD08B34F65002ECA52 /* MBDCC.h in Headers */,
+				00E7679308B405C600C18483 /* Boundary.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		32D94FC30562CBF700B6AF17 /* DoubleCommand */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 009D757308A77D0C005D9003 /* Build configuration list for PBXNativeTarget "DoubleCommand" */;
+			buildPhases = (
+				32D94FC50562CBF700B6AF17 /* Headers */,
+				32D94FC70562CBF700B6AF17 /* Resources */,
+				32D94FC90562CBF700B6AF17 /* Sources */,
+				32D94FCB0562CBF700B6AF17 /* Frameworks */,
+				32D94FCC0562CBF700B6AF17 /* Rez */,
+			);
+			buildRules = (
+			);
+			buildSettings = {
+				CURRENT_PROJECT_VERSION = 1.6.1;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "$(SYSTEM_LIBRARY_DIR)/Extensions";
+				MODULE_NAME = com.yourcompany.driver.DoubleCommand;
+				MODULE_VERSION = 1.6.1;
+				PREBINDING = NO;
+				PRODUCT_NAME = DoubleCommand;
+				WRAPPER_EXTENSION = kext;
+			};
+			dependencies = (
+			);
+			name = DoubleCommand;
+			productInstallPath = "$(SYSTEM_LIBRARY_DIR)/Extensions";
+			productName = DoubleCommand;
+			productReference = 32D94FD00562CBF700B6AF17 /* DoubleCommand.kext */;
+			productType = "com.apple.product-type.kernel-extension.iokit";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		089C1669FE841209C02AAC07 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = 009D757708A77D0C005D9003 /* Build configuration list for PBXProject "DoubleCommand" */;
+			buildSettings = {
+			};
+			buildStyles = (
+				06AA1265FFB2107B11CA28AA /* Debug */,
+				06AA1266FFB2107B11CA28AA /* Release */,
+			);
+			hasScannedForEncodings = 1;
+			mainGroup = 089C166AFE841209C02AAC07 /* DoubleCommand */;
+			projectDirPath = "";
+			targets = (
+				32D94FC30562CBF700B6AF17 /* DoubleCommand */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		32D94FC70562CBF700B6AF17 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				32D94FC80562CBF700B6AF17 /* InfoPlist.strings in Resources */,
+				00DCDB7308B40DFE0066C5C2 /* Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXRezBuildPhase section */
+		32D94FCC0562CBF700B6AF17 /* Rez */ = {
+			isa = PBXRezBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXRezBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		32D94FC90562CBF700B6AF17 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				32D94FCA0562CBF700B6AF17 /* DoubleCommand.cpp in Sources */,
+				0083696808A797970052CBF5 /* Substitute.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		089C167DFE841241C02AAC07 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				089C167EFE841241C02AAC07 /* English */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		009D757408A77D0C005D9003 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = (
+					ppc,
+					i386,
+				);
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1.6.1;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "$(SYSTEM_LIBRARY_DIR)/Extensions";
+				MODULE_NAME = com.baltaks.driver.DoubleCommand;
+				MODULE_VERSION = 1.6.1;
+				PREBINDING = NO;
+				PRODUCT_NAME = DoubleCommand;
+				WRAPPER_EXTENSION = kext;
+				ZERO_LINK = YES;
+			};
+			name = Debug;
+		};
+		009D757508A77D0C005D9003 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = (
+					ppc,
+					i386,
+				);
+				COPY_PHASE_STRIP = YES;
+				CURRENT_PROJECT_VERSION = 1.6.1;
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "$(SYSTEM_LIBRARY_DIR)/Extensions";
+				MODULE_NAME = com.baltaks.driver.DoubleCommand;
+				MODULE_VERSION = 1.6.1;
+				PREBINDING = NO;
+				PRODUCT_NAME = DoubleCommand;
+				WRAPPER_EXTENSION = kext;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		009D757608A77D0C005D9003 /* Default */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = (
+					ppc,
+					i386,
+				);
+				CURRENT_PROJECT_VERSION = 1.6.1;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "$(SYSTEM_LIBRARY_DIR)/Extensions";
+				MODULE_NAME = com.baltaks.driver.DoubleCommand;
+				MODULE_VERSION = 1.6.1;
+				PREBINDING = NO;
+				PRODUCT_NAME = DoubleCommand;
+				WRAPPER_EXTENSION = kext;
+			};
+			name = Default;
+		};
+		009D757808A77D0C005D9003 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = (
+					ppc,
+					i386,
+				);
+				GCC_MODEL_TUNING = G3;
+				OTHER_CFLAGS = "-no-cpp-precomp";
+				SDKROOT = "";
+				SDKROOT_i386 = /Developer/SDKs/MacOSX10.4u.sdk;
+				SDKROOT_ppc = /Developer/SDKs/MacOSX10.4.0.sdk;
+			};
+			name = Debug;
+		};
+		009D757908A77D0C005D9003 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = (
+					ppc,
+					i386,
+				);
+				GCC_MODEL_TUNING = G3;
+				OTHER_CFLAGS = "-no-cpp-precomp";
+				SDKROOT = "";
+				SDKROOT_i386 = /Developer/SDKs/MacOSX10.4u.sdk;
+				SDKROOT_ppc = /Developer/SDKs/MacOSX10.4.0.sdk;
+			};
+			name = Release;
+		};
+		009D757A08A77D0C005D9003 /* Default */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = (
+					ppc,
+					i386,
+				);
+				GCC_MODEL_TUNING = G3;
+				OTHER_CFLAGS = "-no-cpp-precomp";
+				SDKROOT = "";
+				SDKROOT_i386 = /Developer/SDKs/MacOSX10.4u.sdk;
+				SDKROOT_ppc = /Developer/SDKs/MacOSX10.4.0.sdk;
+			};
+			name = Default;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		009D757308A77D0C005D9003 /* Build configuration list for PBXNativeTarget "DoubleCommand" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				009D757408A77D0C005D9003 /* Debug */,
+				009D757508A77D0C005D9003 /* Release */,
+				009D757608A77D0C005D9003 /* Default */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Default;
+		};
+		009D757708A77D0C005D9003 /* Build configuration list for PBXProject "DoubleCommand" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				009D757808A77D0C005D9003 /* Debug */,
+				009D757908A77D0C005D9003 /* Release */,
+				009D757A08A77D0C005D9003 /* Default */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Default;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 089C1669FE841209C02AAC07 /* Project object */;
+}

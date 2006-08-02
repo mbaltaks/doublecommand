@@ -8,10 +8,16 @@
 #include <IOKit/IOReturn.h>
 #include "KeyboardRemapper.h"
 #include "DoubleCommand.h"
+#include "MBHIDHack.h"
 
-//#define MKT_DEBUG
+#define MKT_DEBUG 0
 
+extern int dcConfig;
 extern dc_keyboard Keyboards[MAX_KEYBOARDS];
+
+
+#define DEBUGGING (MKT_DEBUG || (dcConfig & MB_DEBUG_OUTPUT))
+
 
 
 // Begin KeyboardMapper class definition.
@@ -35,11 +41,11 @@ bool KeyboardRemapper::__dc_attach(IOHIKeyboard *kbd) {
 
 	/* The ordering of statements below is very deliberate. */
 
-	// Attach ourselves to the keyboard.
-	kbd->_keyMap = this;
-
 	// Make sure the original key mapper sticks around.
 	__dc_keyMap->retain();
+
+	// Attach ourselves to the keyboard.
+	kbd->_keyMap = this;
 
 	// Have the keyboard register our mapper.
 	kbd->updateProperties();
@@ -160,11 +166,9 @@ bool KeyboardRemapper::__dc_modifyKey(UInt8 keyCode, int type, UInt8 likeKeyCode
 		undo->type |= DC_SUPPRESS;
 	}
 
-#ifdef MKT_DEBUG
-	IOLog("Modified key.  key: %d/0x%x, like: %d/0x%x, type: %d, keyboard: %d\n",
+	if (DEBUGGING) IOLog("Modified key.  key: %d/0x%x, like: %d/0x%x, type: %d, keyboard: %d\n",
 		keyCode, keyCode, likeKeyCode, likeKeyCode, type, which_keyboard(__dc_keyboard)
 	);
-#endif
 
 	return true;
 }
@@ -214,9 +218,8 @@ void KeyboardRemapper::__dc_restoreKey(UInt8 keyCode, int type) {
 	// Remove from our list of mods if the key is back to the default state.
 	if (undo->type == DC_DEFAULT) {
 
-#ifdef MKT_DEBUG
-IOLog("Freeing undo data for key %d on keyboard %d.\n", keyCode, which_keyboard(__dc_keyboard));
-#endif
+		if (DEBUGGING) IOLog("Freeing undo data for key %d on keyboard %d.\n",
+			keyCode, which_keyboard(__dc_keyboard));
 
 		*pointer = undo->next;
 		IOFree(undo, sizeof(KeyUndo));;
@@ -249,22 +252,17 @@ void KeyboardRemapper::__dc_restoreKey(KeyUndo *undo, int type) {
 		undo->type ^= DC_SUPPRESS;
 	}
 
-#ifdef MKT_DEBUG
-	IOLog("Restored key.  key: %d/0x%x, types: 0x%x, keyboard: %d\n",
+	if (DEBUGGING) IOLog("Restored key.  key: %d/0x%x, types: 0x%x, keyboard: %d\n",
 		undo->keyCode, undo->keyCode, restore, which_keyboard(__dc_keyboard)
 	);
-#endif
-
 }
 
 
 // Restore the entire key map to original settings.
 void KeyboardRemapper::__dc_restoreAllKeys(int type) {
 
-#ifdef MKT_DEBUG
-	IOLog("Restoring all key modifications...  type: 0x%x, keyboard: %d.\n",
+	if (DEBUGGING) IOLog("Restoring all key modifications...  type: 0x%x, keyboard: %d.\n",
 		which_keyboard(__dc_keyboard));
-#endif
 
 	KeyUndo **pointer = &__dc_keyMods;
 	KeyUndo *undo;
@@ -275,9 +273,8 @@ void KeyboardRemapper::__dc_restoreAllKeys(int type) {
 		// If the key has been fully restored, delete the undo data.
 		if (undo->type == DC_DEFAULT) {
 
-#ifdef MKT_DEBUG
-IOLog("Freeing undo data for key %d on keyboard %d.\n", undo->keyCode, which_keyboard(__dc_keyboard));
-#endif
+			if (DEBUGGING) IOLog("Freeing undo data for key %d on keyboard %d.\n",
+				undo->keyCode, which_keyboard(__dc_keyboard));
 
 			*pointer = undo->next;
 			IOFree(undo, sizeof(KeyUndo));
@@ -317,88 +314,68 @@ bool KeyboardRemapper::__dc_verifyStageTwo() {
 
 
 UInt8 KeyboardRemapper::getParsedSpecialKey(UInt8 logical) {
-#ifdef MKT_DEBUG
-//	IOLog("Wrapper: getParsedSpecialKey()\n");
-#endif
+//	if (DEBUGGING) IOLog("Wrapper: getParsedSpecialKey()\n");
 	if (__dc_keyMap) return __dc_keyMap->getParsedSpecialKey(logical);
 	return 0;
 }
 
 
 bool KeyboardRemapper::init(IOHIKeyboard *delegate, const UInt8 *mapping, UInt32 mappingLength, bool mappingShouldBeFreed) {
-#ifdef MKT_DEBUG
-	IOLog("Wrapper: init()\n");
-#endif
+	if (DEBUGGING) IOLog("Wrapper: init()\n");
 	if (__dc_keyMap) return __dc_keyMap->init(delegate, mapping, mappingLength, mappingShouldBeFreed);
 	return false;
 }
 
 
 void KeyboardRemapper::keyEventPostProcess(void) {
-#ifdef MKT_DEBUG
-//	IOLog("Wrapper: keyEventPostProcess()\n");
-#endif
+//	if (DEBUGGING) IOLog("Wrapper: keyEventPostProcess()\n");
 	if (__dc_keyMap) __dc_keyMap->keyEventPostProcess();
 }
 
 
 const UInt8 *KeyboardRemapper::mapping() {
-#ifdef MKT_DEBUG
-	IOLog("Wrapper: mapping()\n");
-#endif
+	if (DEBUGGING) IOLog("Wrapper: mapping()\n");
 	if (__dc_keyMap) return __dc_keyMap->mapping();
 	return NULL;
 }
 
 
 UInt32 KeyboardRemapper::mappingLength() {
-#ifdef MKT_DEBUG
-	IOLog("Wrapper: mappingLength()\n");
-#endif
+	if (DEBUGGING) IOLog("Wrapper: mappingLength()\n");
 	if (__dc_keyMap) return __dc_keyMap->mappingLength();
 	return 0;
 }
 
 
 IOReturn KeyboardRemapper::message(UInt32 type, IOService *provider, void *argument) {
-#ifdef MKT_DEBUG
-	IOLog("Wrapper: message()\n");
-#endif
+	if (DEBUGGING) IOLog("Wrapper: message()\n");
 	if (__dc_keyMap) return __dc_keyMap->message(type, provider, argument);
 	return kIOReturnSuccess;
 }
 
 
 bool KeyboardRemapper::serialize(OSSerialize *s) const {
-#ifdef MKT_DEBUG
-	IOLog("Wrapper: serialize()\n");
-#endif
+	if (DEBUGGING) IOLog("Wrapper: serialize()\n");
 	if (__dc_keyMap) return __dc_keyMap->serialize(s);
 	return false;
 }
 
 
 void KeyboardRemapper::setKeyboardTarget(IOService *keyboardTarget) {
-#ifdef MKT_DEBUG
-	IOLog("Wrapper: setKeyboardTarget()\n");
-#endif
+	if (DEBUGGING) IOLog("Wrapper: setKeyboardTarget()\n");
 	if (__dc_keyMap) __dc_keyMap->setKeyboardTarget(keyboardTarget);
 }
 
 
 IOReturn KeyboardRemapper::setParamProperties(OSDictionary * dict) {
-#ifdef MKT_DEBUG
-//	IOLog("Wrapper: setParamProperties()\n");
-#endif
+//	if (DEBUGGING) IOLog("Wrapper: setParamProperties()\n");
 	if (__dc_keyMap) return __dc_keyMap->setParamProperties(dict);
 	return kIOReturnSuccess;
 }
 
 
 bool KeyboardRemapper::updateProperties(void) {
-#ifdef MKT_DEBUG
-	IOLog("Wrapper: updateProperties()\n");
-#endif
+	if (DEBUGGING) IOLog("Wrapper: updateProperties()\n");
 	if (__dc_keyMap) return __dc_keyMap->updateProperties();
 	return false;
 }
@@ -416,10 +393,8 @@ void KeyboardRemapper::translateKeyCode(UInt8 keyCode, bool keyDown, kbdBitVecto
 		return;
 	}
 
-#ifdef MKT_DEBUG
-	IOLog("Filtering: In.... keyCode: %d:%x, keyDown: %d, keyBits: %x, repeat %d\n",
+	if (DEBUGGING) IOLog("Filtering: In.... keyCode: %d:%x, keyDown: %d, keyBits: %x, repeat %d\n",
 		keyCode, keyCode, keyDown, *keyBits, __dc_keyboard->_codeToRepeat);
-#endif
 
 	UInt8 remapKeyCode = keyCode;
 	bool translating = false;
@@ -447,9 +422,7 @@ void KeyboardRemapper::translateKeyCode(UInt8 keyCode, bool keyDown, kbdBitVecto
 		}
 	}
 
-#ifdef MKT_DEBUG
-	IOLog("Filtering: Out... keyCode: %d:%x\n", remapKeyCode, remapKeyCode);
-#endif
+	if (DEBUGGING) IOLog("Filtering: Out... keyCode: %d:%x\n", remapKeyCode, remapKeyCode);
 
 	// Pass the (possibly) translated key code to the real key mapper.
 	__dc_keyMap->translateKeyCode(remapKeyCode, keyDown, keyBits);

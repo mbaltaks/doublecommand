@@ -8,13 +8,13 @@
 #include "KeyBehaviorManager.h"
 #include "MBHIDHack.h"
 
-//#define MKT_DEBUG
+#define MKT_DEBUG 0
 
 extern int dcConfig;
 
 #define SETTING_ON(x) (!(prevConfig & (x)) && (config & (x)))
 #define SETTING_OFF(x) ((prevConfig & (x)) && !(config & (x)))
-
+#define DEBUGGING (MKT_DEBUG || (config & MB_DEBUG_OUTPUT))
 
 //----------------------------------------------------------------------------
 // Key behavior configuration method.
@@ -28,9 +28,9 @@ void KeyBehaviorManager::applyConfig() {
 	int prevConfig = config;
 	config = dcConfig;
 
-#ifdef MKT_DEBUG
+	if (DEBUGGING) {
 	IOLog("DoubleCommand: Configuration changed.  Setting up filters.\n");
-#endif
+	}
 
 	// Apply effects of the tile-command swap.
 	if (SETTING_ON(SWAP_TILDE_AND_COMMAND)) {
@@ -43,7 +43,6 @@ void KeyBehaviorManager::applyConfig() {
 		restoreKey(TILDE_KEY, DC_TRANSLATE);
 		restoreKey(COMMAND_KEY, DC_TRANSLATE);
 	}
-
 
 /*
 	// Apply effects of some other setting.
@@ -96,9 +95,7 @@ bool KeyBehaviorManager::addKeyboard(IOHIKeyboard *keyboard) {
 	KeyboardRemapper **pointer = findKeyboard(keyboard);
 	if (pointer) return false;
 
-#ifdef MKT_DEBUG
-	IOLog("Adding keyboard: %s\n", keyboard->getName());
-#endif
+	if (DEBUGGING) IOLog("Adding keyboard: %s\n", keyboard->getName());
 
 	// Create the new keyboard remapper and then attach it to the keyboard.
 	KeyboardRemapper *remapper = new KeyboardRemapper();
@@ -197,9 +194,7 @@ void KeyBehaviorManager::removeKeyboard(IOHIKeyboard *keyboard) {
 
 	if (!keyboard) return;
 
-#ifdef MKT_DEBUG
-	IOLog("Removing keyboard: %s\n", keyboard->getName());
-#endif
+	if (DEBUGGING) IOLog("Removing keyboard: %s\n", keyboard->getName());
 
 	KeyboardRemapper **pointer = findKeyboard(keyboard);
 	if (!pointer) return;
@@ -214,9 +209,7 @@ void KeyBehaviorManager::removeKeyboard(IOHIKeyboard *keyboard) {
 // Stop managing key behavior modifications for all keyboards.
 void KeyBehaviorManager::removeAllKeyboards() {
 
-#ifdef MKT_DEBUG
-	IOLog("Removing all keyboard remappers...\n");
-#endif
+	if (DEBUGGING) IOLog("Removing all keyboard remappers...\n");
 
 	while (keyboards) removeKeyboard(keyboards->__dc_keyboard);
 }
@@ -238,9 +231,7 @@ void KeyBehaviorManager::restoreKey(UInt8 keyCode, int type) {
 
 	if (redo->type == DC_DEFAULT) {
 
-#ifdef MKT_DEBUG
-IOLog("Manager: Freeing redo data for key %d.\n", keyCode);
-#endif
+		if (DEBUGGING) IOLog("Manager: Freeing redo data for key %d.\n", keyCode);
 
 		*pointer = redo->next;
 		IOFree(redo, sizeof(KeyRedo));;
@@ -267,9 +258,7 @@ void KeyBehaviorManager::restoreAllKeys(int type) {
 		// If the key has been fully restored, delete the redo data.
 		if (redo->type == DC_DEFAULT) {
 
-#ifdef MKT_DEBUG
-IOLog("Manager: Freeing redo data for key %d.\n", redo->keyCode);
-#endif
+			if (DEBUGGING) IOLog("Manager: Freeing redo data for key %d.\n", redo->keyCode);
 
 			*pointer = redo->next;
 			IOFree(redo, sizeof(KeyRedo));

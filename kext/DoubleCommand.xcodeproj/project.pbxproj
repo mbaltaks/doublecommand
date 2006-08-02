@@ -21,30 +21,6 @@
 		32D94FCA0562CBF700B6AF17 /* DoubleCommand.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A224C3FFF42367911CA2CB7 /* DoubleCommand.cpp */; settings = {ATTRIBUTES = (); }; };
 /* End PBXBuildFile section */
 
-/* Begin PBXBuildStyle section */
-		06AA1265FFB2107B11CA28AA /* Debug */ = {
-			isa = PBXBuildStyle;
-			buildSettings = {
-				COPY_PHASE_STRIP = NO;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_ENABLE_FIX_AND_CONTINUE = YES;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				ZERO_LINK = YES;
-			};
-			name = Debug;
-		};
-		06AA1266FFB2107B11CA28AA /* Release */ = {
-			isa = PBXBuildStyle;
-			buildSettings = {
-				COPY_PHASE_STRIP = YES;
-				GCC_ENABLE_FIX_AND_CONTINUE = NO;
-				ZERO_LINK = NO;
-			};
-			name = Release;
-		};
-/* End PBXBuildStyle section */
-
 /* Begin PBXFileReference section */
 		0083696708A797970052CBF5 /* Substitute.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Substitute.cpp; sourceTree = "<group>"; };
 		009DECD808B34F65002ECA52 /* MBHIDHack.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = MBHIDHack.h; sourceTree = "<group>"; };
@@ -149,20 +125,6 @@
 			);
 			buildRules = (
 			);
-			buildSettings = {
-				CURRENT_PROJECT_VERSION = 1.6.1;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
-				GCC_MODEL_TUNING = G5;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = Info.plist;
-				INSTALL_PATH = "$(SYSTEM_LIBRARY_DIR)/Extensions";
-				MODULE_NAME = com.yourcompany.driver.DoubleCommand;
-				MODULE_VERSION = 1.6.1;
-				PREBINDING = NO;
-				PRODUCT_NAME = DoubleCommand;
-				WRAPPER_EXTENSION = kext;
-			};
 			dependencies = (
 			);
 			name = DoubleCommand;
@@ -177,12 +139,6 @@
 		089C1669FE841209C02AAC07 /* Project object */ = {
 			isa = PBXProject;
 			buildConfigurationList = 009D757708A77D0C005D9003 /* Build configuration list for PBXProject "DoubleCommand" */;
-			buildSettings = {
-			};
-			buildStyles = (
-				06AA1265FFB2107B11CA28AA /* Debug */,
-				06AA1266FFB2107B11CA28AA /* Release */,
-			);
 			hasScannedForEncodings = 1;
 			mainGroup = 089C166AFE841209C02AAC07 /* DoubleCommand */;
 			projectDirPath = "";

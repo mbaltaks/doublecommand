@@ -32,6 +32,7 @@ sudo=/usr/bin/sudo
 chown=/usr/sbin/chown
 rm=/bin/rm
 cp=/bin/cp
+mkdir=/bin/mkdir
 kext=build/${BUILD_CONFIG}/DoubleCommand.kext
 kext_id="com.baltaks.driver.DoubleCommand"
 tmp=/tmp/kext
@@ -63,6 +64,7 @@ unload:
 	-${sudo} ${rm} -fr ${kexttmp}
 
 load: build unload
+	${sudo} ${mkdir} -p ${tmp}
 	${sudo} ${cp} -R ${kext} ${tmp}
 	${sudo} ${chown} -R root:wheel ${kexttmp}
 	${sudo} ${kextload} ${kexttmp}

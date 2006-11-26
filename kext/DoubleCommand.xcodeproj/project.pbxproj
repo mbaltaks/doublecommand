@@ -281,7 +281,7 @@
 				OTHER_CFLAGS = "-no-cpp-precomp";
 				SDKROOT = "";
 				SDKROOT_i386 = /Developer/SDKs/MacOSX10.4u.sdk;
-				SDKROOT_ppc = /Developer/SDKs/MacOSX10.4.0.sdk;
+				SDKROOT_ppc = /Developer/SDKs/MacOSX10.4u.sdk;
 			};
 			name = Debug;
 		};
@@ -296,7 +296,7 @@
 				OTHER_CFLAGS = "-no-cpp-precomp";
 				SDKROOT = "";
 				SDKROOT_i386 = /Developer/SDKs/MacOSX10.4u.sdk;
-				SDKROOT_ppc = /Developer/SDKs/MacOSX10.4.0.sdk;
+				SDKROOT_ppc = /Developer/SDKs/MacOSX10.4u.sdk;
 			};
 			name = Release;
 		};
@@ -311,7 +311,7 @@
 				OTHER_CFLAGS = "-no-cpp-precomp";
 				SDKROOT = "";
 				SDKROOT_i386 = /Developer/SDKs/MacOSX10.4u.sdk;
-				SDKROOT_ppc = /Developer/SDKs/MacOSX10.4.0.sdk;
+				SDKROOT_ppc = /Developer/SDKs/MacOSX10.4u.sdk;
 			};
 			name = Default;
 		};

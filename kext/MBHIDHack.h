@@ -61,10 +61,6 @@
 #endif
 #define FN_FLAG 0x800000
 
-// To get all of the same type of modifier at the same time.
-#define ALL_MODIFIERS_MASK 0xff0000
-
-
 #define SPACE_KEY 49
 #define SHIFT_KEY 56
 #define SHIFT_KEY_R 60

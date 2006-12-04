@@ -576,8 +576,10 @@ if (dcConfig != 0)
 				}
 				else
 				{
-					*key = LEFT_ARROW_KEY;
-					*flags |= COMMAND_FLAG;
+                    KeyToModifier(eventType, &addFlags, key,
+                        COMMAND_FLAG, LEFT_ARROW_KEY, *eventType);
+					//*key = LEFT_ARROW_KEY;
+					//*flags |= COMMAND_FLAG;
 				}
 				//if (eventType == KEY_DOWN)
 				//{
@@ -603,8 +605,10 @@ if (dcConfig != 0)
 				}
 				else
 				{
-					*key = RIGHT_ARROW_KEY;
-					*flags |= COMMAND_FLAG;
+                    KeyToModifier(eventType, &addFlags, key,
+                        COMMAND_FLAG, RIGHT_ARROW_KEY, *eventType);
+					//*key = RIGHT_ARROW_KEY;
+					//*flags |= COMMAND_FLAG;
 				}
 				//if (eventType == KEY_DOWN)
 				//{

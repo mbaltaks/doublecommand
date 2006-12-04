@@ -3,8 +3,49 @@
 
 #include "MBHIDHack.h"
 
-
 #define MAXREMAPS 255
+
+
+
+// pinched from uControl
+/* Simply a key and flag pair */
+typedef struct _keyflagpair {
+    unsigned key;
+    unsigned flag;
+} keyflagpair;
+
+enum _op {
+        kSwap    = 1,
+        kConvert = 2,
+        kSquelch = 3, };
+
+/* This parameter defines the operation, the particular keyboard-type
+   and the remap that should occur. */
+typedef struct _parameter {
+    enum _op op;
+    unsigned kbtype;
+    keyflagpair src;
+    keyflagpair dest;
+} parameter;
+
+/* This special parameter is for keys that can't be bound as
+   abstractly as a param, so they only require the pair they map to
+   since what they're mapping from is builtin to the code.  (capslock
+   and enter are examples of this.)  */
+typedef struct _special {
+    unsigned options; /* bitfield */
+    unsigned kbtype;
+    keyflagpair replace;
+} special;
+
+#define PARAMETER_COUNT 8
+
+parameter params[PARAMETER_COUNT];
+
+// end pinched from uControl
+
+
+
 typedef struct keySeq
 {
 	unsigned eventType;

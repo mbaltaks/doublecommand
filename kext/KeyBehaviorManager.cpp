@@ -6,7 +6,7 @@
  *
  */
 #include "KeyBehaviorManager.h"
-#include "MBHIDHack.h"
+#include "Defines.h"
 
 #define MKT_DEBUG 0
 

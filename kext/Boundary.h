@@ -6,6 +6,7 @@
 #include <sys/types.h>
 #include <sys/sysctl.h>
 #include "KeyBehaviorManager.h"
+#include "Defines.h"
 
 /* the sysctl docs said to declare this */
 //struct sysctl_oid_list sysctl__dc_children;
@@ -13,6 +14,8 @@
 /* a variable in MBHIDHack.h for configuring this program */
 extern
 int dcConfig;
+
+extern parameter params[];
 
 extern KeyBehaviorManager keyBehaviorManager;
 
@@ -50,6 +53,13 @@ dc_sysctl_config SYSCTL_HANDLER_ARGS
 /* declare the new top level sysctl node "dc" */
 SYSCTL_NODE(, OID_AUTO, dc, CTLFLAG_RW, 0, "DoubleCommand");
 SYSCTL_DECL(_dc_config);
+
+
+SYSCTL_STRUCT(_dc, OID_AUTO, param0, CTLFLAG_RW|CTLFLAG_ANYBODY, 
+              &(params[0]), _parameter, "Parameter 0");
+
+
+
 /* declare a new child of our new node and a handler function */
 SYSCTL_PROC (_dc, OID_AUTO, config,
 	CTLTYPE_INT|CTLFLAG_RW|CTLFLAG_ANYBODY,

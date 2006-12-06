@@ -487,8 +487,10 @@ if (dcConfig != 0)
 			// Make Shift + Delete send a Forward Delete key
 			if (dcConfig & SHIFT_DELETE_TO_FORWARD_DELETE)
 			{
-				if (*flags == SHIFT_FLAG // with _only_ shift held as well
-                    || *flags == SHIFT_FLAG_R) // left OR right shift key
+				if ( (*flags == SHIFT_FLAG) // with _only_ shift held as well
+                    || (*flags == SHIFT_FLAG_R) // left OR right shift key
+                    || (*flags == (SHIFT_FLAG + CAPSLOCK_FLAG)) // and caps lock is sticky,
+                    || (*flags == (SHIFT_FLAG_R + CAPSLOCK_FLAG)) ) // so allow it also
 				{
 					*key = FORWARD_DELETE;
 					// FN_FLAG is needed for Office

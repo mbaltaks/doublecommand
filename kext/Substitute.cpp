@@ -81,7 +81,7 @@ if (dcConfig != 0)
 			else if (dcConfig & ENTER_TO_OPTION)
 			{
                 KeyToModifier(eventType, &addFlags, key,
-                    OPTION_FLAG, OPTION_KEY, KEY_MODIFY);
+                    OPTION_FLAG_R, OPTION_KEY_R, KEY_MODIFY);
 			}
 			else if (dcConfig & ENTER_TO_FN)
 			{

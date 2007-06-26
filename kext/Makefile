@@ -67,4 +67,4 @@ load: build unload
 	${sudo} ${mkdir} -p ${tmp}
 	${sudo} ${cp} -R ${kext} ${tmp}
 	${sudo} ${chown} -R root:wheel ${kexttmp}
-	${sudo} ${kextload} ${kexttmp}
+	${sudo} ${kextload} -t ${kexttmp}

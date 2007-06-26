@@ -1,4 +1,4 @@
-.PHONY: build versions clean package disk_image
+.PHONY: build versions clean package disk_image docs
 
 # Project global make settings go in this file
 include Make.config
@@ -15,7 +15,7 @@ tmp=build
 image=$(tmp)/image
 
 
-release: versions build package disk_image
+release: versions docs build package disk_image
 	@echo built release package
 
 versions:
@@ -30,6 +30,7 @@ build:
 clean:
 	( cd kext; make clean )
 	( cd prefpane; make clean )
+	rm -f docs/*.html
 
 package:
 	( cd package; make build )
@@ -51,3 +52,12 @@ uninstall:
 	rm -rf /Library/PreferencePanes/DoubleCommandPreferences.prefPane
 	rm -rf /Library/StartupItems/DoubleCommand
 	rm -rf /Library/Receipts/DoubleCommand*.pkg
+
+docs:
+	php -f docs/developers.php > docs/developers.html
+	php -f docs/download.php > docs/download.html
+	php -f docs/features.php > docs/features.html
+	php -f docs/index.php > docs/index.html
+	php -f docs/help.php > docs/help.html
+	php -f docs/news_archive.php > docs/news_archive.html
+	php -f docs/history.php > docs/history.html

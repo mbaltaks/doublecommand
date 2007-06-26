@@ -9,7 +9,7 @@
 </a>
 <h2>News</h2>
 <p>
-26th June 2007 - Updated website layout.
+26th June 2007 - Updated website layout. The highest priority now is having settings per keyboard, or at least only applying DoubleCommand to a single keyboard. Also released DoubleCommand 1.6.3, a minor update which allows using backslash as delete with Option to delete to word boundaries.
 </p>
 
 <p>

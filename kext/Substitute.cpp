@@ -626,7 +626,9 @@ if (dcConfig != 0)
 		case BACKSLASH_KEY: // begin backslash key
 			if(dcConfig & BACKSLASH_TO_FORWARD_DELETE)
 			{
-				if (*flags == 0x0)
+				if (*flags == 0x0
+					|| *flags == OPTION_FLAG
+					|| *flags == OPTION_FLAG_R)
 				{
 					*key = FORWARD_DELETE;
 				}

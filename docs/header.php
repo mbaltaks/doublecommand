@@ -19,7 +19,7 @@ Michael Baltaks</a>.
 
 
 <div id="menu">
-<ul id="menu">
+<ul id="menulist">
 <li><a href="index.html">Home</a></li>
 <li><a href="help.html">Help</a></li>
 <li><a href="features.html">Features</a></li>

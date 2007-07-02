@@ -32,7 +32,14 @@ bool com_baltaks_driver_DoubleCommand::init(OSDictionary *dict)
 	bool res = super::init(dict);
 	//IOLog("Initializing DoubleCommand\n");
 	sysctl_register_oid(&sysctl__dc);
-	sysctl_register_oid(&sysctl__dc_config);
+	sysctl_register_oid(&sysctl__dc_config0);
+	sysctl_register_oid(&sysctl__dc_config1);
+	sysctl_register_oid(&sysctl__dc_config2);
+	sysctl_register_oid(&sysctl__dc_config3);
+	sysctl_register_oid(&sysctl__dc_keyboard0);
+	sysctl_register_oid(&sysctl__dc_keyboard1);
+	sysctl_register_oid(&sysctl__dc_keyboard2);
+	sysctl_register_oid(&sysctl__dc_keyboard3);
 	for (int i = 0; i < MAX_KEYBOARDS; i++)
 	{
 		Keyboards[i].keyboard = NULL;
@@ -43,7 +50,15 @@ bool com_baltaks_driver_DoubleCommand::init(OSDictionary *dict)
 void com_baltaks_driver_DoubleCommand::free(void)
 {
 	sysctl_unregister_oid(&sysctl__dc);
-	sysctl_unregister_oid(&sysctl__dc_config);
+	//sysctl_unregister_oid(&sysctl__dc_config);
+	sysctl_unregister_oid(&sysctl__dc_config0);
+	sysctl_unregister_oid(&sysctl__dc_config1);
+	sysctl_unregister_oid(&sysctl__dc_config2);
+	sysctl_unregister_oid(&sysctl__dc_config3);
+	sysctl_unregister_oid(&sysctl__dc_keyboard0);
+	sysctl_unregister_oid(&sysctl__dc_keyboard1);
+	sysctl_unregister_oid(&sysctl__dc_keyboard2);
+	sysctl_unregister_oid(&sysctl__dc_keyboard3);
 	//IOLog("Freeing DoubleCommand\n");
 	super::free();
 }

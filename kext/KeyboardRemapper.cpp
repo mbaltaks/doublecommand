@@ -8,7 +8,7 @@
 #include <IOKit/IOReturn.h>
 #include "KeyboardRemapper.h"
 #include "DoubleCommand.h"
-#include "MBHIDHack.h"
+#include "Common.h"
 
 #define MKT_DEBUG 0
 

@@ -11,7 +11,7 @@ To get the source code for DoubleCommand, use <a href="http://subversion.tigris.
 <span class="code">svn co https://doublecommand.svn.sourceforge.net/svnroot/doublecommand/trunk</span><br /><br />
 For a particular version, use tags like this: <br /><br />
 <span class="code">svn co https://doublecommand.svn.sourceforge.net/svnroot/doublecommand/tags/Release-1.6.1</span><br /><br />
-Or browse the source code using the <a href="http://svn.sourceforge.net/doublecommand">web interface</a>.
+Or browse the source code using the <a href="http://doublecommand.svn.sourceforge.net/doublecommand">web interface</a>.
 </p>
 
 

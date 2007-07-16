@@ -56,6 +56,13 @@ int remap(unsigned * eventType,
 	unsigned * origCharSet,
 	unsigned * keyboardType);
 
+int special_remap(unsigned * eventType,
+	unsigned * flags,
+	unsigned * key,
+	unsigned * flavor,
+	UInt64 * guid,
+	bool * repeat,
+	AbsoluteTime * ts);
 
 // Can anyone argue for more than four keyboard like devices at once?
 const unsigned MAX_KEYBOARDS = 4;

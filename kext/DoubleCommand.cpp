@@ -192,6 +192,8 @@ specialEvent(OSObject * target,
 
 	int i = find_client(true);
 	if (i >= 0) {
+	    special_remap(&eventType, &flags, &key, &flavor, &guid, &repeat, &ts);
+
 		Keyboards[i].special_event(target, eventType, flags, key, flavor,
 			guid, repeat, ts);
 	}

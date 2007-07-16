@@ -748,6 +748,24 @@ return 0;
 }
 
 
+#define MB_DEBUG 1
+int special_remap(unsigned * eventType,
+	unsigned * flags,
+	unsigned * key,
+	unsigned * flavor,
+	UInt64 * guid,
+	bool * repeat,
+	AbsoluteTime * ts)
+{
+#ifdef MB_DEBUG
+	printf("caught  hid event type %d flags 0x%x key %d ", *eventType, *flags, *key);
+	printf("flavor %d guid %d ", *flavor, *guid);
+	printf("repeat %d ts %d\n", *repeat, *ts);
+#endif
+    return 0;
+}
+
+
 //static keySeq inkeys[MAXREMAPS];
 //static keySeq outkeys[MAXREMAPS];
 int current_remapID = 0;

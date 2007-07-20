@@ -26,6 +26,15 @@
 #define REMOVE(x, y)	( (x) ^= ((x) & (y)) )
 
 #define MAXREMAPS 255
+// Can anyone argue for more than four keyboard like devices at once?
+const unsigned MAX_KEYBOARDS = 4;
+
+enum
+{
+    kContinue = 0,
+    kSupress = 1,
+    kSwitch = 2
+};
 
 
 typedef struct keySeq
@@ -196,7 +205,7 @@ enum
 #define MB_DEBUG_OUTPUT							8388608
 #define SWAP_TILDE_AND_COMMAND					16777216
 
-//#define 33554432
+#define CAPSLOCK_TO_DELETE                      33554432
 //#define 67108864
 //#define 134217728
 //#define 268435456

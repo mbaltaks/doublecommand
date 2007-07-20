@@ -32,14 +32,15 @@ bool com_baltaks_driver_DoubleCommand::init(OSDictionary *dict)
 	bool res = super::init(dict);
 	//IOLog("Initializing DoubleCommand\n");
 	sysctl_register_oid(&sysctl__dc);
-	sysctl_register_oid(&sysctl__dc_config0);
+	sysctl_register_oid(&sysctl__dc_config);
 	sysctl_register_oid(&sysctl__dc_config1);
 	sysctl_register_oid(&sysctl__dc_config2);
 	sysctl_register_oid(&sysctl__dc_config3);
-	sysctl_register_oid(&sysctl__dc_keyboard0);
+	sysctl_register_oid(&sysctl__dc_config4);
 	sysctl_register_oid(&sysctl__dc_keyboard1);
 	sysctl_register_oid(&sysctl__dc_keyboard2);
 	sysctl_register_oid(&sysctl__dc_keyboard3);
+	sysctl_register_oid(&sysctl__dc_keyboard4);
 	for (int i = 0; i < MAX_KEYBOARDS; i++)
 	{
 		Keyboards[i].keyboard = NULL;
@@ -50,15 +51,15 @@ bool com_baltaks_driver_DoubleCommand::init(OSDictionary *dict)
 void com_baltaks_driver_DoubleCommand::free(void)
 {
 	sysctl_unregister_oid(&sysctl__dc);
-	//sysctl_unregister_oid(&sysctl__dc_config);
-	sysctl_unregister_oid(&sysctl__dc_config0);
+	sysctl_unregister_oid(&sysctl__dc_config);
 	sysctl_unregister_oid(&sysctl__dc_config1);
 	sysctl_unregister_oid(&sysctl__dc_config2);
 	sysctl_unregister_oid(&sysctl__dc_config3);
-	sysctl_unregister_oid(&sysctl__dc_keyboard0);
+	sysctl_unregister_oid(&sysctl__dc_config4);
 	sysctl_unregister_oid(&sysctl__dc_keyboard1);
 	sysctl_unregister_oid(&sysctl__dc_keyboard2);
 	sysctl_unregister_oid(&sysctl__dc_keyboard3);
+	sysctl_unregister_oid(&sysctl__dc_keyboard4);
 	//IOLog("Freeing DoubleCommand\n");
 	super::free();
 }
@@ -146,6 +147,15 @@ bool dc_terminated(com_baltaks_driver_DoubleCommand * self,
 	return true;
 }
 
+/* Do I really need these? Do they even make sense? */
+unsigned GcharCode = 0;
+unsigned GcharSet = 0;
+unsigned GorigCharCode = 0;
+unsigned GorigCharSet = 0;
+unsigned GkeyboardType = 0;
+unsigned Gflavor = 0;
+UInt64 Gguid = 0;
+
 void
 event(OSObject *target,
 	unsigned   eventType,
@@ -156,7 +166,7 @@ event(OSObject *target,
 	unsigned   origCharCode,
 	unsigned   origCharSet,
 	unsigned   keyboardType,
-	bool       repeat,
+	bool	   repeat,
 	AbsoluteTime ts)
 {
 #ifdef MB_DEBUG
@@ -164,14 +174,35 @@ event(OSObject *target,
 	IOLog("eventtype %d flags %d key %d keyboardtype %d\n", 
 		eventType, flags, key, keyboardType);
 #endif
+	int r = 0;
 
 	int i = find_client(false);
-	if (i >= 0) {
-		remap(&eventType, &flags, &key, &charCode, &charSet,
-			&origCharCode, &origCharSet, &keyboardType);
+	if (i >= 0)
+	{
+		GcharCode = charCode;
+		GcharSet = charSet;
+		GorigCharCode = origCharCode;
+		GorigCharSet = origCharSet;
+		GkeyboardType = keyboardType;
 
-		Keyboards[i].event(target, eventType, flags, key, charCode,
-			charSet, origCharCode, origCharSet, keyboardType, repeat, ts);
+		r = remap(&eventType, &flags, &key, &charCode, &charSet,
+			&origCharCode, &origCharSet, &keyboardType);
+		if (r == kContinue)
+		{
+			Keyboards[i].event(target, eventType, flags, key, charCode,
+				charSet, origCharCode, origCharSet, keyboardType, repeat, ts);
+		}
+		else if (r == kSwitch)
+		{
+#ifdef MB_DEBUG
+			IOLog("sending special event type %d flags 0x%x key %d ",
+				eventType, flags, key);
+			IOLog("flavor %d guid %d ", Gflavor, Gguid);
+			IOLog("repeat %d ts %d\n", repeat, ts);
+#endif
+			Keyboards[i].special_event(target, eventType, flags, key, Gflavor,
+				Gguid, repeat, ts);
+		}
 	}
 }
 
@@ -181,21 +212,42 @@ specialEvent(OSObject * target,
 	unsigned   flags,
 	unsigned   key,
 	unsigned   flavor,
-	UInt64     guid,
-	bool       repeat,
+	UInt64	 guid,
+	bool	   repeat,
 	AbsoluteTime ts)
 {
 #ifdef MB_DEBUG
 	IOLog("I found a special keypress\n");
-	IOLog("eventtype %d flags %d key %d flavor %d\n", eventType, flags, key, flavor);
+	IOLog("eventtype %d flags %d key %d flavor %d\n", eventType, flags, key,
+		flavor);
 #endif
+	int r = 0;
 
 	int i = find_client(true);
 	if (i >= 0) {
-	    special_remap(&eventType, &flags, &key, &flavor, &guid, &repeat, &ts);
+		Gflavor = flavor;
+		Gguid = guid;
 
-		Keyboards[i].special_event(target, eventType, flags, key, flavor,
-			guid, repeat, ts);
+		r = special_remap(&eventType, &flags, &key,
+			&flavor, &guid, &repeat, &ts);
+		if (r == kContinue)
+		{
+			Keyboards[i].special_event(target, eventType, flags, key, flavor,
+				guid, repeat, ts);
+		}
+		else if (r == kSwitch)
+		{
+#ifdef MB_DEBUG
+			IOLog("sending hid event type %d flags 0x%x key %d ", eventType,
+				flags, key);
+			IOLog("charCode %d charSet %d ", GcharCode, GcharSet);
+			IOLog("origCharCode %d origCharSet %d kbdType %d ",
+				GorigCharCode, GorigCharSet, GkeyboardType);
+			IOLog("repeat %d ts %d\n", repeat, ts);
+#endif
+			Keyboards[i].event(target, eventType, flags, key, GcharCode,
+				GcharSet, GorigCharCode, GorigCharSet, GkeyboardType, repeat, ts);
+		}
 	}
 }
 

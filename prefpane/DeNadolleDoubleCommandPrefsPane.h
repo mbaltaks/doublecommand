@@ -4,7 +4,7 @@
 #import <CoreFoundation/CoreFoundation.h> 
 #import <Security/Authorization.h>
 
-#define DCP_lastusedbit  23
+#define DCP_lastusedbit  26
 NSString * systemPrefsPath = @"/Library/StartupItems/DoubleCommand/DoubleCommand.pref";
 NSString * userPrefsRelPath = @"Library/Preferences/DoubleCommand.pref";
 NSString * sysPrefsWriteTool = @"/Library/PreferencePanes/DoubleCommandPreferences.prefPane/Contents/Resources/prefWriter";

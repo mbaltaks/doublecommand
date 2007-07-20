@@ -12,14 +12,15 @@
 //struct sysctl_oid_list sysctl__dc_children;
 
 /* variables in Substitute.cpp for configuring this program */
-extern int dcConfig0;
+extern int dcConfigAll;
 extern int dcConfig1;
 extern int dcConfig2;
 extern int dcConfig3;
-extern int dcKeyboard0;
+extern int dcConfig4;
 extern int dcKeyboard1;
 extern int dcKeyboard2;
 extern int dcKeyboard3;
+extern int dcKeyboard4;
 
 extern KeyBehaviorManager keyBehaviorManager;
 
@@ -60,18 +61,18 @@ SYSCTL_DECL(_dc_config);
 
 
 /* declare a new child of our new node and a handler function */
-/*SYSCTL_PROC (_dc, OID_AUTO, config,
+SYSCTL_PROC (_dc, OID_AUTO, config,
 	CTLTYPE_INT|CTLFLAG_RW|CTLFLAG_ANYBODY,
-	&dcConfig, 0, &dc_sysctl_config, "I",
-	"Double Command Configuration");*/
+	&dcConfigAll, 0, &dc_sysctl_config, "I",
+	"Double Command Configuration");
 
-SYSCTL_PROC (_dc, OID_AUTO, config0, CTLTYPE_INT|CTLFLAG_RW|CTLFLAG_ANYBODY, &dcConfig0, 0, &dc_sysctl_config, "I", "Double Command Configuration 0");
 SYSCTL_PROC (_dc, OID_AUTO, config1, CTLTYPE_INT|CTLFLAG_RW|CTLFLAG_ANYBODY, &dcConfig1, 0, &dc_sysctl_config, "I", "Double Command Configuration 1");
 SYSCTL_PROC (_dc, OID_AUTO, config2, CTLTYPE_INT|CTLFLAG_RW|CTLFLAG_ANYBODY, &dcConfig2, 0, &dc_sysctl_config, "I", "Double Command Configuration 2");
 SYSCTL_PROC (_dc, OID_AUTO, config3, CTLTYPE_INT|CTLFLAG_RW|CTLFLAG_ANYBODY, &dcConfig3, 0, &dc_sysctl_config, "I", "Double Command Configuration 3");
-SYSCTL_PROC (_dc, OID_AUTO, keyboard0, CTLTYPE_INT|CTLFLAG_RW|CTLFLAG_ANYBODY, &dcKeyboard0, 0, &dc_sysctl_config, "I", "Double Command Keyboard 0");
+SYSCTL_PROC (_dc, OID_AUTO, config4, CTLTYPE_INT|CTLFLAG_RW|CTLFLAG_ANYBODY, &dcConfig4, 0, &dc_sysctl_config, "I", "Double Command Configuration 4");
 SYSCTL_PROC (_dc, OID_AUTO, keyboard1, CTLTYPE_INT|CTLFLAG_RW|CTLFLAG_ANYBODY, &dcKeyboard1, 0, &dc_sysctl_config, "I", "Double Command Keyboard 1");
 SYSCTL_PROC (_dc, OID_AUTO, keyboard2, CTLTYPE_INT|CTLFLAG_RW|CTLFLAG_ANYBODY, &dcKeyboard2, 0, &dc_sysctl_config, "I", "Double Command Keyboard 2");
 SYSCTL_PROC (_dc, OID_AUTO, keyboard3, CTLTYPE_INT|CTLFLAG_RW|CTLFLAG_ANYBODY, &dcKeyboard3, 0, &dc_sysctl_config, "I", "Double Command Keyboard 3");
+SYSCTL_PROC (_dc, OID_AUTO, keyboard4, CTLTYPE_INT|CTLFLAG_RW|CTLFLAG_ANYBODY, &dcKeyboard4, 0, &dc_sysctl_config, "I", "Double Command Keyboard 4");
 
 #endif // _BOUNDARY_H

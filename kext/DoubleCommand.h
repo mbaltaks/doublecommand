@@ -64,9 +64,6 @@ int special_remap(unsigned * eventType,
 	bool * repeat,
 	AbsoluteTime * ts);
 
-// Can anyone argue for more than four keyboard like devices at once?
-const unsigned MAX_KEYBOARDS = 4;
-
 
 // The Ugly Hack Part.
 #define protected public

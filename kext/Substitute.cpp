@@ -4,16 +4,17 @@
 // int variable to set the configuration of DoubleCommand
 // I think I need one of these per keyboard ID, really.
 int dcConfig = 0;
-int dcConfig0 = 0;
+int dcConfigAll = 0;
 int dcConfig1 = 0;
 int dcConfig2 = 0;
 int dcConfig3 = 0;
-int dcConfigArray[4];
-int dcKeyboard0 = 0;
+int dcConfig4 = 0;
+int dcConfigArray[MAX_KEYBOARDS];
 int dcKeyboard1 = 0;
 int dcKeyboard2 = 0;
 int dcKeyboard3 = 0;
-int dcKeyboardArray[4];
+int dcKeyboard4 = 0;
+int dcKeyboardArray[MAX_KEYBOARDS];
 
 //unsigned char setCommandFlag = 0;
 //unsigned char setControlFlag = 0;
@@ -50,6 +51,8 @@ int remap(unsigned * eventType,
 	unsigned * origCharSet,
 	unsigned * keyboardType)
 {
+int return_value = kContinue;
+
 #ifdef MB_DEBUG
 	printf("caught  hid event type %d flags 0x%x key %d ", *eventType, *flags, *key);
 	printf("charCode %d charSet %d ", *charCode, *charSet);
@@ -58,31 +61,31 @@ int remap(unsigned * eventType,
 #endif
 
 
-dcConfigArray[0] = dcConfig0;
-dcConfigArray[1] = dcConfig1;
-dcConfigArray[2] = dcConfig2;
-dcConfigArray[3] = dcConfig3;
-dcKeyboardArray[0] = dcKeyboard0;
-dcKeyboardArray[1] = dcKeyboard1;
-dcKeyboardArray[2] = dcKeyboard2;
-dcKeyboardArray[3] = dcKeyboard3;
-printf("config0 = %d\n", dcConfigArray[0]);
+dcConfigArray[0] = dcConfig1;
+dcConfigArray[1] = dcConfig2;
+dcConfigArray[2] = dcConfig3;
+dcConfigArray[3] = dcConfig4;
+dcKeyboardArray[0] = dcKeyboard1;
+dcKeyboardArray[1] = dcKeyboard2;
+dcKeyboardArray[2] = dcKeyboard3;
+dcKeyboardArray[3] = dcKeyboard4;
+/*printf("config0 = %d\n", dcConfigArray[0]);
 printf("config1 = %d\n", dcConfigArray[1]);
 printf("config2 = %d\n", dcConfigArray[2]);
 printf("config3 = %d\n", dcConfigArray[3]);
 printf("keyboard0 = %d\n", dcKeyboardArray[0]);
 printf("keyboard1 = %d\n", dcKeyboardArray[1]);
 printf("keyboard2 = %d\n", dcKeyboardArray[2]);
-printf("keyboard3 = %d\n", dcKeyboardArray[3]);
+printf("keyboard3 = %d\n", dcKeyboardArray[3]);*/
 int i = 0;
-dcConfig = 0;
-for (i = 0; i < 4; i++)
+dcConfig = dcConfigAll;
+for (i = 0; i < MAX_KEYBOARDS; i++)
 {
-    if ( (dcKeyboardArray[i] == 0)
-        || (*keyboardType == dcKeyboardArray[i]) )
-    {
-        dcConfig |= dcConfigArray[i];
-    }
+	if ( (dcKeyboardArray[i] == 0)
+		|| (*keyboardType == dcKeyboardArray[i]) )
+	{
+		dcConfig |= dcConfigArray[i];
+	}
 }
 printf("final dcConfig = %d\n", dcConfig);
 
@@ -90,13 +93,13 @@ printf("final dcConfig = %d\n", dcConfig);
 
 if (dcConfig != 0)
 {
-    if (dcConfig & MB_DEBUG_OUTPUT)
-    {
-        printf("caught  hid event type %d flags 0x%x key %d ", *eventType, *flags, *key);
-        printf("charCode %d charSet %d ", *charCode, *charSet);
-        printf("origCharCode %d origCharSet %d kbdType %d\n",
-            *origCharCode, *origCharSet, *keyboardType);
-    }
+	if (dcConfig & MB_DEBUG_OUTPUT)
+	{
+		printf("caught  hid event type %d flags 0x%x key %d ", *eventType, *flags, *key);
+		printf("charCode %d charSet %d ", *charCode, *charSet);
+		printf("origCharCode %d origCharSet %d kbdType %d\n",
+			*origCharCode, *origCharSet, *keyboardType);
+	}
 
 	lastKeyboardType = *keyboardType;
 
@@ -111,18 +114,18 @@ if (dcConfig != 0)
 		case POWERBOOKG4_2005_ENTER_KEY:
 			if (dcConfig & ENTER_TO_COMMAND)
 			{
-                KeyToModifier(eventType, &addFlags, key,
-                    COMMAND_FLAG, COMMAND_KEY, KEY_MODIFY);
+				KeyToModifier(eventType, &addFlags, key,
+					COMMAND_FLAG, COMMAND_KEY, KEY_MODIFY);
 			}
 			else if (dcConfig & ENTER_TO_CONTROL)
 			{
-                KeyToModifier(eventType, &addFlags, key,
-                    CONTROL_FLAG, CONTROL_KEY, KEY_MODIFY);
+				KeyToModifier(eventType, &addFlags, key,
+					CONTROL_FLAG, CONTROL_KEY, KEY_MODIFY);
 			}
 			else if (dcConfig & ENTER_TO_OPTION)
 			{
-                KeyToModifier(eventType, &addFlags, key,
-                    OPTION_FLAG_R, OPTION_KEY_R, KEY_MODIFY);
+				KeyToModifier(eventType, &addFlags, key,
+					OPTION_FLAG_R, OPTION_KEY_R, KEY_MODIFY);
 			}
 			else if (dcConfig & ENTER_TO_FN)
 			{
@@ -529,9 +532,9 @@ if (dcConfig != 0)
 			if (dcConfig & SHIFT_DELETE_TO_FORWARD_DELETE)
 			{
 				if ( (*flags == SHIFT_FLAG) // with _only_ shift held as well
-                    || (*flags == SHIFT_FLAG_R) // left OR right shift key
-                    || (*flags == (SHIFT_FLAG + CAPSLOCK_FLAG)) // and caps lock is sticky,
-                    || (*flags == (SHIFT_FLAG_R + CAPSLOCK_FLAG)) ) // so allow it also
+					|| (*flags == SHIFT_FLAG_R) // left OR right shift key
+					|| (*flags == (SHIFT_FLAG + CAPSLOCK_FLAG)) // and caps lock is sticky,
+					|| (*flags == (SHIFT_FLAG_R + CAPSLOCK_FLAG)) ) // so allow it also
 				{
 					*key = FORWARD_DELETE;
 					// FN_FLAG is needed for Office
@@ -580,6 +583,7 @@ if (dcConfig != 0)
 		// end supplied by Giel Scharff <mgsch@mac.com>
 
 		case CAPSLOCK_KEY: // begin capslock key
+	    case SPECIAL_CAPSLOCK_KEY:
 			if(dcConfig & CAPSLOCK_TO_CONTROL)
 			{
 				removeFlags |= CAPSLOCK_FLAG;
@@ -604,6 +608,10 @@ if (dcConfig != 0)
 					//capslockHeldDown = 0;
 				}
 			}
+	        if (dcConfig & CAPSLOCK_TO_DELETE)
+	        {
+	            return_value = kSupress;
+	        }
 		break; // end capslock key
 
 		case HOME_KEY: // begin home key
@@ -619,8 +627,8 @@ if (dcConfig != 0)
 				}
 				else
 				{
-                    KeyToModifier(eventType, &addFlags, key,
-                        COMMAND_FLAG, LEFT_ARROW_KEY, *eventType);
+					KeyToModifier(eventType, &addFlags, key,
+						COMMAND_FLAG, LEFT_ARROW_KEY, *eventType);
 					//*key = LEFT_ARROW_KEY;
 					//*flags |= COMMAND_FLAG;
 				}
@@ -648,8 +656,8 @@ if (dcConfig != 0)
 				}
 				else
 				{
-                    KeyToModifier(eventType, &addFlags, key,
-                        COMMAND_FLAG, RIGHT_ARROW_KEY, *eventType);
+					KeyToModifier(eventType, &addFlags, key,
+						COMMAND_FLAG, RIGHT_ARROW_KEY, *eventType);
 					//*key = RIGHT_ARROW_KEY;
 					//*flags |= COMMAND_FLAG;
 				}
@@ -735,20 +743,20 @@ if (dcConfig != 0)
 		*origCharCode, *origCharSet, *keyboardType);
 #endif
 
-    if (dcConfig & MB_DEBUG_OUTPUT)
-    {
-        printf("sending hid event type %d flags 0x%x key %d ", *eventType, *flags, *key);
-        printf("charCode %d charSet %d ", *charCode, *charSet);
-        printf("origCharCode %d origCharSet %d kbdType %d\n",
-            *origCharCode, *origCharSet, *keyboardType);
-    }
+	if (dcConfig & MB_DEBUG_OUTPUT)
+	{
+		printf("sending hid event type %d flags 0x%x key %d ", *eventType, *flags, *key);
+		printf("charCode %d charSet %d ", *charCode, *charSet);
+		printf("origCharCode %d origCharSet %d kbdType %d\n",
+			*origCharCode, *origCharSet, *keyboardType);
+	}
 } // end if dcConfig != 0
-
-return 0;
+printf("returning %d\n", return_value);
+return return_value;
 }
 
 
-#define MB_DEBUG 1
+//----------------------------------------------------------------------------
 int special_remap(unsigned * eventType,
 	unsigned * flags,
 	unsigned * key,
@@ -757,12 +765,61 @@ int special_remap(unsigned * eventType,
 	bool * repeat,
 	AbsoluteTime * ts)
 {
-#ifdef MB_DEBUG
-	printf("caught  hid event type %d flags 0x%x key %d ", *eventType, *flags, *key);
-	printf("flavor %d guid %d ", *flavor, *guid);
-	printf("repeat %d ts %d\n", *repeat, *ts);
-#endif
-    return 0;
+int return_value = kContinue;
+
+dcConfigArray[0] = dcConfig1;
+dcConfigArray[1] = dcConfig2;
+dcConfigArray[2] = dcConfig3;
+dcConfigArray[3] = dcConfig4;
+dcConfig = dcConfigAll;
+int i = 0;
+for (i = 0; i < 4; i++)
+{
+	dcConfig |= dcConfigArray[i];
+}
+printf("final dcConfig = %d\n", dcConfig);
+
+if (dcConfig != 0)
+{
+	if (dcConfig & MB_DEBUG_OUTPUT)
+	{
+		printf("caught  special event type %d flags 0x%x key %d ",
+			*eventType, *flags, *key);
+		printf("flavor %d guid %d ", *flavor, *guid);
+		printf("repeat %d ts %d\n", *repeat, *ts);
+	}
+
+	if( (dcConfig & CAPSLOCK_DISABLED))
+	{
+		removeFlags |= CAPSLOCK_FLAG;
+	}
+
+	switch (*key)
+	{
+	    case CAPSLOCK_KEY:
+	    case SPECIAL_CAPSLOCK_KEY:
+	        if (dcConfig & CAPSLOCK_TO_DELETE)
+	        {
+	            return_value = kSwitch;
+	            *key = DELETE_KEY;
+	            removeFlags |= CAPSLOCK_FLAG;
+	        }
+	    break;
+	}
+
+	REMOVE(*flags, removeFlags);
+	*flags |= addFlags;
+
+	if (dcConfig & MB_DEBUG_OUTPUT)
+	{
+		printf("sending special event type %d flags 0x%x key %d ",
+			*eventType, *flags, *key);
+		printf("flavor %d guid %d ", *flavor, *guid);
+		printf("repeat %d ts %d\n", *repeat, *ts);
+	}
+}
+printf("returning %d\n", return_value);
+return return_value;
 }
 
 
@@ -776,160 +833,166 @@ int last_sequenceNumber = 0;
 
 //----------------------------------------------------------------------------
 int KeyToModifier(unsigned * eventType,
-              unsigned * addFlags,
-              unsigned * key,
-              unsigned desired_flags,
-              unsigned desired_key,
-              unsigned desired_eventType)
+			  unsigned * addFlags,
+			  unsigned * key,
+			  unsigned desired_flags,
+			  unsigned desired_key,
+			  unsigned desired_eventType)
 {
-    if (*eventType == KEY_DOWN)
-    {
-        *addFlags |= desired_flags;
-        *key = desired_key;
-        *eventType = desired_eventType;
-    }
-    else if (*eventType == KEY_UP)
-    {
-        REMOVE(*addFlags, desired_flags);
-        *key = desired_key;
-        *eventType = desired_eventType;
-    }
-    return 0;
+	if (*eventType == KEY_DOWN)
+	{
+		*addFlags |= desired_flags;
+		*key = desired_key;
+		*eventType = desired_eventType;
+	}
+	else if (*eventType == KEY_UP)
+	{
+		REMOVE(*addFlags, desired_flags);
+		*key = desired_key;
+		*eventType = desired_eventType;
+	}
+	return 0;
 }
 
 
 /* The rest of these functions are unfinished and never yet used. */
 //----------------------------------------------------------------------------
 int ModifierToKey(unsigned * eventType,
-              unsigned * addFlags,
-              unsigned * removeFlags,
-              unsigned * key,
-              unsigned desired_flags,
-              unsigned desired_key,
-              unsigned desired_eventType)
+			  unsigned * addFlags,
+			  unsigned * removeFlags,
+			  unsigned * key,
+			  unsigned desired_flags,
+			  unsigned desired_key,
+			  unsigned desired_eventType)
 {
-    return 0;
+	if (*addFlags & desired_flags)
+	{
+	}
+	else
+	{
+	}
+	return 0;
 }
 
 
 //----------------------------------------------------------------------------
 int SetKeySeq(keySeq * seq,
-            unsigned index,
-            unsigned eventType,
-            unsigned flags,
-            unsigned key,
-            unsigned charCode,
-            unsigned charSet,
-            unsigned origCharCode,
-            unsigned origCharSet,
-            unsigned keyboardType,
-            bool repeat,
-            int remapID,
-            int sequenceNumber,
-            bool allKeyboards)
+			unsigned index,
+			unsigned eventType,
+			unsigned flags,
+			unsigned key,
+			unsigned charCode,
+			unsigned charSet,
+			unsigned origCharCode,
+			unsigned origCharSet,
+			unsigned keyboardType,
+			bool repeat,
+			int remapID,
+			int sequenceNumber,
+			bool allKeyboards)
 {
-    seq[index].eventType = eventType;
-    seq[index].flags = flags;
-    seq[index].key = key;
-    seq[index].charCode = charCode;
-    seq[index].charSet = charSet;
-    seq[index].origCharCode = origCharCode;
-    seq[index].origCharSet = origCharSet;
-    seq[index].keyboardType = keyboardType;
-    seq[index].repeat = repeat;
-    seq[index].remapID = remapID;
-    seq[index].sequenceNumber = sequenceNumber;
-    seq[index].allKeyboards = allKeyboards;
-    return 0;
+	seq[index].eventType = eventType;
+	seq[index].flags = flags;
+	seq[index].key = key;
+	seq[index].charCode = charCode;
+	seq[index].charSet = charSet;
+	seq[index].origCharCode = origCharCode;
+	seq[index].origCharSet = origCharSet;
+	seq[index].keyboardType = keyboardType;
+	seq[index].repeat = repeat;
+	seq[index].remapID = remapID;
+	seq[index].sequenceNumber = sequenceNumber;
+	seq[index].allKeyboards = allKeyboards;
+	return 0;
 }
 
 
 //----------------------------------------------------------------------------
 unsigned MatchID(keySeq * seq,
-            unsigned eventType,
-            unsigned flags,
-            unsigned key,
-            unsigned charCode,
-            unsigned charSet,
-            unsigned origCharCode,
-            unsigned origCharSet,
-            unsigned keyboardType,
-            int * remapID,
-            int * sequenceNumber)
+			unsigned eventType,
+			unsigned flags,
+			unsigned key,
+			unsigned charCode,
+			unsigned charSet,
+			unsigned origCharCode,
+			unsigned origCharSet,
+			unsigned keyboardType,
+			int * remapID,
+			int * sequenceNumber)
 {
-    for (int index = 0; index < MAXREMAPS; index++)
-    {
-        if (seq[index].eventType == eventType
-            && seq[index].flags == flags
-            && seq[index].key == key
-            && seq[index].charCode == charCode
-            && seq[index].charSet == charSet
-            && seq[index].origCharCode == origCharCode
-            && seq[index].origCharSet == origCharSet
-            && (seq[index].keyboardType == keyboardType
-                || seq[index].allKeyboards == true)
-            )
-        {
-            *remapID = seq[index].remapID;
-            *sequenceNumber = seq[index].sequenceNumber;
-            return 0;
-        }
-    }
-    return 0;
+	for (int index = 0; index < MAXREMAPS; index++)
+	{
+		if (seq[index].eventType == eventType
+			&& seq[index].flags == flags
+			&& seq[index].key == key
+			&& seq[index].charCode == charCode
+			&& seq[index].charSet == charSet
+			&& seq[index].origCharCode == origCharCode
+			&& seq[index].origCharSet == origCharSet
+			&& (seq[index].keyboardType == keyboardType
+				|| seq[index].allKeyboards == true)
+			)
+		{
+			*remapID = seq[index].remapID;
+			*sequenceNumber = seq[index].sequenceNumber;
+			return 0;
+		}
+	}
+	return 0;
 }
 
 
 //----------------------------------------------------------------------------
 unsigned SwitchKeys(keySeq * seq,
-                 unsigned * eventType,
-                 unsigned * flags,
-                 unsigned * key,
-                 unsigned * charCode,
-                 unsigned * charSet,
-                 unsigned * origCharCode,
-                 unsigned * origCharSet,
-                 unsigned * keyboardType,
-                 int remapID,
-                 int sequenceNumber,
-                 unsigned * addFlags,
-                 unsigned * removeFlags)
+				 unsigned * eventType,
+				 unsigned * flags,
+				 unsigned * key,
+				 unsigned * charCode,
+				 unsigned * charSet,
+				 unsigned * origCharCode,
+				 unsigned * origCharSet,
+				 unsigned * keyboardType,
+				 int remapID,
+				 int sequenceNumber,
+				 unsigned * addFlags,
+				 unsigned * removeFlags)
 {
-    for (int index = 0; index < MAXREMAPS; index++)
-    {
-        if (seq[index].remapID == remapID
-            && seq[index].sequenceNumber == sequenceNumber)
-        {
-            // eventType is paired for most keys (up/down)
-            switch (*eventType)
-            {
-                case (kKeyDown):
-                    *addFlags |= seq[index].flags;
-                    *removeFlags |= *flags;
-                break;
-                case (kKeyUp):
-                    *removeFlags |= seq[index].flags;
-                    *removeFlags |= *flags;
-                break;
-                case (kKeyModify):
-                    *addFlags |= seq[index].flags;
-                    *removeFlags |= *flags;
-                break;
-            }
-            *eventType = seq[index].eventType;
-            // flags is paired for modifier keys (on/off)
-            //*flags = seq[index].flags;
-            // key is what we use to match the others constant
-            *key = seq[index].key;
-            // these 4 are not really required
-            /*
-            *charCode = seq[index].charCode;
-            *charSet = seq[index].charSet;
-            *origCharCode = seq[index].origCharCode;
-            *origCharSet = seq[index].origCharSet;
-            */
-            return 0;
-        }
-    }
-    return 0;
+	for (int index = 0; index < MAXREMAPS; index++)
+	{
+		if (seq[index].remapID == remapID
+			&& seq[index].sequenceNumber == sequenceNumber)
+		{
+			// eventType is paired for most keys (up/down)
+			switch (*eventType)
+			{
+				case (kKeyDown):
+					*addFlags |= seq[index].flags;
+					*removeFlags |= *flags;
+				break;
+				case (kKeyUp):
+					*removeFlags |= seq[index].flags;
+					*removeFlags |= *flags;
+				break;
+				case (kKeyModify):
+					*addFlags |= seq[index].flags;
+					*removeFlags |= *flags;
+				break;
+			}
+			*eventType = seq[index].eventType;
+			// flags is paired for modifier keys (on/off)
+			//*flags = seq[index].flags;
+			// key is what we use to match the others constant
+			*key = seq[index].key;
+			// these 4 are not really required
+			/*
+			*charCode = seq[index].charCode;
+			*charSet = seq[index].charSet;
+			*origCharCode = seq[index].origCharCode;
+			*origCharSet = seq[index].origCharSet;
+			*/
+			return 0;
+		}
+	}
+	return 0;
 }
 

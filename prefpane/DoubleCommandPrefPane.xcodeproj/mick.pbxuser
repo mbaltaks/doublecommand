@@ -10,6 +10,16 @@
 		vrLen = 743;
 		vrLoc = 0;
 	};
+	0010FA460C503CBC0053FAF8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 86CD55D704DC723600E3E88D /* DeNadolleDoubleCommandPrefsPane.h */;
+		name = "DeNadolleDoubleCommandPrefsPane.h: 7";
+		rLen = 0;
+		rLoc = 190;
+		rType = 0;
+		vrLen = 743;
+		vrLoc = 0;
+	};
 	0065740108721E5A00C27DEF /* Source Control */ = {
 		isa = PBXSourceControlManager;
 		fallbackIsa = XCSourceControlManager;
@@ -152,7 +162,6 @@
 	};
 	089C1669FE841209C02AAC07 /* Project object */ = {
 		activeBuildConfigurationName = Development;
-		activeBuildStyle = 014CEA420018CDE011CA2923 /* Development */;
 		activeTarget = 8D5B49AC048680CD000E48DA /* DoubleCommand Prefences */;
 		codeSenseManager = 0065740208721E5A00C27DEF /* Code sense */;
 		perUserDictionary = {
@@ -178,7 +187,7 @@
 					PBXFileDataSource_Target_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 163426041;
+			PBXPerProjectTemplateStateSaveDate = 206585007;
 			PBXPrepackagedSmartGroups_v2 = (
 				{
 					PBXTransientLocationAtTop = bottom;
@@ -355,24 +364,25 @@
 					};
 				},
 			);
-			PBXWorkspaceStateSaveDate = 163426041;
+			PBXWorkspaceStateSaveDate = 206585007;
 		};
 		perUserProjectItems = {
-			0004900A098737330058B10B /* PBXTextBookmark */ = 0004900A098737330058B10B /* PBXTextBookmark */;
-			00A208D709BDAFCD00340E6F /* PBXTextBookmark */ = 00A208D709BDAFCD00340E6F /* PBXTextBookmark */;
-			00F60E63094F7E9800C5D712 /* PBXTextBookmark */ = 00F60E63094F7E9800C5D712 /* PBXTextBookmark */;
-			00F60E64094F7E9800C5D712 /* PBXTextBookmark */ = 00F60E64094F7E9800C5D712 /* PBXTextBookmark */;
-			00F60E65094F7E9800C5D712 /* PBXTextBookmark */ = 00F60E65094F7E9800C5D712 /* PBXTextBookmark */;
-			00F60E66094F7E9800C5D712 /* PBXBookmark */ = 00F60E66094F7E9800C5D712 /* PBXBookmark */;
-			00F60E67094F7E9800C5D712 /* PBXTextBookmark */ = 00F60E67094F7E9800C5D712 /* PBXTextBookmark */;
-			00F60E68094F7E9800C5D712 /* PBXTextBookmark */ = 00F60E68094F7E9800C5D712 /* PBXTextBookmark */;
-			00F60E6A094F7E9800C5D712 /* PBXTextBookmark */ = 00F60E6A094F7E9800C5D712 /* PBXTextBookmark */;
-			00F60E6B094F7E9800C5D712 /* PBXTextBookmark */ = 00F60E6B094F7E9800C5D712 /* PBXTextBookmark */;
-			00F60E6C094F7E9800C5D712 /* PBXTextBookmark */ = 00F60E6C094F7E9800C5D712 /* PBXTextBookmark */;
-			00F60E6D094F7E9800C5D712 /* PBXTextBookmark */ = 00F60E6D094F7E9800C5D712 /* PBXTextBookmark */;
-			00F60E6E094F7E9800C5D712 /* PBXBookmark */ = 00F60E6E094F7E9800C5D712 /* PBXBookmark */;
-			00F60E6F094F7E9800C5D712 /* PBXTextBookmark */ = 00F60E6F094F7E9800C5D712 /* PBXTextBookmark */;
-			00F60E71094F7E9800C5D712 /* PBXTextBookmark */ = 00F60E71094F7E9800C5D712 /* PBXTextBookmark */;
+			0004900A098737330058B10B = 0004900A098737330058B10B /* PBXTextBookmark */;
+			0010FA460C503CBC0053FAF8 /* PBXTextBookmark */ = 0010FA460C503CBC0053FAF8 /* PBXTextBookmark */;
+			00A208D709BDAFCD00340E6F = 00A208D709BDAFCD00340E6F /* PBXTextBookmark */;
+			00F60E63094F7E9800C5D712 = 00F60E63094F7E9800C5D712 /* PBXTextBookmark */;
+			00F60E64094F7E9800C5D712 = 00F60E64094F7E9800C5D712 /* PBXTextBookmark */;
+			00F60E65094F7E9800C5D712 = 00F60E65094F7E9800C5D712 /* PBXTextBookmark */;
+			00F60E66094F7E9800C5D712 = 00F60E66094F7E9800C5D712 /* PBXBookmark */;
+			00F60E67094F7E9800C5D712 = 00F60E67094F7E9800C5D712 /* PBXTextBookmark */;
+			00F60E68094F7E9800C5D712 = 00F60E68094F7E9800C5D712 /* PBXTextBookmark */;
+			00F60E6A094F7E9800C5D712 = 00F60E6A094F7E9800C5D712 /* PBXTextBookmark */;
+			00F60E6B094F7E9800C5D712 = 00F60E6B094F7E9800C5D712 /* PBXTextBookmark */;
+			00F60E6C094F7E9800C5D712 = 00F60E6C094F7E9800C5D712 /* PBXTextBookmark */;
+			00F60E6D094F7E9800C5D712 = 00F60E6D094F7E9800C5D712 /* PBXTextBookmark */;
+			00F60E6E094F7E9800C5D712 = 00F60E6E094F7E9800C5D712 /* PBXBookmark */;
+			00F60E6F094F7E9800C5D712 = 00F60E6F094F7E9800C5D712 /* PBXTextBookmark */;
+			00F60E71094F7E9800C5D712 = 00F60E71094F7E9800C5D712 /* PBXTextBookmark */;
 		};
 		sourceControlManager = 0065740108721E5A00C27DEF /* Source Control */;
 		userBuildSettings = {
@@ -388,9 +398,9 @@
 	};
 	86CD55D704DC723600E3E88D /* DeNadolleDoubleCommandPrefsPane.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {519, 836}}";
+			sepNavIntBoundsRect = "{{0, 0}, {642, 825}}";
 			sepNavSelRange = "{190, 0}";
-			sepNavVisRect = "{{0, 0}, {519, 239}}";
+			sepNavVisRect = "{{0, 0}, {642, 403}}";
 			sepNavWindowFrame = "{{38, 5}, {719, 715}}";
 		};
 	};

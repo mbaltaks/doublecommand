@@ -54,7 +54,9 @@ int remap(unsigned * eventType,
 	unsigned * charSet,
 	unsigned * origCharCode,
 	unsigned * origCharSet,
-	unsigned * keyboardType);
+	unsigned * keyboardType,
+	bool * repeat,
+	AbsoluteTime * ts);
 
 int special_remap(unsigned * eventType,
 	unsigned * flags,

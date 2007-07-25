@@ -49,15 +49,18 @@ int remap(unsigned * eventType,
 	unsigned * charSet,
 	unsigned * origCharCode,
 	unsigned * origCharSet,
-	unsigned * keyboardType)
+	unsigned * keyboardType,
+	bool * repeat,
+	AbsoluteTime * ts)
 {
 int return_value = kContinue;
 
 #ifdef MB_DEBUG
 	printf("caught  hid event type %d flags 0x%x key %d ", *eventType, *flags, *key);
 	printf("charCode %d charSet %d ", *charCode, *charSet);
-	printf("origCharCode %d origCharSet %d kbdType %d\n",
+	printf("origCharCode %d origCharSet %d kbdType %d ",
 		*origCharCode, *origCharSet, *keyboardType);
+	printf("repeat %d ts %d\n", *repeat, *ts);
 #endif
 
 
@@ -97,8 +100,9 @@ if (dcConfig != 0)
 	{
 		printf("caught  hid event type %d flags 0x%x key %d ", *eventType, *flags, *key);
 		printf("charCode %d charSet %d ", *charCode, *charSet);
-		printf("origCharCode %d origCharSet %d kbdType %d\n",
+		printf("origCharCode %d origCharSet %d kbdType %d ",
 			*origCharCode, *origCharSet, *keyboardType);
+		printf("repeat %d ts %d\n", *repeat, *ts);
 	}
 
 	lastKeyboardType = *keyboardType;
@@ -739,16 +743,18 @@ if (dcConfig != 0)
 #ifdef MB_DEBUG
 	printf("sending hid event type %d flags 0x%x key %d ", *eventType, *flags, *key);
 	printf("charCode %d charSet %d ", *charCode, *charSet);
-	printf("origCharCode %d origCharSet %d kbdType %d\n",
+	printf("origCharCode %d origCharSet %d kbdType %d ",
 		*origCharCode, *origCharSet, *keyboardType);
+	printf("repeat %d ts %d\n", *repeat, *ts);
 #endif
 
 	if (dcConfig & MB_DEBUG_OUTPUT)
 	{
 		printf("sending hid event type %d flags 0x%x key %d ", *eventType, *flags, *key);
 		printf("charCode %d charSet %d ", *charCode, *charSet);
-		printf("origCharCode %d origCharSet %d kbdType %d\n",
+		printf("origCharCode %d origCharSet %d kbdType %d ",
 			*origCharCode, *origCharSet, *keyboardType);
+		printf("repeat %d ts %d\n", *repeat, *ts);
 	}
 } // end if dcConfig != 0
 printf("returning %d\n", return_value);

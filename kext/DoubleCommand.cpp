@@ -186,7 +186,7 @@ event(OSObject *target,
 		GkeyboardType = keyboardType;
 
 		r = remap(&eventType, &flags, &key, &charCode, &charSet,
-			&origCharCode, &origCharSet, &keyboardType);
+			&origCharCode, &origCharSet, &keyboardType, &repeat, &ts);
 		if (r == kContinue)
 		{
 			Keyboards[i].event(target, eventType, flags, key, charCode,
@@ -200,6 +200,8 @@ event(OSObject *target,
 			IOLog("flavor %d guid %d ", Gflavor, Gguid);
 			IOLog("repeat %d ts %d\n", repeat, ts);
 #endif
+// potentially here I could keep track of what keypress happened, and put
+// in some repeats until I see the key up.
 			Keyboards[i].special_event(target, eventType, flags, key, Gflavor,
 				Gguid, repeat, ts);
 		}

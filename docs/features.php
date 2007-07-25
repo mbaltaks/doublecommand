@@ -26,6 +26,7 @@
 <li>Swap function key behaviour on new 'Books</li>
 <li>Disable Capslock</li>
 <li>Enter key acts as Forward Delete</li>
+<li>Caps lock acts as delete</li>
 </ul>
 
 

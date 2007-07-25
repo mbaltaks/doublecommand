@@ -13,6 +13,8 @@ PowerBooks a second Command key, where there was an enter key.
 </p>
 
 <h1>Version History</h1>
+<p><em>1.6.4 - 2007-07-25:</em> DoubleCommand 1.6.4 adds Caps lock to delete feature for the 
+Colemak keyboard layout. Also added internals for multiple keyboard support.</p>
 <p><em>1.6.3 - 2007-06-27:</em> DoubleCommand 1.6.3 allows using the Option key with backslash as forward delete to delete to word boundaries.</p>
 <p><em>1.6.2 - 2006-12-04:</em> DoubleCommand 1.6.2 fixes two bugs, Command flags still active after using PC style home and end, and allows both shift keys to trigger the forward delete feature.</p>
 <p><em>1.6.1 - 2006-05-01:</em> No longer beta, since it seems stable enough to use everyday.</p>

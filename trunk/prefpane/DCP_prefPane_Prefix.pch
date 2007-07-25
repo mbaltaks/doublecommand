@@ -1,0 +1,8 @@
+//
+// Prefix header for all source files of the 'DCP_prefPane' target in the 'DCP_prefPane' project.
+//
+
+#ifdef __OBJC__
+    #import <Foundation/Foundation.h>
+    #import <AppKit/AppKit.h>
+#endif

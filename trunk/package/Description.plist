@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IFPkgDescriptionDescription</key>
+	<string>DoubleCommand is software for Mac OS X (a kernel extension) that lets you remap keys, in other words change the way your keyboard works. Often used to make a PC keyboard more comfortable with a Mac, swapping the Alt (Option) and Windows (Command or Apple) keys, since they are in swapped positions on Mac and PC keyboards. DoubleCommand is a quick and easy way to fix this if you use a PC keyboard with your Mac. Called DoubleCommand because originally it was used to give the old PowerBooks a second Command key, where there was an enter key.</string>
+	<key>IFPkgDescriptionTitle</key>
+	<string>DoubleCommand</string>
+</dict>
+</plist>

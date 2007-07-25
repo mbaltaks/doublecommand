@@ -1,0 +1,183 @@
+/* common css for DoubleCommand */
+
+html
+{
+	font-size: 0.8em;
+	font-family: "Lucida Grande", "Bitstream Vera Sans", Verdana, Helvetica, Arial, sans-serif;
+	color: black;
+	background-color: white;
+	padding: 0;
+	margin: 0;
+}
+
+body
+{
+	background-color: white;
+	padding: 0;
+	margin: 0;
+	padding: 0 20px;
+}
+
+p
+{
+	line-height: 1.5em;
+}
+
+
+h1
+{
+	font-size: 1.5em;
+	font-weight: normal;
+}
+
+h2
+{
+	font-size: 1.2em;
+}
+
+h3, h4, h5, h6
+{
+	font-size: 1em;
+	font-weight: bold;
+}
+
+ul
+{
+}
+
+a
+{
+	color: #777;
+	text-decoration: none;
+	margin-top: 0.2em;
+	margin-bottom: 0.2em;
+}
+
+img
+{
+	border: none;
+}
+
+a:hover
+{
+	color: #222;
+	background-color: #eee;
+}
+
+p a:link
+{
+	text-decoration: none;
+	border-bottom: 1px solid #ddd;
+}
+
+#sidebar
+{
+	float: left;
+	width: 25%;
+	font-size: 0.8em;
+	background-color: #f8f8f8;
+	padding: 10px;
+}
+
+#content
+{
+	width: 70%;
+	float: right;
+}
+
+#header
+{
+	float: right;
+	font-size: 0.8em;
+	margin: 0;
+	padding: 0;
+	vertical-align: top;
+	text-align: right;
+	width: 39%;
+}
+
+div#menu
+{
+	margin: 0;
+	padding: 0;
+	text-align: left;
+	float: left;
+	margin: 1em 0;
+	padding-left: 10px;
+	width: 60%;
+}
+
+ul#menulist
+{
+	text-align: left;
+	margin: 0;
+	padding: 0;
+}
+
+ul#menulist li
+{
+	display: inline;
+	text-align: left;
+	padding-left: 0.2em;
+	padding-right: 0.5em;
+	border-right: 1px solid #aaa;
+}
+
+ul#menulist li a:hover
+{
+	background-color: #eee;
+}
+
+#footer
+{
+	clear: both;
+	font-size: 0.8em;
+	color: #666;
+	text-align: center;
+	margin: 0.5em;
+	padding: 1em 0;
+}
+
+#screen_shot
+{
+	float: right;
+}
+
+#macworld_logo
+{
+	float: right;
+}
+
+#download_link
+{
+	font-size: 1.2em;
+	color: white;
+	background-color: #009944;
+	padding: 0.3em;
+	margin-bottom: 0.4em;
+	border: 1px solid #555;
+}
+
+#download_link:hover
+{
+	color: #222;
+	background-color: #00cc44;
+}
+
+.code
+{
+	font-family: Profont, Monoco, Courier, fixed-width;
+	font-size: 0.8em;
+}
+
+ul#links
+{
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+ul#links li
+{
+	margin-top: 0.4em;
+}

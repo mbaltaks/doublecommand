@@ -90,7 +90,7 @@ for (i = 0; i < MAX_KEYBOARDS; i++)
 		dcConfig |= dcConfigArray[i];
 	}
 }
-printf("final dcConfig = %d\n", dcConfig);
+//printf("final dcConfig = %d\n", dcConfig);
 
 
 
@@ -757,7 +757,7 @@ if (dcConfig != 0)
 		printf("repeat %d ts %d\n", *repeat, *ts);
 	}
 } // end if dcConfig != 0
-printf("returning %d\n", return_value);
+//printf("returning %d\n", return_value);
 return return_value;
 }
 
@@ -783,7 +783,7 @@ for (i = 0; i < 4; i++)
 {
 	dcConfig |= dcConfigArray[i];
 }
-printf("final dcConfig = %d\n", dcConfig);
+//printf("final dcConfig = %d\n", dcConfig);
 
 if (dcConfig != 0)
 {
@@ -824,7 +824,7 @@ if (dcConfig != 0)
 		printf("repeat %d ts %d\n", *repeat, *ts);
 	}
 }
-printf("returning %d\n", return_value);
+//printf("returning %d\n", return_value);
 return return_value;
 }
 

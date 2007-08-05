@@ -13,6 +13,7 @@ PowerBooks a second Command key, where there was an enter key.
 </p>
 
 <h1>Version History</h1>
+<p><em>1.6.5 - 2007-08-06:</em> DoubleCommand 1.6.5 removes the unnecessary log output.</p>
 <p><em>1.6.4 - 2007-07-25:</em> DoubleCommand 1.6.4 adds Caps lock to delete feature for the 
 Colemak keyboard layout. Also added internals for multiple keyboard support.</p>
 <p><em>1.6.3 - 2007-06-27:</em> DoubleCommand 1.6.3 allows using the Option key with backslash as forward delete to delete to word boundaries.</p>

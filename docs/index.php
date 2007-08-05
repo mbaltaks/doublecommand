@@ -10,6 +10,10 @@
 <h2>News</h2>
 
 <p>
+6th August 2007 - Release 1.6.5 removes the unnecessary log output.
+</p>
+
+<p>
 25th July 2007 - Release 1.6.4 adds Caps lock to delete feature for the 
 Colemak keyboard layout. Also added internals for multiple keyboard support.
 </p>

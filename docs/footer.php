@@ -21,6 +21,12 @@ Have a question? Talk in the
 Forum
 </a>
 </li>
+<li>
+Have a request? Add it to the 
+<a href="http://sourceforge.net/tracker/?group_id=65339&atid=510608">
+list
+</a>
+</li>
 </ul>
 <h1>What is DoubleCommand?</h1>
 <p>DoubleCommand is software for Mac OS X (a kernel extension) that lets you

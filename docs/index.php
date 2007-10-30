@@ -10,7 +10,7 @@
 <h2>News</h2>
 
 <p>
-30th October 2007 - Mac OS X 10.5, Leopard has been released, and I expect to have a copy at some point. Until then, reports have been mixed: some have had success running the current version of DoubleCommand as is, some seem to have required uninstalling then reinstalling, and some have experienced occasional kernel panics, only possibly related to DoubleCommand. My advice is to disable DoubleCommand before upgrading to avoid upgrade problems, then enable when you've got everything else sorted out.
+30th October 2007 - Mac OS X 10.5, Leopard, has been released, and I expect to have a copy at some point. Until then, reports have been mixed: some have had success running the current version of DoubleCommand as is, some seem to have required uninstalling then reinstalling, and some have experienced occasional kernel panics, only possibly related to DoubleCommand. My advice is to disable DoubleCommand before upgrading to avoid upgrade problems, then enable when you've got everything else sorted out.
 </p>
 
 <p>

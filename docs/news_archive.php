@@ -5,6 +5,13 @@
 
 <h1>News Archive</h1>
 <p>
+2006-12-04<br />
+DoubleCommand 1.6.2 fixes two bugs, Command flags still active after using
+PC style home and end, and allows both shift keys to trigger the forward
+delete feature.
+</p>
+
+<p>
 2006-05-01<br />
 Declaring DoubleCommand for Tiger and Intel Macs out of beta, since it seems very stable.
 </p>

@@ -10,6 +10,10 @@
 <h2>News</h2>
 
 <p>
+30th October 2007 - Mac OS X 10.5, Leopard has been released, and I expect to have a copy at some point. Until then, reports have been mixed: some have had success running the current version of DoubleCommand as is, some seem to have required uninstalling then reinstalling, and some have experienced occasional kernel panics, only possibly related to DoubleCommand. My advice is to disable DoubleCommand before upgrading to avoid upgrade problems, then enable when you've got everything else sorted out.
+</p>
+
+<p>
 6th August 2007 - Release 1.6.5 removes the unnecessary log output.
 </p>
 
@@ -20,13 +24,6 @@ Colemak keyboard layout. Also added internals for multiple keyboard support.
 
 <p>
 26th June 2007 - Updated website layout. The highest priority now is having settings per keyboard, or at least only applying DoubleCommand to a single keyboard. Also released DoubleCommand 1.6.3, a minor update which allows using backslash as delete with Option to delete to word boundaries.
-</p>
-
-<p>
-2006-12-04<br />
-DoubleCommand 1.6.2 fixes two bugs, Command flags still active after using
-PC style home and end, and allows both shift keys to trigger the forward
-delete feature.
 </p>
 
 

@@ -6,7 +6,7 @@
 #include <IOKit/IOLib.h>
 #include "DoubleCommand.h"
 #include "Boundary.h"
-#include "KeyBehaviorManager.h"
+//#include "KeyBehaviorManager.h"
 
 extern "C"
 {
@@ -15,7 +15,7 @@ extern "C"
 }
 
 // Sole instance of the behavior manager.
-KeyBehaviorManager keyBehaviorManager;
+//KeyBehaviorManager keyBehaviorManager;
 
 // Define my superclass
 #define super IOService
@@ -120,7 +120,7 @@ void com_baltaks_driver_DoubleCommand::stop(IOService *provider)
 	}
 
 	// Shut down the keyboard manager.
-	keyBehaviorManager.cleanup();
+	//keyBehaviorManager.cleanup();
 
 	IOLog("Stopping DoubleCommand\n");
 	super::stop(provider);
@@ -323,8 +323,8 @@ int hijack_keyboard(IOHIKeyboard * kbd)
 			kbd->_keyboardSpecialEventAction = specialEvent;
 
 			// Register the keyboard with the behavior manager.
-			if (!keyBehaviorManager.addKeyboard(kbd))
-				IOLog("Unable to attach stage one filter.\n");
+			//if (!keyBehaviorManager.addKeyboard(kbd))
+			//	IOLog("Unable to attach stage one filter.\n");
 
 #endif
 			IOLog("kea %08X: ksea %08X\n",
@@ -374,7 +374,7 @@ int return_keyboard(IOHIKeyboard * kbd)
 			}
 
 			// Remove the keyboard from the behavior manager.
-			keyBehaviorManager.removeKeyboard(kbd);
+			//keyBehaviorManager.removeKeyboard(kbd);
 
 			IOLog("hijacked values kea %08X: ksea %08X\n",
 				  (unsigned) kbd->_keyboardEventAction, 

@@ -5,7 +5,7 @@
 #include <sys/systm.h>
 #include <sys/types.h>
 #include <sys/sysctl.h>
-#include "KeyBehaviorManager.h"
+//#include "KeyBehaviorManager.h"
 #include "Common.h"
 
 /* the sysctl docs said to declare this */
@@ -49,7 +49,7 @@ dc_sysctl_config SYSCTL_HANDLER_ARGS
 	else
 	{
 		error = SYSCTL_IN(req, arg1, sizeof(int));
-		keyBehaviorManager.applyConfig();
+		//keyBehaviorManager.applyConfig();
 	}
 	return (error);
 }

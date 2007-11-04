@@ -22,7 +22,7 @@ extern int dcKeyboard2;
 extern int dcKeyboard3;
 extern int dcKeyboard4;
 
-extern KeyBehaviorManager keyBehaviorManager;
+//extern KeyBehaviorManager keyBehaviorManager;
 
 /* this is the function that handles getting and setting the config */
 static int

@@ -35,15 +35,15 @@ build: pkg_root resources versions
 	rm -fr $(tmp)/resources
 	mkdir $(tmp)/resources
 	cp resources/pre* resources/post* $(tmp)/resources
-	rm -rf "$(tmp)/DoubleCommand$(VERSION)_$(OS).pkg"
+	rm -rf "$(tmp)/DoubleCommand-$(VERSION).pkg"
 	-$(packagemaker) -build \
-	  -p "$(shell pwd)/$(tmp)/DoubleCommand$(VERSION)_$(OS).pkg" \
+	  -p "$(shell pwd)/$(tmp)/DoubleCommand-$(VERSION).pkg" \
 	  -f "$(shell pwd)/$(pkg_root)" \
 	  -ds \
 	  -r "$(shell pwd)/$(tmp)/resources" \
 	  -i "$(shell pwd)/Info.plist" \
 	  -d "$(shell pwd)/Description.plist"
-	@echo Created package $(tmp)/DoubleCommand$(VERSION)_$(OS).pkg
+	@echo Created package $(tmp)/DoubleCommand-$(VERSION).pkg
 
 
 versions: $(INFO_PLIST) $(VERSION_FILE)

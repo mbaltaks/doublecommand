@@ -10,7 +10,7 @@
 <h2>News</h2>
 
 <p>
-6th November 2007 - <a href="files/DoubleCommand-1.6.6b1.dmg">DoubleCommand 1.6.6b1</a> is available for testing, several reports of success on Mac OS X 10.5 have given me enough reason to post this here, however I have not yet tested this myself with the new OS.
+6th November 2007 - <a href="files/DoubleCommand-1.6.6b1.dmg">DoubleCommand 1.6.6b1</a> is available for testing, several reports of success on Mac OS X 10.5 have given me enough reason to post this here, however I have not yet tested this myself with the new OS. Please let me know how it works for you if you try it!
 </p>
 
 <p>

@@ -95,6 +95,7 @@ int KeyToModifier(unsigned * eventType,
 	#define OPTION_FLAG_R 0x80040
 #endif
 #define FN_FLAG 0x800000
+#define ENTER_KEY_FLAG 0x200000
 
 // To get all of the same type of modifier at the same time.
 #define ALL_MODIFIERS_MASK 0xff0000

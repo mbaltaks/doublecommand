@@ -120,16 +120,25 @@ if (dcConfig != 0)
 			{
 				KeyToModifier(eventType, &addFlags, key,
 					COMMAND_FLAG, COMMAND_KEY, KEY_MODIFY);
+				removeFlags |= ENTER_KEY_FLAG;
+				*charCode = 0;
+				*origCharCode = 0;
 			}
 			else if (dcConfig & ENTER_TO_CONTROL)
 			{
 				KeyToModifier(eventType, &addFlags, key,
 					CONTROL_FLAG, CONTROL_KEY, KEY_MODIFY);
+				removeFlags |= ENTER_KEY_FLAG;
+				*charCode = 0;
+				*origCharCode = 0;
 			}
 			else if (dcConfig & ENTER_TO_OPTION)
 			{
 				KeyToModifier(eventType, &addFlags, key,
 					OPTION_FLAG_R, OPTION_KEY_R, KEY_MODIFY);
+				removeFlags |= ENTER_KEY_FLAG;
+				*charCode = 0;
+				*origCharCode = 0;
 			}
 			else if (dcConfig & ENTER_TO_FN)
 			{

@@ -120,9 +120,13 @@ int KeyToModifier(unsigned * eventType,
 #define FORWARD_DELETE 117
 #define NUMPAD_DOT 65
 #define HOME_KEY 115
+#define PAGE_UP_KEY 116
 #define END_KEY 119
+#define PAGE_DOWN_KEY 121
 #define LEFT_ARROW_KEY 123
 #define RIGHT_ARROW_KEY 124
+#define DOWN_ARROW_KEY 125
+#define UP_ARROW_KEY 126
 #define BACKSLASH_KEY 42
 #define F1		122
 #define F2		120

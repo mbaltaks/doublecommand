@@ -710,29 +710,22 @@ if (dcConfig != 0)
 
 	// begin supplied by Giel Scharff <mgsch@mac.com>
 	if (inFnMode)
-	{   //up -> PgUp
-		if ((*key == 126) /*&& (flags == 0x200000)*/ && (*charCode == 173) && (*charSet == 1) &&
-	  (*origCharCode == 173) && (*origCharSet == 1))
+	{
+		if (*key == UP_ARROW_KEY)
 		{
-			*key = 116; *flags = 0x800000; *charCode =  48; *charSet = 254; *origCharCode =  48;  *origCharSet = 254;
+			*key = PAGE_UP_KEY;
 		}
-		//down -> PgDown
-		else if ((*key == 125) /*&& (flags == 0x200000)*/ && (*charCode == 175) && (*charSet == 1) &&
-		   (*origCharCode == 175) && (*origCharSet == 1))
+		else if (*key == DOWN_ARROW_KEY)
 		{
-			*key = 121; *flags = 0x800000; *charCode =  49; *charSet = 254; *origCharCode =  49;  *origCharSet = 254;
+			*key = PAGE_DOWN_KEY;
 		}
-		//left -> Home
-		else if ((*key == 123) /*&& (flags == 0x200000)*/ && (*charCode == 172) && (*charSet == 1) &&
-		   (*origCharCode == 172) && (*origCharSet == 1))
+		else if (*key == LEFT_ARROW_KEY)
 		{
-			*key = 115; *flags = 0x800000; *charCode =  46; *charSet = 254; *origCharCode =  46;  *origCharSet = 254;
+			*key = HOME_KEY;
 		}
-		//right -> End
-		else if ((*key == 124) /*&& (flags == 0x200000)*/ && (*charCode == 174) && (*charSet == 1) &&
-		   (*origCharCode == 174) && (*origCharSet == 1))
+		else if (*key == RIGHT_ARROW_KEY)
 		{
-			*key = 119; *flags = 0x800000; *charCode =  47; *charSet = 254; *origCharCode =  46;  *origCharSet = 254;
+			*key = END_KEY;
 		}
 	}
 	// end supplied by Giel Scharff <mgsch@mac.com>

@@ -73,9 +73,13 @@ IOService *com_baltaks_driver_DoubleCommand::probe(IOService *provider, SInt32 *
 
 bool com_baltaks_driver_DoubleCommand::start(IOService *provider)
 {
-	bool res = super::start(provider);
-	IOLog("Starting DoubleCommand\n");
+	bool res = false;
+	// Keep track of the super class, if we fail after starting this, stop it.
+	bool superclass_started = false;
+	res = super::start(provider);
 	if (!res) { return res; }
+	superclass_started = true;
+	IOLog("Starting DoubleCommand\n");
 
 	keyboard_notifier = addNotification(gIOMatchedNotification,
 		serviceMatching("IOHIKeyboard"),
@@ -84,6 +88,7 @@ bool com_baltaks_driver_DoubleCommand::start(IOService *provider)
 	if (keyboard_notifier == NULL)
 	{
 		IOLog("DoubleCommand could not add match notifier");
+		if (superclass_started) { super::stop(provider); }
 		return false;
 	}
 
@@ -94,6 +99,7 @@ bool com_baltaks_driver_DoubleCommand::start(IOService *provider)
 	if (terminated_notifier == NULL)
 	{
 		IOLog("DoubleCommand could not add terminate notifier");
+		if (superclass_started) { super::stop(provider); }
 		return false;
 	}
 
@@ -425,4 +431,3 @@ int find_client(bool special) {
 	}
 	return -1;
 }
-

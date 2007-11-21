@@ -4,6 +4,7 @@
 
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Mac OS X Macintosh OSX key keyboard remap change enter MacBook pro iBook iMac" />
 <link rel="Stylesheet" type="text/css" href="common.css" />
 <title>DoubleCommand</title>
 </head>

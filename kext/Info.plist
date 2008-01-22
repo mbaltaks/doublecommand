@@ -29,7 +29,7 @@
 			<key>IOKitDebug</key>
 			<integer>0</integer>
 			<key>IOMatchCategory</key>
-			<string>DoubleCommand</string>
+			<string>com_baltaks_driver_DoubleCommand</string>
 			<key>IOProviderClass</key>
 			<string>IOResources</string>
 			<key>IOResourceMatch</key>

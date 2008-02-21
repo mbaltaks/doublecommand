@@ -4,15 +4,17 @@
 # 
 # $Id$
 
+tempfile=/var/tmp/DoubleCommand.crashed
+
 # This does not get executed from the folder this file is in
 cd /Library/StartupItems/DoubleCommand/
 
 # Check that we didn't cause a panic last load
-if [ -e ./DoubleCommand.crashed ]; then
+if [ -e $tempfile ]; then
 	echo "DoubleCommand will not load due to a problem last load"
 	exit 1
 else
-	touch ./DoubleCommand.crashed
+	touch $tempfile
 fi
 
 # Edit this file to configure DoubleCommand
@@ -54,6 +56,6 @@ case "$argument" in
 esac
 
 # Clean up so we know we loaded successfully
-if [ -e ./DoubleCommand.crashed ]; then
-	rm -f ./DoubleCommand.crashed
+if [ -e $tempfile ]; then
+	rm -f $tempfile
 fi

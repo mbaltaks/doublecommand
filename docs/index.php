@@ -10,6 +10,10 @@
 <h2>News</h2>
 
 <p>
+25th March 2008 - New beta <a href="files/DoubleCommand-1.6.6b3.dmg">DoubleCommand 1.6.6b3</a> is out, this seems to fix kernel panics for some on Mac OS X 10.5, and should also solve a problem with the Control key becoming stuck. Please report whether it works for you or not, and what version of Mac OS you have, and the keyboards and type of computer you're using it on.
+</p>
+
+<p>
 22nd February 2008 - I've just had a report that Mac OS X 10.5.2 seems to stop kernel panics when using DoubleCommand, so please post in the <a href="https://sourceforge.net/forum/forum.php?thread_id=1947193&forum_id=221238">forum</a> and let us all know your experience with this. I've also been told that there is a new Built-In Keyboard Firmware Update - please disable DoubleCommand before applying this update, you can safely add DoubleCommand back afterwards.
 </p>
 

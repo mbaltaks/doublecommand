@@ -10,6 +10,10 @@
 <h2>News</h2>
 
 <p>
+9th May 2008 - New beta <a href="files/DoubleCommand-1.6.6b4.dmg">DoubleCommand 1.6.6b4</a> is out, this rolls back the control key fix from the last beta, which seemed to break some features, and adds a number of new features contributed by Sastira - Using the right Option key as forward delete, Control or Enter, swapping delete and forward delete, and using caps lock as forward delete.
+</p>
+
+<p>
 25th March 2008 - New beta <a href="files/DoubleCommand-1.6.6b3.dmg">DoubleCommand 1.6.6b3</a> is out, this seems to fix kernel panics for some on Mac OS X 10.5, and should also solve a problem with the Control key becoming stuck. Please report whether it works for you or not, and what version of Mac OS you have, and the keyboards and type of computer you're using it on.
 </p>
 

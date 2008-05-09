@@ -396,6 +396,82 @@ if (dcConfig != 0)
 				}
 				*key = CONTROL_KEY;
 			}
+
+			//Added by Sastira - sastira@gmail.com
+			else if (dcConfig & OPTION_KEY_R_TO_CONTROL && *key == OPTION_KEY_R) // control <-> option
+			{
+				if (optionHeldDown) // this event is a key up
+				{
+					optionHeldDown = 0;
+					REMOVE(addFlags, CONTROL_FLAG);
+					if (!controlHeldDown)
+					{
+						REMOVE(removeFlags, OPTION_FLAG_R);	
+					}
+				}
+				else // this event is a key down
+				{
+					optionHeldDown = 1;
+					addFlags |= CONTROL_FLAG;
+					removeFlags |= OPTION_FLAG_R;
+				}
+				*key = CONTROL_KEY;
+			}
+			else if (dcConfig & OPTION_KEY_R_TO_FORWARD_DELETE && *key == OPTION_KEY_R)
+			{
+				if (optionHeldDown) // this event is a key up
+				{
+					optionHeldDown = 0;
+					if (!controlHeldDown)
+					{				
+						REMOVE(removeFlags, OPTION_FLAG_R);
+						*eventType = kKeyUp;
+					}
+				}
+				else // this event is a key down
+				{
+					optionHeldDown = 1;
+					if (!controlHeldDown)
+					{
+						removeFlags |= OPTION_FLAG_R;						
+						*eventType = kKeyDown;
+					}
+				}
+				*key = FORWARD_DELETE;
+				
+				// FN_FLAG is needed for Office
+				*flags = FN_FLAG;
+				*charCode = 45;
+				*charSet = 254;
+				*origCharCode = 45;
+				*origCharSet = 254;			
+			}
+			else if (dcConfig & OPTION_KEY_R_TO_ENTER && *key == OPTION_KEY_R)
+			{
+				if (optionHeldDown) // this event is a key up
+				{
+					optionHeldDown = 0;
+					if (!controlHeldDown)
+					{				
+						REMOVE(removeFlags, OPTION_FLAG_R);
+						REMOVE(addFlags, ENTER_KEY_FLAG);
+						*eventType = kKeyUp;
+					}
+				}
+				else // this event is a key down
+				{
+					optionHeldDown = 1;
+					if (!controlHeldDown)
+					{
+						removeFlags |= OPTION_FLAG_R;
+						addFlags |= ENTER_KEY_FLAG;				
+						*eventType = kKeyDown;
+					}
+				}
+				*key = ENTER_KEY;				
+			}			
+			//End Addition by Sastira
+
 		break; // end option key
 
 		case CONTROL_KEY: // begin control key
@@ -542,6 +618,18 @@ if (dcConfig != 0)
 			}
 		break; // end fn key
 
+		//Addition by Sastira - sastira@gmail.com
+		case FORWARD_DELETE:
+		{
+			if (dcConfig & SWAP_DELETE_AND_FORWARD_DELETE)
+			{
+				*flags = 0;
+				*key = DELETE_KEY;
+			}
+		}
+		break;
+		//End addition by Sastira
+
 		case DELETE_KEY: // begin delete key
 			// Make Shift + Delete send a Forward Delete key
 			if (dcConfig & SHIFT_DELETE_TO_FORWARD_DELETE)
@@ -560,6 +648,19 @@ if (dcConfig != 0)
 					*origCharSet = 254;
 				}
 			}
+
+			//Addition by Sastira - sastira@gmail.com
+			else if(dcConfig & SWAP_DELETE_AND_FORWARD_DELETE)
+			{
+				*key = FORWARD_DELETE;
+				// FN_FLAG is needed for Office
+				*flags = FN_FLAG;
+				*charCode = 45;
+				*charSet = 254;
+				*origCharCode = 45;
+				*origCharSet = 254;					
+			}
+			//End addition by Sastira
 
 			//zilla
 			else if (dcConfig & DELETE_TO_CONTROL)
@@ -627,6 +728,14 @@ if (dcConfig != 0)
 	        {
 	            return_value = kSupress;
 	        }
+
+			//Added by Sastira - sastira@gmail.com
+			else if (dcConfig & CAPSLOCK_TO_FORWARD_DELETE)
+			{
+				return_value = kSupress;
+			}
+			//End Addition by Sastira
+
 		break; // end capslock key
 
 		case HOME_KEY: // begin home key
@@ -816,6 +925,19 @@ if (dcConfig != 0)
 	            *key = DELETE_KEY;
 	            removeFlags |= CAPSLOCK_FLAG;
 	        }
+
+            //Added by Sastira - sastira@gmail.com
+            else if (dcConfig & CAPSLOCK_TO_FORWARD_DELETE)
+            {							
+                removeFlags |= CAPSLOCK_FLAG;
+                *key = FORWARD_DELETE;
+                return_value = kSwitch;
+                
+                // FN_FLAG is needed for Office
+                *flags = FN_FLAG;
+            }
+            //End Addition by Sastira					
+
 	    break;
 	}
 

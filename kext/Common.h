@@ -211,11 +211,13 @@ enum
 #define SWAP_TILDE_AND_COMMAND					16777216
 
 #define CAPSLOCK_TO_DELETE                      33554432
-//#define 67108864
-//#define 134217728
-//#define 268435456
-//#define 536870912
-//#define 1073741824
+//Added by Sastira - sastira@gmail.com
+#define OPTION_KEY_R_TO_FORWARD_DELETE			67108864
+#define CAPSLOCK_TO_FORWARD_DELETE				134217728
+#define OPTION_KEY_R_TO_CONTROL					268435456
+#define OPTION_KEY_R_TO_ENTER					536870912
+#define SWAP_DELETE_AND_FORWARD_DELETE			1073741824
+//End Addition by Sastira
 //#define 2147483648
 #define NEED_NEW_INT_VAR 4294967296
 

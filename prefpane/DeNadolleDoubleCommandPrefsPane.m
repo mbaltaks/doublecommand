@@ -3,6 +3,7 @@
 // #import <sys/param.h>
 #import <sys/sysctl.h>
 
+
 @implementation DeNadolleDoubleCommandPrefsPane
 
 //  --------------------------------------------------------------------------------------
@@ -32,9 +33,158 @@
 	int bit = [cell tag];
 	BOOL setOn = ([cell state] == NSOnState);
 	
+	
 	if ([self isBitSet:bit] != setOn) {
 		int val = 1 << bit;
+		int remove;
 		if (setOn) {
+		
+		
+			//Added by Sastira - sastira@gmail.com
+			//This code will automatically deselect conflicting options in the preference pane.
+			//Please note: I learned Objective-C yesterday, so there may be a much better way of doing this.
+			switch(bit)
+			{
+				case CAPSLOCK_TO_CONTROL:
+				case CAPSLOCK_TO_DELETE:
+				case CAPSLOCK_TO_FORWARD_DELETE:
+				case DISABLE_CAPSLOCK:
+				{
+					if (bit != CAPSLOCK_TO_CONTROL && [[checkBoxes cellWithTag:CAPSLOCK_TO_CONTROL] state] == NSOnState) 
+					{
+						remove = 1 << CAPSLOCK_TO_CONTROL;
+						mEditVal &= (~remove);
+						[[checkBoxes cellWithTag:CAPSLOCK_TO_CONTROL] setState: FALSE];				
+					}
+					if (bit != CAPSLOCK_TO_DELETE && [[checkBoxes cellWithTag:CAPSLOCK_TO_DELETE] state] == NSOnState)
+					{
+						remove = 1 << CAPSLOCK_TO_DELETE;
+						mEditVal &= (~remove);
+						[[checkBoxes cellWithTag:CAPSLOCK_TO_DELETE] setState: FALSE];	
+					}
+					if (bit != CAPSLOCK_TO_FORWARD_DELETE && [[checkBoxes cellWithTag:CAPSLOCK_TO_FORWARD_DELETE] state] == NSOnState) 
+					{
+						remove = 1 << CAPSLOCK_TO_FORWARD_DELETE;
+						mEditVal &= (~remove);
+						[[checkBoxes cellWithTag:CAPSLOCK_TO_FORWARD_DELETE] setState: FALSE];					
+					}
+					if (bit != DISABLE_CAPSLOCK && [[checkBoxes cellWithTag:DISABLE_CAPSLOCK] state] == NSOnState) 
+					{
+						remove = 1 << DISABLE_CAPSLOCK;
+						mEditVal &= (~remove);
+						[[checkBoxes cellWithTag:DISABLE_CAPSLOCK] setState: FALSE];					
+					}					
+				}
+				break;
+					
+				case OPTION_R_TO_CONTROL:
+				case OPTION_R_TO_FORWARD_DELETE:
+				case OPTION_R_TO_ENTER:
+				case DISABLE_COMMAND_AND_OPTION:
+				{
+					if (bit != OPTION_R_TO_CONTROL && [[checkBoxes cellWithTag:OPTION_R_TO_CONTROL] state] == NSOnState) 
+					{
+						remove = 1 << OPTION_R_TO_CONTROL;
+						mEditVal &= (~remove);
+						[[checkBoxes cellWithTag:OPTION_R_TO_CONTROL] setState: FALSE];					
+					}
+					if (bit != OPTION_R_TO_FORWARD_DELETE && [[checkBoxes cellWithTag:OPTION_R_TO_FORWARD_DELETE] state] == NSOnState) 
+					{
+						remove = 1 << OPTION_R_TO_FORWARD_DELETE;
+						mEditVal &= (~remove);
+						[[checkBoxes cellWithTag:OPTION_R_TO_FORWARD_DELETE] setState: FALSE];					
+					}
+					if (bit != DISABLE_COMMAND_AND_OPTION && [[checkBoxes cellWithTag:DISABLE_COMMAND_AND_OPTION] state] == NSOnState) 
+					{
+						remove = 1 << DISABLE_COMMAND_AND_OPTION;
+						mEditVal &= (~remove);
+						[[checkBoxes cellWithTag:DISABLE_COMMAND_AND_OPTION] setState: FALSE];					
+					}					
+					if (bit != OPTION_R_TO_ENTER && [[checkBoxes cellWithTag:OPTION_R_TO_ENTER] state] == NSOnState) 
+					{
+						remove = 1 << OPTION_R_TO_ENTER;
+						mEditVal &= (~remove);
+						[[checkBoxes cellWithTag:OPTION_R_TO_ENTER] setState: FALSE];					
+					}					
+				}
+				break;
+			
+			case ENTER_TO_COMMAND:		
+			case ENTER_TO_CONTROL:			
+			case ENTER_TO_OPTION:				
+			case ENTER_TO_FUNCTION:			
+			case ENTER_TO_FORWARD_DELETE:
+				{
+					if (bit != ENTER_TO_COMMAND && [[checkBoxes cellAtRow:0 column:0] state] == NSOnState) 
+					{
+						remove = 1 << ENTER_TO_COMMAND;
+						mEditVal &= (~remove);
+						[[checkBoxes cellAtRow:0 column:0] setState: FALSE];					
+					}
+					if (bit != ENTER_TO_CONTROL && [[checkBoxes cellWithTag:ENTER_TO_CONTROL] state] == NSOnState) 
+					{
+						remove = 1 << ENTER_TO_CONTROL;
+						mEditVal &= (~remove);
+						[[checkBoxes cellWithTag:ENTER_TO_CONTROL] setState: FALSE];					
+					}
+					if (bit != ENTER_TO_OPTION && [[checkBoxes cellWithTag:ENTER_TO_OPTION] state] == NSOnState) 
+					{
+						remove = 1 << ENTER_TO_OPTION;
+						mEditVal &= (~remove);
+						[[checkBoxes cellWithTag:ENTER_TO_OPTION] setState: FALSE];					
+					}
+					if (bit != ENTER_TO_FUNCTION && [[checkBoxes cellWithTag:ENTER_TO_FUNCTION] state] == NSOnState) 
+					{
+						remove = 1 << ENTER_TO_FUNCTION;
+						mEditVal &= (~remove);
+						[[checkBoxes cellWithTag:ENTER_TO_FUNCTION] setState: FALSE];					
+					}
+					if (bit != ENTER_TO_FORWARD_DELETE && [[checkBoxes cellWithTag:ENTER_TO_FORWARD_DELETE] state] == NSOnState) 
+					{
+						remove = 1 << ENTER_TO_FORWARD_DELETE;
+						mEditVal &= (~remove);
+						[[checkBoxes cellWithTag:ENTER_TO_FORWARD_DELETE] setState: FALSE];					
+					}
+				}
+				break;
+				
+				case COMMAND_TO_OPTION:
+				case COMMAND_TO_CONTROL:
+				{
+					if (bit != COMMAND_TO_OPTION && [[checkBoxes cellWithTag:COMMAND_TO_OPTION] state] == NSOnState) 
+					{
+						remove = 1 << COMMAND_TO_OPTION;
+						mEditVal &= (~remove);
+						[[checkBoxes cellWithTag:COMMAND_TO_OPTION] setState: FALSE];					
+					}					
+					if (bit != COMMAND_TO_CONTROL && [[checkBoxes cellWithTag:COMMAND_TO_CONTROL] state] == NSOnState) 
+					{
+						remove = 1 << COMMAND_TO_CONTROL;
+						mEditVal &= (~remove);
+						[[checkBoxes cellWithTag:COMMAND_TO_CONTROL] setState: FALSE];					
+					}
+				}
+				
+				case SHIFT_DELETE_TO_FORWARD_DELETE:
+				case SWAP_DELETE_AND_FORWARD_DELETE:
+				{		
+					if (bit != SHIFT_DELETE_TO_FORWARD_DELETE && [[checkBoxes cellWithTag:SHIFT_DELETE_TO_FORWARD_DELETE] state] == NSOnState) 
+					{
+						remove = 1 << SHIFT_DELETE_TO_FORWARD_DELETE;
+						mEditVal &= (~remove);
+						[[checkBoxes cellWithTag:SHIFT_DELETE_TO_FORWARD_DELETE] setState: FALSE];					
+					}
+					if (bit != SWAP_DELETE_AND_FORWARD_DELETE && [[checkBoxes cellWithTag:SWAP_DELETE_AND_FORWARD_DELETE] state] == NSOnState) 
+					{
+						remove = 1 << SWAP_DELETE_AND_FORWARD_DELETE;
+						mEditVal &= (~remove);
+						[[checkBoxes cellWithTag:SWAP_DELETE_AND_FORWARD_DELETE] setState: FALSE];					
+					}					
+				}
+				break;
+			}
+			//End addition by Sastira
+			
 			mEditVal |= val;
 		} else {
 			mEditVal &= (~val);

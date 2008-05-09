@@ -4,7 +4,31 @@
 #import <CoreFoundation/CoreFoundation.h> 
 #import <Security/Authorization.h>
 
-#define DCP_lastusedbit  26
+#define DCP_lastusedbit  30
+
+#define CAPSLOCK_TO_CONTROL							11
+#define CAPSLOCK_TO_DELETE							25
+#define CAPSLOCK_TO_FORWARD_DELETE			27
+
+#define OPTION_R_TO_FORWARD_DELETE			26
+#define OPTION_R_TO_CONTROL							28
+#define OPTION_R_TO_ENTER								29
+
+#define DISABLE_COMMAND_AND_OPTION			15
+#define DISABLE_CAPSLOCK								19
+
+#define ENTER_TO_COMMAND								0
+#define ENTER_TO_CONTROL								1
+#define ENTER_TO_OPTION									2
+#define ENTER_TO_FUNCTION								3
+#define ENTER_TO_FORWARD_DELETE					20
+
+#define COMMAND_TO_OPTION								4
+#define COMMAND_TO_CONTROL							5
+
+#define SHIFT_DELETE_TO_FORWARD_DELETE	14
+#define SWAP_DELETE_AND_FORWARD_DELETE	30
+
 NSString * systemPrefsPath = @"/Library/StartupItems/DoubleCommand/DoubleCommand.pref";
 NSString * userPrefsRelPath = @"Library/Preferences/DoubleCommand.pref";
 NSString * sysPrefsWriteTool = @"/Library/PreferencePanes/DoubleCommandPreferences.prefPane/Contents/Resources/prefWriter";

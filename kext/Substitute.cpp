@@ -54,8 +54,8 @@ int remap(unsigned * eventType,
 	AbsoluteTime * ts)
 {
 int return_value = kContinue;
-addFlags = 0;
-removeFlags = 0;
+//addFlags = 0;
+//removeFlags = 0;
 
 #ifdef MB_DEBUG
 	printf("caught  hid event type %d flags 0x%x key %d ", *eventType, *flags, *key);
@@ -885,8 +885,8 @@ int special_remap(unsigned * eventType,
 	AbsoluteTime * ts)
 {
 int return_value = kContinue;
-addFlags = 0;
-removeFlags = 0;
+//addFlags = 0;
+//removeFlags = 0;
 
 dcConfigArray[0] = dcConfig1;
 dcConfigArray[1] = dcConfig2;

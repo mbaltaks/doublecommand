@@ -36,6 +36,13 @@ if [ -e ${dcfolder} ]; then
 	echo removing ${dcfolder}
 fi
 
+dccrashed=/var/tmp/DoubleCommand.crashed
+
+if [ -e ${dccrashed} ]; then
+	rm -f ${dccrashed}
+	echo removing ${dccrashed}
+fi
+
 pref=/Library/PreferencePanes/DoubleCommandPreferences.prefPane
 
 if [ -e ${pref} ]; then

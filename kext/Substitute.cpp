@@ -476,6 +476,8 @@ if (dcConfig != 0)
 
 		case CONTROL_KEY: // begin control key
 		case CONTROL_KEY_R:
+            REMOVE(removeFlags, CONTROL_FLAG);
+            REMOVE(removeFlags, CONTROL_FLAG_R);
 			if (dcConfig & CONTROL_TO_COMMAND)
 			{
 				if (controlHeldDown) // this event is a key up

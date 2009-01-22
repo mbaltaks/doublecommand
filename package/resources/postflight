@@ -3,8 +3,6 @@
 
 echo "Running postflight"
 
-defaults write com.apple.loginwindow LoginHook /Library/StartupItems/DoubleCommand/config.command
-
 chown=/usr/sbin/chown
 chmod=/bin/chmod
 dist=/Library/StartupItems/DoubleCommand

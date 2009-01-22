@@ -374,14 +374,23 @@
 	return hasSettings;
 }
 
+
 //  --------------------------------------------------------------------------------------
 //  write User Prefs to Disk
 //
-- (BOOL) writeUserSettings	{
+- (BOOL) writeUserSettings
+{
+    BOOL ret = NO;
 	NSString * thePrefs = [NSString stringWithFormat: @"%d", mUserVal];
-	return [thePrefs writeToFile:mUserPrefPath atomically:YES];
+	ret = [thePrefs writeToFile:mUserPrefPath atomically:YES];
+    // defaults write com.apple.loginwindow LoginHook /Library/StartupItems/DoubleCommand/config.command
+    NSTask * setting = [[NSTask alloc] init];
+    [setting setLaunchPath:@"/usr/bin/defaults"];
+    [setting setArguments:[NSArray arrayWithObjects:@"write", @"com.apple.loginwindow", @"LoginHook", @"/Library/StartupItems/DoubleCommand/config.command", nil]];
+    [setting launch];
+    [setting release];
+    return ret;
 }
-
 
 
 //  --------------------------------------------------------------------------------------

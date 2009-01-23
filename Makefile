@@ -36,16 +36,16 @@ package:
 	( cd package; make build )
 
 disk_image:
-	rm -f $(tmp)/DoubleCommand-$(VERSION).dmg
+	rm -f $(tmp)/DoubleCommand-`cat $(VERSION_FILE)`.dmg
 	rm -fr $(image)
 	mkdir -p $(image)/Documentation
 	cp docs/*.gif docs/*.html docs/*.css docs/*.txt $(image)/Documentation
-	cp -R $(tmp)/DoubleCommand-$(VERSION).pkg $(image)
+	cp -R $(tmp)/DoubleCommand-`cat $(VERSION_FILE)`.pkg $(image)
 	#cp image_resources/*.png $(image)
 	#cp image_resources/_DS_Store $(image)/.DS_Store
 	$(hdiutil) create -srcfolder $(image) \
 	-volname DoubleCommand \
-	$(tmp)/DoubleCommand-$(VERSION).dmg
+	$(tmp)/DoubleCommand-`cat $(VERSION_FILE)`.dmg
 
 uninstall:
 	kextunload -b com.baltaks.driver.DoubleCommand

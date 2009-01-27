@@ -384,11 +384,11 @@
 	NSString * thePrefs = [NSString stringWithFormat: @"%d", mUserVal];
 	ret = [thePrefs writeToFile:mUserPrefPath atomically:YES];
     // defaults write com.apple.loginwindow LoginHook /Library/StartupItems/DoubleCommand/config.command
-    NSTask * setting = [[NSTask alloc] init];
+    /*NSTask * setting = [[NSTask alloc] init];
     [setting setLaunchPath:@"/usr/bin/defaults"];
-    [setting setArguments:[NSArray arrayWithObjects:@"write", @"com.apple.loginwindow", @"LoginHook", @"/Library/StartupItems/DoubleCommand/config.command", nil]];
+    [setting setArguments:[NSArray arrayWithObjects:@"write", @"com.apple.loginwindow", @"LoginHook", @"/Library/StartupItems/DoubleCommand/login.command", nil]];
     [setting launch];
-    [setting release];
+    [setting release];*/
     return ret;
 }
 

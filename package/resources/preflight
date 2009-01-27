@@ -32,22 +32,22 @@ fi
 dcfolder=/Library/StartupItems/DoubleCommand
 
 if [ -e ${dcfolder} ]; then
-	rm -fr ${dcfolder}
 	echo removing ${dcfolder}
+	rm -fr ${dcfolder}
 fi
 
 dccrashed=/var/tmp/DoubleCommand.crashed
 
 if [ -e ${dccrashed} ]; then
-	rm -f ${dccrashed}
 	echo removing ${dccrashed}
+	rm -f ${dccrashed}
 fi
 
 pref=/Library/PreferencePanes/DoubleCommandPreferences.prefPane
 
 if [ -e ${pref} ]; then
-	rm -rf ${pref}
 	echo removing ${pref}
+	rm -rf ${pref}
 fi
 
 exit 0

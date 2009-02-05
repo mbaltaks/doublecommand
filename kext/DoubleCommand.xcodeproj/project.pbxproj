@@ -210,7 +210,7 @@
 					i386,
 				);
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 1.6.6b6;
+				CURRENT_PROJECT_VERSION = 1.6.7;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
@@ -221,7 +221,7 @@
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(SYSTEM_LIBRARY_DIR)/Extensions";
 				MODULE_NAME = com.baltaks.driver.DoubleCommand;
-				MODULE_VERSION = 1.6.6b6;
+				MODULE_VERSION = 1.6.7;
 				PREBINDING = NO;
 				PRODUCT_NAME = DoubleCommand;
 				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
@@ -238,7 +238,7 @@
 					i386,
 				);
 				COPY_PHASE_STRIP = YES;
-				CURRENT_PROJECT_VERSION = 1.6.6b6;
+				CURRENT_PROJECT_VERSION = 1.6.7;
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				GCC_MODEL_TUNING = G5;
@@ -247,7 +247,7 @@
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(SYSTEM_LIBRARY_DIR)/Extensions";
 				MODULE_NAME = com.baltaks.driver.DoubleCommand;
-				MODULE_VERSION = 1.6.6b6;
+				MODULE_VERSION = 1.6.7;
 				PREBINDING = NO;
 				PRODUCT_NAME = DoubleCommand;
 				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
@@ -263,7 +263,7 @@
 					ppc,
 					i386,
 				);
-				CURRENT_PROJECT_VERSION = 1.6.6b6;
+				CURRENT_PROJECT_VERSION = 1.6.7;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				GCC_MODEL_TUNING = G5;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -271,7 +271,7 @@
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(SYSTEM_LIBRARY_DIR)/Extensions";
 				MODULE_NAME = com.baltaks.driver.DoubleCommand;
-				MODULE_VERSION = 1.6.6b6;
+				MODULE_VERSION = 1.6.7;
 				PREBINDING = NO;
 				PRODUCT_NAME = DoubleCommand;
 				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;

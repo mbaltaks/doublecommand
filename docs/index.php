@@ -10,6 +10,10 @@
 <h2>News</h2>
 
 <p>
+5th February 2009 - Release DoubleCommand 1.6.7 is out, this fixes problems with the control key not working in certain situations, and adds an uninstaller script for when things go wrong.
+</p>
+
+<p>
 9th May 2008 - New beta <a href="files/DoubleCommand-1.6.6b4.dmg">DoubleCommand 1.6.6b4</a> is out, this rolls back the control key fix from the last beta, which seemed to break some features, and adds a number of new features contributed by Sastira - Using the right Option key as forward delete, Control or Enter, swapping delete and forward delete, and using caps lock as forward delete.
 </p>
 

@@ -27,7 +27,7 @@
 		0099A7190AD6A261008D869B /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
 		009DECD808B34F65002ECA52 /* MBHIDHack.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = MBHIDHack.h; sourceTree = "<group>"; };
 		009DECDA08B34F65002ECA52 /* MBDCC.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = MBDCC.h; sourceTree = "<group>"; };
-		00DCDB7208B40DFE0066C5C2 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.xml; path = Info.plist; sourceTree = "<group>"; };
+		00DCDB7208B40DFE0066C5C2 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E7679208B405C600C18483 /* Boundary.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = Boundary.h; sourceTree = "<group>"; };
 		089C167EFE841241C02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1A224C3EFF42367911CA2CB7 /* DoubleCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoubleCommand.h; sourceTree = "<group>"; };
@@ -143,9 +143,11 @@
 		089C1669FE841209C02AAC07 /* Project object */ = {
 			isa = PBXProject;
 			buildConfigurationList = 009D757708A77D0C005D9003 /* Build configuration list for PBXProject "DoubleCommand" */;
+			compatibilityVersion = "Xcode 2.4";
 			hasScannedForEncodings = 1;
 			mainGroup = 089C166AFE841209C02AAC07 /* DoubleCommand */;
 			projectDirPath = "";
+			projectRoot = "";
 			targets = (
 				32D94FC30562CBF700B6AF17 /* DoubleCommand */,
 			);
@@ -222,6 +224,7 @@
 				MODULE_VERSION = 1.6.6b6;
 				PREBINDING = NO;
 				PRODUCT_NAME = DoubleCommand;
+				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
 				WRAPPER_EXTENSION = kext;
 				ZERO_LINK = YES;
 			};
@@ -247,6 +250,7 @@
 				MODULE_VERSION = 1.6.6b6;
 				PREBINDING = NO;
 				PRODUCT_NAME = DoubleCommand;
+				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
 				WRAPPER_EXTENSION = kext;
 				ZERO_LINK = NO;
 			};
@@ -270,6 +274,7 @@
 				MODULE_VERSION = 1.6.6b6;
 				PREBINDING = NO;
 				PRODUCT_NAME = DoubleCommand;
+				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
 				WRAPPER_EXTENSION = kext;
 			};
 			name = Default;
@@ -282,8 +287,9 @@
 					i386,
 				);
 				GCC_MODEL_TUNING = G3;
+				MACOSX_DEPLOYMENT_TARGET = 10.4;
 				OTHER_CFLAGS = "-no-cpp-precomp";
-				SDKROOT = "";
+				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
 				SDKROOT_i386 = /Developer/SDKs/MacOSX10.4u.sdk;
 				SDKROOT_ppc = /Developer/SDKs/MacOSX10.4u.sdk;
 			};
@@ -297,8 +303,9 @@
 					i386,
 				);
 				GCC_MODEL_TUNING = G3;
+				MACOSX_DEPLOYMENT_TARGET = 10.4;
 				OTHER_CFLAGS = "-no-cpp-precomp";
-				SDKROOT = "";
+				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
 				SDKROOT_i386 = /Developer/SDKs/MacOSX10.4u.sdk;
 				SDKROOT_ppc = /Developer/SDKs/MacOSX10.4u.sdk;
 			};
@@ -312,8 +319,9 @@
 					i386,
 				);
 				GCC_MODEL_TUNING = G3;
+				MACOSX_DEPLOYMENT_TARGET = 10.4;
 				OTHER_CFLAGS = "-no-cpp-precomp";
-				SDKROOT = "";
+				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
 				SDKROOT_i386 = /Developer/SDKs/MacOSX10.4u.sdk;
 				SDKROOT_ppc = /Developer/SDKs/MacOSX10.4u.sdk;
 			};

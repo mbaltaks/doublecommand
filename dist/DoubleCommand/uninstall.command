@@ -34,6 +34,9 @@ fi
 echo removing /Library/Receipts/DoubleCommand*.pkg
 sudo rm -rf /Library/Receipts/DoubleCommand*.pkg
 
+# pause for a sec in case this next one crashes
+sleep 1
+
 # Now unload any existing kexts
 kext_ids="com.baltaks.kext.DoubleCommand"
 kext_ids="$kext_ids com.baltaks.driver.DoubleCommand"

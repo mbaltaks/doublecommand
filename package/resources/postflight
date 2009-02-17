@@ -18,6 +18,9 @@ if [ -e "$tmppref" ]; then
 	mv -f "$tmppref" "$dcpref" 
 fi
 
+# pause for a sec in case this next one crashes
+sleep 1
+
 # I like the idea of using the kext id directly, seems cleaner
 # than basing this purely on the filesystem location of the on disk kext.
 kext_ids="com.baltaks.kext.DoubleCommand"

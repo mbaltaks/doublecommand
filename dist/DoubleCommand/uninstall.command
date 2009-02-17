@@ -6,19 +6,6 @@ echo ""
 echo "You will need to provide your password to uninstall DoubleCommand"
 echo ""
 
-# First unload any existing kexts
-kext_ids="com.baltaks.kext.DoubleCommand"
-kext_ids="$kext_ids com.baltaks.driver.DoubleCommand"
-kextunload=/sbin/kextunload
-kextstat=/usr/sbin/kextstat
-
-for k in ${kext_ids}; do
-	kexts=$(${kextstat} -l -b ${k} | wc -l)
-	if [ ${kexts} -gt 0 ]; then
-		sudo ${kextunload} -b ${k}
-	fi
-done
-
 # Remove the main folder
 dcfolder=/Library/StartupItems/DoubleCommand
 
@@ -46,6 +33,19 @@ fi
 # Remove the package receipts
 echo removing /Library/Receipts/DoubleCommand*.pkg
 sudo rm -rf /Library/Receipts/DoubleCommand*.pkg
+
+# Now unload any existing kexts
+kext_ids="com.baltaks.kext.DoubleCommand"
+kext_ids="$kext_ids com.baltaks.driver.DoubleCommand"
+kextunload=/sbin/kextunload
+kextstat=/usr/sbin/kextstat
+
+for k in ${kext_ids}; do
+	kexts=$(${kextstat} -l -b ${k} | wc -l)
+	if [ ${kexts} -gt 0 ]; then
+		sudo ${kextunload} -b ${k}
+	fi
+done
 
 echo ""
 echo "DoubleCommand is now removed, you can close this window."

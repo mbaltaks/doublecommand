@@ -11,7 +11,7 @@ cd /Library/StartupItems/DoubleCommand/
 
 # Check that we didn't cause a panic last load
 if [ -e $tempfile ]; then
-	echo "DoubleCommand will not load due to a problem last load"
+	echo "DoubleCommand will not load due to a problem last load: found $tempfile"
 	exit 1
 else
 	touch $tempfile

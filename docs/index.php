@@ -10,6 +10,10 @@
 <h2>News</h2>
 
 <p>
+10th March 2009 - DoubleCommand 1.6.8 just adds back the missing options from the preference pane.
+</p>
+
+<p>
 5th February 2009 - Release DoubleCommand 1.6.7 is out, this fixes problems with the control key not working in certain situations, and adds an uninstaller script for when things go wrong.
 </p>
 

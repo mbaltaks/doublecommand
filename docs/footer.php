@@ -1,7 +1,7 @@
 
 
 <div id="sidebar">
-<a id="download_link" href="files/DoubleCommand-1.6.7.dmg">
+<a id="download_link" href="files/DoubleCommand-1.6.8.dmg">
 Download Latest
 </a>
 <br />

@@ -61,7 +61,7 @@ DoubleCommand now includes a preference pane, so just open up System Preferences
 
 <h3>Troubleshooting</h3>
 <p>
-If for some reason DoubleCommand crashes, it automatically disables itself. To try loading again, just remove the DoubleCommand.crashed file from /Library/StartupItems/DoubleCommand.
+If for some reason DoubleCommand crashes, it automatically disables itself. To try loading again, just remove the DoubleCommand.crashed file from /var/tmp.
 </p>
 
 <p>DoubleCommand has been developed for Mac OS X. It is known to run on Mac OS X 10.1 through to Mac OS X 10.5 (using the correct versions for each system) and probably runs on later versions, too. However, since it links to internal kernel structures, newer versions of the kernel may break DoubleCommand. After failing to load for any reason, DoubleCommand automatically deactivates itself to avoid continuing problems. If this happens check with this web site for an update that will work with the new kernel.</p>

@@ -67,7 +67,13 @@ If for some reason DoubleCommand crashes, it automatically disables itself. To t
 <p>DoubleCommand has been developed for Mac OS X. It is known to run on Mac OS X 10.1 through to Mac OS X 10.5 (using the correct versions for each system) and probably runs on later versions, too. However, since it links to internal kernel structures, newer versions of the kernel may break DoubleCommand. After failing to load for any reason, DoubleCommand automatically deactivates itself to avoid continuing problems. If this happens check with this web site for an update that will work with the new kernel.</p>
 <p>If your machine does not boot after installing DoubleCommand, hold the option (alt) key during booting and boot to Mac OS 9. You can remove DoubleCommand from Mac OS 9. You can instead start the computer while holding down Command and S to get single user mode. While in this mode you can type the following to disable DoubleCommand:
 <br /><br />
-<span class="code">mv /Library/StartupItems/DoubleCommand/DoubleCommand /Library/StartupItems/DoubleCommand/DoubleCommand.disabled</span>
+<span class="code">
+fsck -y<br />
+mount -uw /<br />
+cd /Library/StartupItems/DoubleCommand<br />
+mv DoubleCommand DoubleCommand.disabled<br />
+shutdown -r now<br />
+</span>
 <br /><br />
 When you restart the computer DoubleCommand will no longer be active.
 </p>

@@ -59,7 +59,6 @@ pkg_root: $(prefpane) $(kext) $(startup)
 	sudo rm -fr "$(pkg_root)"
 	mkdir -p "$(startupitems)"
 	cp -R "$(startup)" "$(startupitems)"
-	rm -fr "$(dcfolder)/.svn"
 	cp -R "$(kext)" "$(dcfolder)"
 	sudo $(chmod) -R go-w "$(dcfolder)/DoubleCommand.kext"
 	sudo $(chown) -R root:wheel "$(dcfolder)/DoubleCommand.kext"

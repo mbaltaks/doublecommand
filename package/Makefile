@@ -17,10 +17,13 @@ prefpane=../prefpane/build/$(BUILD_CONFIG)/DoubleCommandPreferences.prefPane
 kext=../kext/build/$(BUILD_CONFIG)/DoubleCommand.kext
 
 # places
-pkg_root=../build/pkg_root
-startup=../dist/DoubleCommand
-dcfolder=/Library/StartupItems/DoubleCommand
 tmp=../build
+pkg_root=$(tmp)/pkg_root
+lib=$(pkg_root)/Library
+startupitems=$(lib)/StartupItems
+prefpanes=$(lib)/PreferencePanes
+dcfolder=$(startupitems)/DoubleCommand
+startup=../dist/DoubleCommand
 
 
 # Files containing the version number
@@ -54,11 +57,16 @@ versions: $(INFO_PLIST) $(VERSION_FILE)
 
 pkg_root: $(prefpane) $(kext) $(startup)
 	sudo rm -fr "$(pkg_root)"
-	mkdir -p "$(pkg_root)/Library/StartupItems"
-	cp -R "$(startup)" "$(pkg_root)/Library/StartupItems"
-	rm -fr "$(pkg_root)$(dcfolder)/.svn"
-	cp -R "$(kext)" "$(pkg_root)$(dcfolder)"
-	sudo $(chmod) -R go-w "$(pkg_root)$(dcfolder)/DoubleCommand.kext"
-	sudo $(chown) -R root:wheel "$(pkg_root)$(dcfolder)/DoubleCommand.kext"
-	mkdir -p "$(pkg_root)/Library/PreferencePanes"
-	cp -R "$(prefpane)" "$(pkg_root)/Library/PreferencePanes"
+	mkdir -p "$(startupitems)"
+	cp -R "$(startup)" "$(startupitems)"
+	rm -fr "$(dcfolder)/.svn"
+	cp -R "$(kext)" "$(dcfolder)"
+	sudo $(chmod) -R go-w "$(dcfolder)/DoubleCommand.kext"
+	sudo $(chown) -R root:wheel "$(dcfolder)/DoubleCommand.kext"
+	mkdir -p "$(prefpanes)"
+	cp -R "$(prefpane)" "$(prefpanes)"
+	sudo $(chmod) g+w "$(lib)"
+	sudo $(chmod) +t "$(lib)"
+	sudo $(chown) -R root:admin "$(lib)"
+	sudo $(chown) -R root:wheel "$(startupitems)"
+	sudo $(chown) -R root:wheel "$(prefpanes)"

@@ -8,7 +8,7 @@
 
 make release
 version=`cat dcversion`
-git commit -a -m "commit for Release-${version}"
+git commit -a -m "Release-${version}"
 git tag -a Release-${version} -m "Release-${version}"
 git push
 git push --tags

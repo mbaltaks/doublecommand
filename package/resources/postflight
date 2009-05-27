@@ -41,6 +41,8 @@ done
 #    $dcscript stop
 #fi
 
+touch /System/Library/Extensions
+
 dcscript=/Library/StartupItems/DoubleCommand/DoubleCommand
 
 if [ -e "$dcscript" ]; then

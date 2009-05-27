@@ -47,6 +47,7 @@ sudo chmod 644 ./DoubleCommand.kext/Contents/MacOS/DoubleCommand
 sudo chmod 644 ./DoubleCommand.kext/Contents/Resources/English.lproj/InfoPlist.strings
 sudo chmod 644 ./DoubleCommand.kext/Contents/pbdevelopment.plist
 sudo rm -f ./DoubleCommand.crashed
+sudo touch /System/Library/Extensions
 #sudo ./DoubleCommand stop
 sudo ./DoubleCommand start
 echo "DoubleCommand installation finished, it is now safe to close this window."

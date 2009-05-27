@@ -6,6 +6,9 @@ echo ""
 echo "You will need to provide your password to uninstall DoubleCommand"
 echo ""
 
+# touch the extensions folder so the caches are updated.
+sudo touch /System/Library/Extensions
+
 # Remove the main folder
 dcfolder=/Library/StartupItems/DoubleCommand
 

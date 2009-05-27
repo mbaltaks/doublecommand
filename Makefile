@@ -44,7 +44,7 @@ disk_image:
 	#cp image_resources/*.png $(image)
 	#cp image_resources/_DS_Store $(image)/.DS_Store
 	$(hdiutil) create -srcfolder $(image) \
-	-volname DoubleCommand \
+	-volname DoubleCommand -format UDBZ \
 	$(tmp)/DoubleCommand-`cat $(VERSION_FILE)`.dmg
 
 uninstall:

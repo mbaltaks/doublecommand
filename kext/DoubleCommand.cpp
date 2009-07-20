@@ -81,10 +81,18 @@ bool com_baltaks_driver_DoubleCommand::start(IOService *provider)
 	superclass_started = true;
 	IOLog("Starting DoubleCommand\n");
 
+#if __LP64__
+	keyboard_notifier = addMatchingNotification(gIOMatchedNotification,
+		serviceMatching("IOHIKeyboard"),
+		((IOServiceMatchingNotificationHandler) &dc_matched),
+		this, NULL, 0);
+#else
 	keyboard_notifier = addNotification(gIOMatchedNotification,
 		serviceMatching("IOHIKeyboard"),
 		((IOServiceNotificationHandler) &dc_matched),
 		this, NULL, 0);
+#endif
+
 	if (keyboard_notifier == NULL)
 	{
 		IOLog("DoubleCommand could not add match notifier");
@@ -92,10 +100,18 @@ bool com_baltaks_driver_DoubleCommand::start(IOService *provider)
 		return false;
 	}
 
+#if __LP64__
+	terminated_notifier = addMatchingNotification(gIOTerminatedNotification,
+		serviceMatching("IOHIKeyboard"),
+		((IOServiceMatchingNotificationHandler) &dc_terminated),
+		this, NULL, 0);
+#else
 	terminated_notifier = addNotification(gIOTerminatedNotification,
 		serviceMatching("IOHIKeyboard"),
 		((IOServiceNotificationHandler) &dc_terminated),
 		this, NULL, 0);
+#endif
+
 	if (terminated_notifier == NULL)
 	{
 		IOLog("DoubleCommand could not add terminate notifier");
@@ -132,9 +148,16 @@ void com_baltaks_driver_DoubleCommand::stop(IOService *provider)
 	super::stop(provider);
 }
 
+#if __LP64__
+bool dc_matched(com_baltaks_driver_DoubleCommand * self,
+	void * ref,
+	IOService * serv,
+	IONotifier * notifier)
+#else
 bool dc_matched(com_baltaks_driver_DoubleCommand * self,
 	void * ref,
 	IOService * serv)
+#endif
 {
 	IOHIKeyboard * kbd = NULL;
 	kbd = OSDynamicCast(IOHIKeyboard, serv);
@@ -144,7 +167,8 @@ bool dc_matched(com_baltaks_driver_DoubleCommand * self,
 
 bool dc_terminated(com_baltaks_driver_DoubleCommand * self,
 	void * ref,
-	IOService * serv)
+	IOService * serv,
+    IONotifier * notifier)
 {
 	//IOLog("DoubleCommand unloading keyboard\n");
 	IOHIKeyboard * kbd = NULL;
@@ -333,12 +357,12 @@ int hijack_keyboard(IOHIKeyboard * kbd)
 			//	IOLog("Unable to attach stage one filter.\n");
 
 #endif
-			IOLog("kea %08X: ksea %08X\n",
-				  (unsigned) Keyboards[i].event, 
-				  (unsigned) Keyboards[i].special_event);
-			IOLog("modded kea %08X: modded ksea %08X\n",
-				  (unsigned) kbd->_keyboardEventAction, 
-				  (unsigned) kbd->_keyboardSpecialEventAction);
+			IOLog("kea %08lX: ksea %08lX\n",
+				(unsigned long) Keyboards[i].event,
+				(unsigned long) Keyboards[i].special_event);
+			IOLog("modded kea %08lX: modded ksea %08lX\n",
+				(unsigned long) kbd->_keyboardEventAction,
+				(unsigned long) kbd->_keyboardSpecialEventAction);
 			break;
 		}
 	}
@@ -382,12 +406,12 @@ int return_keyboard(IOHIKeyboard * kbd)
 			// Remove the keyboard from the behavior manager.
 			//keyBehaviorManager.removeKeyboard(kbd);
 
-			IOLog("hijacked values kea %08X: ksea %08X\n",
-				  (unsigned) kbd->_keyboardEventAction, 
-				  (unsigned) kbd->_keyboardSpecialEventAction);
-			IOLog("returned kea %08X: modded ksea %08X\n",
-				  (unsigned) kbd->_keyboardEventAction, 
-				  (unsigned) kbd->_keyboardSpecialEventAction);
+			IOLog("hijacked values kea %08lX: ksea %08lX\n",
+				(unsigned long) kbd->_keyboardEventAction,
+				(unsigned long) kbd->_keyboardSpecialEventAction);
+			IOLog("returned kea %08lX: modded ksea %08lX\n",
+				(unsigned long) kbd->_keyboardEventAction,
+				(unsigned long) kbd->_keyboardSpecialEventAction);
 			Keyboards[i].keyboard = NULL;
 			break;
 		}

@@ -17,12 +17,21 @@ public:
 	IONotifier * terminated_notifier;
 };
 
+#if __LP64__
+bool dc_matched(com_baltaks_driver_DoubleCommand * self,
+	void * ref,
+	IOService * serv,
+	IONotifier * notifier);
+#else
 bool dc_matched(com_baltaks_driver_DoubleCommand * self,
 	void * ref,
 	IOService * serv);
+#endif
+
 bool dc_terminated(com_baltaks_driver_DoubleCommand * self,
 	void * ref,
-	IOService * serv);
+	IOService * serv,
+	IONotifier * notifier);
 
 void
 event(OSObject *target,

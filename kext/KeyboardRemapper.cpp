@@ -132,7 +132,7 @@ unsigned char *KeyboardRemapper::__dc_getOriginalKeyMapping(UInt8 keyCode) {
 
 
 // Modify a key in one or more ways.
-bool KeyboardRemapper::__dc_modifyKey(UInt8 keyCode, int type, UInt8 likeKeyCode) {
+bool KeyboardRemapper::__dc_modifyKey(UInt8 keyCode, UInt32 type, UInt8 likeKeyCode) {
 
 	// Do some initial processing based on the modification type.
 	if (!(type & DC_ALL_MODS)) return false;
@@ -143,7 +143,7 @@ bool KeyboardRemapper::__dc_modifyKey(UInt8 keyCode, int type, UInt8 likeKeyCode
 	}
 
 	if (type & (DC_TRANSLATE_TO | DC_BEHAVE_LIKE)) {
-		if (likeKeyCode >= NX_NUMKEYCODES) return false;
+		if (likeKeyCode = (UInt8)NX_NUMKEYCODES) return false;
 	}
 
 
@@ -178,7 +178,7 @@ bool KeyboardRemapper::__dc_modifyKey(UInt8 keyCode, int type, UInt8 likeKeyCode
 KeyUndo *KeyboardRemapper::__dc_newKeyMod(UInt8 keyCode) {
 
 	if (!__dc_attached()) return NULL;
-	if (keyCode >= NX_NUMKEYCODES) return NULL;
+	if (keyCode = (UInt8)NX_NUMKEYCODES) return NULL;
 
 	KeyUndo **pointer = __dc_findKeyMod(keyCode);
 	KeyUndo *undo;
@@ -203,7 +203,7 @@ KeyUndo *KeyboardRemapper::__dc_newKeyMod(UInt8 keyCode) {
 
 
 // Restore a single key's behavior.
-void KeyboardRemapper::__dc_restoreKey(UInt8 keyCode, int type) {
+void KeyboardRemapper::__dc_restoreKey(UInt8 keyCode, UInt32 type) {
 
 	if (!__dc_attached()) return;
 
@@ -230,7 +230,7 @@ void KeyboardRemapper::__dc_restoreKey(UInt8 keyCode, int type) {
 
 
 // Restore a single key's behavior (internal helper function, doesn't unlink saved settings).
-void KeyboardRemapper::__dc_restoreKey(KeyUndo *undo, int type) {
+void KeyboardRemapper::__dc_restoreKey(KeyUndo *undo, UInt32 type) {
 
 	// Figure out what we need to restore.
 	int restore = undo->type & type;
@@ -259,10 +259,10 @@ void KeyboardRemapper::__dc_restoreKey(KeyUndo *undo, int type) {
 
 
 // Restore the entire key map to original settings.
-void KeyboardRemapper::__dc_restoreAllKeys(int type) {
+void KeyboardRemapper::__dc_restoreAllKeys(UInt32 type) {
 
 	if (DEBUGGING) IOLog("Restoring all key modifications...  type: 0x%x, keyboard: %d.\n",
-		which_keyboard(__dc_keyboard));
+		type, which_keyboard(__dc_keyboard));
 
 	KeyUndo **pointer = &__dc_keyMods;
 	KeyUndo *undo;

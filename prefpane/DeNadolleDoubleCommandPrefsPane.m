@@ -325,7 +325,7 @@
 	NSFileManager *manager = [NSFileManager defaultManager];
 	BOOL hasSettings = YES;
 	if ([manager fileExistsAtPath: systemPrefsPath]) {
-		NSString *thePrefsStr = [ NSString stringWithContentsOfFile:systemPrefsPath];
+		NSString *thePrefsStr = [ NSString stringWithContentsOfFile:systemPrefsPath encoding:NSUTF8StringEncoding error:NULL];
 		mSystemVal = [thePrefsStr intValue];
 		[systemVal setStringValue: [NSString stringWithFormat:@"%d", mSystemVal]];
 	} else {
@@ -362,7 +362,7 @@
 	NSFileManager *manager = [NSFileManager defaultManager];
 	BOOL hasSettings = YES;
 	if ([manager fileExistsAtPath: mUserPrefPath]) {
-		NSString *thePrefsStr = [ NSString stringWithContentsOfFile:mUserPrefPath];
+		NSString *thePrefsStr = [ NSString stringWithContentsOfFile:mUserPrefPath encoding:NSUTF8StringEncoding error:NULL];
 		mUserVal = [thePrefsStr intValue];
 		[userVal setStringValue: [NSString stringWithFormat:@"%d", mUserVal]];
 	} else {
@@ -382,7 +382,7 @@
 {
     BOOL ret = NO;
 	NSString * thePrefs = [NSString stringWithFormat: @"%d", mUserVal];
-	ret = [thePrefs writeToFile:mUserPrefPath atomically:YES];
+	ret = [thePrefs writeToFile:mUserPrefPath atomically:YES encoding:NSUTF8StringEncoding error:NULL];
     // defaults write com.apple.loginwindow LoginHook /Library/StartupItems/DoubleCommand/config.command
     /*NSTask * setting = [[NSTask alloc] init];
     [setting setLaunchPath:@"/usr/bin/defaults"];

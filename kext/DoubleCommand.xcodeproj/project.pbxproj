@@ -11,7 +11,6 @@
 		0099A71A0AD6A262008D869B /* Common.h in Headers */ = {isa = PBXBuildFile; fileRef = 0099A7190AD6A261008D869B /* Common.h */; };
 		009DECDB08B34F65002ECA52 /* MBHIDHack.h in Headers */ = {isa = PBXBuildFile; fileRef = 009DECD808B34F65002ECA52 /* MBHIDHack.h */; };
 		009DECDD08B34F65002ECA52 /* MBDCC.h in Headers */ = {isa = PBXBuildFile; fileRef = 009DECDA08B34F65002ECA52 /* MBDCC.h */; };
-		00DCDB7308B40DFE0066C5C2 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 00DCDB7208B40DFE0066C5C2 /* Info.plist */; };
 		00E7679308B405C600C18483 /* Boundary.h in Headers */ = {isa = PBXBuildFile; fileRef = 00E7679208B405C600C18483 /* Boundary.h */; };
 		272C695A09EDFE8800566EC9 /* KeyboardRemapper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 272C695809EDFE8800566EC9 /* KeyboardRemapper.cpp */; };
 		272C695B09EDFE8800566EC9 /* KeyboardRemapper.h in Headers */ = {isa = PBXBuildFile; fileRef = 272C695909EDFE8800566EC9 /* KeyboardRemapper.h */; };
@@ -160,7 +159,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				32D94FC80562CBF700B6AF17 /* InfoPlist.strings in Resources */,
-				00DCDB7308B40DFE0066C5C2 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -233,10 +231,6 @@
 		009D757508A77D0C005D9003 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = (
-					ppc,
-					i386,
-				);
 				COPY_PHASE_STRIP = YES;
 				CURRENT_PROJECT_VERSION = 1.6.8;
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
@@ -250,7 +244,6 @@
 				MODULE_VERSION = 1.6.8;
 				PREBINDING = NO;
 				PRODUCT_NAME = DoubleCommand;
-				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
 				WRAPPER_EXTENSION = kext;
 				ZERO_LINK = NO;
 			};
@@ -289,7 +282,7 @@
 				GCC_MODEL_TUNING = G3;
 				MACOSX_DEPLOYMENT_TARGET = 10.4;
 				OTHER_CFLAGS = "-no-cpp-precomp";
-				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
+				SDKROOT = /Developer/SDKs/MacOSX10.5.sdk;
 				SDKROOT_i386 = /Developer/SDKs/MacOSX10.4u.sdk;
 				SDKROOT_ppc = /Developer/SDKs/MacOSX10.4u.sdk;
 			};
@@ -303,6 +296,7 @@
 					i386,
 				);
 				GCC_MODEL_TUNING = G3;
+				GCC_VERSION = 4.0;
 				MACOSX_DEPLOYMENT_TARGET = 10.4;
 				OTHER_CFLAGS = "-no-cpp-precomp";
 				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
@@ -321,11 +315,45 @@
 				GCC_MODEL_TUNING = G3;
 				MACOSX_DEPLOYMENT_TARGET = 10.4;
 				OTHER_CFLAGS = "-no-cpp-precomp";
-				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
+				SDKROOT = /Developer/SDKs/MacOSX10.5.sdk;
 				SDKROOT_i386 = /Developer/SDKs/MacOSX10.4u.sdk;
 				SDKROOT_ppc = /Developer/SDKs/MacOSX10.4u.sdk;
 			};
 			name = Default;
+		};
+		949EDB7B0FD09D76006E71F9 /* Release (x86_64 support) */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT_PRE_XCODE_3_1)";
+				ARCHS_STANDARD_64_BIT_PRE_XCODE_3_1 = x86_64;
+				GCC_ENABLE_OBJC_GC = YES;
+				GCC_MODEL_TUNING = G3;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				OTHER_CFLAGS = "-no-cpp-precomp";
+				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.6.sdk";
+			};
+			name = "Release (x86_64 support)";
+		};
+		949EDB7C0FD09D76006E71F9 /* Release (x86_64 support) */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				CURRENT_PROJECT_VERSION = 1.6.8;
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "$(SYSTEM_LIBRARY_DIR)/Extensions";
+				MODULE_NAME = com.baltaks.driver.DoubleCommand;
+				MODULE_VERSION = 1.6.8;
+				PREBINDING = NO;
+				PRODUCT_NAME = DoubleCommand;
+				WRAPPER_EXTENSION = kext;
+				ZERO_LINK = NO;
+			};
+			name = "Release (x86_64 support)";
 		};
 /* End XCBuildConfiguration section */
 
@@ -335,6 +363,7 @@
 			buildConfigurations = (
 				009D757408A77D0C005D9003 /* Debug */,
 				009D757508A77D0C005D9003 /* Release */,
+				949EDB7C0FD09D76006E71F9 /* Release (x86_64 support) */,
 				009D757608A77D0C005D9003 /* Default */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -345,6 +374,7 @@
 			buildConfigurations = (
 				009D757808A77D0C005D9003 /* Debug */,
 				009D757908A77D0C005D9003 /* Release */,
+				949EDB7B0FD09D76006E71F9 /* Release (x86_64 support) */,
 				009D757A08A77D0C005D9003 /* Default */,
 			);
 			defaultConfigurationIsVisible = 0;

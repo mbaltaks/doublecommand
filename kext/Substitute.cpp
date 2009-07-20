@@ -104,7 +104,7 @@ if (dcConfig != 0)
 		printf("charCode %d charSet %d ", *charCode, *charSet);
 		printf("origCharCode %d origCharSet %d kbdType %d ",
 			*origCharCode, *origCharSet, *keyboardType);
-		printf("repeat %d ts %d\n", *repeat, *ts);
+		printf("repeat %d ts %llud\n", *repeat, *ts);
 	}
 
 	lastKeyboardType = *keyboardType;
@@ -869,7 +869,7 @@ if (dcConfig != 0)
 		printf("charCode %d charSet %d ", *charCode, *charSet);
 		printf("origCharCode %d origCharSet %d kbdType %d ",
 			*origCharCode, *origCharSet, *keyboardType);
-		printf("repeat %d ts %d\n", *repeat, *ts);
+		printf("repeat %d ts %llud\n", *repeat, *ts);
 	}
 } // end if dcConfig != 0
 //printf("returning %d\n", return_value);
@@ -908,8 +908,8 @@ if (dcConfig != 0)
 	{
 		printf("caught  special event type %d flags 0x%x key %d ",
 			*eventType, *flags, *key);
-		printf("flavor %d guid %d ", *flavor, *guid);
-		printf("repeat %d ts %d\n", *repeat, *ts);
+		printf("flavor %d guid %llud ", *flavor, *guid);
+		printf("repeat %d ts %llud\n", *repeat, *ts);
 	}
 
 	if( (dcConfig & CAPSLOCK_DISABLED))
@@ -950,8 +950,8 @@ if (dcConfig != 0)
 	{
 		printf("sending special event type %d flags 0x%x key %d ",
 			*eventType, *flags, *key);
-		printf("flavor %d guid %d ", *flavor, *guid);
-		printf("repeat %d ts %d\n", *repeat, *ts);
+		printf("flavor %d guid %llud ", *flavor, *guid);
+		printf("repeat %d ts %llud\n", *repeat, *ts);
 	}
 }
 //printf("returning %d\n", return_value);

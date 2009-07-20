@@ -119,7 +119,7 @@ protected:
 	unsigned char __dc_getOriginalKeyBits(UInt8);
 	unsigned char *__dc_getOriginalKeyMapping(UInt8);
 	KeyUndo *__dc_newKeyMod(UInt8);
-	void __dc_restoreKey(KeyUndo *, int);
+	void __dc_restoreKey(KeyUndo *, UInt32);
 	bool __dc_verifyStageTwo();
 
 public:
@@ -129,9 +129,9 @@ public:
 	bool __dc_attach(IOHIKeyboard *);
 	bool __dc_attached();
 	void __dc_detach();
-	bool __dc_modifyKey(UInt8, int = DC_ALL_MODS, UInt8 = NX_NUMKEYCODES);
-	void __dc_restoreKey(UInt8, int = DC_ALL_MODS);
-	void __dc_restoreAllKeys(int = DC_ALL_MODS);
+	bool __dc_modifyKey(UInt8, UInt32 = DC_ALL_MODS, UInt8 = NX_NUMKEYCODES);
+	void __dc_restoreKey(UInt8, UInt32 = DC_ALL_MODS);
+	void __dc_restoreAllKeys(UInt32 = DC_ALL_MODS);
 
 	// Wrappers for public IOHIKeyboardMapper interface methods.
 	virtual UInt8 getParsedSpecialKey(UInt8);

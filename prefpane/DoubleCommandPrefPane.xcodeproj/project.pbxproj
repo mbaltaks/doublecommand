@@ -172,9 +172,11 @@
 		089C1669FE841209C02AAC07 /* Project object */ = {
 			isa = PBXProject;
 			buildConfigurationList = 00F60E45094F764D00C5D712 /* Build configuration list for PBXProject "DoubleCommandPrefPane" */;
+			compatibilityVersion = "Xcode 2.4";
 			hasScannedForEncodings = 1;
 			mainGroup = 089C166AFE841209C02AAC07 /* DCP_prefPane */;
 			projectDirPath = "";
+			projectRoot = "";
 			targets = (
 				8D5B49AC048680CD000E48DA /* DoubleCommand Prefences */,
 			);
@@ -275,6 +277,7 @@
 					ppc,
 					i386,
 				);
+				GCC_VERSION = 4.0;
 				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
 			};
 			name = Release;
@@ -299,7 +302,6 @@
 				INSTALL_PATH = "$(HOME)/Library/Bundles";
 				LIBRARY_SEARCH_PATHS = "";
 				LIBRARY_STYLE = Bundle;
-				OPTIMIZATION_CFLAGS = "-O0";
 				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = "";
 				OTHER_REZFLAGS = "";
@@ -412,6 +414,46 @@
 			};
 			name = Default;
 		};
+		949EDC120FD0D8D1006E71F9 /* Release (x86_64 support) */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT_PRE_XCODE_3_1)";
+				ARCHS_STANDARD_64_BIT_PRE_XCODE_3_1 = x86_64;
+				GCC_ENABLE_OBJC_GC = YES;
+				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.6.sdk";
+			};
+			name = "Release (x86_64 support)";
+		};
+		949EDC130FD0D8D1006E71F9 /* Release (x86_64 support) */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = "";
+				GCC_ENABLE_TRIGRAPHS = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = DCP_prefPane_Prefix.pch;
+				GCC_WARN_FOUR_CHARACTER_CONSTANTS = NO;
+				GCC_WARN_UNKNOWN_PRAGMAS = NO;
+				HEADER_SEARCH_PATHS = "";
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "$(HOME)/Library/Bundles";
+				LIBRARY_SEARCH_PATHS = "";
+				LIBRARY_STYLE = Bundle;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				OTHER_REZFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = DoubleCommandPreferences;
+				SECTORDER_FLAGS = "";
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+				WRAPPER_EXTENSION = prefPane;
+			};
+			name = "Release (x86_64 support)";
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -422,6 +464,7 @@
 				00F60E43094F764D00C5D712 /* Deployment */,
 				00F60E44094F764D00C5D712 /* Default */,
 				00A208D509BDAFCD00340E6F /* Release */,
+				949EDC130FD0D8D1006E71F9 /* Release (x86_64 support) */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -433,6 +476,7 @@
 				00F60E47094F764D00C5D712 /* Deployment */,
 				00F60E48094F764D00C5D712 /* Default */,
 				00A208D609BDAFCD00340E6F /* Release */,
+				949EDC120FD0D8D1006E71F9 /* Release (x86_64 support) */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

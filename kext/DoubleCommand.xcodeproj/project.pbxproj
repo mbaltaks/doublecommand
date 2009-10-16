@@ -249,29 +249,6 @@
 			};
 			name = Release;
 		};
-		009D757608A77D0C005D9003 /* Default */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = (
-					ppc,
-					i386,
-				);
-				CURRENT_PROJECT_VERSION = 1.6.8;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
-				GCC_MODEL_TUNING = G5;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = Info.plist;
-				INSTALL_PATH = "$(SYSTEM_LIBRARY_DIR)/Extensions";
-				MODULE_NAME = com.baltaks.driver.DoubleCommand;
-				MODULE_VERSION = 1.6.8;
-				PREBINDING = NO;
-				PRODUCT_NAME = DoubleCommand;
-				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
-				WRAPPER_EXTENSION = kext;
-			};
-			name = Default;
-		};
 		009D757808A77D0C005D9003 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -305,56 +282,6 @@
 			};
 			name = Release;
 		};
-		009D757A08A77D0C005D9003 /* Default */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = (
-					ppc,
-					i386,
-				);
-				GCC_MODEL_TUNING = G3;
-				MACOSX_DEPLOYMENT_TARGET = 10.4;
-				OTHER_CFLAGS = "-no-cpp-precomp";
-				SDKROOT = /Developer/SDKs/MacOSX10.5.sdk;
-				SDKROOT_i386 = /Developer/SDKs/MacOSX10.4u.sdk;
-				SDKROOT_ppc = /Developer/SDKs/MacOSX10.4u.sdk;
-			};
-			name = Default;
-		};
-		949EDB7B0FD09D76006E71F9 /* Release (x86_64 support) */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT_PRE_XCODE_3_1)";
-				ARCHS_STANDARD_64_BIT_PRE_XCODE_3_1 = x86_64;
-				GCC_ENABLE_OBJC_GC = YES;
-				GCC_MODEL_TUNING = G3;
-				MACOSX_DEPLOYMENT_TARGET = 10.6;
-				OTHER_CFLAGS = "-no-cpp-precomp";
-				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.6.sdk";
-			};
-			name = "Release (x86_64 support)";
-		};
-		949EDB7C0FD09D76006E71F9 /* Release (x86_64 support) */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COPY_PHASE_STRIP = YES;
-				CURRENT_PROJECT_VERSION = 1.6.8;
-				GCC_ENABLE_FIX_AND_CONTINUE = NO;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
-				GCC_MODEL_TUNING = G5;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = Info.plist;
-				INSTALL_PATH = "$(SYSTEM_LIBRARY_DIR)/Extensions";
-				MODULE_NAME = com.baltaks.driver.DoubleCommand;
-				MODULE_VERSION = 1.6.8;
-				PREBINDING = NO;
-				PRODUCT_NAME = DoubleCommand;
-				WRAPPER_EXTENSION = kext;
-				ZERO_LINK = NO;
-			};
-			name = "Release (x86_64 support)";
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -363,22 +290,18 @@
 			buildConfigurations = (
 				009D757408A77D0C005D9003 /* Debug */,
 				009D757508A77D0C005D9003 /* Release */,
-				949EDB7C0FD09D76006E71F9 /* Release (x86_64 support) */,
-				009D757608A77D0C005D9003 /* Default */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Default;
+			defaultConfigurationName = Debug;
 		};
 		009D757708A77D0C005D9003 /* Build configuration list for PBXProject "DoubleCommand" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				009D757808A77D0C005D9003 /* Debug */,
 				009D757908A77D0C005D9003 /* Release */,
-				949EDB7B0FD09D76006E71F9 /* Release (x86_64 support) */,
-				009D757A08A77D0C005D9003 /* Default */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Default;
+			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
 	};

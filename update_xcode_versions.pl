@@ -42,6 +42,7 @@ if ( !defined( $Version ) ) {
 }
 
 while ( <> ) {
-    s/(VERSION = ).+(;)/\1$Version\2/g;
+    s/(CURRENT_PROJECT_VERSION = ).+(;)/\1$Version\2/g;
+    s/(MODULE_VERSION = ).+(;)/\1$Version\2/g;
     print;
 }

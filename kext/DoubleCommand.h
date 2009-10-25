@@ -28,10 +28,16 @@ bool dc_matched(com_baltaks_driver_DoubleCommand * self,
 	IOService * serv);
 #endif
 
+#if __LP64__
 bool dc_terminated(com_baltaks_driver_DoubleCommand * self,
 	void * ref,
 	IOService * serv,
 	IONotifier * notifier);
+#else
+bool dc_terminated(com_baltaks_driver_DoubleCommand * self,
+	void * ref,
+	IOService * serv);
+#endif
 
 void
 event(OSObject *target,

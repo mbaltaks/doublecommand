@@ -165,10 +165,16 @@ bool dc_matched(com_baltaks_driver_DoubleCommand * self,
 	return true;
 }
 
+#if __LP64__
 bool dc_terminated(com_baltaks_driver_DoubleCommand * self,
 	void * ref,
 	IOService * serv,
     IONotifier * notifier)
+#else
+bool dc_terminated(com_baltaks_driver_DoubleCommand * self,
+	void * ref,
+	IOService * serv)
+#endif
 {
 	//IOLog("DoubleCommand unloading keyboard\n");
 	IOHIKeyboard * kbd = NULL;
@@ -357,12 +363,22 @@ int hijack_keyboard(IOHIKeyboard * kbd)
 			//	IOLog("Unable to attach stage one filter.\n");
 
 #endif
+
+#if __LP64__
 			IOLog("kea %08lX: ksea %08lX\n",
 				(unsigned long) Keyboards[i].event,
 				(unsigned long) Keyboards[i].special_event);
 			IOLog("modded kea %08lX: modded ksea %08lX\n",
 				(unsigned long) kbd->_keyboardEventAction,
 				(unsigned long) kbd->_keyboardSpecialEventAction);
+#else
+			IOLog("kea %08X: ksea %08X\n",
+				(unsigned long) Keyboards[i].event,
+				(unsigned long) Keyboards[i].special_event);
+			IOLog("modded kea %08X: modded ksea %08X\n",
+				(unsigned long) kbd->_keyboardEventAction,
+				(unsigned long) kbd->_keyboardSpecialEventAction);
+#endif
 			break;
 		}
 	}
@@ -406,12 +422,21 @@ int return_keyboard(IOHIKeyboard * kbd)
 			// Remove the keyboard from the behavior manager.
 			//keyBehaviorManager.removeKeyboard(kbd);
 
+#if __LP64__
 			IOLog("hijacked values kea %08lX: ksea %08lX\n",
 				(unsigned long) kbd->_keyboardEventAction,
 				(unsigned long) kbd->_keyboardSpecialEventAction);
 			IOLog("returned kea %08lX: modded ksea %08lX\n",
 				(unsigned long) kbd->_keyboardEventAction,
 				(unsigned long) kbd->_keyboardSpecialEventAction);
+#else
+			IOLog("hijacked values kea %08X: ksea %08X\n",
+				(unsigned long) kbd->_keyboardEventAction,
+				(unsigned long) kbd->_keyboardSpecialEventAction);
+			IOLog("returned kea %08X: modded ksea %08X\n",
+				(unsigned long) kbd->_keyboardEventAction,
+				(unsigned long) kbd->_keyboardSpecialEventAction);
+#endif
 			Keyboards[i].keyboard = NULL;
 			break;
 		}

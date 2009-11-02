@@ -49,10 +49,7 @@ DoubleCommand now includes a preference pane, so just open up System Preferences
 </p>
 
 <h3>Removing DoubleCommand</h3>
-<p>To remove DoubleCommand from your machine:</p>
-<p>1.	Delete the DoubleCommand folder in /Library/StartupItems on your Mac OS X startup volume.</p>
-<p>2.	Delete the DoubleCommand preference pane in /Library/PreferencePanes on your Mac OS X startup volume.</p>
-<p>3.	Restart your computer.</p>
+<p>To remove DoubleCommand from your machine, open the Terminal and paste in the following: <span class="code">/Library/StartupItems/DoubleCommand/uninstall.command</span></p>
 
 <h3>Removing conflicting software</h3>
 <p>To remove conflicting software from your machine:</p>
@@ -64,8 +61,8 @@ DoubleCommand now includes a preference pane, so just open up System Preferences
 If for some reason DoubleCommand crashes, it automatically disables itself. To try loading again, just remove the DoubleCommand.crashed file from /var/tmp.
 </p>
 
-<p>DoubleCommand has been developed for Mac OS X. It is known to run on Mac OS X 10.1 through to Mac OS X 10.5 (using the correct versions for each system) and probably runs on later versions, too. However, since it links to internal kernel structures, newer versions of the kernel may break DoubleCommand. After failing to load for any reason, DoubleCommand automatically deactivates itself to avoid continuing problems. If this happens check with this web site for an update that will work with the new kernel.</p>
-<p>If your machine does not boot after installing DoubleCommand, hold the option (alt) key during booting and boot to Mac OS 9. You can remove DoubleCommand from Mac OS 9. You can instead start the computer while holding down Command and S to get single user mode. While in this mode you can type the following to disable DoubleCommand:
+<p>DoubleCommand has been developed for Mac OS X. It is known to run on Mac OS X 10.1 through to Mac OS X 10.6 (using the correct versions for each system) and probably runs on later versions, too. However, since it links to internal kernel structures, newer versions of the kernel may break DoubleCommand. After failing to load for any reason, DoubleCommand automatically deactivates itself to avoid continuing problems. If this happens check with this web site for an update that will work with the new kernel.</p>
+<p>You can start the computer while holding down Command and S to get single user mode. While in this mode you can type the following to disable DoubleCommand:
 <br /><br />
 <span class="code">
 fsck -y<br />

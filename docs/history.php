@@ -13,10 +13,11 @@ PowerBooks a second Command key, where there was an enter key.
 </p>
 
 <h1>Version History</h1>
+<p><em>1.6.9 - 2009-11-24:</em> DoubleCommand 1.6.9 adds full Snow Leopard (Mac OS X 10.6) and 64-bit support.</p>
 <p><em>1.6.8 - 2009-03-10:</em> DoubleCommand 1.6.8 adds back the missing options from the preference pane.</p>
 <p><em>1.6.7 - 2009-02-05:</em> DoubleCommand 1.6.7 fixes the control key under certain situations, and adds an uninstaller script.</p>
 <p><em>1.6.5 - 2007-08-06:</em> DoubleCommand 1.6.5 removes the unnecessary log output.</p>
-<p><em>1.6.4 - 2007-07-25:</em> DoubleCommand 1.6.4 adds Caps lock to delete feature for the 
+<p><em>1.6.4 - 2007-07-25:</em> DoubleCommand 1.6.4 adds Caps lock to delete feature for the
 Colemak keyboard layout. Also added internals for multiple keyboard support.</p>
 <p><em>1.6.3 - 2007-06-27:</em> DoubleCommand 1.6.3 allows using the Option key with backslash as forward delete to delete to word boundaries.</p>
 <p><em>1.6.2 - 2006-12-04:</em> DoubleCommand 1.6.2 fixes two bugs, Command flags still active after using PC style home and end, and allows both shift keys to trigger the forward delete feature.</p>

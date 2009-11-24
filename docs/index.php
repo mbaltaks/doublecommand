@@ -10,6 +10,9 @@
 <h2>News</h2>
 
 <p>
+24th November 2009 - DoubleCommand 1.6.9 released, fully supporting 64-bit for the prefpane and the kext (for those who want to use the 64-bit kernel). This is a universal binary, so only one kext and prefpane is needed for any Mac OS X 10.4 and up computer.
+
+<p>
 2nd September 2009 - Snow Leopard (Mac OS X 10.6) has been released, but I might not be able to have a copy running for a couple of weeks. However, most reports coming in are that the existing DoubleCommand works fine on 10.6 in 32 bit kernel mode, and if you're using DoubleCommand, chances are that 32 bit is not only the default, but is just fine for you right now. I have been sent a patch by Ryan Walklin (thanks!) that should support the 64 bit kernel, but I won't be able to release that until I can test that it works, which should be a couple of weeks at most.
 </p>
 

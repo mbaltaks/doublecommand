@@ -3,11 +3,11 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleGetInfoString</key>
-	<string>DoubleCommand 1.6.8</string>
+	<string>DoubleCommand 1.6.9</string>
 	<key>CFBundleIdentifier</key>
 	<string>com.baltaks.DoubleCommand</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.6.8</string>
+	<string>1.6.9</string>
 	<key>IFPkgFlagAllowBackRev</key>
 	<integer>0</integer>
 	<key>IFPkgFlagAuthorizationAction</key>

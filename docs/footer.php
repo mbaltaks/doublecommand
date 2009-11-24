@@ -1,7 +1,7 @@
 
 
 <div id="sidebar">
-<a id="download_link" href="files/DoubleCommand-1.6.8.dmg">
+<a id="download_link" href="files/DoubleCommand-1.6.9.dmg">
 Download Latest
 </a>
 <br />
@@ -16,13 +16,13 @@ Older versions</a> for Mac OS X before 10.4
 Get email when there's a new version</a>
 </li>
 <li>
-Have a question? Talk in the 
+Have a question? Talk in the
 <a href="http://sourceforge.net/forum/forum.php?forum_id=221238">
 Forum
 </a>
 </li>
 <li>
-Have a request? Add it to the 
+Have a request? Add it to the
 <a href="http://sourceforge.net/tracker/?group_id=65339&atid=510608">
 list
 </a>
@@ -56,7 +56,7 @@ and uses code from <a href="http://www.kodachi.com/software/fKeys">fKeys</a>
 I put time and effort into the software I make, and am happy to give it
 away with source code for free. If you feel that it is worth something to
 you, why not let me know?
-You can send donations via <a href="http://www.paypal.com/">Paypal</a> to 
+You can send donations via <a href="http://www.paypal.com/">Paypal</a> to
 <a href="mailto:mbaltaks@users.sourceforge.net?subject=DoubleCommand">
 me</a> if you care to. And a great big thankyou to the many who have
 generously donated!

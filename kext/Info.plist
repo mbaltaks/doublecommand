@@ -17,7 +17,7 @@
 	<key>CFBundleSignature</key>
 	<string>BALT</string>
 	<key>CFBundleVersion</key>
-	<string>1.6.8</string>
+	<string>1.6.9</string>
 	<key>IOKitPersonalities</key>
 	<dict>
 		<key>DoubleCommand</key>

@@ -17,7 +17,7 @@
 
 -(id)init
 {
-  if(self = [super init])
+  if((self = [super init]))
   {
     remapItems = [[NSMutableArray array] retain];
   }

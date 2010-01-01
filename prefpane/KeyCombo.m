@@ -14,9 +14,12 @@ static NSString* keyCodeKey = @"keyCode";
 
 @implementation KeyCombo
 
+@synthesize modifierFlags;
+@synthesize keyCode;
+
 -(id)initWithModifierFlags:(unsigned int)ModifierFlags keyCode:(unsigned int)KeyCode
 {
-  if(self = [super init])
+  if((self = [super init]))
   {
     [self setModifierFlags:ModifierFlags];
     [self setKeyCode:KeyCode];
@@ -26,7 +29,7 @@ static NSString* keyCodeKey = @"keyCode";
 
 -(id)initWithCoder:(NSCoder *)decoder
 {
-  if(self = [super init])
+  if((self = [super init]))
   {
     [self setModifierFlags:[decoder decodeIntForKey:modifierFlagsKey]];
     [self setKeyCode:[decoder decodeIntForKey:keyCodeKey]];
@@ -40,7 +43,10 @@ static NSString* keyCodeKey = @"keyCode";
   [coder encodeInt:keyCode forKey:keyCodeKey];
 }
 
-@synthesize modifierFlags;
-@synthesize keyCode;
+-(BOOL)isEqualToCombo:(KeyCombo*)combo
+{
+  return (([self modifierFlags] == [combo modifierFlags]) &&
+          ([self keyCode] == [combo keyCode]));
+}
 
 @end

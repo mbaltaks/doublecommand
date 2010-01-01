@@ -24,7 +24,7 @@ static NSDictionary* keyCodeAssociations;
     {
       NSBundle* bundle = [NSBundle bundleForClass:[self class]];
       NSString* dictionaryFilePath = [bundle pathForResource:@"KeyCodeAssociations" ofType:@"plist"];
-      keyCodeAssociations = [NSDictionary dictionaryWithContentsOfFile:dictionaryFilePath];
+      keyCodeAssociations = [[NSDictionary dictionaryWithContentsOfFile:dictionaryFilePath] retain];
     }
   }
   return [NSString stringWithFormat:@"%@%@",

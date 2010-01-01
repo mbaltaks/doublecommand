@@ -18,6 +18,9 @@
 		7145D40510ED1F380014F66D /* RemapListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7145D40310ED1F380014F66D /* RemapListController.m */; };
 		7145D59310ED42520014F66D /* KeyCaptureWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = 7145D59110ED42520014F66D /* KeyCaptureWindow.h */; };
 		7145D59410ED42520014F66D /* KeyCaptureWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 7145D59210ED42520014F66D /* KeyCaptureWindow.m */; };
+		717D5A1810EE951F007F7004 /* NSTextCaptureField.h in Headers */ = {isa = PBXBuildFile; fileRef = 717D5A1610EE951F007F7004 /* NSTextCaptureField.h */; };
+		717D5A1910EE951F007F7004 /* NSTextCaptureField.m in Sources */ = {isa = PBXBuildFile; fileRef = 717D5A1710EE951F007F7004 /* NSTextCaptureField.m */; };
+		717D5B0F10EE9EA0007F7004 /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 717D5B0E10EE9EA0007F7004 /* Quartz.framework */; };
 		717E01BF10EC429500EC6FE5 /* PreferencePaneController.h in Headers */ = {isa = PBXBuildFile; fileRef = 717E01BD10EC429500EC6FE5 /* PreferencePaneController.h */; };
 		717E01C010EC429500EC6FE5 /* PreferencePaneController.m in Sources */ = {isa = PBXBuildFile; fileRef = 717E01BE10EC429500EC6FE5 /* PreferencePaneController.m */; };
 		717E01C210EC42AF00EC6FE5 /* DoubleCommand.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 717E01C110EC42AF00EC6FE5 /* DoubleCommand.tiff */; };
@@ -43,6 +46,9 @@
 		7145D40310ED1F380014F66D /* RemapListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RemapListController.m; sourceTree = "<group>"; };
 		7145D59110ED42520014F66D /* KeyCaptureWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyCaptureWindow.h; sourceTree = "<group>"; };
 		7145D59210ED42520014F66D /* KeyCaptureWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeyCaptureWindow.m; sourceTree = "<group>"; };
+		717D5A1610EE951F007F7004 /* NSTextCaptureField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSTextCaptureField.h; sourceTree = "<group>"; };
+		717D5A1710EE951F007F7004 /* NSTextCaptureField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSTextCaptureField.m; sourceTree = "<group>"; };
+		717D5B0E10EE9EA0007F7004 /* Quartz.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quartz.framework; path = System/Library/Frameworks/Quartz.framework; sourceTree = SDKROOT; };
 		717E01BD10EC429500EC6FE5 /* PreferencePaneController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PreferencePaneController.h; path = Classes/PreferencePaneController.h; sourceTree = "<group>"; };
 		717E01BE10EC429500EC6FE5 /* PreferencePaneController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PreferencePaneController.m; path = Classes/PreferencePaneController.m; sourceTree = "<group>"; };
 		717E01C110EC42AF00EC6FE5 /* DoubleCommand.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = DoubleCommand.tiff; path = Resources/Images/DoubleCommand.tiff; sourceTree = "<group>"; };
@@ -59,6 +65,7 @@
 			files = (
 				8D202CF30486D31800D8A456 /* Cocoa.framework in Frameworks */,
 				8D202CF40486D31800D8A456 /* PreferencePanes.framework in Frameworks */,
+				717D5B0F10EE9EA0007F7004 /* Quartz.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -100,6 +107,7 @@
 		08FB77AFFE84173DC02AAC07 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				717D5A0D10EE93F6007F7004 /* Extensions */,
 				7145D3F810ED1C010014F66D /* Preference Pane Management */,
 				7145D3C110ED14450014F66D /* Key Management */,
 			);
@@ -120,6 +128,7 @@
 			children = (
 				089C1672FE841209C02AAC07 /* Foundation.framework */,
 				089C167FFE841241C02AAC07 /* AppKit.framework */,
+				717D5B0E10EE9EA0007F7004 /* Quartz.framework */,
 			);
 			name = "Other Frameworks";
 			sourceTree = "<group>";
@@ -182,6 +191,15 @@
 			name = Panels;
 			sourceTree = "<group>";
 		};
+		717D5A0D10EE93F6007F7004 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				717D5A1610EE951F007F7004 /* NSTextCaptureField.h */,
+				717D5A1710EE951F007F7004 /* NSTextCaptureField.m */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
 		717E01C310EC42B300EC6FE5 /* Images */ = {
 			isa = PBXGroup;
 			children = (
@@ -204,6 +222,7 @@
 				7145D3C410ED14660014F66D /* KeyCodeTransformer.h in Headers */,
 				7145D40410ED1F380014F66D /* RemapListController.h in Headers */,
 				7145D59310ED42520014F66D /* KeyCaptureWindow.h in Headers */,
+				717D5A1810EE951F007F7004 /* NSTextCaptureField.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -281,6 +300,7 @@
 				7145D3C510ED14660014F66D /* KeyCodeTransformer.m in Sources */,
 				7145D40510ED1F380014F66D /* RemapListController.m in Sources */,
 				7145D59410ED42520014F66D /* KeyCaptureWindow.m in Sources */,
+				717D5A1910EE951F007F7004 /* NSTextCaptureField.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -343,9 +363,23 @@
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_ENABLE_OBJC_GC = supported;
+				GCC_TREAT_IMPLICIT_FUNCTION_DECLARATIONS_AS_ERRORS = NO;
+				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
+				GCC_WARN_ABOUT_MISSING_FIELD_INITIALIZERS = NO;
+				GCC_WARN_ABOUT_MISSING_NEWLINE = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = NO;
+				GCC_WARN_CHECK_SWITCH_STATEMENTS = NO;
+				GCC_WARN_INITIALIZER_NOT_FULLY_BRACKETED = NO;
+				GCC_WARN_MISSING_PARENTHESES = YES;
+				GCC_WARN_MULTIPLE_DEFINITION_TYPES_FOR_SELECTOR = NO;
+				GCC_WARN_PEDANTIC = NO;
+				GCC_WARN_SHADOW = NO;
+				GCC_WARN_UNUSED_LABEL = NO;
+				GCC_WARN_UNUSED_PARAMETER = NO;
+				GCC_WARN_UNUSED_VALUE = NO;
+				GCC_WARN_UNUSED_VARIABLE = NO;
 				ONLY_ACTIVE_ARCH = YES;
 				PREBINDING = NO;
 				RUN_CLANG_STATIC_ANALYZER = YES;
@@ -369,6 +403,53 @@
 			};
 			name = Release;
 		};
+		717D5AAD10EE998C007F7004 /* Debug-Warnings */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_GC = supported;
+				GCC_TREAT_IMPLICIT_FUNCTION_DECLARATIONS_AS_ERRORS = NO;
+				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_MISSING_FIELD_INITIALIZERS = NO;
+				GCC_WARN_ABOUT_MISSING_NEWLINE = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = NO;
+				GCC_WARN_CHECK_SWITCH_STATEMENTS = NO;
+				GCC_WARN_INITIALIZER_NOT_FULLY_BRACKETED = NO;
+				GCC_WARN_MULTIPLE_DEFINITION_TYPES_FOR_SELECTOR = NO;
+				GCC_WARN_PEDANTIC = NO;
+				GCC_WARN_SHADOW = NO;
+				GCC_WARN_UNUSED_LABEL = NO;
+				GCC_WARN_UNUSED_PARAMETER = NO;
+				GCC_WARN_UNUSED_VALUE = NO;
+				GCC_WARN_UNUSED_VARIABLE = NO;
+				ONLY_ACTIVE_ARCH = YES;
+				PREBINDING = NO;
+				RUN_CLANG_STATIC_ANALYZER = YES;
+				SDKROOT = macosx10.5;
+				VALID_ARCHS = "i386 ppc x86_64";
+			};
+			name = "Debug-Warnings";
+		};
+		717D5AAE10EE998C007F7004 /* Debug-Warnings */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = prefpane_Prefix.pch;
+				INFOPLIST_FILE = Info.plist;
+				PRODUCT_NAME = DoubleCommand;
+				WRAPPER_EXTENSION = prefPane;
+				ZERO_LINK = YES;
+			};
+			name = "Debug-Warnings";
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -376,6 +457,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1DBD214908BA80EA00186707 /* Debug */,
+				717D5AAE10EE998C007F7004 /* Debug-Warnings */,
 				1DBD214A08BA80EA00186707 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -385,6 +467,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1DBD214D08BA80EA00186707 /* Debug */,
+				717D5AAD10EE998C007F7004 /* Debug-Warnings */,
 				1DBD214E08BA80EA00186707 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;

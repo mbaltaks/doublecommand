@@ -55,6 +55,7 @@
 -(IBAction)addNewEntryButtonClicked:(NSButton*)sender
 {
   [captureWindow setDelegate:self];
+  [captureWindow clearFields];
   [NSApp beginSheet:captureWindow
      modalForWindow:[[self mainView] window]
       modalDelegate:self

@@ -8,6 +8,8 @@
 
 #import <Cocoa/Cocoa.h>
 
+#import "NSTextCaptureField.h"
+
 @class KeyRemapEntry;
 
 enum
@@ -22,8 +24,9 @@ enum
 @end
 
 
-@interface KeyCaptureWindow : NSWindow
+@interface KeyCaptureWindow : NSWindow <NSTextCaptureFieldDelegate>
 {
+  NSTextField* currentFocus;
   NSString* defaultModifierMessage;
   
   unsigned int modifiers;
@@ -36,9 +39,11 @@ enum
   IBOutlet NSTextField* statusLabel;
   IBOutlet NSTextField* mapFrom;
   IBOutlet NSTextField* mapTo;
-  
+    
   IBOutlet NSWindow*     modifierPanel;
   IBOutlet NSTextField* modifierMessage;
+  
+  IBOutlet NSButton* acceptButton;
 }
 
 @property(readwrite,retain)NSTextField* statusLabel;
@@ -47,6 +52,8 @@ enum
 
 @property(readwrite,retain)NSWindow* modifierPanel;
 @property(readwrite,retain)NSTextField* modifierMessage;
+
+-(void)clearFields;
 
 -(IBAction)acceptButtonClicked:(NSButton*)sender;
 -(IBAction)cancelButtonClicked:(NSButton*)sender;

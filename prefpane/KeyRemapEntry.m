@@ -25,7 +25,7 @@ static NSString* remapToKey = @"remapTo";
 
 -(id)initWithRemapFrom:(KeyCombo*)RemapFrom remapTo:(KeyCombo*)RemapTo
 {
-  if(self = [super init])
+  if((self = [super init]))
   {
     [self setRemapFrom:RemapFrom];
     [self setRemapTo:RemapTo];
@@ -34,7 +34,7 @@ static NSString* remapToKey = @"remapTo";
 }
 -(id)initWithCoder:(NSCoder *)decoder
 {
-  if(self = [super init])
+  if((self = [super init]))
   {
     [self setRemapFrom:[decoder decodeObjectForKey:remapFromKey]];
     [self setRemapTo:[decoder decodeObjectForKey:remapToKey]];

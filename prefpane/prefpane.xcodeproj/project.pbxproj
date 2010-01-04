@@ -24,6 +24,8 @@
 		717E01BF10EC429500EC6FE5 /* PreferencePaneController.h in Headers */ = {isa = PBXBuildFile; fileRef = 717E01BD10EC429500EC6FE5 /* PreferencePaneController.h */; };
 		717E01C010EC429500EC6FE5 /* PreferencePaneController.m in Sources */ = {isa = PBXBuildFile; fileRef = 717E01BE10EC429500EC6FE5 /* PreferencePaneController.m */; };
 		717E01C210EC42AF00EC6FE5 /* DoubleCommand.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 717E01C110EC42AF00EC6FE5 /* DoubleCommand.tiff */; };
+		71FA37CC10F1535B0013F3EF /* KeyModifier.h in Headers */ = {isa = PBXBuildFile; fileRef = 71FA37CA10F1535B0013F3EF /* KeyModifier.h */; };
+		71FA37CD10F1535B0013F3EF /* KeyModifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 71FA37CB10F1535B0013F3EF /* KeyModifier.m */; };
 		8D202CEA0486D31800D8A456 /* prefpane_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 32DBCFA20370C41700C91783 /* prefpane_Prefix.pch */; };
 		8D202CEF0486D31800D8A456 /* PreferencePane.xib in Resources */ = {isa = PBXBuildFile; fileRef = F506C042013D9D8C01CA16C8 /* PreferencePane.xib */; };
 		8D202CF30486D31800D8A456 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */; };
@@ -52,8 +54,10 @@
 		717E01BD10EC429500EC6FE5 /* PreferencePaneController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PreferencePaneController.h; path = Classes/PreferencePaneController.h; sourceTree = "<group>"; };
 		717E01BE10EC429500EC6FE5 /* PreferencePaneController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PreferencePaneController.m; path = Classes/PreferencePaneController.m; sourceTree = "<group>"; };
 		717E01C110EC42AF00EC6FE5 /* DoubleCommand.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = DoubleCommand.tiff; path = Resources/Images/DoubleCommand.tiff; sourceTree = "<group>"; };
+		71FA37CA10F1535B0013F3EF /* KeyModifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyModifier.h; sourceTree = "<group>"; };
+		71FA37CB10F1535B0013F3EF /* KeyModifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeyModifier.m; sourceTree = "<group>"; };
 		8D202CF70486D31800D8A456 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		8D202CF80486D31800D8A456 /* DoubleCommand.prefPane */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DoubleCommand.prefPane; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D202CF80486D31800D8A456 /* DoubleCommandNew.prefPane */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DoubleCommandNew.prefPane; sourceTree = BUILT_PRODUCTS_DIR; };
 		F506C035013D953901CA16C8 /* PreferencePanes.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PreferencePanes.framework; path = /System/Library/Frameworks/PreferencePanes.framework; sourceTree = "<absolute>"; };
 		F506C043013D9D8C01CA16C8 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/PreferencePane.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -136,7 +140,7 @@
 		19C28FB8FE9D52D311CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8D202CF80486D31800D8A456 /* DoubleCommand.prefPane */,
+				8D202CF80486D31800D8A456 /* DoubleCommandNew.prefPane */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -152,8 +156,7 @@
 		7145D3C110ED14450014F66D /* Key Management */ = {
 			isa = PBXGroup;
 			children = (
-				7145D31F10ED06990014F66D /* KeyCombo.h */,
-				7145D32010ED06990014F66D /* KeyCombo.m */,
+				71FA37CE10F153630013F3EF /* KeyCombo */,
 				7145D32310ED06AF0014F66D /* KeyRemapEntry.h */,
 				7145D32410ED06AF0014F66D /* KeyRemapEntry.m */,
 				7145D3C210ED14660014F66D /* KeyCodeTransformer.h */,
@@ -208,6 +211,17 @@
 			name = Images;
 			sourceTree = "<group>";
 		};
+		71FA37CE10F153630013F3EF /* KeyCombo */ = {
+			isa = PBXGroup;
+			children = (
+				71FA37CA10F1535B0013F3EF /* KeyModifier.h */,
+				71FA37CB10F1535B0013F3EF /* KeyModifier.m */,
+				7145D31F10ED06990014F66D /* KeyCombo.h */,
+				7145D32010ED06990014F66D /* KeyCombo.m */,
+			);
+			name = KeyCombo;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -223,6 +237,7 @@
 				7145D40410ED1F380014F66D /* RemapListController.h in Headers */,
 				7145D59310ED42520014F66D /* KeyCaptureWindow.h in Headers */,
 				717D5A1810EE951F007F7004 /* NSTextCaptureField.h in Headers */,
+				71FA37CC10F1535B0013F3EF /* KeyModifier.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -246,7 +261,7 @@
 			name = prefpane;
 			productInstallPath = "$(HOME)/Library/PreferencePanes";
 			productName = prefpane;
-			productReference = 8D202CF80486D31800D8A456 /* DoubleCommand.prefPane */;
+			productReference = 8D202CF80486D31800D8A456 /* DoubleCommandNew.prefPane */;
 			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
@@ -301,6 +316,7 @@
 				7145D40510ED1F380014F66D /* RemapListController.m in Sources */,
 				7145D59410ED42520014F66D /* KeyCaptureWindow.m in Sources */,
 				717D5A1910EE951F007F7004 /* NSTextCaptureField.m in Sources */,
+				71FA37CD10F1535B0013F3EF /* KeyModifier.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -337,7 +353,8 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = prefpane_Prefix.pch;
 				INFOPLIST_FILE = Info.plist;
-				PRODUCT_NAME = DoubleCommand;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = DoubleCommandNew;
 				WRAPPER_EXTENSION = prefPane;
 				ZERO_LINK = YES;
 			};

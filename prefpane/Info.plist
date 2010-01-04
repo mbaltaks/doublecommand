@@ -5,15 +5,15 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>English</string>
 	<key>CFBundleExecutable</key>
-	<string>DoubleCommand</string>
+	<string>DoubleCommandNew</string>
 	<key>CFBundleIconFile</key>
 	<string>DoubleCommand.tiff</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.baltaks.DoubleCommand</string>
+	<string>com.baltaks.DoubleCommandNew</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>DoubleCommand</string>
+	<string>DoubleCommandNew</string>
 	<key>CFBundlePackageType</key>
 	<string>BNDL</string>
 	<key>CFBundleShortVersionString</key>
@@ -27,7 +27,7 @@
 	<key>NSPrefPaneIconFile</key>
 	<string>DoubleCommand.tiff</string>
 	<key>NSPrefPaneIconLabel</key>
-	<string>DoubleCommand</string>
+	<string>DoubleCommandNew</string>
 	<key>NSPrincipalClass</key>
 	<string>PreferencePaneController</string>
 </dict>

@@ -2,7 +2,6 @@
 
 
 @interface KeyCodeTransformer (Private)
-+(NSString*)stringRepresentationForModifiers:(unsigned int)modifiers;
 +(NSString*)stringRepresentationForGlyph:(unsigned int)glyph;
 +(NSString*)stringRepresentationForKeyCode:(unsigned int)keyCode;
 @end
@@ -36,14 +35,14 @@ static NSDictionary* keyCodeAssociations;
 {
   NSMutableString* constructor = [NSMutableString stringWithCapacity:5];
 	
-	if(modifiers & NSCommandKeyMask)
-    [constructor appendString:[self stringRepresentationForGlyph:KeyboardCommandGlyph]];
-  if(modifiers & NSAlternateKeyMask)
-    [constructor appendString:[self stringRepresentationForGlyph:KeyboardOptionGlyph]];
-	if(modifiers & NSControlKeyMask)
-    [constructor appendString:[self stringRepresentationForGlyph:KeyboardControlGlyph]];
 	if(modifiers & NSShiftKeyMask)
     [constructor appendString:[self stringRepresentationForGlyph:KeyboardShiftGlyph]];
+  if(modifiers & NSControlKeyMask)
+    [constructor appendString:[self stringRepresentationForGlyph:KeyboardControlGlyph]];
+	if(modifiers & NSAlternateKeyMask)
+    [constructor appendString:[self stringRepresentationForGlyph:KeyboardOptionGlyph]];
+	if(modifiers & NSCommandKeyMask)
+    [constructor appendString:[self stringRepresentationForGlyph:KeyboardCommandGlyph]];
 	
 	return [NSString stringWithString:constructor];
 }
@@ -54,7 +53,30 @@ static NSDictionary* keyCodeAssociations;
 
 +(NSString*)stringRepresentationForKeyCode:(unsigned int)keyCode
 {
-  return [keyCodeAssociations objectForKey:[NSString stringWithFormat:@"%i",keyCode]];
+  NSString* retval = [keyCodeAssociations objectForKey:[NSString stringWithFormat:@"%i",keyCode]];
+  
+  if(retval == nil) retval = @"";
+    
+  return retval;
+}
+
++(ModifierKeyLocation)locationForKeyCode:(unsigned int)keyCode
+{
+  switch(keyCode)
+  {
+    case ShiftKeyCode:
+    case ControlKeyCode:
+    case OptionKeyCode:
+    case CommandKeyCode:
+      return ModifierKeyLocationLeftSide;
+    case ShiftKeyCodeRight:
+    case ControlKeyCodeRight:
+    case OptionKeyCodeRight:
+    case CommandKeyCodeRight:
+      return ModifierKeyLocationRightSide;
+    default:
+      return ModifierKeyLocationLeftSide;
+  }
 }
 
 

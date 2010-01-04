@@ -8,21 +8,24 @@
 
 #import "KeyCombo.h"
 
+#import "KeyModifier.h"
 
 static NSString* modifierFlagsKey = @"modifierFlags";
 static NSString* keyCodeKey = @"keyCode";
 
 @implementation KeyCombo
 
+@synthesize modifierKeys;
 @synthesize modifierFlags;
 @synthesize keyCode;
 
--(id)initWithModifierFlags:(unsigned int)ModifierFlags keyCode:(unsigned int)KeyCode
+-(id)initWithModifierKeys:(NSArray*)ModifierKeys modifierFlags:(unsigned int)ModifierFlags keyCode:(unsigned int)KeyCode
 {
   if((self = [super init]))
   {
+    [self setModifierKeys:ModifierKeys];
     [self setModifierFlags:ModifierFlags];
-    [self setKeyCode:KeyCode];
+    [self setKeyCode:KeyCode];    
   }
   return self;
 }
@@ -45,8 +48,25 @@ static NSString* keyCodeKey = @"keyCode";
 
 -(BOOL)isEqualToCombo:(KeyCombo*)combo
 {
-  return (([self modifierFlags] == [combo modifierFlags]) &&
-          ([self keyCode] == [combo keyCode]));
+  //If the flags and the keycode are the same, check the location of the mod keys.
+  if(([self modifierFlags] == [combo modifierFlags]) &&
+     ([self keyCode] == [combo keyCode]))
+  {
+    for(KeyModifier* keyModifierLeft in modifierKeys)
+    {
+      for(KeyModifier* keyModifierRight in [combo modifierKeys])
+      {
+        if(![keyModifierLeft isEqualToKeyModifier:keyModifierRight])
+          return NO;
+      }
+    }
+  }
+  else
+  {
+    return NO;
+  }
+
+  return YES;
 }
 
 @end

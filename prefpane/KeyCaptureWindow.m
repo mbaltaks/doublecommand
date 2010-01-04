@@ -15,8 +15,10 @@
 #import "KeyCodeTransformer.h"
 
 @interface KeyCaptureWindow (Private)
--(void)scanForModifiers;
--(void)displayModifierButtonSelectionPanel:(NSString*)currentModifier;
+-(int)countFlags:(unsigned int)currentFlags;
+-(void)addModifierKeyWithKeyCode:(unsigned int)keyCode toArray:(NSMutableArray*)array;
+-(void)removeModifierKeyWithKeyCode:(unsigned int)keyCode fromArray:(NSMutableArray*)array;
+-(void)assignNewComboWithModifiers:(unsigned int)modifiers keyCode:(int)keyCode;
 -(void)shakeWindow;
 -(CAKeyframeAnimation*)shakeAnimation:(NSRect)frame;
 -(void)displayDefaultMessage;
@@ -32,12 +34,12 @@
 @synthesize statusLabel;
 @synthesize mapFrom;
 @synthesize mapTo;
-@synthesize modifierMessage;
-@synthesize modifierPanel;
 
 -(void)awakeFromNib
 {
   newRemapEntry = [[KeyRemapEntry alloc] init];
+  remapFromModifierKeys = [[NSMutableArray alloc] init];
+  remapToModifierKeys = [[NSMutableArray alloc] init];
   [self displayDefaultMessage];
   [acceptButton setEnabled:NO];
 }
@@ -66,48 +68,114 @@
   currentFocus = textField;
 }
 
+-(void)flagsChanged:(NSEvent *)event
+{
+  unsigned int newFlagCount = [self countFlags:[event modifierFlags]];
+  
+  if(previousFlagCount > newFlagCount)
+  {
+    if(previousFlagCount == 1)
+    {
+      [self assignNewComboWithModifiers:previousModifierFlags keyCode:[event keyCode]];
+      previousFlagCount = 0;
+    }
+    else
+    {
+      if(currentFocus == mapFrom)
+        [self removeModifierKeyWithKeyCode:[event keyCode] fromArray:remapFromModifierKeys];
+      else
+        [self removeModifierKeyWithKeyCode:[event keyCode] fromArray:remapFromModifierKeys];
+    }
+  }
+  else
+  {
+    if(currentFocus == mapFrom)
+      [self addModifierKeyWithKeyCode:[event keyCode] toArray:remapToModifierKeys];
+    else
+      [self addModifierKeyWithKeyCode:[event keyCode] toArray:remapToModifierKeys];
+  }
+  
+  [currentFocus setStringValue:[KeyCodeTransformer stringRepresentationForModifiers:[event modifierFlags]]];
+  
+  previousFlagCount = newFlagCount;
+  previousModifierFlags = [event modifierFlags];
+}
+-(int)countFlags:(unsigned int)currentFlags
+{
+  int retval = 0;
+  if(currentFlags & NSShiftKeyMask) retval++;
+  if(currentFlags & NSControlKeyMask) retval++;
+  if(currentFlags & NSAlternateKeyMask) retval++;
+  if(currentFlags & NSCommandKeyMask) retval++;
+  return retval;
+}
+-(void)addModifierKeyWithKeyCode:(unsigned int)keyCode toArray:(NSMutableArray*)array
+{
+  KeyModifier* newModifier = [[[KeyModifier alloc] initWithModifierKey:keyCode 
+                                                           keyLocation:[KeyCodeTransformer locationForKeyCode:keyCode]] autorelease];
+  [array addObject:newModifier];
+  
+}
+-(void)removeModifierKeyWithKeyCode:(unsigned int)keyCode fromArray:(NSMutableArray*)array
+{
+  for(KeyModifier* modifier in array)
+  {
+    if([modifier modifierKey] == keyCode)
+      [array removeObject:modifier];
+    break;
+  }
+}
+
 -(void)keyDown:(NSEvent*)event
 {
-  KeyCombo* newCombo = [[[KeyCombo alloc] initWithModifierFlags:[event modifierFlags] keyCode:[event keyCode]] autorelease];
-  NSString* comboStringRepresentation = [KeyCodeTransformer stringRepresentationForKeyCombo:newCombo];
+  [self assignNewComboWithModifiers:[event modifierFlags] keyCode:[event keyCode]];
+}
+-(void)assignNewComboWithModifiers:(unsigned int)modifierFlags keyCode:(int)keyCode
+{
+  KeyCombo* newCombo = nil; 
+  NSString* comboStringRepresentation = nil;
   
-  BOOL success = YES;
+  BOOL success = NO;
   
   if(currentFocus == mapFrom)
   {
+    newCombo = [[[KeyCombo alloc] initWithModifierKeys:remapFromModifierKeys
+                                         modifierFlags:modifierFlags
+                                               keyCode:keyCode] autorelease];
+    
     if(![[newRemapEntry remapTo] isEqualToCombo:newCombo])
     {
       [newRemapEntry setRemapFrom:newCombo];
       fromRemapSet = YES;
+      success = YES;
     }
-    else
-    {
-      [self displaySameShortcutMessage];
-      [self shakeWindow];
-      comboStringRepresentation = @"";
-      success = NO;
-    }
-
   }
   else
   {
+    newCombo = [[[KeyCombo alloc] initWithModifierKeys:remapToModifierKeys
+                                         modifierFlags:modifierFlags
+                                               keyCode:keyCode] autorelease];
+    
     if(![[newRemapEntry remapFrom] isEqualToCombo:newCombo])
     {
       [newRemapEntry setRemapTo:newCombo];
       toRemapSet = YES;
+      success = YES;
     }
-    else
-    {
-      [self displaySameShortcutMessage];
-      [self shakeWindow];
-      comboStringRepresentation = @"";
-      success = NO;
-    }
-
   }
-
+  
+  comboStringRepresentation = [KeyCodeTransformer stringRepresentationForKeyCombo:newCombo];
+  if(!success)
+  {
+    [self displaySameShortcutMessage];
+    [self shakeWindow];
+    comboStringRepresentation = @"";
+    success = NO;    
+  }
   [currentFocus setStringValue:comboStringRepresentation];
   currentFocus = nil;
+  previousFlagCount = 0;
+  previousModifierFlags = 0;
   
   if(success)
   {
@@ -116,54 +184,6 @@
       [acceptButton setEnabled:YES];
   }
 }
-
--(void)scanForModifiers
-{
-  NSString* currentModifier = nil;
-  
-  if(modifiers & NSCommandKeyMask)
-  {
-    currentModifier = @"Command";
-    modifiers ^= NSCommandKeyMask;
-  }
-  else if(modifiers & NSAlternateKeyMask)
-  {
-    currentModifier = @"Option";
-    modifiers ^= NSAlternateKeyMask;
-  }
-	else if(modifiers & NSControlKeyMask)
-  {
-    currentModifier = @"Control";
-    modifiers ^= NSControlKeyMask;
-  }
-	else if(modifiers & NSShiftKeyMask)
-  {
-    currentModifier = @"Shift";
-    modifiers ^= NSShiftKeyMask;
-  }
-  
-  [self displayModifierButtonSelectionPanel:currentModifier];
-  
-}
--(void)displayModifierButtonSelectionPanel:(NSString*)currentModifier
-{
-  [NSApp beginSheet:modifierPanel
-     modalForWindow:self
-      modalDelegate:self
-     didEndSelector:@selector(modifierPanelDidEnd:returnCode:contextInfo:) 
-        contextInfo:nil];
-}
--(void)modifierPanelDidEnd:(NSPanel*)sheet returnCode:(int)returnCode contextInfo:(void*)contextInfo
-{
-  if(returnCode==DCLeftButton)
-    NSLog(@"Left");
-  else
-  {
-    NSLog(@"right");
-  }
-  [modifierPanel orderOut:self];
-}
-
 
 -(IBAction)acceptButtonClicked:(NSButton*)sender
 {
@@ -181,7 +201,6 @@
       [self shakeWindow];
       [self displayRemapExists];
     }
-
   }
 }
 -(IBAction)cancelButtonClicked:(NSButton*)sender
@@ -189,14 +208,6 @@
   [NSApp endSheet:self returnCode:NSCancelButton];
 }
 
--(IBAction)leftButtonClicked:(NSButton*)sender
-{
-  [NSApp endSheet:modifierPanel returnCode:DCLeftButton];
-}
--(IBAction)rightButtonClicked:(NSButton*)sender
-{
-  [NSApp endSheet:modifierPanel returnCode:DCRightButton];
-}
 -(void)shakeWindow
 {
   NSWindow* window = self;

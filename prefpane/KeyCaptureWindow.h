@@ -30,34 +30,30 @@ enum
   NSString* defaultModifierMessage;
   
   unsigned int modifiers;
+  unsigned int previousFlagCount;
+  unsigned int previousModifierFlags;
   
   BOOL fromRemapSet;
   BOOL toRemapSet;
   
   KeyRemapEntry* newRemapEntry;
+  NSMutableArray* remapFromModifierKeys;
+  NSMutableArray* remapToModifierKeys;
   
   IBOutlet NSTextField* statusLabel;
   IBOutlet NSTextField* mapFrom;
   IBOutlet NSTextField* mapTo;
     
-  IBOutlet NSWindow*     modifierPanel;
-  IBOutlet NSTextField* modifierMessage;
-  
   IBOutlet NSButton* acceptButton;
 }
 
-@property(readwrite,retain)NSTextField* statusLabel;
-@property(readwrite,retain)NSTextField* mapFrom;
-@property(readwrite,retain)NSTextField* mapTo;
-
-@property(readwrite,retain)NSWindow* modifierPanel;
-@property(readwrite,retain)NSTextField* modifierMessage;
+@property(readwrite,retain) NSTextField* statusLabel;
+@property(readwrite,retain) NSTextField* mapFrom;
+@property(readwrite,retain) NSTextField* mapTo;
 
 -(void)clearFields;
 
 -(IBAction)acceptButtonClicked:(NSButton*)sender;
 -(IBAction)cancelButtonClicked:(NSButton*)sender;
--(IBAction)leftButtonClicked:(NSButton*)sender;
--(IBAction)rightButtonClicked:(NSButton*)sender;
 
 @end

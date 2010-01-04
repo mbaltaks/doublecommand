@@ -19,10 +19,11 @@
   IBOutlet NSTableView* remapList;
 }
 
-@property(readwrite,retain)NSTableView* remapList;
+@property(readwrite,retain) NSTableView* remapList;
 
 -(void)addNewEntry:(KeyRemapEntry*)newEntry;
 -(int)selectedEntryIndex;
--(void)deleteEntryAtIndex:(int)index;
+-(void)removeEntryAtIndex:(int)index;
+-(void)removeAllEntries;
 
 @end

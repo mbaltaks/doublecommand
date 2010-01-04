@@ -39,11 +39,17 @@
 {
   return [remapList selectedRow];
 }
--(void)deleteEntryAtIndex:(int)index
+-(void)removeEntryAtIndex:(int)index
 {
   [remapItems removeObjectAtIndex:index];
+  [remapList deselectRow:index];
+  [remapList reloadData];
 }
-
+-(void)removeAllEntries
+{
+  [remapItems removeAllObjects];
+  [remapList reloadData];
+}
 
 #pragma mark Datasource Methods
 -(int)numberOfRowsInTableView:(NSTableView *)tableView
@@ -55,8 +61,13 @@
       objectValueForTableColumn:(NSTableColumn *)tableColumn
                             row:(int)rowIndex
 {
-  NSDictionary* entry = [remapItems objectAtIndex:rowIndex];
-  return [entry objectForKey:[tableColumn identifier]];
+  NSDictionary* entry = nil;
+  if(rowIndex!=1)
+    entry = [remapItems objectAtIndex:rowIndex];
+  if(entry)
+    return [entry objectForKey:[tableColumn identifier]];
+
+  return nil;
 }
 
 @end

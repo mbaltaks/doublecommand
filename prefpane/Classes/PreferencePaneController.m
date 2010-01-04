@@ -4,15 +4,29 @@
 #import "KeyCombo.h"
 #import "KeyRemapEntry.h"
 
+@interface PreferencePaneController (Private)
+-(void)updateDeleterStatus;
+-(BOOL)deletersShouldBeEnabled;
+-(void)setDeletersEnabled:(BOOL)enabled;
+
+@end
+
+
 @implementation PreferencePaneController
 
 @synthesize listController;
 @synthesize captureWindow;
-
+@synthesize statusLabel;
+@synthesize activateButton;
+@synthesize deactivateButton;
+@synthesize deleteButton;
+@synthesize clearButton;
 
 -(void)didSelect
 {
+  //load from file here
   remapList = [[NSMutableArray array] retain];
+  [self updateDeleterStatus];
 }
 
 
@@ -24,9 +38,7 @@
   for(KeyRemapEntry* entry in remapList)
   {
     KeyCombo* from = [entry remapFrom];
-  
-    if(([from modifierFlags] == [newFrom modifierFlags]) &&
-       ([from keyCode] == [newFrom keyCode])) return NO;
+    if([from isEqualToCombo:newFrom]) return NO;
   }
 
   return YES;
@@ -35,15 +47,23 @@
 {
   [remapList addObject:newEntry];
   [listController addNewEntry:newEntry];
+  [self updateDeleterStatus];
 }
 
 
 #pragma mark Button Methods
 -(IBAction)activateDoubleCommandButtonClicked:(NSButton*)sender
 {
+  //do logic here to see if DC is running
+  [statusLabel setStringValue:@"DoubleCommand is active."];
+  [activateButton setEnabled:NO];
+  [deactivateButton setEnabled:YES];
 }
 -(IBAction)deactivateDoubleCommandButtonClicked:(NSButton*)sender
 {
+  [statusLabel setStringValue:@"DoubleCommand is not active."];
+  [deactivateButton setEnabled:NO];
+  [activateButton setEnabled:YES];
 }
 -(IBAction)persistForUserButtonClicked:(NSButton*)sender
 {
@@ -68,15 +88,46 @@
 }
 -(IBAction)deleteEntryButtonClicked:(NSButton*)sender
 {
+  int index = [listController selectedEntryIndex];
+  if(index != -1)
+  {
+    [remapList removeObjectAtIndex:index];
+    [listController removeEntryAtIndex:index];
+  }
+  else
+  {
+    NSBeep();
+  }
+  
+  [self updateDeleterStatus];
 }
 -(IBAction)clearRemapListButtonClicked:(NSButton*)sender
 {
+  [remapList removeAllObjects];
+  [listController removeAllEntries];
+  [self updateDeleterStatus];
 }
 -(IBAction)saveRemapListItemClicked:(NSMenuItem*)sender
 {
 }
 -(IBAction)loadRemapListItemClicked:(NSMenuItem*)sender
 {
+}
+
+-(void)updateDeleterStatus
+{
+  [self setDeletersEnabled:[self deletersShouldBeEnabled]];
+}
+-(BOOL)deletersShouldBeEnabled
+{
+  if([remapList count] > 0) return YES;
+  
+  return NO;
+}
+-(void)setDeletersEnabled:(BOOL)enabled
+{
+  [deleteButton setEnabled:enabled];
+  [clearButton setEnabled:enabled];
 }
 
 /*

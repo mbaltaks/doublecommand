@@ -4,10 +4,12 @@
 
 
 @class RemapListController;
+@class PersistenceController;
 
 @interface PreferencePaneController : NSPreferencePane <KeyCapturePanelDelegate>
 {
   NSMutableArray* remapList;
+  PersistenceController* persistenceController;
   
   IBOutlet RemapListController* listController;
   IBOutlet KeyCaptureWindow* captureWindow;
@@ -25,7 +27,6 @@
 @property(readwrite,retain) NSButton* deactivateButton;
 @property(readwrite,retain) NSButton* deleteButton;
 @property(readwrite,retain) NSButton* clearButton;
-
 
 -(IBAction)activateDoubleCommandButtonClicked:(NSButton*)sender;
 -(IBAction)deactivateDoubleCommandButtonClicked:(NSButton*)sender;

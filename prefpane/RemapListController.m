@@ -24,6 +24,13 @@
   return self;
 }
 
+-(void)replaceAllEntriesWithArray:(NSArray*)newEntries
+{
+  for(KeyRemapEntry* newEntry in newEntries)
+  {
+    [self addNewEntry:newEntry];
+  }
+}
 -(void)addNewEntry:(KeyRemapEntry*)newEntry
 {
   NSString* remapFrom = [KeyCodeTransformer stringRepresentationForKeyCombo:[newEntry remapFrom]];
@@ -62,7 +69,7 @@
                             row:(int)rowIndex
 {
   NSDictionary* entry = nil;
-  if(rowIndex!=1)
+  if(rowIndex != -1)
     entry = [remapItems objectAtIndex:rowIndex];
   if(entry)
     return [entry objectForKey:[tableColumn identifier]];

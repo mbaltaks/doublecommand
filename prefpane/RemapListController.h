@@ -21,6 +21,7 @@
 
 @property(readwrite,retain) NSTableView* remapList;
 
+-(void)replaceAllEntriesWithArray:(NSArray*)newEntries;
 -(void)addNewEntry:(KeyRemapEntry*)newEntry;
 -(int)selectedEntryIndex;
 -(void)removeEntryAtIndex:(int)index;

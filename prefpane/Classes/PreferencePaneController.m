@@ -1,6 +1,7 @@
 #import "PreferencePaneController.h"
 
 #import "RemapListController.h"
+#import "PersistenceController.h"
 #import "KeyCombo.h"
 #import "KeyRemapEntry.h"
 
@@ -8,9 +9,11 @@
 -(void)updateDeleterStatus;
 -(BOOL)deletersShouldBeEnabled;
 -(void)setDeletersEnabled:(BOOL)enabled;
-
+-(NSData*)getSerializedList;
+-(NSArray*)getUnserializedList;
 @end
 
+static NSString* remapListKey = @"remapList";
 
 @implementation PreferencePaneController
 
@@ -22,13 +25,36 @@
 @synthesize deleteButton;
 @synthesize clearButton;
 
--(void)didSelect
+-(void)mainViewDidLoad
 {
-  //load from file here
-  remapList = [[NSMutableArray array] retain];
-  [self updateDeleterStatus];
+  persistenceController = [[PersistenceController alloc] init];
+  
+  remapList = [[self getUnserializedList] mutableCopy];
+  if(remapList == nil)
+    remapList = [[NSMutableArray array] retain];
+  [listController replaceAllEntriesWithArray:remapList];
 }
 
+-(void)didSelect
+{  
+  [self updateDeleterStatus];
+}
+-(NSArray*)getUnserializedList
+{
+  NSData* serializedList = [persistenceController getObjectForKey:remapListKey];
+  return [NSKeyedUnarchiver unarchiveObjectWithData:serializedList];  
+}
+
+-(void)didUnselect
+{
+  NSData* serializedList = [self getSerializedList];
+  [persistenceController setObject:serializedList forKey:remapListKey];
+  [persistenceController persistPreferencePaneSettings];
+}
+-(NSData*)getSerializedList
+{
+  return [NSKeyedArchiver archivedDataWithRootObject:remapList];
+}
 
 #pragma mark Delegate Methods
 -(BOOL)capturePanelCanAddNewEntry:(KeyRemapEntry*)newEntry

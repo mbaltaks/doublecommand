@@ -24,6 +24,8 @@
 		717E01BF10EC429500EC6FE5 /* PreferencePaneController.h in Headers */ = {isa = PBXBuildFile; fileRef = 717E01BD10EC429500EC6FE5 /* PreferencePaneController.h */; };
 		717E01C010EC429500EC6FE5 /* PreferencePaneController.m in Sources */ = {isa = PBXBuildFile; fileRef = 717E01BE10EC429500EC6FE5 /* PreferencePaneController.m */; };
 		717E01C210EC42AF00EC6FE5 /* DoubleCommand.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 717E01C110EC42AF00EC6FE5 /* DoubleCommand.tiff */; };
+		718DC40710F2D93600BF4FD0 /* PersistenceController.h in Headers */ = {isa = PBXBuildFile; fileRef = 718DC40510F2D93600BF4FD0 /* PersistenceController.h */; };
+		718DC40810F2D93600BF4FD0 /* PersistenceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 718DC40610F2D93600BF4FD0 /* PersistenceController.m */; };
 		71FA37CC10F1535B0013F3EF /* KeyModifier.h in Headers */ = {isa = PBXBuildFile; fileRef = 71FA37CA10F1535B0013F3EF /* KeyModifier.h */; };
 		71FA37CD10F1535B0013F3EF /* KeyModifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 71FA37CB10F1535B0013F3EF /* KeyModifier.m */; };
 		8D202CEA0486D31800D8A456 /* prefpane_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 32DBCFA20370C41700C91783 /* prefpane_Prefix.pch */; };
@@ -54,6 +56,8 @@
 		717E01BD10EC429500EC6FE5 /* PreferencePaneController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PreferencePaneController.h; path = Classes/PreferencePaneController.h; sourceTree = "<group>"; };
 		717E01BE10EC429500EC6FE5 /* PreferencePaneController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PreferencePaneController.m; path = Classes/PreferencePaneController.m; sourceTree = "<group>"; };
 		717E01C110EC42AF00EC6FE5 /* DoubleCommand.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = DoubleCommand.tiff; path = Resources/Images/DoubleCommand.tiff; sourceTree = "<group>"; };
+		718DC40510F2D93600BF4FD0 /* PersistenceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersistenceController.h; sourceTree = "<group>"; };
+		718DC40610F2D93600BF4FD0 /* PersistenceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersistenceController.m; sourceTree = "<group>"; };
 		71FA37CA10F1535B0013F3EF /* KeyModifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyModifier.h; sourceTree = "<group>"; };
 		71FA37CB10F1535B0013F3EF /* KeyModifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeyModifier.m; sourceTree = "<group>"; };
 		8D202CF70486D31800D8A456 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -114,6 +118,7 @@
 				717D5A0D10EE93F6007F7004 /* Extensions */,
 				7145D3F810ED1C010014F66D /* Preference Pane Management */,
 				7145D3C110ED14450014F66D /* Key Management */,
+				718DC40410F2D8FA00BF4FD0 /* Persistence Management */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -168,7 +173,6 @@
 		7145D3F810ED1C010014F66D /* Preference Pane Management */ = {
 			isa = PBXGroup;
 			children = (
-				7145D59010ED423F0014F66D /* Panels */,
 				7145D3F910ED1C200014F66D /* Key Capture Management */,
 				717E01BD10EC429500EC6FE5 /* PreferencePaneController.h */,
 				717E01BE10EC429500EC6FE5 /* PreferencePaneController.m */,
@@ -181,17 +185,10 @@
 		7145D3F910ED1C200014F66D /* Key Capture Management */ = {
 			isa = PBXGroup;
 			children = (
-			);
-			name = "Key Capture Management";
-			sourceTree = "<group>";
-		};
-		7145D59010ED423F0014F66D /* Panels */ = {
-			isa = PBXGroup;
-			children = (
 				7145D59110ED42520014F66D /* KeyCaptureWindow.h */,
 				7145D59210ED42520014F66D /* KeyCaptureWindow.m */,
 			);
-			name = Panels;
+			name = "Key Capture Management";
 			sourceTree = "<group>";
 		};
 		717D5A0D10EE93F6007F7004 /* Extensions */ = {
@@ -209,6 +206,15 @@
 				717E01C110EC42AF00EC6FE5 /* DoubleCommand.tiff */,
 			);
 			name = Images;
+			sourceTree = "<group>";
+		};
+		718DC40410F2D8FA00BF4FD0 /* Persistence Management */ = {
+			isa = PBXGroup;
+			children = (
+				718DC40510F2D93600BF4FD0 /* PersistenceController.h */,
+				718DC40610F2D93600BF4FD0 /* PersistenceController.m */,
+			);
+			name = "Persistence Management";
 			sourceTree = "<group>";
 		};
 		71FA37CE10F153630013F3EF /* KeyCombo */ = {
@@ -238,6 +244,7 @@
 				7145D59310ED42520014F66D /* KeyCaptureWindow.h in Headers */,
 				717D5A1810EE951F007F7004 /* NSTextCaptureField.h in Headers */,
 				71FA37CC10F1535B0013F3EF /* KeyModifier.h in Headers */,
+				718DC40710F2D93600BF4FD0 /* PersistenceController.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -317,6 +324,7 @@
 				7145D59410ED42520014F66D /* KeyCaptureWindow.m in Sources */,
 				717D5A1910EE951F007F7004 /* NSTextCaptureField.m in Sources */,
 				71FA37CD10F1535B0013F3EF /* KeyModifier.m in Sources */,
+				718DC40810F2D93600BF4FD0 /* PersistenceController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

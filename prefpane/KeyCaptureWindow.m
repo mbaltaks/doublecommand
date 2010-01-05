@@ -15,6 +15,7 @@
 #import "KeyCodeTransformer.h"
 
 @interface KeyCaptureWindow (Private)
+-(BOOL)isValidModifier:(unsigned int)modifier;
 -(int)countFlags:(unsigned int)currentFlags;
 -(void)addModifierKeyWithKeyCode:(unsigned int)keyCode toArray:(NSMutableArray*)array;
 -(void)removeModifierKeyWithKeyCode:(unsigned int)keyCode fromArray:(NSMutableArray*)array;
@@ -70,27 +71,30 @@
 
 -(void)flagsChanged:(NSEvent *)event
 {
+  if(![self isValidModifier:[event modifierFlags]]) return;
+  NSLog(@"was valid");
   unsigned int newFlagCount = [self countFlags:[event modifierFlags]];
   
   if(previousFlagCount > newFlagCount)
   {
     if(previousFlagCount == 1)
     {
-      [self assignNewComboWithModifiers:previousModifierFlags keyCode:[event keyCode]];
+     [self assignNewComboWithModifiers:previousModifierFlags keyCode:[event keyCode]];
       previousFlagCount = 0;
+      previousModifierFlags = 0;
     }
     else
     {
       if(currentFocus == mapFrom)
         [self removeModifierKeyWithKeyCode:[event keyCode] fromArray:remapFromModifierKeys];
       else
-        [self removeModifierKeyWithKeyCode:[event keyCode] fromArray:remapFromModifierKeys];
+        [self removeModifierKeyWithKeyCode:[event keyCode] fromArray:remapToModifierKeys];
     }
   }
   else
   {
     if(currentFocus == mapFrom)
-      [self addModifierKeyWithKeyCode:[event keyCode] toArray:remapToModifierKeys];
+      [self addModifierKeyWithKeyCode:[event keyCode] toArray:remapFromModifierKeys];
     else
       [self addModifierKeyWithKeyCode:[event keyCode] toArray:remapToModifierKeys];
   }
@@ -99,6 +103,16 @@
   
   previousFlagCount = newFlagCount;
   previousModifierFlags = [event modifierFlags];
+}
+-(BOOL)isValidModifier:(unsigned int)modifier
+{
+  NSLog(@"valid: %d\n",modifier);
+  return ((!(modifier & NSFunctionKeyMask)) &&
+          ((modifier & NSShiftKeyMask) ||
+          (modifier & NSControlKeyMask) ||
+          (modifier & NSAlternateKeyMask) ||
+          (modifier & NSCommandKeyMask) ||
+          (modifier & (1<<8))));
 }
 -(int)countFlags:(unsigned int)currentFlags
 {
@@ -137,11 +151,15 @@
   
   BOOL success = NO;
   
+  if(currentFocus == nil) return;
+  
   if(currentFocus == mapFrom)
   {
     newCombo = [[[KeyCombo alloc] initWithModifierKeys:remapFromModifierKeys
                                          modifierFlags:modifierFlags
                                                keyCode:keyCode] autorelease];
+    [remapFromModifierKeys release];
+    remapFromModifierKeys = [[NSMutableArray alloc] init];
     
     if(![[newRemapEntry remapTo] isEqualToCombo:newCombo])
     {
@@ -155,6 +173,8 @@
     newCombo = [[[KeyCombo alloc] initWithModifierKeys:remapToModifierKeys
                                          modifierFlags:modifierFlags
                                                keyCode:keyCode] autorelease];
+    [remapToModifierKeys release];
+    remapToModifierKeys = [[NSMutableArray alloc] init];
     
     if(![[newRemapEntry remapFrom] isEqualToCombo:newCombo])
     {
@@ -175,7 +195,7 @@
   [currentFocus setStringValue:comboStringRepresentation];
   currentFocus = nil;
   previousFlagCount = 0;
-  previousModifierFlags = 0;
+  previousModifierFlags = 0; 
   
   if(success)
   {

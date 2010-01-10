@@ -1,6 +1,7 @@
 #import "PreferencePaneController.h"
 
 #import "RemapListController.h"
+#import "ProfileController.h"
 #import "PersistenceController.h"
 #import "KeyCombo.h"
 #import "KeyRemapEntry.h"
@@ -9,11 +10,7 @@
 -(void)updateDeleterStatus;
 -(BOOL)deletersShouldBeEnabled;
 -(void)setDeletersEnabled:(BOOL)enabled;
--(NSData*)getSerializedList;
--(NSArray*)getUnserializedList;
 @end
-
-static NSString* remapListKey = @"remapList";
 
 @implementation PreferencePaneController
 
@@ -27,53 +24,27 @@ static NSString* remapListKey = @"remapList";
 
 -(void)mainViewDidLoad
 {
-  persistenceController = [[PersistenceController alloc] init];
-  
-  remapList = [[self getUnserializedList] mutableCopy];
-  if(remapList == nil)
-    remapList = [[NSMutableArray array] retain];
-  [listController replaceAllEntriesWithArray:remapList];
+  profileController = [[ProfileController alloc] init];
+  [listController replaceAllEntriesWithArray:[profileController remapList]];
 }
 
 -(void)didSelect
 {  
   [self updateDeleterStatus];
 }
--(NSArray*)getUnserializedList
-{
-  NSData* serializedList = [persistenceController getObjectForKey:remapListKey];
-  return [NSKeyedUnarchiver unarchiveObjectWithData:serializedList];  
-}
-
--(void)didUnselect
-{
-  NSData* serializedList = [self getSerializedList];
-  [persistenceController setObject:serializedList forKey:remapListKey];
-  [persistenceController persistPreferencePaneSettings];
-}
--(NSData*)getSerializedList
-{
-  return [NSKeyedArchiver archivedDataWithRootObject:remapList];
-}
 
 #pragma mark Delegate Methods
 -(BOOL)capturePanelCanAddNewEntry:(KeyRemapEntry*)newEntry
 {
-  KeyCombo* newFrom = [newEntry remapFrom];
-    
-  for(KeyRemapEntry* entry in remapList)
-  {
-    KeyCombo* from = [entry remapFrom];
-    if([from isEqualToCombo:newFrom]) return NO;
-  }
-
-  return YES;
+  return ![profileController doesComboExist:[newEntry remapFrom]];
 }
 -(void)capturePanelAddNewEntry:(KeyRemapEntry*)newEntry
 {
-  [remapList addObject:newEntry];
+  [profileController addNewEntry:newEntry];
   [listController addNewEntry:newEntry];
   [self updateDeleterStatus];
+
+  //send new remap to kext
 }
 
 
@@ -81,21 +52,22 @@ static NSString* remapListKey = @"remapList";
 -(IBAction)activateDoubleCommandButtonClicked:(NSButton*)sender
 {
   //do logic here to see if DC is running
+  //if DC not running, execute kextload
+  //send activate message
+  //send current remap profile
+  
   [statusLabel setStringValue:@"DoubleCommand is active."];
   [activateButton setEnabled:NO];
   [deactivateButton setEnabled:YES];
 }
 -(IBAction)deactivateDoubleCommandButtonClicked:(NSButton*)sender
 {
+  //check if DC running
+  //if running, send deactivate message
+  
   [statusLabel setStringValue:@"DoubleCommand is not active."];
   [deactivateButton setEnabled:NO];
   [activateButton setEnabled:YES];
-}
--(IBAction)persistForUserButtonClicked:(NSButton*)sender
-{
-}
--(IBAction)persistForSystemButtonClicked:(NSButton*)sender
-{
 }
 
 -(IBAction)addNewEntryButtonClicked:(NSButton*)sender
@@ -117,7 +89,7 @@ static NSString* remapListKey = @"remapList";
   int index = [listController selectedEntryIndex];
   if(index != -1)
   {
-    [remapList removeObjectAtIndex:index];
+    [profileController removeEntryAtIndex:index];
     [listController removeEntryAtIndex:index];
   }
   else
@@ -129,14 +101,14 @@ static NSString* remapListKey = @"remapList";
 }
 -(IBAction)clearRemapListButtonClicked:(NSButton*)sender
 {
-  [remapList removeAllObjects];
+  [profileController removeAllEntries];
   [listController removeAllEntries];
   [self updateDeleterStatus];
 }
--(IBAction)saveRemapListItemClicked:(NSMenuItem*)sender
+-(IBAction)saveProfileClicked:(NSMenuItem*)sender
 {
 }
--(IBAction)loadRemapListItemClicked:(NSMenuItem*)sender
+-(IBAction)loadProfileClicked:(NSMenuItem*)sender
 {
 }
 
@@ -144,22 +116,16 @@ static NSString* remapListKey = @"remapList";
 {
   [self setDeletersEnabled:[self deletersShouldBeEnabled]];
 }
--(BOOL)deletersShouldBeEnabled
-{
-  if([remapList count] > 0) return YES;
-  
-  return NO;
-}
 -(void)setDeletersEnabled:(BOOL)enabled
 {
   [deleteButton setEnabled:enabled];
   [clearButton setEnabled:enabled];
 }
-
-/*
- KeyCombo* from = [[[KeyCombo alloc] initWithModifierFlags:NSCommandKeyMask keyCode:1] autorelease];
- KeyCombo* to = [[[KeyCombo alloc] initWithModifierFlags:NSControlKeyMask keyCode:2] autorelease];
- KeyRemapEntry* newEntry = [[[KeyRemapEntry alloc] initWithRemapFrom:from remapTo:to] autorelease];
- [listController addNewEntry:newEntry];*/
+-(BOOL)deletersShouldBeEnabled
+{
+  if([profileController count] > 0) return YES;
+  
+  return NO;
+}
 
 @end

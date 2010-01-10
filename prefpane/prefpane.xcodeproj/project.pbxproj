@@ -18,6 +18,8 @@
 		7145D40510ED1F380014F66D /* RemapListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7145D40310ED1F380014F66D /* RemapListController.m */; };
 		7145D59310ED42520014F66D /* KeyCaptureWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = 7145D59110ED42520014F66D /* KeyCaptureWindow.h */; };
 		7145D59410ED42520014F66D /* KeyCaptureWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 7145D59210ED42520014F66D /* KeyCaptureWindow.m */; };
+		716CF98510FA520300E8621E /* ProfileController.h in Headers */ = {isa = PBXBuildFile; fileRef = 716CF98310FA520300E8621E /* ProfileController.h */; };
+		716CF98610FA520300E8621E /* ProfileController.m in Sources */ = {isa = PBXBuildFile; fileRef = 716CF98410FA520300E8621E /* ProfileController.m */; };
 		717D5A1810EE951F007F7004 /* NSTextCaptureField.h in Headers */ = {isa = PBXBuildFile; fileRef = 717D5A1610EE951F007F7004 /* NSTextCaptureField.h */; };
 		717D5A1910EE951F007F7004 /* NSTextCaptureField.m in Sources */ = {isa = PBXBuildFile; fileRef = 717D5A1710EE951F007F7004 /* NSTextCaptureField.m */; };
 		717D5B0F10EE9EA0007F7004 /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 717D5B0E10EE9EA0007F7004 /* Quartz.framework */; };
@@ -50,8 +52,10 @@
 		7145D40310ED1F380014F66D /* RemapListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RemapListController.m; path = Classes/RemapListController.m; sourceTree = "<group>"; };
 		7145D59110ED42520014F66D /* KeyCaptureWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KeyCaptureWindow.h; path = Classes/KeyCaptureWindow.h; sourceTree = "<group>"; };
 		7145D59210ED42520014F66D /* KeyCaptureWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KeyCaptureWindow.m; path = Classes/KeyCaptureWindow.m; sourceTree = "<group>"; };
-		717D5A1610EE951F007F7004 /* NSTextCaptureField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSTextCaptureField.h; sourceTree = "<group>"; };
-		717D5A1710EE951F007F7004 /* NSTextCaptureField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSTextCaptureField.m; sourceTree = "<group>"; };
+		716CF98310FA520300E8621E /* ProfileController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileController.h; sourceTree = "<group>"; };
+		716CF98410FA520300E8621E /* ProfileController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileController.m; sourceTree = "<group>"; };
+		717D5A1610EE951F007F7004 /* NSTextCaptureField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSTextCaptureField.h; path = Classes/NSTextCaptureField.h; sourceTree = "<group>"; };
+		717D5A1710EE951F007F7004 /* NSTextCaptureField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSTextCaptureField.m; path = Classes/NSTextCaptureField.m; sourceTree = "<group>"; };
 		717D5B0E10EE9EA0007F7004 /* Quartz.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quartz.framework; path = System/Library/Frameworks/Quartz.framework; sourceTree = SDKROOT; };
 		717E01BD10EC429500EC6FE5 /* PreferencePaneController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PreferencePaneController.h; path = Classes/PreferencePaneController.h; sourceTree = "<group>"; };
 		717E01BE10EC429500EC6FE5 /* PreferencePaneController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PreferencePaneController.m; path = Classes/PreferencePaneController.m; sourceTree = "<group>"; };
@@ -178,6 +182,8 @@
 				717E01BE10EC429500EC6FE5 /* PreferencePaneController.m */,
 				7145D40210ED1F380014F66D /* RemapListController.h */,
 				7145D40310ED1F380014F66D /* RemapListController.m */,
+				716CF98310FA520300E8621E /* ProfileController.h */,
+				716CF98410FA520300E8621E /* ProfileController.m */,
 			);
 			name = "Preference Pane Management";
 			sourceTree = "<group>";
@@ -245,6 +251,7 @@
 				717D5A1810EE951F007F7004 /* NSTextCaptureField.h in Headers */,
 				71FA37CC10F1535B0013F3EF /* KeyModifier.h in Headers */,
 				718DC40710F2D93600BF4FD0 /* PersistenceController.h in Headers */,
+				716CF98510FA520300E8621E /* ProfileController.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -325,6 +332,7 @@
 				717D5A1910EE951F007F7004 /* NSTextCaptureField.m in Sources */,
 				71FA37CD10F1535B0013F3EF /* KeyModifier.m in Sources */,
 				718DC40810F2D93600BF4FD0 /* PersistenceController.m in Sources */,
+				716CF98610FA520300E8621E /* ProfileController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

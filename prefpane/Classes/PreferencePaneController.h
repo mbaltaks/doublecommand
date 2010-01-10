@@ -4,12 +4,11 @@
 
 
 @class RemapListController;
-@class PersistenceController;
+@class ProfileController;
 
 @interface PreferencePaneController : NSPreferencePane <KeyCapturePanelDelegate>
 {
-  NSMutableArray* remapList;
-  PersistenceController* persistenceController;
+  ProfileController* profileController;
   
   IBOutlet RemapListController* listController;
   IBOutlet KeyCaptureWindow* captureWindow;
@@ -30,13 +29,11 @@
 
 -(IBAction)activateDoubleCommandButtonClicked:(NSButton*)sender;
 -(IBAction)deactivateDoubleCommandButtonClicked:(NSButton*)sender;
--(IBAction)persistForUserButtonClicked:(NSButton*)sender;
--(IBAction)persistForSystemButtonClicked:(NSButton*)sender;
 
 -(IBAction)addNewEntryButtonClicked:(NSButton*)sender;
 -(IBAction)deleteEntryButtonClicked:(NSButton*)sender;
 -(IBAction)clearRemapListButtonClicked:(NSButton*)sender;
--(IBAction)saveRemapListItemClicked:(NSMenuItem*)sender;
--(IBAction)loadRemapListItemClicked:(NSMenuItem*)sender;
+-(IBAction)saveProfileClicked:(NSMenuItem*)sender;
+-(IBAction)loadProfileClicked:(NSMenuItem*)sender;
 
 @end

@@ -1,11 +1,3 @@
-//
-//  PersistenceController.h
-//  prefpane
-//
-//  Created by Tyler Bunnell on 1/4/10.
-//  Copyright 2010 Slightly Sane Inc. All rights reserved.
-//
-
 #import <Cocoa/Cocoa.h>
 
 

@@ -1,11 +1,3 @@
-//
-//  KeyModifier.m
-//  prefpane
-//
-//  Created by Tyler Bunnell on 1/3/10.
-//  Copyright 2010 Slightly Sane Inc. All rights reserved.
-//
-
 #import "KeyModifier.h"
 
 static NSString* modifierKeyKey = @"modifierKey";

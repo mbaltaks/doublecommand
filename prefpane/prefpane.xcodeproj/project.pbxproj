@@ -56,8 +56,6 @@
 		7145D40310ED1F380014F66D /* RemapListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RemapListController.m; path = Classes/RemapListController.m; sourceTree = "<group>"; };
 		7145D59110ED42520014F66D /* KeyCaptureWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KeyCaptureWindow.h; path = Classes/KeyCaptureWindow.h; sourceTree = "<group>"; };
 		7145D59210ED42520014F66D /* KeyCaptureWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KeyCaptureWindow.m; path = Classes/KeyCaptureWindow.m; sourceTree = "<group>"; };
-		716CF98310FA520300E8621E /* ProfileController-old.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ProfileController-old.h"; sourceTree = "<group>"; };
-		716CF98410FA520300E8621E /* ProfileController-old.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ProfileController-old.m"; sourceTree = "<group>"; };
 		717D5A1610EE951F007F7004 /* NSTextCaptureField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSTextCaptureField.h; path = Classes/NSTextCaptureField.h; sourceTree = "<group>"; };
 		717D5A1710EE951F007F7004 /* NSTextCaptureField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSTextCaptureField.m; path = Classes/NSTextCaptureField.m; sourceTree = "<group>"; };
 		717D5B0E10EE9EA0007F7004 /* Quartz.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quartz.framework; path = System/Library/Frameworks/Quartz.framework; sourceTree = SDKROOT; };
@@ -66,12 +64,12 @@
 		717E01C110EC42AF00EC6FE5 /* DoubleCommand.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = DoubleCommand.tiff; path = Resources/Images/DoubleCommand.tiff; sourceTree = "<group>"; };
 		718DC40510F2D93600BF4FD0 /* PersistenceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PersistenceController.h; path = Classes/PersistenceController.h; sourceTree = "<group>"; };
 		718DC40610F2D93600BF4FD0 /* PersistenceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PersistenceController.m; path = Classes/PersistenceController.m; sourceTree = "<group>"; };
-		719C94B3110391F500739AFB /* WindowShaker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WindowShaker.h; sourceTree = "<group>"; };
-		719C94B4110391F500739AFB /* WindowShaker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WindowShaker.m; sourceTree = "<group>"; };
-		719C94D81103942100739AFB /* ProfileController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileController.h; sourceTree = "<group>"; };
-		719C94D91103942100739AFB /* ProfileController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileController.m; sourceTree = "<group>"; };
-		71DE1BAB10FBC07D00CBEFFF /* NewProfileNameWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewProfileNameWindow.h; sourceTree = "<group>"; };
-		71DE1BAC10FBC07D00CBEFFF /* NewProfileNameWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewProfileNameWindow.m; sourceTree = "<group>"; };
+		719C94B3110391F500739AFB /* WindowShaker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WindowShaker.h; path = Classes/WindowShaker.h; sourceTree = "<group>"; };
+		719C94B4110391F500739AFB /* WindowShaker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WindowShaker.m; path = Classes/WindowShaker.m; sourceTree = "<group>"; };
+		719C94D81103942100739AFB /* ProfileController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProfileController.h; path = Classes/ProfileController.h; sourceTree = "<group>"; };
+		719C94D91103942100739AFB /* ProfileController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProfileController.m; path = Classes/ProfileController.m; sourceTree = "<group>"; };
+		71DE1BAB10FBC07D00CBEFFF /* NewProfileNameWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NewProfileNameWindow.h; path = Classes/NewProfileNameWindow.h; sourceTree = "<group>"; };
+		71DE1BAC10FBC07D00CBEFFF /* NewProfileNameWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NewProfileNameWindow.m; path = Classes/NewProfileNameWindow.m; sourceTree = "<group>"; };
 		71FA37CA10F1535B0013F3EF /* KeyModifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KeyModifier.h; path = Classes/KeyModifier.h; sourceTree = "<group>"; };
 		71FA37CB10F1535B0013F3EF /* KeyModifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KeyModifier.m; path = Classes/KeyModifier.m; sourceTree = "<group>"; };
 		8D202CF70486D31800D8A456 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -237,8 +235,6 @@
 		71DE1BA510FBBF9300CBEFFF /* Profile Management */ = {
 			isa = PBXGroup;
 			children = (
-				716CF98310FA520300E8621E /* ProfileController-old.h */,
-				716CF98410FA520300E8621E /* ProfileController-old.m */,
 				71DE1BAB10FBC07D00CBEFFF /* NewProfileNameWindow.h */,
 				71DE1BAC10FBC07D00CBEFFF /* NewProfileNameWindow.m */,
 				719C94D81103942100739AFB /* ProfileController.h */,

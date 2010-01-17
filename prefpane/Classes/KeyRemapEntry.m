@@ -6,10 +6,6 @@
 static NSString* remapFromKey = @"remapFrom";
 static NSString* remapToKey = @"remapTo";
 
-@interface KeyRemapEntry (Private)
--(NSString*)stringRepresentationForKeyCode:(KeyCombo*)keyCode;
-@end
-
 @implementation KeyRemapEntry
 
 @synthesize remapFrom;

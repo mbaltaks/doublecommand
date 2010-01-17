@@ -18,6 +18,7 @@
 
 -(void)replaceAllEntriesWithArray:(NSArray*)newEntries
 {
+  [self removeAllEntries];
   for(KeyRemapEntry* newEntry in newEntries)
   {
     [self addNewEntry:newEntry];

@@ -1,12 +1,11 @@
 #import "PreferencePaneController.h"
 
 #import "RemapListController.h"
-#import "ProfileController.h"
 #import "PersistenceController.h"
 #import "KeyCombo.h"
 #import "KeyRemapEntry.h"
 
-@interface PreferencePaneController (Private)
+@interface PreferencePaneController ()
 -(void)updateDeleterStatus;
 -(BOOL)deletersShouldBeEnabled;
 -(void)setDeletersEnabled:(BOOL)enabled;
@@ -14,6 +13,7 @@
 
 @implementation PreferencePaneController
 
+@synthesize profileController;
 @synthesize listController;
 @synthesize captureWindow;
 @synthesize statusLabel;
@@ -24,19 +24,27 @@
 
 -(void)mainViewDidLoad
 {
-  profileController = [[ProfileController alloc] init];
   [listController replaceAllEntriesWithArray:[profileController remapList]];
+  [profileController setDelegate:self];
 }
 
 -(void)didSelect
 {  
   [self updateDeleterStatus];
 }
+-(void)didUnselect
+{
+  [profileController persistSettings];
+}
 
 #pragma mark Delegate Methods
+-(void)profileChanged
+{
+  [listController replaceAllEntriesWithArray:[profileController remapList]];
+}
 -(BOOL)capturePanelCanAddNewEntry:(KeyRemapEntry*)newEntry
 {
-  return ![profileController doesComboExist:[newEntry remapFrom]];
+  return ![profileController comboExists:[newEntry remapFrom]];
 }
 -(void)capturePanelAddNewEntry:(KeyRemapEntry*)newEntry
 {

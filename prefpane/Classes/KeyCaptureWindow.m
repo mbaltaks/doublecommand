@@ -1,19 +1,16 @@
-#import <Quartz/Quartz.h>
-
 #import "KeyCaptureWindow.h"
 
 #import "KeyRemapEntry.h"
 #import "KeyCombo.h"
 #import "KeyCodeTransformer.h"
+#import "WindowShaker.h"
 
-@interface KeyCaptureWindow (Private)
+@interface KeyCaptureWindow ()
 -(BOOL)isValidModifier:(unsigned int)modifier;
 -(int)countFlags:(unsigned int)currentFlags;
 -(void)addModifierKeyWithKeyCode:(unsigned int)keyCode toArray:(NSMutableArray*)array;
 -(void)removeModifierKeyWithKeyCode:(unsigned int)keyCode fromArray:(NSMutableArray*)array;
 -(void)assignNewComboWithModifiers:(unsigned int)modifiers keyCode:(int)keyCode;
--(void)shakeWindow;
--(CAKeyframeAnimation*)shakeAnimation:(NSRect)frame;
 -(void)displayDefaultMessage;
 -(void)displayFromMessage;
 -(void)displayToMessage;
@@ -64,7 +61,6 @@
 -(void)flagsChanged:(NSEvent *)event
 {
   if(![self isValidModifier:[event modifierFlags]]) return;
-  NSLog(@"was valid");
   unsigned int newFlagCount = [self countFlags:[event modifierFlags]];
   
   if(previousFlagCount > newFlagCount)
@@ -98,7 +94,6 @@
 }
 -(BOOL)isValidModifier:(unsigned int)modifier
 {
-  NSLog(@"valid: %d\n",modifier);
   return ((!(modifier & NSFunctionKeyMask)) &&
           ((modifier & NSShiftKeyMask) ||
           (modifier & NSControlKeyMask) ||
@@ -180,7 +175,7 @@
   if(!success)
   {
     [self displaySameShortcutMessage];
-    [self shakeWindow];
+    [WindowShaker shakeWindow:self];
     comboStringRepresentation = @"";
     success = NO;    
   }
@@ -210,7 +205,7 @@
     }
     else
     {
-      [self shakeWindow];
+      [WindowShaker shakeWindow:self];
       [self displayRemapExists];
     }
   }
@@ -218,33 +213,6 @@
 -(IBAction)cancelButtonClicked:(NSButton*)sender
 {
   [NSApp endSheet:self returnCode:NSCancelButton];
-}
-
--(void)shakeWindow
-{
-  NSWindow* window = self;
-  [window setAnimations:[NSDictionary dictionaryWithObject:[self shakeAnimation:[window frame]] forKey:@"frameOrigin"]];
-	[[window animator] setFrameOrigin:[window frame].origin];
-}
--(CAKeyframeAnimation*)shakeAnimation:(NSRect)frame
-{
-  int numberOfShakes = 4;
-  float durationOfShake = 0.5f;
-  float vigourOfShake = 0.05f;
-  CAKeyframeAnimation *shakeAnimation = [CAKeyframeAnimation animation];
-  
-  CGMutablePathRef shakePath = CGPathCreateMutable();
-  CGPathMoveToPoint(shakePath, NULL, NSMinX(frame), NSMinY(frame));
-  int index;
-  for (index = 0; index < numberOfShakes; ++index)
-  {
-    CGPathAddLineToPoint(shakePath, NULL, NSMinX(frame) - frame.size.width * vigourOfShake, NSMinY(frame));
-    CGPathAddLineToPoint(shakePath, NULL, NSMinX(frame) + frame.size.width * vigourOfShake, NSMinY(frame));
-  }
-  CGPathCloseSubpath(shakePath);
-  shakeAnimation.path = shakePath;
-  shakeAnimation.duration = durationOfShake;
-  return shakeAnimation;
 }
 
 -(void)displayDefaultMessage

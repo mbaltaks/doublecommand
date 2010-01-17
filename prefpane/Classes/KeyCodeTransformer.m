@@ -1,7 +1,7 @@
 #import "KeyCodeTransformer.h"
 
 
-@interface KeyCodeTransformer (Private)
+@interface KeyCodeTransformer ()
 +(NSString*)stringRepresentationForGlyph:(unsigned int)glyph;
 +(NSString*)stringRepresentationForKeyCode:(unsigned int)keyCode;
 @end

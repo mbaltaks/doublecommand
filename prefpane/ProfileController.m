@@ -3,79 +3,174 @@
 #import "PersistenceController.h"
 #import "KeyRemapEntry.h"
 #import "KeyCombo.h"
+#import "WindowShaker.h"
 
-@interface ProfileController (Private)
--(NSData*)getSerializedList;
--(NSArray*)getUnserializedList;
+@interface ProfileController ()
+@property(readwrite,copy)NSString* currentProfile;
+
+-(void)setRemapList:(NSMutableArray*)array;
+
+-(void)selectProfile:(NSString*)profile;
+-(void)loadProfile:(NSString*)profile;
+-(void)saveProfile:(NSString*)profile;
 @end
 
-static NSString* remapListKey = @"remapList";
 static NSString* currentProfileKey = @"currentProfile";
+static NSString* profilesKey = @"profiles";
 
 @implementation ProfileController
 
--(id)init
+@synthesize profilePicker;
+@synthesize newProfileNameWindow;
+@synthesize currentProfile;
+@synthesize delegate;
+
+-(void)awakeFromNib
 {
-  if((self = [super init]))
+  persistenceController = [[PersistenceController alloc] init];
+  [self setCurrentProfile:[persistenceController getObjectForKey:currentProfileKey]];
+  NSData* serializedProfiles = [persistenceController getObjectForKey:profilesKey];
+  NSArray* profiles;
+  if(serializedProfiles != nil)
+    profiles = [NSKeyedUnarchiver unarchiveObjectWithData:serializedProfiles];
+  else
   {
-    persistenceController = [[PersistenceController alloc] init];
-    remapList = [[self getUnserializedList] mutableCopy];
-    if(remapList == nil)
-      remapList = [[NSMutableArray array] retain];
-    currentProfile = [persistenceController getObjectForKey:currentProfileKey];
+    [self setCurrentProfile:@"Default"];
+    profiles = [NSArray arrayWithObject:currentProfile];    
   }
-  return self;
+  
+  [profilePicker addItemsWithObjectValues:profiles];
+  
+  [self selectProfile:currentProfile];
 }
 
--(NSArray*)getUnserializedList
+-(IBAction)createProfileButtonClicked:(NSButton*)sender
 {
-  NSData* serializedList = [persistenceController getObjectForKey:remapListKey];
-  return [NSKeyedUnarchiver unarchiveObjectWithData:serializedList];  
+  [newProfileNameWindow setDelegate:self];
+  [newProfileNameWindow resetWindow];
+  [NSApp beginSheet:newProfileNameWindow
+     modalForWindow:[NSApp mainWindow]
+      modalDelegate:self
+     didEndSelector:@selector(newProfileNameWindowDidEnd:returnCode:contextInfo:)
+        contextInfo:nil]; 
 }
--(BOOL)doesComboExist:(KeyCombo*)combo
+-(BOOL)profileNameWindowCanAddNewEntry:(NSString*)newEntry
 {
-  for(KeyRemapEntry* entry in remapList)
+  for(NSString* profile in [profilePicker objectValues])
   {
-    KeyCombo* from = [entry remapFrom];
-    if([from isEqualToCombo:combo]) return NO;
+    if([newEntry isEqualToString:profile])
+      return NO;
   }
   return YES;
 }
-
--(void)saveCurrentProfile
+-(void)profileNameWindowAddNewEntry:(NSString *)newEntry
 {
-  NSData* serializedList = [self getSerializedList];
-  [persistenceController setObject:serializedList forKey:remapListKey];
-  [persistenceController persistPreferencePaneSettings];  
+  [profilePicker addItemWithObjectValue:newEntry];
+  
+  NSData* serializedProfileList = [NSKeyedArchiver archivedDataWithRootObject:[profilePicker objectValues]];
+  [persistenceController setObject:serializedProfileList forKey:profilesKey];
+  
+  [self selectProfile:newEntry];
 }
-
--(void)addNewEntry:(KeyRemapEntry*)newEntry
+-(void)newProfileNameWindowDidEnd:(NSPanel*)sheet returnCode:(int)returnCode contextInfo:(void*)contextInfo
 {
-  [remapList addObject:newEntry];
+  [newProfileNameWindow orderOut:self];
 }
--(void)removeEntryAtIndex:(unsigned int)index
+-(void)selectProfile:(NSString*)profile
 {
-  [remapList removeObjectAtIndex:index];
+  [self setCurrentProfile:profile];
+  [persistenceController setObject:profile forKey:currentProfileKey];
+  [profilePicker selectItemAtIndex:[profilePicker indexOfItemWithObjectValue:profile]];
+  [profilePicker setObjectValue:[profilePicker objectValueOfSelectedItem]];
+  [self loadProfile:profile];
+  [delegate profileChanged];
 }
--(void)removeAllEntries
+-(void)loadProfile:(NSString*)profile
 {
-  [remapList removeAllObjects];
+  NSData* serializedList = [persistenceController getObjectForKey:profile];
+  NSArray* unserializedList = nil;
+  if(serializedList == nil)
+    unserializedList = [NSArray array];
+  else
+    unserializedList = [NSKeyedUnarchiver unarchiveObjectWithData:serializedList];
+  
+  
+  
+  [self setRemapList:[unserializedList mutableCopy]];
 }
--(unsigned int)count
+-(void)saveProfile:(NSString *)profile
 {
-  return [remapList count];
+  NSData* serializedList = [NSKeyedArchiver archivedDataWithRootObject:remapList];
+  [persistenceController setObject:serializedList forKey:profile];
 }
-
-
-
--(NSData*)getSerializedList
+-(IBAction)deleteProfileButtonClicked:(NSButton*)sender
 {
-  return [NSKeyedArchiver archivedDataWithRootObject:remapList];
+  if(![@"Default" isEqualToString:currentProfile])
+  {
+    [persistenceController removeObjectForKey:currentProfile];
+    [profilePicker removeItemWithObjectValue:currentProfile];
+    NSData* serializedProfileList = [NSKeyedArchiver archivedDataWithRootObject:[profilePicker objectValues]];
+    [persistenceController setObject:serializedProfileList forKey:profilesKey];
+    [self selectProfile:[profilePicker itemObjectValueAtIndex:0]];
+  }
+  else
+  {
+    [WindowShaker shakeWindow:[NSApp mainWindow]];
+  }
+
 }
 
 -(NSArray*)remapList
 {
   return [NSArray arrayWithArray:remapList];
+}
+-(void)setRemapList:(NSMutableArray *)array
+{
+  if(remapList != array)
+  {
+    [remapList release];
+    remapList = [array retain];
+  }  
+}
+-(void)addNewEntry:(KeyRemapEntry*)newEntry
+{
+  [remapList addObject:newEntry];
+  [self saveProfile:currentProfile];
+}
+-(void)removeEntryAtIndex:(unsigned int)index
+{
+  [remapList removeObjectAtIndex:index];
+  [self saveProfile:currentProfile];
+}
+-(void)removeAllEntries
+{
+  [remapList removeAllObjects];
+  [self saveProfile:currentProfile];
+}
+-(unsigned int)count
+{
+  return [remapList count];
+}
+-(BOOL)comboExists:(KeyCombo*)combo
+{
+  for(KeyRemapEntry* entry in remapList)
+  {
+    KeyCombo* from = [entry remapFrom];
+    if([from isEqualToCombo:combo]) return YES;
+  }
+  return NO;
+}
+-(void)persistSettings
+{
+  [persistenceController persistPreferencePaneSettings];
+}
+
+#pragma mark ComboBox Delegate Methods
+-(void)comboBoxSelectionDidChange:(NSNotification *)notification
+{
+  NSString* newProfile = [profilePicker objectValueOfSelectedItem];
+  if(newProfile != nil && ![newProfile isEqualToString:currentProfile])
+    [self selectProfile:newProfile];
 }
 
 @end

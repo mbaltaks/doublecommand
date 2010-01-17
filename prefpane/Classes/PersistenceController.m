@@ -33,10 +33,16 @@
 -(void)setObject:(id)object forKey:(NSString*)key
 {
   [preferences setObject:object forKey:key];
+  [self persistPreferencePaneSettings];
 }
 -(id)getObjectForKey:(NSString*)key
 {
   return [preferences objectForKey:key];
+}
+-(void)removeObjectForKey:(NSString*)key
+{
+  [preferences removeObjectForKey:key];
+  [self persistPreferencePaneSettings];
 }
 
 -(void)persistPreferencePaneSettings

@@ -4,12 +4,6 @@
 
 @class KeyRemapEntry;
 
-enum
-{
-  DCLeftButton,
-  DCRightButton
-};
-
 @protocol KeyCapturePanelDelegate <NSObject>
 -(BOOL)capturePanelCanAddNewEntry:(KeyRemapEntry*)newEntry;
 -(void)capturePanelAddNewEntry:(KeyRemapEntry*)newEntry;

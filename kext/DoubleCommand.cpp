@@ -322,6 +322,10 @@ int hijack_keyboard(IOHIKeyboard * kbd)
 	{
 		hijack = true;
 	}
+	else if (strcmp(name, "MicrosoftKeyboardUSB") == 0)
+	{
+		hijack = true;
+	}
 	else
 	{
 		IOLog("DoubleCommand does not support %s\n", name);

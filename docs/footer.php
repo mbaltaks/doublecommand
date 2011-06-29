@@ -17,13 +17,13 @@ Get email when there's a new version</a>
 </li>
 <li>
 Have a question? Talk in the
-<a href="http://sourceforge.net/forum/forum.php?forum_id=221238">
+<a href="http://sourceforge.net/projects/doublecommand/forums/forum/221238">
 Forum
 </a>
 </li>
 <li>
 Have a request? Add it to the
-<a href="http://sourceforge.net/tracker/?group_id=65339&atid=510608">
+<a href="http://github.com/mbaltaks/doublecommand/issues">
 list
 </a>
 </li>

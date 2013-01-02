@@ -307,6 +307,8 @@ if (dcConfig != 0)
 			{
 				if (optionHeldDown) // this event is a key up
 				{
+					*eventType = KEY_MODIFY;
+					inFnMode = 0;
 					optionHeldDown = 0;
 					REMOVE(addFlags, FN_FLAG);
 					if( *key == OPTION_KEY )
@@ -320,6 +322,8 @@ if (dcConfig != 0)
 				}
 				else // this event is a key down
 				{
+					*eventType = KEY_MODIFY;
+					inFnMode = 1;
 					optionHeldDown = 1;
 					addFlags |= FN_FLAG;
 					if( *key == OPTION_KEY )

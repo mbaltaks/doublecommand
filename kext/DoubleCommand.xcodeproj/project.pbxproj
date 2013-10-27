@@ -192,7 +192,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = (
-					ppc,
 					i386,
 					x86_64,
 				);
@@ -201,27 +200,16 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_MODEL_TUNING = G3;
 				GCC_OPTIMIZATION_LEVEL = 0;
-				"GCC_VERSION[arch=i386]" = 4.0;
-				"GCC_VERSION[arch=ppc]" = 4.0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(SYSTEM_LIBRARY_DIR)/Extensions";
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
-				"MACOSX_DEPLOYMENT_TARGET[arch=i386]" = 10.4;
-				"MACOSX_DEPLOYMENT_TARGET[arch=ppc]" = 10.4;
 				MODULE_NAME = com.baltaks.driver.DoubleCommand;
 				MODULE_VERSION = 1.6.9;
-				OTHER_CFLAGS = "-no-cpp-precomp";
-				PREBINDING = NO;
 				PRODUCT_NAME = DoubleCommand;
-				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.6.sdk";
-				SDKROOT_i386 = /Developer/SDKs/MacOSX10.4u.sdk;
-				SDKROOT_ppc = /Developer/SDKs/MacOSX10.4u.sdk;
 				WRAPPER_EXTENSION = kext;
-				ZERO_LINK = YES;
 			};
 			name = Debug;
 		};
@@ -229,7 +217,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = (
-					ppc,
 					i386,
 					x86_64,
 				);
@@ -237,26 +224,15 @@
 				CURRENT_PROJECT_VERSION = 1.6.9;
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
-				GCC_MODEL_TUNING = G3;
-				"GCC_VERSION[arch=i386]" = 4.0;
-				"GCC_VERSION[arch=ppc]" = 4.0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(SYSTEM_LIBRARY_DIR)/Extensions";
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
-				"MACOSX_DEPLOYMENT_TARGET[arch=i386]" = 10.4;
-				"MACOSX_DEPLOYMENT_TARGET[arch=ppc]" = 10.4;
 				MODULE_NAME = com.baltaks.driver.DoubleCommand;
 				MODULE_VERSION = 1.6.9;
-				OTHER_CFLAGS = "-no-cpp-precomp";
-				PREBINDING = NO;
 				PRODUCT_NAME = DoubleCommand;
-				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.6.sdk";
-				SDKROOT_i386 = /Developer/SDKs/MacOSX10.4u.sdk;
-				SDKROOT_ppc = /Developer/SDKs/MacOSX10.4u.sdk;
 				WRAPPER_EXTENSION = kext;
-				ZERO_LINK = NO;
 			};
 			name = Release;
 		};

@@ -91,7 +91,7 @@ NSString * sysPrefsWriteTool = @"/Library/PreferencePanes/DoubleCommandPreferenc
 - (BOOL) readUserSettings;
 - (BOOL) writeUserSettings;
 - (BOOL) readActiveSettings;
-- (OSStatus) writeActiveSettings;
+- (int) writeActiveSettings;
 - (void) refreshCheckBoxes;
 
 @end

@@ -213,7 +213,7 @@
 //
 - (IBAction)setSystemPressed:(id)sender {
 	mSystemVal = mEditVal;
-	OSStatus err = [self writeSystemSettings];
+	int err = [self writeSystemSettings];
 	if ( (err != 0) && (err != errAuthorizationCanceled)) {
 		NSString * errStr = [NSString stringWithFormat: @"Could not write system prefs, error: %d", err];
 		NSRunAlertPanel(@"DoubleCommand Prefs",
@@ -241,7 +241,7 @@
 //
 - (IBAction)setActivePressed:(id)sender {
 	mActiveVal = mEditVal;
-	OSStatus err = [self writeActiveSettings];
+	int err = [self writeActiveSettings];
 	if (err) {
 		NSString * errStr = [NSString stringWithFormat: @"Could not activate settings, error: %d", err];
 		NSRunAlertPanel(@"DoubleCommand Prefs",
@@ -424,10 +424,10 @@
 //  --------------------------------------------------------------------------------------
 //  write Active Settings to sysctl
 //
-- (OSStatus) writeActiveSettings {
+- (int) writeActiveSettings {
     char *name = "dc.config";
     u_int len = 4;
-    OSStatus errCode = 0;
+    int errCode = 0;
 
     errCode = sysctlbyname(name, NULL, 0, &mActiveVal, len);
     return (errCode);

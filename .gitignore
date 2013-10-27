@@ -1,14 +1,27 @@
-.DS_Store
 *.swp
 *~.nib
 
 build
 
+docs/*.html
+
+# Objective-C (https://github.com/github/gitignore/blob/master/Objective-C.gitignore)
+# Xcode
+.DS_Store
+*/build/*
 *.pbxuser
+!default.pbxuser
+*.mode1
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
 *.perspective
 *.perspectivev3
-*.mode1v3
-*.mode2v3
-*.mode1
-
-docs/*.html
+!default.perspectivev3
+xcuserdata
+profile
+*.moved-aside
+DerivedData
+.idea/
+*.hmap

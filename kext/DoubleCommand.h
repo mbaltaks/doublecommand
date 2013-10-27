@@ -50,7 +50,9 @@ event(OSObject *target,
 	unsigned   origCharSet,
 	unsigned   keyboardType,
 	bool       repeat,
-	AbsoluteTime ts);
+	AbsoluteTime ts,
+	OSObject * sender,
+	void *     refcon);
 
 void
 specialEvent(OSObject * target,
@@ -60,7 +62,9 @@ specialEvent(OSObject * target,
 	unsigned   flavor,
 	UInt64     guid,
 	bool       repeat,
-	AbsoluteTime ts);
+	AbsoluteTime ts,
+	OSObject * sender,
+	void *     refcon);
 
 int remap(unsigned * eventType,
 	unsigned * flags,
@@ -91,8 +95,8 @@ int special_remap(unsigned * eventType,
 
 typedef struct _dc_keyboard
 {
-	KeyboardEventAction event;
-	KeyboardSpecialEventAction special_event;
+	KeyboardEventCallback event;
+	KeyboardSpecialEventCallback special_event;
 	IOHIKeyboard * keyboard;
 } dc_keyboard;
 

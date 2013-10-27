@@ -203,7 +203,9 @@ event(OSObject *target,
 	unsigned   origCharSet,
 	unsigned   keyboardType,
 	bool	   repeat,
-	AbsoluteTime ts)
+	AbsoluteTime ts,
+	OSObject * sender,
+	void *     refcon)
 {
 #ifdef MB_DEBUG
 	IOLog("I found a keypress\n");
@@ -226,7 +228,8 @@ event(OSObject *target,
 		if (r == kContinue)
 		{
 			Keyboards[i].event(target, eventType, flags, key, charCode,
-				charSet, origCharCode, origCharSet, keyboardType, repeat, ts);
+				charSet, origCharCode, origCharSet, keyboardType, repeat, ts,
+				sender, refcon);
 		}
 		else if (r == kSwitch)
 		{
@@ -239,7 +242,8 @@ event(OSObject *target,
 // potentially here I could keep track of what keypress happened, and put
 // in some repeats until I see the key up.
 			Keyboards[i].special_event(target, eventType, flags, key, Gflavor,
-				Gguid, repeat, ts);
+				Gguid, repeat, ts,
+				sender, refcon);
 		}
 	}
 }
@@ -252,7 +256,9 @@ specialEvent(OSObject * target,
 	unsigned   flavor,
 	UInt64	 guid,
 	bool	   repeat,
-	AbsoluteTime ts)
+	AbsoluteTime ts,
+	OSObject * sender,
+	void *     refcon)
 {
 #ifdef MB_DEBUG
 	IOLog("I found a special keypress\n");
@@ -271,7 +277,8 @@ specialEvent(OSObject * target,
 		if (r == kContinue)
 		{
 			Keyboards[i].special_event(target, eventType, flags, key, flavor,
-				guid, repeat, ts);
+				guid, repeat, ts,
+				sender, refcon);
 		}
 		else if (r == kSwitch)
 		{
@@ -284,7 +291,8 @@ specialEvent(OSObject * target,
 			IOLog("repeat %d ts %d\n", repeat, ts);
 #endif
 			Keyboards[i].event(target, eventType, flags, key, GcharCode,
-				GcharSet, GorigCharCode, GorigCharSet, GkeyboardType, repeat, ts);
+				GcharSet, GorigCharCode, GorigCharSet, GkeyboardType, repeat, ts,
+				sender, refcon);
 		}
 	}
 }
@@ -346,8 +354,8 @@ int hijack_keyboard(IOHIKeyboard * kbd)
 		{
 			IOLog("Hijacking keyboard %d (%s)\n", i, kbd->getName());
 			Keyboards[i].keyboard = kbd;
-				Keyboards[i].event = kbd->_keyboardEventAction;
-			Keyboards[i].special_event = kbd->_keyboardSpecialEventAction;
+			Keyboards[i].event = (KeyboardEventCallback)kbd->_keyboardEventAction;
+			Keyboards[i].special_event = (KeyboardSpecialEventCallback)kbd->_keyboardSpecialEventAction;
 
 			if (!kbd->_keyboardEventAction)
 			{
@@ -359,8 +367,8 @@ int hijack_keyboard(IOHIKeyboard * kbd)
 			}
 
 #ifndef MB_TESTING
-			kbd->_keyboardEventAction = event;
-			kbd->_keyboardSpecialEventAction = specialEvent;
+			kbd->_keyboardEventAction = (KeyboardEventAction)event;
+			kbd->_keyboardSpecialEventAction = (KeyboardSpecialEventAction)specialEvent;
 
 			// Register the keyboard with the behavior manager.
 			//if (!keyBehaviorManager.addKeyboard(kbd))
@@ -402,20 +410,20 @@ int return_keyboard(IOHIKeyboard * kbd)
 		{
 			IOLog("Returning keyboard %d (%s)\n", i, kbd->getName());
 
-			if (kbd->_keyboardEventAction == event)
+			if (kbd->_keyboardEventAction == (KeyboardEventAction)event)
 			{
 #ifndef MB_TESTING
-				kbd->_keyboardEventAction = Keyboards[i].event;
+				kbd->_keyboardEventAction = (KeyboardEventAction)Keyboards[i].event;
 #endif
 			}
 			else
 			{
 				IOLog("keyboard not ready?\n");
 			}
-			if (kbd->_keyboardSpecialEventAction == specialEvent)
+			if (kbd->_keyboardSpecialEventAction == (KeyboardSpecialEventAction)specialEvent)
 			{
 #ifndef MB_TESTING
-				kbd->_keyboardSpecialEventAction = Keyboards[i].special_event;
+				kbd->_keyboardSpecialEventAction = (KeyboardSpecialEventAction)Keyboards[i].special_event;
 #endif
 			}
 			else
@@ -476,10 +484,10 @@ int find_client(bool special) {
 
 		if (!keyboard) continue;
 
-		if (!special && (keyboard->_keyboardEventAction == event))
+		if (!special && (keyboard->_keyboardEventAction == (KeyboardEventAction)event))
 			return i;
 
-		if (special && (keyboard->_keyboardSpecialEventAction == specialEvent))
+		if (special && (keyboard->_keyboardSpecialEventAction == (KeyboardSpecialEventAction)specialEvent))
 			return i;
 	}
 	return -1;

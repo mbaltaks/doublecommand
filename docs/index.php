@@ -10,7 +10,7 @@
 <h2>News</h2>
 
 <p>
-27th October 2013 - Thanks to the efforts of [Adam Strzelecki](https://github.com/nanoant/doublecommand) DoubleCommand 1.7 is released, adding support for Mac OS X 10.9 (Mavericks), and dropping support for 10.4 and 10.5.
+27th October 2013 - Thanks to the efforts of <a href="https://github.com/nanoant/doublecommand">Adam Strzelecki</a> DoubleCommand 1.7 is released, adding support for Mac OS X 10.9 (Mavericks), and dropping support for 10.4 and 10.5.
 </p>
 
 <p>

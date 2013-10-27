@@ -10,6 +10,10 @@
 <h2>News</h2>
 
 <p>
+27th October 2013 - Thanks to the efforts of Adam Strzelecki DoubleCommand 1.7 is released, adding support for Mac OS X 10.9 (Mavericks), and dropping support for 10.4 and 10.5.
+</p>
+
+<p>
 29th June 2011 - It has been a long time since anything has changed here, and so I'd just like to make you aware that if DoubleCommand does not fully support a new keyboard you use (like in a new Macbook perhaps), or if it doesn't support a feature you need, you might find some help at <a href="http://pqrs.org/macosx/keyremap4macbook/">pqrs.org/macosx/keyremap4macbook</a>.
 </p>
 

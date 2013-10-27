@@ -1,7 +1,7 @@
 
 
 <div id="sidebar">
-<a id="download_link" href="files/DoubleCommand-1.6.9.dmg">
+<a id="download_link" href="files/DoubleCommand-1.7.dmg">
 Download Latest
 </a>
 <br />
@@ -9,7 +9,7 @@ Download Latest
 <ul id="links">
 <li>
 <a href="download.html">
-Older versions</a> for Mac OS X before 10.4
+Older versions</a> for Mac OS X before 10.6
 </li>
 <li>
 <a href="http://lists.sourceforge.net/lists/listinfo/doublecommand-announce">

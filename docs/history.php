@@ -13,6 +13,7 @@ PowerBooks a second Command key, where there was an enter key.
 </p>
 
 <h1>Version History</h1>
+<p><em>1.7 - 2013-10-27:</em> DoubleCommand 1.7 adds support for Mac OS X 10.9 (Mavericks).</p>
 <p><em>1.6.9 - 2009-11-24:</em> DoubleCommand 1.6.9 adds full Snow Leopard (Mac OS X 10.6) and 64-bit support.</p>
 <p><em>1.6.8 - 2009-03-10:</em> DoubleCommand 1.6.8 adds back the missing options from the preference pane.</p>
 <p><em>1.6.7 - 2009-02-05:</em> DoubleCommand 1.6.7 fixes the control key under certain situations, and adds an uninstaller script.</p>

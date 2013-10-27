@@ -119,9 +119,15 @@
 /* Begin PBXProject section */
 		089C1669FE841209C02AAC07 /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+			};
 			buildConfigurationList = 009D757708A77D0C005D9003 /* Build configuration list for PBXProject "DoubleCommand" */;
 			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
 			hasScannedForEncodings = 1;
+			knownRegions = (
+				en,
+			);
 			mainGroup = 089C166AFE841209C02AAC07 /* DoubleCommand */;
 			projectDirPath = "";
 			projectRoot = "";

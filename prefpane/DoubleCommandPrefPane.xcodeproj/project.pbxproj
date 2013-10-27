@@ -171,9 +171,16 @@
 /* Begin PBXProject section */
 		089C1669FE841209C02AAC07 /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0500;
+			};
 			buildConfigurationList = 00F60E45094F764D00C5D712 /* Build configuration list for PBXProject "DoubleCommandPrefPane" */;
 			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
 			hasScannedForEncodings = 1;
+			knownRegions = (
+				en,
+			);
 			mainGroup = 089C166AFE841209C02AAC07 /* DCP_prefPane */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -243,6 +250,7 @@
 		00A208D509BDAFCD00340E6F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
 			};
 			name = Release;
 		};
@@ -269,6 +277,7 @@
 		00F60E42094F764D00C5D712 /* Development */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
 			};
 			name = Development;
 		};

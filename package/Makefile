@@ -9,7 +9,7 @@ VERSION_FILE = ../dcversion
 # commands
 chown=/usr/sbin/chown
 chmod=/bin/chmod
-packagemaker=/Developer/Applications/Utilities/PackageMaker.app/Contents/MacOS/PackageMaker
+packagemaker=/Applications/PackageMaker.app/Contents/MacOS/PackageMaker
 
 
 # products
